@@ -1,0 +1,5 @@
+Microsoft C/C++ (Windows and WSL)
+Microsoft Python (Windows and WSL)
+vscode-icons (Windows and WSL)
+Microsoft Remote - WSL (Windows only)
+Project Manager (Windows and WSL - make sure to install on WSL first)
