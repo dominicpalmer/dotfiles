@@ -1,0 +1,8 @@
+[
+    { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
+    { "key": "ctrl+`", "command": "workbench.action.terminal.focus", "when": "!terminalFocus" },
+    {"key": "ctrl+k", "command": "cursorLeft", "when": "editorTextFocus"},
+    {"key": "ctrl+;", "command": "cursorRight", "when": "editorTextFocus"},
+    {"key": "ctrl+i", "command": "cursorUp", "when": "editorTextFocus"},
+    {"key": "ctrl+,", "command": "cursorDown", "when": "editorTextFocus"}
+]

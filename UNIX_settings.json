@@ -1,0 +1,18 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "window.zoomLevel": -0.6,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.panel.defaultLocation": "right",
+    "workbench.view.alwaysShowHeaderActions": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.detectIndentation": false,
+    "files.eol": "\n",
+    "workbench.colorTheme": "Visual Studio Light",
+    
+    "remote.extensionKind": {"alefragnani.project-manager": ["workspace"]},
+    "projectManager.git.baseFolders": ["location/of/git/projects"],
+
+    "python.pythonPath": "/usr/bin/python3",
+    "C_Cpp.default.includePath": ["/usr/bin/"]
+}
