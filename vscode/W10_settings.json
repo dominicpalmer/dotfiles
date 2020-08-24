@@ -3,17 +3,22 @@
     "telemetry.enableCrashReporter": false,
     "window.zoomLevel": -0.6,
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "newUntitledFile",
     "workbench.panel.defaultLocation": "right",
     "workbench.view.alwaysShowHeaderActions": true,
     "vsicons.dontShowNewVersionMessage": true,
     "editor.detectIndentation": false,
     "files.eol": "\n",
-    "workbench.colorTheme": "Visual Studio Light",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Default Light+",
+    "terminal.integrated.shell.windows": "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
 
     "remote.extensionKind": {"alefragnani.project-manager": ["workspace"]},
     "projectManager.git.baseFolders": ["location/of/git/projects"],
 
-    "terminal.integrated.shell.windows": "location/of/favourite/terminal/executable.exe",
+    "python.linting.pylintArgs": [
+        "--load-plugins", 
+        "pylint_django"
+    ],
+
     "C_Cpp.default.includePath": ["location/of/c_cpp/libraries"]
 }

@@ -8,11 +8,17 @@
     "vsicons.dontShowNewVersionMessage": true,
     "editor.detectIndentation": false,
     "files.eol": "\n",
+    "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Visual Studio Light",
     
     "remote.extensionKind": {"alefragnani.project-manager": ["workspace"]},
     "projectManager.git.baseFolders": ["location/of/git/projects"],
 
     "python.pythonPath": "/usr/bin/python3",
+    "python.linting.pylintArgs": [
+        "--load-plugins", 
+        "pylint_django"
+    ],
+    
     "C_Cpp.default.includePath": ["/usr/bin/"]
 }
