@@ -1,3 +1,7 @@
+##### TEMPLATE GITIGNORE
+#####
+##### Snippets of C/C++ and Python gitignores as seen here: https://github.com/github/gitignore
+
 # Prerequisites
 *.d
 
@@ -30,6 +34,9 @@
 *.exe
 *.out
 *.app
+*.i*86
+*.x86_64
+*.hex
 
 # VSCode
 .vscode
