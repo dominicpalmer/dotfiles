@@ -54,7 +54,7 @@ export NVM_DIR="$HOME/.nvm"
 # PATH ----------------------------------------------------------------------------------
 export PATH=$PATH:$HOME/.local/bin
 
-# OTHER ----------------------------------------------------------------------------------
+# Other ---------------------------------------------------------------------------------
 # Add conda functionality
 . /home/$USER/anaconda/etc/profile.d/conda.sh
 
@@ -107,4 +107,4 @@ alias firefox="explorer.exe" # To get Firefox to run from within WSL2
 alias ..='cd ..'
 alias .2='cd ..; cd ..'
 alias .3='cd ..; cd ..; cd ..'
-alias exit=q
+alias q=exit

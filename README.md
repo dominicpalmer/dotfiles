@@ -1,6 +1,6 @@
 # Unix Setup
 
-## <img src="img/bash.png" alt="bash" width="25"/> <span style="font-size:larger;">Bash</span> 
+## <img src="img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span> 
 Before configuring Bash running in WSL2, setup Windows Terminal with Powerline (specified below). This is so that Bash can use fonts from use the system host (Windows). When done, work through the following guide: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
 
 ## <img src="img/gnu.jpg" alt="gnu" width="20"/> <span style="font-size:larger;">Build Essential for C/C++</span> 
@@ -152,16 +152,25 @@ Install via:
 
     sudo apt install git-all
 
-Set username and email as follows:
+Set username, email, default branch name and default editor as follows:
 
     git config --global user.name "username"
     git config --global user.email "email@email.com"
+    git config --global init.defaultBranch main
+    git config --global core.editor code
 
 Then set autocrlf to **input**, to ensure crlf's are converted to lf's during a push, and crlf's are preserved during a pull.
 
     git config --global core.autocrlf input
 
-Finally to generate and use an SSH key, follow the steps in this guide: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.
+To generate and use SSH and/or GPG keys, follow the steps in these guides: 
+
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh
+
+https://www.theodinproject.com/courses/foundations/lessons/setting-up-git
+
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
+
 # Windows Setup
 ## <img src="img/terminal.png" alt="terminal" width="23"/> <span style="font-size:larger;"> Windows Terminal </span>
 Install Windows Terminal from the Microsoft Store or elsewhere. Install posh-git and oh-my-posh via:
@@ -229,4 +238,4 @@ To deactivate:
     conda deactivate
 
 ## <img src="img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
-Use the installer found at https://git-scm.com/download/win. Set username, email, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
+Use the installer found at https://git-scm.com/download/win. Set username, email, default branch, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
