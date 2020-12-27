@@ -1,8 +1,13 @@
+// Place your key bindings in this file to override the defaults
 [
-    { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
-    { "key": "ctrl+`", "command": "workbench.action.terminal.focus", "when": "!terminalFocus" },
+    { "key": "ctrl+`",          "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
+    { "key": "ctrl+`",          "command": "workbench.action.terminal.focus", "when": "!terminalFocus" },
     {"key": "ctrl+k", "command": "cursorLeft", "when": "editorTextFocus"},
     {"key": "ctrl+;", "command": "cursorRight", "when": "editorTextFocus"},
     {"key": "ctrl+i", "command": "cursorUp", "when": "editorTextFocus"},
-    {"key": "ctrl+,", "command": "cursorDown", "when": "editorTextFocus"}
+    {"key": "ctrl+,", "command": "cursorDown", "when": "editorTextFocus"},
+    {"key": "alt+n", "command": "spaceBlockJumper.moveUp", "when": "editorTextFocus"},
+    {"key": "alt+m", "command": "spaceBlockJumper.moveDown", "when": "editorTextFocus"},
+    {"key": "shift+alt+n", "command": "spaceBlockJumper.selectUp", "when": "editorTextFocus"},
+    {"key": "shift+alt+m", "command": "spaceBlockJumper.selectDown", "when": "editorTextFocus"}
 ]
