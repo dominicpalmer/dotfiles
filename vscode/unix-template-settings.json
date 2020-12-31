@@ -6,7 +6,7 @@
     "workbench.panel.defaultLocation": "right",
     "workbench.view.alwaysShowHeaderActions": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "editor.detectIndentation": false,
+    "editor.detectIndentation": true,
     "files.eol": "\n",
     "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Default Light+",
