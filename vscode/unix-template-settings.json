@@ -5,18 +5,21 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.panel.defaultLocation": "right",
     "workbench.view.alwaysShowHeaderActions": true,
-    "vsicons.dontShowNewVersionMessage": true,
     "editor.detectIndentation": true,
     "files.eol": "\n",
     "explorer.confirmDragAndDrop": false,
     "workbench.colorTheme": "Default Light+",
+    "workbench.startupEditor": "newUntitledFile",
     "terminal.integrated.fontFamily": "Droid Sans Mono Slashed for Powerline",
     "terminal.integrated.fontSize": 13,
     "terminal.integrated.fontWeight": "normal",
+    "[Log]": {
+        "editor.wordWrap": "on"
+    },
 
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
     "python.pythonPath": "path-to/python",
@@ -31,6 +34,8 @@
     "projectManager.git.baseFolders": [
         "path-to/projects-folder"
     ],
+
+    "vsicons.dontShowNewVersionMessage": true,
 
     "liveServer.settings.donotShowInfoMsg": true,
 

@@ -9,9 +9,10 @@ Install gcc, gdb, make and other GNU utilities via:
 ```bash
 $ sudo apt update
 $ sudo apt install build-essential
+$ sudo apt install gdb
 ```
 
-For C/C++ projects, create a **.vscode/c_cpp_properties.json** file to store build configuration details such includePath, compilerPath, cppStandard, etc. Also create a **.vscode/launch.json** file to store debugging details such as debugger executable location, miDebuggerPath, setupCommands, etc.
+For C/C++ projects, create a **.vscode/c_cpp_properties.json** file to store project configuration details such intellisenseMode, includePath, compilerPath, cppStandard, etc. Make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers. Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, MIMode, command line arguments, etc.
 
 Finally in the global **settings.json** or alternatively in a workspace **settings.json**, include a line that specifies the default search path for external libraries:
 
@@ -294,8 +295,10 @@ Search for and download the latest mingw-64 installer, likely found at https://s
 
     C:\Program Files\mingw64\bin
 
+Depending on the version installed, it may include prebuilt binaries for clang and clang-format.
+
 ## <img src="img/cpp.png" alt="drawing" width="20"/> <span style="font-size:larger;"> C/C++ </span>
-With MinGW installed and it's binaries added to PATH, VSCode can be used as a Windows development environment for applications written in C/C++. Excluding a possible need to rename 'mingw32-make' to 'make' in the MinGW folder, there is no additional setup needed beyond that of creating Windows specific VSCode project files for C/C++ in the **.vscode** folder. To use Windows libraries, make sure they are included in the **C_Cpp.default.includePath** setting in **settings.json**.
+With MinGW installed and it's binaries added to PATH, VSCode can be used as a Windows development environment for applications written in C/C++. Excluding a possible need to rename 'mingw32-make' to 'make' in the mingw64/bin folder, there is no additional setup needed beyond that of creating Windows specific VSCode project files for C/C++ in the **.vscode** folder. To use Windows libraries, make sure they are included in the **C_Cpp.default.includePath** setting in **settings.json**.
 
 ## <img src="img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;"> Anaconda </span>
 Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. Add the location of the anaconda3 directory to Windows' PATH, usually found at **C:\Users\username\anaconda3\\**. Add the location of conda to PATH, found at **C:\Users\username\anaconda3\Scripts\\**. 

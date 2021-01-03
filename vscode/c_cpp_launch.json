@@ -2,13 +2,13 @@
     "version": "1.0.0",
     "configurations": [
         {
-            "name": "gdb",
+            "name": "Program-name (gdb)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/location/of/workspace/executable.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/optional/path/to/subworkspace",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",

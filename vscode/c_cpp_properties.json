@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Name of configuration",
+            "name": "Name-of-configuration",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${default}"
@@ -12,7 +12,7 @@
                 "_UNICODE"
             ],
             "compilerPath": "location/of/compiler/executable.exe",
-            "cStandard": "c11",
+            "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "gcc-x64"
         }
