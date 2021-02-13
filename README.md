@@ -4,6 +4,7 @@
 Before configuring Bash running in WSL2, setup Windows Terminal with Powerline (specified below). This is so that Bash can use fonts from use the system host (Windows). When done, work through the following guide: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
 
 ## <img src="img/gnu.jpg" alt="gnu" width="20"/> <span style="font-size:larger;">Build Essential and Clang Tools for C/C++</span> 
+### Install
 Install gcc, gdb, make and other GNU utilities via:
 
 ```bash
@@ -11,15 +12,6 @@ $ sudo apt update
 $ sudo apt install build-essential
 $ sudo apt install gdb
 ```
-
-For C/C++ projects, create a **.vscode/c_cpp_properties.json** file to store project configuration details such intellisenseMode, includePath, compilerPath, cppStandard, etc. Make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers. Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, MIMode, command line arguments, etc.
-
-Finally in the global **settings.json** or alternatively in a workspace **settings.json**, include a line that specifies the default search path for external libraries:
-
-    "C_Cpp.default.includePath": ["location1", "location2"]
-
-This default path will now also be searched in addition to the paths specified in **.vscode/c_cpp_properties.json**. If this settings is changed in the global **settings.json**, it will apply to every C/C++ project created in VSCode.
-
 Install Clang, Clang-Tidy and Clang-Format as follows:
 
 ```bash
@@ -28,7 +20,26 @@ $ sudo apt install clang-tidy
 $ sudo apt install clang-format
 ```
 
-Create .clang-tidy and .clang-format files with check configuration at the root of C++ projects.
+Create .clang-tidy and .clang-format files at the root of C++ projects.
+
+### VSCode C/C++ Config
+In the global VSCode **settings.json** or alternatively in each projects workspace **settings.json**, include a line that specifies the default search path for libraries:
+
+    "C_Cpp.default.includePath": ["location1", "location2"]
+
+If this setting is changed in the global **settings.json**, it will apply to every C/C++ project created in VSCode.
+
+For each new C/C++ project, create a **.vscode/c_cpp_properties.json** file to store project specific configuration details such intellisenseMode, includePath, compilerPath, cppStandard, etc. Make sure that each **.vscode/c_cpp_properties.json** file includes the default includePath defined in **settings.json** as one of the parameters. This way, the default path will now also be searched in addition to the project specific paths specified in **.vscode/c_cpp_properties.json**. Also make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers.
+
+Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, MIMode, command line arguments, etc.
+
+### Intellisense
+It is important to note that **c_cpp_properties.json** only impacts *intellisense in VSCode* for the project in which it is included. So by setting a default C/C++ includePath in a local or global **settings.json**, and setting an includePath in the project specific **c_cpp_properties.json** that points to this default, all you are doing is making *intellisense in VSCode* aware of the existence of these default headers for this specific project, thus providing intellisense functionality. If all includePath parameters in the VSCode config files are omitted, it is *VSCode* that has no way to enforce intellisense. In such a case, VSCode would throw countless warnings about missing symbols, however compliation might still work. This is because compilers themselves generally perform their own predefined searches for headers during compilation. 
+
+Hence the process of configuring the includePath in the VSCode config files is simply to align the VSCode intellisense search as closely as possible with the underlying compiler search, so intellisense mirrors what the compiler can do and intellisense warnings make sense. Note that there may be other paths that the compiler searches for but intellisense doesn't. So if intellisense says a header is missing and is throwing warnings, it might actually be available to the compiler, in which case compilation would succeed regardless.
+
+### External libraries
+If you require any additional libraries installed elsewhere for specific projects (e.g. Boost), then to get *intellisense* working you need to include the path to these libraries in **settings.json** or the projects **c_cpp_properties.json**. To get the *compiler* to find these libraries, set up a **tasks.json** file with a relevant includePath to force the compiler to look for them when linking, or just use a makefile of some kind.
 
 ## <img src="img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
 ### Pip
@@ -263,6 +274,7 @@ and paste over any existing profile with your own template. Powerline fonts are 
 Now paste over the default Windows Terminal Settings with your own template.
 
 ## <img src="img/wsl.png" alt="wsl" width="20"/> <span style="font-size:larger;"> Windows Subsystem for Linux (WSL2) </span>
+### Install
 Enable WSL via powershell by running:
 
 ```powershell
@@ -289,6 +301,43 @@ Go to the Microsoft Store (or otherwise) and install Ubuntu (or otherwise). Once
 ```
 
 Then carry out a full Unix setup as specified above.
+
+### Importing an existing WSL setup to a new system
+Follow these steps:
+
+1. Make a note of your existing distribution name and version
+2. Create a backup file for your distribution using the command: 
+
+```powershell
+> wsl --export <distribution-name> TarFileLocation
+```
+
+3. On your new system, complete a fresh WSL setup using exactly the same distribution as that to be imported (down to the same version). When prompted to, don't create a new user for the distribution - just close the window
+4. Locate the **%localappdata%\packages** folder in file explorer and find the subfolder where the new distribution was installed, e.g:
+
+**C:\Users\\%USERPROFILE\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState**
+
+5. Open Powershell and unregister this newly installed distribution via: 
+
+```powershell
+> wsl --unregister <new-install-name>
+```
+
+While this removes the new distribution, the Ubuntu appx package is still installed. This can be verified by checking the start menu for the distribution icon
+
+6. You can finally run the import to inject your customized distribution. Note in the command below that the folder for install must be the location of the original install mentioned in step 4. The distribution name likely needs to be the same too, e.g:
+
+```powershell
+> wsl --import <distribution-name> C:\Users\\%USERPROFILE\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState TarFileLocation
+```
+
+7. Run the distribution, and a console window should open and prompt a login. Verify your files are there.
+8. The last step is to configure the default user for the newly installed distribution, so the shell opens using the login details from your import. This can be done with the following command: 
+
+```powershell
+> <distribution-executable> config --default-user trawkley
+```
+
 
 ## <img src="img/mingw.png" alt="mingw" width="23"/> <span style="font-size:larger;"> MinGW </span>
 Search for and download the latest mingw-64 installer, likely found at https://sourceforge.net/projects/mingw-w64/. Follow the install instructions, then add the location of the mingw binaries to Windows' PATH once done. By default, they will be located here:
