@@ -349,8 +349,32 @@ Depending on the version installed, it may include prebuilt binaries for clang a
 ## <img src="img/cpp.png" alt="drawing" width="20"/> <span style="font-size:larger;"> C/C++ </span>
 With MinGW installed and it's binaries added to PATH, VSCode can be used as a Windows development environment for applications written in C/C++. Excluding a possible need to rename 'mingw32-make' to 'make' in the mingw64/bin folder, there is no additional setup needed beyond that of creating Windows specific VSCode project files for C/C++ in the **.vscode** folder. To use Windows libraries, make sure they are included in the **C_Cpp.default.includePath** setting in **settings.json**.
 
+
+## <img src="img/python.png" alt="python" width="20"/> <span style="font-size:larger;"> System Python </span>
+Install the latest version of Python for Windows, found at https://www.python.org/downloads/windows/. When running the installer, opt to add Python to PATH and make sure Python intalls for the current user only (i.e to AppData). The installer will install Python, pip, IDLE and the py launcher. 
+
+The py launcher is a utility that can be used to locate and run a specific version of Python installed on the system. This is useful if multiple Python installations are present and need to be distinguished. For example, to invoke the latest version of Python 3.x simply run:
+
+```powershell
+> py -3
+```
+
+Once Python is installed, first upgrade pip:
+
+```powershell
+> pip install --upgrade pip
+```
+
+Then install virtualenv:
+
+```powershell
+> pip install virtualenv
+```
+
+Then create and install packages to virtual environments for projects as you normally would.
+
 ## <img src="img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;"> Anaconda </span>
-Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. Add the location of the anaconda3 directory to Windows' PATH, usually found at **C:\Users\username\anaconda3\\**. Add the location of conda to PATH, found at **C:\Users\username\anaconda3\Scripts\\**. 
+Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. If you intend the version of Python shipped with Anaconda to be the default used, add the location of the anaconda3 directory to Windows' PATH, usually found at **C:\Users\username\anaconda3\\**. Then make sure that PATH reads in the location of anaconda3 prior to reading in the location of any other Python executables on the system. It is possible to have system Python and Anaconda installed side by side and managed by the py launcher. Once done, add the location of conda to PATH, found at **C:\Users\username\anaconda3\Scripts\\**.
 
 To enable conda in Powershell, run the following:
 
