@@ -379,3 +379,14 @@ To deactivate:
 
 ## <img src="img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
 Use the installer found at https://git-scm.com/download/win. Set username, email, default branch, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
+
+## <img src="img/notepad-plus-plus.png" alt="npp" width="20"> <span style="font-size:larger;"> Notepad++ </span>
+After installing, apply the following preferences:
+
+1. Use defaultstylers style, but override global config using font Consolas, font size 9, and background colour as rgb(255, 243, 234). Enforce the override by ticking 'Enable global background color' and 'Enable global font/font size' 
+2. General: Check hide toolbar, show document list panel and use alternate icons
+3. Editing: Set folder margin 'None', border width 0, vertical edge 80, check display line number, and keep selection when right clicking outside
+
+Install the following plugins:
+1. MarkdownViewer++ (check 'syncronise scrolling' in the plugin settings, and set to work with .md and .txt)
+2. PythonScript
