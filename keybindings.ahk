@@ -8,6 +8,12 @@ s::LShift
 d::Alt
 f::Escape
 
+c::^c
+x::^x
+v::^v
+e::^z
+r::^y
+
 i::Up
 j::left
 k::Down
@@ -23,11 +29,8 @@ p::Delete
 n::!n
 m::!m
 
-c::^c
-x::^x
-v::^v
-e::^z
-r::^y
+VKBA::XButton1
+'::XButton2
 
 `::Return
 1::Return
@@ -44,8 +47,6 @@ r::^y
 =::Return
 g::Return
 h::Return
-VKBA::Return
-'::Return
 #::Return
 q::Return
 w::Return

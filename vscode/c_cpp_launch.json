@@ -2,17 +2,17 @@
     "version": "1.0.0",
     "configurations": [
         {
-            "name": "Program-name (gdb)",
+            "name": "program-name (gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/location/of/workspace/executable.exe",
+            "program": "${workspaceFolder}/location/of/project/binary",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/optional/path/to/subworkspace",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "location/of/debugger/executable.exe",
+            "miDebuggerPath": "location/of/debugger/binary",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

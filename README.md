@@ -226,16 +226,15 @@ Install via:
 $ sudo apt install git-all
 ```
 
-Set username, email, default branch name and default editor as follows:
+Set username, email and default editor as follows:
 
 ```bash
 $ git config --global user.name "username"
 $ git config --global user.email "email@email.com"
-$ git config --global init.defaultBranch main
 $ git config --global core.editor code
 ```
 
-Then set autocrlf to **input**, to ensure crlf's are converted to lf's during a push, and crlf's are preserved during a pull.
+Then set autocrlf to **input**, to ensure CRLF's are converted to LF's during a push, and CRLF's are preserved during a pull.
 
 ```bash
 $ git config --global core.autocrlf input
@@ -402,7 +401,7 @@ To deactivate:
 ```
 
 ## <img src="img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
-Use the installer found at https://git-scm.com/download/win. Set username, email, default branch, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
+Use the installer found at https://git-scm.com/download/win. Set username, email, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
 
 ## <img src="img/notepad-plus-plus.png" alt="npp" width="20"> <span style="font-size:larger;"> Notepad++ </span>
 After installing, apply the following preferences:
