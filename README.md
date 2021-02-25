@@ -1,7 +1,9 @@
-# Unix Setup
+# Linux Setup
 
 ## <img src="img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span> 
-Before configuring Bash running in WSL2, setup Windows Terminal with Powerline (specified below). This is so that Bash can use fonts from use the system host (Windows). When done, work through the following guide: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
+To configure Bash on native Linux, use the **.bashrc** found in this repo at **./terminal/.bashrc**. 
+
+To configure Bash for WSL2, Windows Terminal must first be installed and a full WSL2 setup must have been completed - see 'Windows Setup' in the next section for details. When WSL2 is setup with Windows Terminal, work through the following guide to get Powerline fonts installed: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
 
 ## <img src="img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential and Clang Tools for C/C++</span> 
 ### Install
