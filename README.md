@@ -3,7 +3,7 @@
 ## <img src="img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span> 
 Before configuring Bash running in WSL2, setup Windows Terminal with Powerline (specified below). This is so that Bash can use fonts from use the system host (Windows). When done, work through the following guide: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
 
-## <img src="img/gnu.jpg" alt="gnu" width="20"/> <span style="font-size:larger;">Build Essential and Clang Tools for C/C++</span> 
+## <img src="img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential and Clang Tools for C/C++</span> 
 ### Install
 Install gcc, gdb, make and other GNU utilities via:
 
@@ -404,9 +404,9 @@ To deactivate:
 Use the installer found at https://git-scm.com/download/win. Set username, email, autocrlf, and optionally generate an ssh key as specified in the Unix setup.
 
 ## <img src="img/notepad-plus-plus.png" alt="npp" width="20"> <span style="font-size:larger;"> Notepad++ </span>
-After installing, apply the following preferences:
+After installing using the latest installer found at https://notepad-plus-plus.org/downloads/, apply the following preferences:
 
-1. Use defaultstylers style, but override global config using font Consolas, font size 9, and background colour as rgb(255, 243, 234). Enforce the override by ticking 'Enable global background color' and 'Enable global font/font size' 
+1. Use defaultstylers style, but override global config using font Consolas, font size 9, and background colour rgb(255, 243, 234). Enforce the override by ticking 'Enable global background color' and 'Enable global font/font size' 
 2. General: Check hide toolbar, show document list panel and use alternate icons
 3. Editing: Set folder margin 'None', border width 0, vertical edge 80, check display line number, and keep selection when right clicking outside
 
