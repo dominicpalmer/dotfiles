@@ -14,20 +14,42 @@ Install the following:
 - Align Assignments
 - Fix Mixed Tabs
 - Match Margin
+- Editor Guidelines
 - ILSpy
+- Markdown Editor
 
 ## 2. Applying settings
 Either import the .vssettings file directly into Visual Studio, or manually apply the following:
 
 ### i) Tools->Settings
 - Environment/Tabs and Windows: Insert new tabs to the right of existing tabs
-- Environment/Fonts and Colors: First show settings for Environment, then set font to Leelawadee UI with font size 9
+- Environment/Fonts and Colors: First show settings for Environment, then set font to Leelawadee UI with font size 8
+- Environment/Fonts and Colors: Set font size 8 for all of the following:
+    - Statement completion
+    - Editor tooltip
+    - [All text tool windows]
+    - Command window
+    - Find results window
+    - F# interactive
+    - Immediate window:
+    - Package manager window
+    - Output window
+    - Folder difference
+    - [Watch, locals and autos tool windows]
+    - Autos window
+    - Callstack window
+    - Datatips
+    - Debug location toolbar
+    - Locals window
+    - Parallel stacks/task/watch window
+    - Threads window
+    - Watch windows
 - Environment/Keyboard: Apply Visual Studio Code keybindings
 - Text Editor: Show structure guidelines
-- Text Editor/General: Disable selection margin
+- Text Editor: Disable selection margin
 
 ### ii) UI
-- Get rid of all UI toolbar buttons except Solution Configurations, Solution Platforms, Debug Target, Debug Type, Extensions and Other Windows
+- Get rid of all UI toolbar buttons except Solution Configurations, Solution Platforms, Debug Target, Debug Type, and Extensions
 - Place Solution Explorer, Team Explorer, Properties and Toolbox on the left
 - Place Error List, Output and other associated windows on the right
 - Text editor window takes unobstructed center stage

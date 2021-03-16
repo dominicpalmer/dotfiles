@@ -114,6 +114,17 @@ Pip can now be used to install packages for this isolated environment. To deacti
 $ deactivate
 ```
 
+### Tools
+
+Install pylint and flake8 static analysers via:
+
+```bash
+$ pip install pylint
+$ pip install flake8
+```
+
+
+
 ## <img src="img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;">Anaconda</span>
 
 ### Install
@@ -197,6 +208,8 @@ Then change which version of node is active by running:
 ```bash
 $ nvm use <version>
 ```
+
+To change the version of node used for a new project, run the above command from the projects root directory with a specific version.
 
 To set the default version of node that is used, run:
 
@@ -412,6 +425,50 @@ Then install virtualenv:
 
 Then create and install packages to virtual environments for projects as you normally would.
 
+## <img src="img/node.png" alt="node" width="20"/> <span style="font-size:larger;"> Node </span>
+
+### Install
+
+Steps below follow https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows.
+
+First install node version manager for windows (windows-nvm). Check https://github.com/coreybutler/nvm-windows to check on the status of the project, then head over to */releases* to download the latest installer zip. Unzip and run the installer.
+
+Check nvm has installed correctly by listing which versions of node are installed (there shouldn't be any at this point):
+
+```powershell
+> nvm ls
+```
+
+Then install the latest stable version of node via:
+
+```powershell
+> nvm list available
+> node install <latest LTS from list results>
+```
+
+You can install the latest (non-stable) version of node alongside the one above via:
+
+```powershell
+> nvm install latest
+```
+
+After installing, you need to select which version of node is active before it can be used. Run the following:
+
+```powershell
+> nvm use <version>
+```
+
+To change the version of node used for a new project, run the above command from the projects root directory with a specific version.
+
+Check that nvm, node and npm are all installed via:
+
+```powershell
+> nvm --version
+> node --version
+> npm --version
+```
+
+
 ## <img src="img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;"> Anaconda </span>
 
 Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. If you intend the version of Python shipped with Anaconda to be the default used, add the location of the anaconda3 directory to Windows' PATH, usually found at **C:\Users\username\anaconda3\\**. Then make sure that PATH reads in the location of anaconda3 prior to reading in the location of any other Python executables on the system. It is possible to have system Python and Anaconda installed side by side and managed by the py launcher. Once done, add the location of conda to PATH, found at **C:\Users\username\anaconda3\Scripts\\**.
@@ -447,13 +504,8 @@ Use the installer found at https://git-scm.com/download/win. Set username, email
 
 ## <img src="img/notepad-plus-plus.png" alt="npp" width="20"> <span style="font-size:larger;"> Notepad++ </span>
 
-After installing using the latest installer found at https://notepad-plus-plus.org/downloads/, apply the following preferences:
-
-1. Use defaultstylers style, but override global config using font Consolas, font size 9, and background colour rgb(255, 243, 234). Enforce the override by ticking 'Enable global background color' and 'Enable global font/font size'
-2. General: Check hide toolbar, show document list panel and use alternate icons
-3. Editing: Set folder margin 'None', border width 0, vertical edge 80, check display line number, and keep selection when right clicking outside
-
-Install the following plugins:
+After installing using the latest installer found at https://notepad-plus-plus.org/downloads/, install the following plugins:
 
 1. MarkdownViewer++ (check 'syncronise scrolling' in the plugin settings, and set to work with .md and .txt)
 2. PythonScript
+3. Visual Studio Line Copy

@@ -2,6 +2,17 @@
 LShift & CapsLock::CapsLock
 CapsLock::NumLock
 
+#u::#Tab
+#o::^#d
+#n::^#Left
+#m::^#Right
+#i::^#F4
+
+#Up::^#d
+#Left::^#Left
+#Right::^#Right
+#Down::^#F4
+
 #If GetKeyState("NumLock", "T")
 a::LCtrl
 s::LShift
@@ -15,7 +26,7 @@ e::^z
 r::^y
 
 i::Up
-j::left
+j::Left
 k::Down
 l::Right
 
