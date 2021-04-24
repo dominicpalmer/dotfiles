@@ -1,4 +1,4 @@
-# Linux Setup
+# Unix Setup
 
 ## <img src="img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span>
 
@@ -295,7 +295,52 @@ https://www.theodinproject.com/courses/foundations/lessons/setting-up-git
 
 https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
 
-# Windows Setup
+# Windows
+
+## <img src="img/microsoft.png" alt="microsoft" width="25"/> <span style="font-size:larger;"> OS </span>
+
+When faced with a fresh Windows install, work through the following day one changes:
+
+1. Do a full sweep of every single control panel setting to configure UI, security, privacy, security etc.
+2. Clean up the taskbar. Remove Cortana, search, the notifications button, and use small icons
+3. Clean up the start menu by removing all tiles and resizing
+4. Pin commonly used folders to Quick Access in File Explorer, such as C:\, C:\Program Files, C:\Program Files (x86)
+5. Edit File Explorer settings to always show file extensions and always show hidden files and folders
+6. Add USERPROFILE and HOME local user environment variables with the value *C:\Users\<username>*, if they don't already exist
+7. Create a C:\bin folder add to it a number of aliasing CMD scripts that open frequently used programs. Sample scripts can be found in **./windows**. Add the folder to path
+8. Force Outlook to instantly mark emails as read upon clicking by heading to Reading Pane settings and changing time to mark read as 0
+
+Then install and configure useful software and add startup scripts to C:\bin where neccessary: 
+
+- 7Zip
+- Windows Terminal (per instructions below)
+- sysinternals (place in C:\bin and add to path)
+- WireShark
+- Firefox (import useful bookmarks and configure addons/UI)
+- Python (per instructions below)
+- Chocolatey
+- Node (per instructions below)
+- AutoHotKey (add **./windows/keybindings.ahk** to shell:startup)
+- Postman
+- Sourcetree
+- Visual Studio (per instructions in **./visual-studio**)
+- VSCode (import settings from the default gist, then create a new copy for the new machine)
+
+Refresh on common Windows tooling aliases for quick startup via *Win+R*:
+
+- IIS: inetmgr
+- Services: services.msc
+- Event Viewer: eventvwr
+- Registry Editor: regedit
+- Local machine certificate manager: certlm.msc
+- Local user certificate manager: certmgr.msc
+- List active processess: pslist
+- Kill a process: pskill [pid]
+- Process explorer: procexp
+- Process monitor: procmon
+- TCP View: tcpview
+- VSCode: code
+- Firefox: firefox
 
 ## <img src="img/terminal.png" alt="terminal" width="23"/> <span style="font-size:larger;"> Windows Terminal </span>
 
@@ -509,3 +554,15 @@ After installing using the latest installer found at https://notepad-plus-plus.o
 1. MarkdownViewer++ (check 'syncronise scrolling' in the plugin settings, and set to work with .md and .txt)
 2. PythonScript
 3. Visual Studio Line Copy
+
+Then replace stock notepad with Notepad++ everywhere by editing the registry. Using CMD, run the following if 32 bit Notepad++ is installed:
+
+```cmd
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v "Debugger" /t REG_SZ /d "\"%ProgramFiles(x86)%\Notepad++\notepad++.exe\" -notepadStyleCmdline -z" /f
+```
+
+For 64 bit:
+
+```cmd
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v "Debugger" /t REG_SZ /d "\"%ProgramFiles%\Notepad++\notepad++.exe\" -notepadStyleCmdline -z" /f
+```
