@@ -23,6 +23,7 @@ Either import the .vssettings file directly into Visual Studio, or manually appl
 
 ### i) Tools->Settings
 - Environment/Tabs and Windows: Insert new tabs to the right of existing tabs
+- Environment/Tabs and Windows: Show pinned tabs in a separate row
 - Environment/Fonts and Colors: First show settings for Environment, then set font to Leelawadee UI with font size 8
 - Environment/Fonts and Colors: Set font size 8 for all of the following:
     - Statement completion
@@ -47,6 +48,8 @@ Either import the .vssettings file directly into Visual Studio, or manually appl
 - Environment/Keyboard: Apply Visual Studio Code keybindings
 - Text Editor: Show structure guidelines
 - Text Editor: Disable selection margin
+- Text Editor/All Languages: Tick line numbers
+- Text Editor/All Languages: Tick navigation bar
 
 ### ii) UI
 - Get rid of all UI toolbar buttons except Solution Configurations, Solution Platforms, Debug Target, Debug Type, and Extensions
