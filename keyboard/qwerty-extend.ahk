@@ -8,7 +8,7 @@
 ; toggle capslock is retained via Shift+CapsLock.
 ; 
 ; The script also includes shortcuts for Windows virtual desktop controls that
-; are independent of the extension layer state.
+; are independent of the extension layer state, and remaps AltGr to Control.
 ; ------------------------------------------------------------------------------
 
 ; Remap capslock
@@ -22,6 +22,9 @@ CapsLock::NumLock
 #n::^#Left
 #m::^#Right
 #i::^#F4
+
+; Optional - remap AltGr to Control for use with wide QWERTY
+Ralt::LCtrl
 
 ; Extension layer entry
 #If GetKeyState("NumLock", "T")
