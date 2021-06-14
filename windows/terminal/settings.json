@@ -1,0 +1,149 @@
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    // Don't automatically copy on selection
+    "copyOnSelect": false,
+
+    // Don't preserve formatting when using copy/paste
+    "copyFormatting": false,
+
+    "initialCols": 150,
+    "initialRows": 40,
+    "profiles": {
+        "defaults": {
+            "name": "main",
+            "colorScheme": "Andromeda",
+            "backgroundImage": "terminal.png",
+            "cursorShape": "vintage",
+            "fontFace": "Droid Sans Mono Slashed for Powerline",
+            "fontSize": 9,
+            "fontWeight": "medium",
+            "acrylicOpacity": 1,
+            "useAcrylic": false
+        },
+        "list": [
+            {
+                // Make changes here to the powershell.exe profile.
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "PS",
+                "startingDirectory": "C://",
+                "commandline": "powershell.exe -NoLogo",
+                "hidden": false
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "name": "Ubuntu",
+                "startingDirectory": "home/",
+                "source": "Windows.Terminal.Wsl",
+                "hidden": false
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "CMD",
+                "startingDirectory": "C://",
+                "commandline": "cmd.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "name": "PowerShell ⚡",
+                "startingDirectory": "C://",
+                "source": "Windows.Terminal.PowershellCore",
+                "colorScheme": "ubuntuLegit",
+                "backgroundImageOpacity": 0.1,
+                "fontFace": "Cascadia Code",
+                "useAcrylic": true,
+                "acrylicOpacity": 0.8,
+                "hidden": false
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "main",
+                "source": "Windows.Terminal.Azure"
+            }
+        ]
+    },
+
+    // Custom colour schemes
+    "schemes": [
+        {
+            "name": "custom-light",
+            "black": "#20111b",
+            "red": "#be100e",
+            "green": "#4db112",
+            "yellow": "#e78c14",
+            "blue": "#426a79",
+            "purple": "#97522c",
+            "cyan": "#587998",
+            "white": "#968c83",
+            "brightBlack": "#5e5252",
+            "brightRed": "#be100e",
+            "brightGreen": "#858162",
+            "brightYellow": "#b16e0f",
+            "brightBlue": "#426a79",
+            "brightPurple": "#97522c",
+            "brightCyan": "#989a9c",
+            "brightWhite": "#ccbfa6",
+            "background": "#d5ccba",
+            "foreground": "#45373c"
+        },
+        {
+            "name": "Andromeda",
+            "black": "#000000",
+            "red": "#cd3131",
+            "green": "#05bc79",
+            "yellow": "#e5e512",
+            "blue": "#2472c8",
+            "purple": "#bc3fbc",
+            "cyan": "#0fa8cd",
+            "white": "#e5e5e5",
+            "brightBlack": "#cd3131",
+            "brightRed": "#cd3131",
+            "brightGreen": "#05bc79",
+            "brightYellow": "#e5e512",
+            "brightBlue": "#6ab2ff",
+            "brightPurple": "#bc3fbc",
+            "brightCyan": "#0fa8cd",
+            "brightWhite": "#e5e5e5",
+            "background": "#262a33",
+            "foreground": "#e5e5e5"
+        }
+    ],
+
+    // Keybindings
+    "actions": [
+        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in defaults.json
+        // These two lines additionally bind them to Ctrl+C and Ctrl+V
+        {
+            "command": {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+
+        // Ctrl+Shift+F to open the search box
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+
+        // Alt+Shift+D to open a new pane
+        // "split": "auto" makes this pane open in the direction that provides the most surface area.
+        // "splitMode": "duplicate" makes the new pane use the focused pane's profile.
+        {
+            "command": {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        }
+    ]
+}

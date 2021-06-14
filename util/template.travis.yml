@@ -2,12 +2,12 @@
 ##### Dominic Palmer
 #####
 #####
-##### The matrix can be multiplied in advance, or declared explicitly. This template uses 
-##### multiplications, but the alternative is to use global parameters where possible, and 
+##### The matrix can be multiplied in advance, or declared explicitly. This template uses
+##### multiplications, but the alternative is to use global parameters where possible, and
 ##### declare build specific details within:
-##### matrix: 
+##### matrix:
 #####   include:
-##### 
+#####
 ##### This template is created using a medley of different parameters and should be altered
 ##### before use.
 
@@ -17,7 +17,7 @@
 sudo: required
 
 # Language(s)
-language: 
+language:
   - node_js
   - cpp
   - c++
@@ -37,13 +37,13 @@ node_js:
   - '0.14'
 
 # Specify the operating system(s) to use. Multiplies the matrix
-os: 
+os:
   - linux
   - osx
   - windows
 
 # [Optional] Specify the distribution(s) to use, if any. Multiplies the matrix
-dist: 
+dist:
   - xenial
   - trusty
   - precise
@@ -57,13 +57,13 @@ compiler:
   - gcc
 
 # [Optional] Set up notifications to be sent out
-notifications: 
+notifications:
   email:
     recipients:
       - a@a_domain.com
       - b@b_domain.com
 
-    # Send notifications depending on outcome. Options: change, always, never 
+    # Send notifications depending on outcome. Options: change, always, never
     on_success: change # change means an alteration of the current repo status
     on_failure: always
 
@@ -75,7 +75,7 @@ notifications:
   flowdock:
   hipchat:
 
-# [Optional] 'To install packages not included in the default container-based-infrastructure you 
+# [Optional] 'To install packages not included in the default container-based-infrastructure you
 # need to use the APT addon, as sudo apt-get is not available'. This applies globally.
 addons:
   apt:
@@ -109,7 +109,7 @@ branches:
     - master
     - /^branch-.*$/ # Can use regex to declare branches
   # Exclude list
-  except: 
+  except:
     - unused_branch # Exclude specific branches
 
 # [Optional] Explicitly exclude combinations (jobs) created by matrix multiplication, or include new ones
@@ -165,7 +165,7 @@ before_deploy:
 # [Optional] Deployment process
 deploy:
   # Prevent Travis from resetting your working directory (deleting changes, etc.)
-  skip_cleanup: true 
+  skip_cleanup: true
 
   # Specify the deployment provider
   provider: releases
@@ -182,7 +182,7 @@ deploy:
     condition: $BUILDCOMPLETE = true # Condition for deployment
     repo: username/reponame # Repo to deploy to
     all_branches: true # Whether or not to deploy to all branches
-    branch: 
+    branch:
       - master # Alternatively, specify branches to deploy to
       - different_branch
     tags: true # Git tags

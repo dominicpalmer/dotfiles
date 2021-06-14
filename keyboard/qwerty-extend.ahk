@@ -1,19 +1,18 @@
 ﻿; -------------------- QWERTY-Extend: Capslock Extend Layer --------------------
 ; ------------------------------ Dominic Palmer --------------------------------
 ; ------------------------------------------------------------------------------
-; This script extends the stock QWERTY layout using an extension layer accessed 
-; via the capslock key. Capslock itself is remapped to numlock prior to the 
-; extension layer being mapped, meaning the layer is bound to the numlock key 
-; state on a system level, but controlled using the capslock key. The ability to 
+; This script extends the stock QWERTY layout using an extension layer accessed
+; via the capslock key. Capslock itself is remapped to numlock prior to the
+; extension layer being mapped, meaning the layer is bound to the numlock key
+; state on a system level, but controlled using the capslock key. The ability to
 ; toggle capslock is retained via Shift+CapsLock.
-; 
-; The script also includes shortcuts for Windows virtual desktop controls that
-; are independent of the extension layer state, and remaps AltGr to Control.
+;
+; The script also includes remaps for Windows virtual desktop shortcuts, a remap
+; for right Alt (AltGr) to Control, and a remap of left Shift up to Escape.
 ; ------------------------------------------------------------------------------
 
 ; Remap capslock
-RShift & CapsLock::CapsLock
-LShift & CapsLock::CapsLock
+Shift & CapsLock::CapsLock
 CapsLock::NumLock
 
 ; Remap virtual desktop shortcuts
@@ -23,11 +22,15 @@ CapsLock::NumLock
 #m::^#Right
 #i::^#F4
 
-; Optional - remap AltGr to Control for use with wide QWERTY
-Ralt::LCtrl
+; AltGr to Control
+RAlt::Ctrl
+
+; Double shift to Escape
+LSfhit & RShift::Esc
+RShift & LShift::Esc
 
 ; Extension layer entry
-#If GetKeyState("NumLock", "T")
+#if GetKeyState("NumLock", "T")
 {
     ; Navigation
     i::Up
@@ -36,104 +39,62 @@ Ralt::LCtrl
     l::Right
     u::Home
     o::End
-    y::PgUp
-    h::PgDn
-    ]::Escape
+	h::PgDn
+    p::PgUp
+    g::Escape
+	VKBA::Delete
+	t::XButton2 ; Mouse forward
+	'::XButton1 ; Mouse back
 
-    ; Text editing shortcuts
-    c::^c
-    x::^x
+    ; Text editing
+	c::^c
+	w::^x
     v::^v
     e::^z
     r::^y
-    p::Delete
 
     ; Modifier keys on the left hand of the home row
-    a::Escape
     s::Alt
-    d::LCtrl
-    f::LShift
+    d::Ctrl
+    f::Shift
 
-    ; Remap n and m to prepend Alt for integration with editor shortcuts
+    ; Remap n and m to Alt-n, Alt-m for integration with editor shortcuts
     n::!n
     m::!m
 
-    ; Forward and back
-    VKBA::XButton1
-    '::XButton2
+    ; Function keys
+    1::F1
+    2::F2
+    3::F3
+    4::F4
+    5::F5
+    6::F6
+    7::F7
+    8::F8
+    9::F9
+    0::F10
+    -::F11
+    =::F12
 
-    ; Unmapped keys
-    `::Return
-    1::Return
-    2::Return
-    3::Return
-    4::Return
-    5::Return
-    6::Return
-    7::Return
-    8::Return
-    9::Return
-    0::Return
-    -::Return
-    =::Return
-    g::Return
-    #::Return
-    q::Return
-    w::Return
-    t::Return
-    /::Return
-    \::Return
-    z::Return
-    b::Return
-    ,::Return
-    .::Return
-    ¬::Return
-    !::Return
-    "::Return
-    £::Return
-    $::Return
-    %::Return
-    ^::Return
-    &::Return
-    *::Return
-    (::Return
-    )::Return
-    _::Return
-    +::Return
-    [::Return
-    {::Return
-    :::Return
-    @::Return
-    ~::Return
-    |::Return
-    <::Return
-    >::Return
-    ?::Return
+	; All other keys
+	\::PrintScreen
+	z::ScrollLock
+	x::Pause
 
-    <+q::Return
-    <+w::Return
-    <+e::Return
-    <+r::Return
-    <+t::Return
-    <+a::Return
-    <+s::Return
-    <+d::Return
-    <+f::Return
-    <+g::Return
-    <+z::Return
-    <+x::Return
-    <+c::Return
-    <+v::Return
-    <+b::Return
+    ; Unmapped base layer keys from left to right, top to bottom
+    `::
 
-    >+u::Return
-    >+i::Return
-    >+o::Return
-    >+p::Return
-    >+h::Return
-    >+j::Return
-    >+k::Return
-    >+l::Return
-    >+n::Return
-    >+m::Return
+	q::
+	y::
+    [::
+	]::
+
+	a::
+    #::
+
+    b::
+    ,::
+    .::
+	/::
+        return
 }
