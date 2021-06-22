@@ -8,7 +8,7 @@
 ; toggle capslock is retained via Shift+CapsLock.
 ;
 ; The script also includes remaps for Windows virtual desktop shortcuts, a remap
-; for right Alt (AltGr) to Control, and a remap of left Shift up to Escape.
+; for right Alt (AltGr) to Control, and a map of double shift to Escape.
 ; ------------------------------------------------------------------------------
 
 ; Remap capslock
