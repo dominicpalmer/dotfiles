@@ -1,12 +1,25 @@
 # Unix config
 
-## <img src="../img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span>
+This contains notes on installation and configuration for day one unix system changes.
 
-For Bash on native Linux, use the **.bashrc** found in this repo at **./terminal/.bashrc**.
+Contents:
 
-Work through the this guide to get Bash prompt Powerline fonts installed: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
+1. [Bash](#bash)
+2. [Build Essential](#build-essential)
+3. [Python](#python)
+4. [Anaconda](#anaconda)
+5. [Node](#node)
+6. [VSCode](#vscode)
+7. [Firefox](#firefox)
+8. [Git](#git)
 
-## <img src="../img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential, Clang Tools and Valgrind for C/C++</span>
+## <a id="bash"></a> <img src="../img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span>
+
+Use the **.bashrc** found in this repo at **./bash/.bashrc**.
+
+Work through this guide to get Bash prompt Powerline fonts installed: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
+
+## <a id="build-essential"></a> <img src="../img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential, Clang Tools and Valgrind for C/C++</span>
 
 ### Install
 
@@ -48,21 +61,21 @@ In the global VSCode **settings.json** or alternatively in each projects workspa
 
 If this setting is changed in the global **settings.json**, it will apply to every C/C++ project created in VSCode.
 
-For each new C/C++ project, create a **.vscode/c_cpp_properties.json** file to store project specific configuration details such intellisenseMode, includePath, compilerPath, cppStandard, etc. Make sure that each **.vscode/c_cpp_properties.json** file includes the default includePath defined in **settings.json** as one of the parameters. This way, the default path will now also be searched in addition to the project specific paths specified in **.vscode/c_cpp_properties.json**. Also make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers.
+For each new C/C++ project, create a **.vscode/c_cpp_properties.json** file to store project specific configuration details such `intellisenseMode`, `includePath`, `compilerPath`, `cppStandard`, etc. Make sure that each **.vscode/c_cpp_properties.json** file includes the default `includePath` defined in **settings.json** as one of the parameters. This way, the default path will now also be searched in addition to the project specific paths specified in **.vscode/c_cpp_properties.json**. Also make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers.
 
 Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, MIMode, command line arguments, etc.
 
 ### Intellisense
 
-It is important to note that **c_cpp_properties.json** only impacts _intellisense in VSCode_ for the project in which it is included. So by setting a default C/C++ includePath in a local or global **settings.json**, and setting an includePath in the project specific **c_cpp_properties.json** that points to this default, all you are doing is making _intellisense in VSCode_ aware of the existence of these default headers for this specific project, thus providing intellisense functionality. If all includePath parameters in the VSCode config files are omitted, it is _VSCode_ that has no way to enforce intellisense. In such a case, VSCode would throw countless warnings about missing symbols, however compliation might still work. This is because compilers themselves generally perform their own predefined searches for headers during compilation.
+It is important to note that **c_cpp_properties.json** only impacts _VSCode intellisense_ for the project in which it is included. So by setting a default C/C++ `includePath` in a local or global **settings.json**, and setting an `includePath` in the project specific **c_cpp_properties.json** that points to this default, all you are doing is making _intellisense in VSCode_ aware of the existence of these default headers for this specific project, thus providing intellisense functionality. If all `includePath` parameters in the VSCode config files are omitted, it is _VSCode_ that has no way to enforce intellisense. In such a case, VSCode would throw countless warnings about missing symbols, however compliation might still work. This is because most compilers perform their own predefined searches for headers during compilation.
 
-Hence the process of configuring the includePath in the VSCode config files is simply to align the VSCode intellisense search as closely as possible with the underlying compiler search, so intellisense mirrors what the compiler can do and intellisense warnings make sense. Note that there may be other paths that the compiler searches for but intellisense doesn't. So if intellisense says a header is missing and is throwing warnings, it might actually be available to the compiler, in which case compilation would succeed regardless.
+Hence the process of configuring the `includePath` in the VSCode config files is simply to align the VSCode intellisense search as closely as possible with the underlying compiler search, so intellisense mirrors what the compiler can do and intellisense warnings make sense. Note that there may be other paths that the compiler searches for but intellisense doesn't. So if intellisense says a header is missing and is throwing warnings, it might actually be available to the compiler, in which case compilation would succeed regardless.
 
 ### External libraries
 
 If you require any additional libraries installed elsewhere for specific projects (e.g. Boost), then to get _intellisense_ working you need to include the path to these libraries in **settings.json** or the projects **c_cpp_properties.json**. To get the _compiler_ to find these libraries, set up a **tasks.json** file with a relevant includePath to force the compiler to look for them when linking, or just use a makefile of some kind.
 
-## <img src="../img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
+## <a id="python"></a> <img src="../img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
 
 ### Pip
 
@@ -102,7 +115,7 @@ $ python3 -m venv env_name
 $ python3 -m virtualenv env_name
 ```
 
-A new directory called env_name will be created in the projects root directory containing its own **/bin**. To activate the virtual environment, run:
+A new directory called **env_name**  will be created in the projects root directory containing its own **/bin**. To activate the virtual environment, run:
 
 ```bash
 $ source env_name/bin/activate
@@ -123,7 +136,7 @@ $ pip install pylint
 $ pip install flake8
 ```
 
-## <img src="../img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;">Anaconda</span>
+## <a id="anaconda"></a> <img src="../img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;">Anaconda</span>
 
 ### Install
 
@@ -178,7 +191,7 @@ To update a specific Anaconda environment, run:
 $ conda update -n envName --all
 ```
 
-## <img src="../img/node.png" alt="node" width="20"/> <span style="font-size:larger;"> Node </span>
+## <a id="node"></a> <img src="../img/node.png" alt="node" width="20"/> <span style="font-size:larger;"> Node </span>
 
 ### Install
 
@@ -224,7 +237,7 @@ $ nvm install <new_version> --reinstall-packages-from=<old_version>
 $ nvm uninstall <old_version>
 ```
 
-## <img src="../img/code.png" alt="code" width="20"/> <span style="font-size:larger;"> VSCode </span>
+## <a id="vscode"></a> <img src="../img/code.png" alt="code" width="20"/> <span style="font-size:larger;"> VSCode </span>
 
 To install VSCode, run the following from ~$:
 
@@ -243,7 +256,7 @@ $ sudo apt-get install code
 
 To update VSCode, rerun the two commands above.
 
-## <img src="../img/firefox.png" alt="firefox" width="23"/> <span style="font-size:larger;"> Firefox </span>
+## <a id="firefox"></a> <img src="../img/firefox.png" alt="firefox" width="23"/> <span style="font-size:larger;"> Firefox </span>
 
 To install:
 
@@ -263,7 +276,7 @@ To uninstall:
 $ sudo apt remove firefox
 ```
 
-## <img src="../img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
+## <a id="git"></a> <img src="../img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
 
 Install via:
 
@@ -279,7 +292,7 @@ $ git config --global user.email "email@email.com"
 $ git config --global core.editor code
 ```
 
-Then set autocrlf to **input**, to ensure CRLF's are converted to LF's during a push, and CRLF's are preserved during a pull.
+Then set autocrlf to `input`, to ensure CRLF's are converted to LF's during a push, and CRLF's are preserved during a pull.
 
 ```bash
 $ git config --global core.autocrlf input

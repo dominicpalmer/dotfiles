@@ -2,7 +2,7 @@
 
 ## Summary
 
-This contains a broad overview of common config and software I add to fresh Windows installs. Much is ommitted - this readme is dedicated to useful day one changes only.
+This readme contains an overview of common configuration and software I add to fresh Windows installs. Much is ommitted - this readme is dedicated to useful day one changes only.
 
 Contents:
 
@@ -26,25 +26,25 @@ When faced with a fresh Windows install, work through the following system chang
 1. Do a full sweep of every single control panel setting to configure UI, security, privacy, security etc.
 2. Clean up the taskbar. Remove Cortana, search, the notifications button, and use small icons
 3. Clean up the start menu by removing all tiles and resizing
-4. Pin commonly used folders to Quick Access in File Explorer, such as C:\\, C:\Program Files, C:\Program Files (x86)
+4. Pin commonly used folders to Quick Access in File Explorer, such as **C:\\**, **C:\Program Files**, **C:\Program Files (x86)**
 5. Edit File Explorer settings to always show file extensions and always show hidden files and folders
-6. Add USERPROFILE and HOME local user environment variables with the value *C:\Users\<username>*, if they don't already exist
-7. Create a C:\bin folder add to it the aliasing CMD scripts found in this repo, used to open frequently used programs. Add the folder to path
+6. Add USERPROFILE and HOME local user environment variables with the value **C:\Users\\\<username>**, if they don't already exist
+7. Create a **C:\bin** folder add to it the aliasing CMD scripts found in this repo, used to open frequently used programs. Add the folder to `PATH`
 8. Force Outlook to instantly mark emails as read upon clicking by heading to Reading Pane settings and changing time to mark read as 0
 
 ### Software
 
-Install and configure useful software and add startup scripts to C:\bin where neccessary:
+Install and configure useful software and add startup scripts to **C:\bin** where neccessary:
 
 - 7Zip
 - Windows Terminal (per instructions below)
-- sysinternals (place in C:\bin and add to path)
+- sysinternals (place in **C:\bin** and add to `PATH`)
 - WireShark
 - Firefox (import useful bookmarks and configure addons/UI)
 - Python (per instructions below)
 - Chocolatey
 - Node (per instructions below)
-- AutoHotKey (set **./keyboard/keybindings.ahk** to run at startup with admin rights via Task Scheduler)
+- AutoHotKey (set **qwerty-extend.ahk** to run at startup with admin rights via Task Scheduler)
 - Postman
 - Sourcetree
 - Visual Studio (per instructions in **./visual-studio/README.md**)
@@ -160,19 +160,19 @@ While this removes the new distribution, the Ubuntu appx package is still instal
 
 ## <a id="mingw"></a> <img src="../img/mingw.png" alt="mingw" width="23"/> <span style="font-size:larger;"> MinGW </span>
 
-Search for and download the latest mingw-64 installer, likely found at https://sourceforge.net/projects/mingw-w64/. Follow the install instructions, then add the location of the mingw binaries to Windows' PATH once done. By default, they will be located here:
+Search for and download the latest mingw-64 installer, likely found at https://sourceforge.net/projects/mingw-w64/. Follow the install instructions, then add the location of the mingw binaries to Windows' `PATH` once done. By default, they will be located here:
 
     C:\Program Files\mingw64\bin
 
-Depending on the version installed, it may include prebuilt binaries for clang and clang-format.
+Depending on the version installed, it may also include prebuilt binaries for clang tooling.
 
 ## <a id="ccpp"></a> <img src="../img/cpp.png" alt="drawing" width="20"/> <span style="font-size:larger;"> C/C++ </span>
 
-With MinGW installed and it's binaries added to PATH, VSCode can be used as a Windows development environment for applications written in C/C++. Excluding a possible need to rename 'mingw32-make' to 'make' in the mingw64/bin folder, there is no additional setup needed.
+With MinGW installed and it's binaries added to `PATH`, VSCode can be used as a Windows development environment for applications written in C/C++. Excluding a possible need to rename 'mingw32-make' to 'make' in the mingw64/bin folder, there is no additional setup needed.
 
 ## <a id="python"></a> <img src="../img/python.png" alt="python" width="20"/> <span style="font-size:larger;"> System Python </span>
 
-Install the latest version of Python for Windows, found at https://www.python.org/downloads/windows/. When running the installer, opt to add Python to PATH and make sure Python intalls for the current user only (i.e to AppData). The installer will install Python, pip, IDLE and the py launcher.
+Install the latest version of Python for Windows, found at https://www.python.org/downloads/windows/. When running the installer, opt to add Python to `PATH` and make sure Python intalls for the current user only (i.e to AppData). The installer will install Python, pip, IDLE and the py launcher.
 
 The py launcher is a utility that can be used to locate and run a specific version of Python installed on the system. This is useful if multiple Python installations are present and need to be distinguished. For example, to invoke the latest version of Python 3.x simply run:
 
@@ -196,7 +196,7 @@ Then create and install packages to virtual environments for projects as you nor
 
 ## <a id="anaconda"></a> <img src="../img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;"> Anaconda </span>
 
-Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. If you intend the version of Python shipped with Anaconda to be the default used, add the location of the anaconda3 directory to Windows' PATH, usually found at **C:\Users\<username>\anaconda3\\**. Then make sure that PATH reads in the location of anaconda3 prior to reading in the location of any other Python executables on the system. It is possible to have system Python and Anaconda installed side by side and managed by the py launcher. Once done, add the location of conda to PATH, found at **C:\Users\<username>\anaconda3\Scripts\\**.
+Install the latest of version of Anaconda for Windows, found at https://www.anaconda.com/products/individual. If you intend the version of Python shipped with Anaconda to be the default used, add the location of the anaconda3 directory to Windows' `PATH`, usually found at **C:\Users\<username>\anaconda3\\**. Then make sure that `PATH` reads in the location of anaconda3 prior to reading in the location of any other Python executables on the system. It is possible to have system Python and Anaconda installed side by side and managed by the py launcher. Once done, add the location of conda to `PATH`, found at **C:\Users\<username>\anaconda3\Scripts\\**.
 
 To enable conda in Powershell, run the following:
 
@@ -260,7 +260,7 @@ You can check which versions of node are installed at any time via:
 
 ## <a id="git"></a> <img src="../img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
 
-Use the installer found at https://git-scm.com/download/win. Set config and optionally generate an ssh key.
+Use the installer found at https://git-scm.com/download/win. Set config as normal and generate an ssh key.
 
 ## <a id="npp"></a> <img src="../img/notepad-plus-plus.png" alt="npp" width="20"> <span style="font-size:larger;"> Notepad++ </span>
 
