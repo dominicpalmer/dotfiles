@@ -26,7 +26,7 @@ CapsLock::NumLock
 RAlt::Ctrl
 
 ; Double shift to Escape
-LSfhit & RShift::Esc
+LShift & RShift::Esc
 RShift & LShift::Esc
 
 ; Extension layer entry

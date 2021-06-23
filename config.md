@@ -13,13 +13,13 @@ Contents:
 7. [Firefox](#firefox)
 8. [Git](#git)
 
-## <a id="bash"></a> <img src="../img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span>
+## <a id="bash"></a> <img src="img/bash.png" alt="bash" width="20"/> <span style="font-size:larger;">Bash</span>
 
 Use the **.bashrc** found in this repo at **./bash/.bashrc**.
 
 Work through this guide to get Bash prompt Powerline fonts installed: https://medium.com/@earlybyte/powerline-for-bash-6d3dd004f6fc.
 
-## <a id="build-essential"></a> <img src="../img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential, Clang Tools and Valgrind for C/C++</span>
+## <a id="build-essential"></a> <img src="img/llvm.png" alt="llvm" width="25"/> <span style="font-size:larger;">Build Essential, Clang Tools and Valgrind for C/C++</span>
 
 ### Install
 
@@ -75,7 +75,7 @@ Hence the process of configuring the `includePath` in the VSCode config files is
 
 If you require any additional libraries installed elsewhere for specific projects (e.g. Boost), then to get _intellisense_ working you need to include the path to these libraries in **settings.json** or the projects **c_cpp_properties.json**. To get the _compiler_ to find these libraries, set up a **tasks.json** file with a relevant includePath to force the compiler to look for them when linking, or just use a makefile of some kind.
 
-## <a id="python"></a> <img src="../img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
+## <a id="python"></a> <img src="img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
 
 ### Pip
 
@@ -136,7 +136,7 @@ $ pip install pylint
 $ pip install flake8
 ```
 
-## <a id="anaconda"></a> <img src="../img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;">Anaconda</span>
+## <a id="anaconda"></a> <img src="img/anaconda.png" alt="anaconda" width="20"/> <span style="font-size:larger;">Anaconda</span>
 
 ### Install
 
@@ -191,7 +191,7 @@ To update a specific Anaconda environment, run:
 $ conda update -n envName --all
 ```
 
-## <a id="node"></a> <img src="../img/node.png" alt="node" width="20"/> <span style="font-size:larger;"> Node </span>
+## <a id="node"></a> <img src="img/node.png" alt="node" width="20"/> <span style="font-size:larger;"> Node </span>
 
 ### Install
 
@@ -237,7 +237,7 @@ $ nvm install <new_version> --reinstall-packages-from=<old_version>
 $ nvm uninstall <old_version>
 ```
 
-## <a id="vscode"></a> <img src="../img/code.png" alt="code" width="20"/> <span style="font-size:larger;"> VSCode </span>
+## <a id="vscode"></a> <img src="img/code.png" alt="code" width="20"/> <span style="font-size:larger;"> VSCode </span>
 
 To install VSCode, run the following from ~$:
 
@@ -256,7 +256,7 @@ $ sudo apt-get install code
 
 To update VSCode, rerun the two commands above.
 
-## <a id="firefox"></a> <img src="../img/firefox.png" alt="firefox" width="23"/> <span style="font-size:larger;"> Firefox </span>
+## <a id="firefox"></a> <img src="img/firefox.png" alt="firefox" width="23"/> <span style="font-size:larger;"> Firefox </span>
 
 To install:
 
@@ -276,7 +276,7 @@ To uninstall:
 $ sudo apt remove firefox
 ```
 
-## <a id="git"></a> <img src="../img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
+## <a id="git"></a> <img src="img/git.png" alt="git" width="20"> <span style="font-size:larger;"> Git </span>
 
 Install via:
 
