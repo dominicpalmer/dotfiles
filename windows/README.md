@@ -268,6 +268,8 @@ After installing using the latest installer found at https://notepad-plus-plus.o
 1. MarkdownViewer++ (check 'syncronise scrolling' in the plugin settings, and set to work with .md and .txt)
 2. PythonScript
 3. Visual Studio Line Copy
+4. NppExport
+5. DSpellCheck
 
 Then replace stock notepad with Notepad++ everywhere by editing the registry. Using CMD, run the following if 32 bit Notepad++ is installed:
 
