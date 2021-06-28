@@ -2,18 +2,16 @@
 ; ------------------------------ Dominic Palmer --------------------------------
 ; ------------------------------------------------------------------------------
 ; This script extends the stock QWERTY layout using an extension layer accessed
-; via the capslock key. Capslock itself is remapped to numlock prior to the
-; extension layer being mapped, meaning the layer is bound to the numlock key
-; state on a system level, but controlled using the capslock key. The ability to
-; toggle capslock is retained via Shift+CapsLock.
+; via double shift.
 ;
-; The script also includes remaps for Windows virtual desktop shortcuts, a remap
-; for right Alt (AltGr) to Control, and a map of double shift to Escape.
+; Also included are remaps for Windows virtual desktop shortcuts, a remap for
+; right Alt (AltGr) to Control, and a remap of CapsLock to Escape. CapsLock
+; functionality is retained via Shift + CapsLock.
 ; ------------------------------------------------------------------------------
 
-; Remap capslock
+; CapsLock to Escape
 Shift & CapsLock::CapsLock
-CapsLock::NumLock
+CapsLock::Esc
 
 ; Remap virtual desktop shortcuts
 #u::#Tab
@@ -25,9 +23,9 @@ CapsLock::NumLock
 ; AltGr to Control
 RAlt::Ctrl
 
-; Double shift to Escape
-LShift & RShift::Esc
-RShift & LShift::Esc
+; Double Shift to NumLock
+LShift & RShift::NumLock
+RShift & LShift::NumLock
 
 ; Extension layer entry
 #if GetKeyState("NumLock", "T")
@@ -40,11 +38,10 @@ RShift & LShift::Esc
     u::Home
     o::End
 	h::PgDn
-    p::PgUp
-    g::Escape
-	VKBA::Delete
-	t::XButton2 ; Mouse forward
-	'::XButton1 ; Mouse back
+    t::PgUp
+	VKBA::Delete ; VBKA = semicolon
+	g::XButton2 ; XButton2 = Mouse forward
+	'::XButton1 ; XButton1 = Mouse back
 
     ; Text editing
 	c::^c
@@ -58,7 +55,7 @@ RShift & LShift::Esc
     d::Ctrl
     f::Shift
 
-    ; Remap n and m to Alt-n, Alt-m for integration with editor shortcuts
+    ; n and m to Alt-n, Alt-m for integration with editor shortcuts
     n::!n
     m::!m
 
@@ -86,6 +83,7 @@ RShift & LShift::Esc
 
 	q::
 	y::
+    p::
     [::
 	]::
 

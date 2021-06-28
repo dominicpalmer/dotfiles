@@ -23,7 +23,7 @@ Work through this guide to get Bash prompt Powerline fonts installed: https://me
 
 ### Install
 
-Install gcc, gdb, make and other GNU utilities via:
+Install gcc, gdb, make and other GNU utilities:
 
 ```bash
 $ sudo apt update
@@ -31,7 +31,7 @@ $ sudo apt install build-essential
 $ sudo apt install gdb
 ```
 
-Install Clang, Clang-Tidy and Clang-Format via:
+Install Clang, Clang-Tidy and Clang-Format:
 
 ```bash
 $ sudo apt install clang
@@ -39,13 +39,13 @@ $ sudo apt install clang-tidy
 $ sudo apt install clang-format
 ```
 
-Install valgrind via:
+Install valgrind:
 
 ```bash
 $ sudo apt install valgrind
 ```
 
-To use valgrind, simply pass an executable along with any of valgrinds options:
+To use valgrind:
 
 ```bash
 $ valgrind --leak-check-full ./program
@@ -61,19 +61,19 @@ In the global VSCode **settings.json** or alternatively in each projects workspa
 
 If this setting is changed in the global **settings.json**, it will apply to every C/C++ project created in VSCode.
 
-For each new C/C++ project, create a **.vscode/c_cpp_properties.json** file to store project specific configuration details such `intellisenseMode`, `includePath`, `compilerPath`, `cppStandard`, etc. Make sure that each **.vscode/c_cpp_properties.json** file includes the default `includePath` defined in **settings.json** as one of the parameters. This way, the default path will now also be searched in addition to the project specific paths specified in **.vscode/c_cpp_properties.json**. Also make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers.
+For each new C/C++ project, create a **.vscode/c_cpp_properties.json** file to store project specific configuration details such as `intellisenseMode`, `includePath`, `compilerPath`, `cppStandard`. Make sure that each **.vscode/c_cpp_properties.json** file includes the default `includePath` defined in **settings.json** as one of the parameters. This way, the default path will now also be searched in addition to the project specific paths specified in **.vscode/c_cpp_properties.json**. Also make sure the **c_cpp_properties.json** settings match the specific tooling used for the project, in particular the intellisense mode, else VSCode may give misdirected warnings about missing headers.
 
-Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, MIMode, command line arguments, etc.
+Also create a **.vscode/launch.json** file to store launch configurations including the location of the executable, `MIMode`, command line arguments, etc.
 
 ### Intellisense
 
-It is important to note that **c_cpp_properties.json** only impacts _VSCode intellisense_ for the project in which it is included. So by setting a default C/C++ `includePath` in a local or global **settings.json**, and setting an `includePath` in the project specific **c_cpp_properties.json** that points to this default, all you are doing is making _intellisense in VSCode_ aware of the existence of these default headers for this specific project, thus providing intellisense functionality. If all `includePath` parameters in the VSCode config files are omitted, it is _VSCode_ that has no way to enforce intellisense. In such a case, VSCode would throw countless warnings about missing symbols, however compliation might still work. This is because most compilers perform their own predefined searches for headers during compilation.
+**c_cpp_properties.json** only impacts _VSCode intellisense_ for the project in which it is included. By setting a default C/C++ `includePath` in a local or global **settings.json**, and setting an `includePath` in the project specific **c_cpp_properties.json** that points to this default, all you are doing is making _intellisense in VSCode_ aware of the existence of these default headers for this specific project, thus providing intellisense functionality. If all `includePath` parameters in the VSCode config files are omitted, it is _VSCode_ that has no way to enforce intellisense. In such a case, VSCode would throw warnings about missing symbols, but compliation might still work. This is because most compilers perform their own predefined searches for headers during compilation.
 
-Hence the process of configuring the `includePath` in the VSCode config files is simply to align the VSCode intellisense search as closely as possible with the underlying compiler search, so intellisense mirrors what the compiler can do and intellisense warnings make sense. Note that there may be other paths that the compiler searches for but intellisense doesn't. So if intellisense says a header is missing and is throwing warnings, it might actually be available to the compiler, in which case compilation would succeed regardless.
+The process of configuring the `includePath` in VSCode is simply to align the VSCode intellisense search as closely as possible with the underlying compiler search, so intellisense mirrors what the compiler can do and intellisense warnings make sense. Note that there may be other paths that the compiler searches for but intellisense doesn't. So if intellisense says a header is missing and is throwing warnings, it might actually be available to the compiler, in which case compilation would succeed regardless.
 
 ### External libraries
 
-If you require any additional libraries installed elsewhere for specific projects (e.g. Boost), then to get _intellisense_ working you need to include the path to these libraries in **settings.json** or the projects **c_cpp_properties.json**. To get the _compiler_ to find these libraries, set up a **tasks.json** file with a relevant includePath to force the compiler to look for them when linking, or just use a makefile of some kind.
+If you require any additional libraries installed elsewhere for specific projects (e.g. Boost), then to get _intellisense_ working you need to include the path to these libraries in **settings.json** or the projects **c_cpp_properties.json**. To get the _compiler_ to find these libraries, set up a **tasks.json** file with a relevant includePath to force the compiler to look for them when linking, or just use a makefile or build system of some kind.
 
 ## <a id="python"></a> <img src="img/python.png" alt="python" width="20"/> <span style="font-size:larger;">System Python</span>
 
@@ -129,7 +129,7 @@ $ deactivate
 
 ### Tools
 
-Install pylint and flake8 static analysers via:
+Install pylint and flake8 static analysers:
 
 ```bash
 $ pip install pylint
@@ -165,13 +165,13 @@ To switch to Anaconda's base environment that uses it's own version of Python, r
 $ conda activate base
 ```
 
-Then to deactivate Anaconda and revert to using system Python, run:
+Then to deactivate Anaconda and revert to using system Python:
 
 ```bash
 $ conda deactivate
 ```
 
-Create additional Anaconda environments that optionally use a specific version of Python using:
+Create additional Anaconda environments that optionally use a specific version of Python via:
 
 ```bash
 $ conda create --name envName [python=<Python-version>]
@@ -195,26 +195,26 @@ $ conda update -n envName --all
 
 ### Install
 
-First install node version manager (nvm). Check https://github.com/nvm-sh/nvm/releases for the latest version, then install using:
+First install node version manager (nvm). Check https://github.com/nvm-sh/nvm/releases for the latest version, then install via:
 
 ```bash
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/<version>/install.sh | bash
 ```
 
-Restart bash. Check nvm has installed correctly, then install node via:
+Restart bash. Check nvm has installed correctly, then install node:
 
 ```bash
 $ nvm install node
 $ node --version
 ```
 
-You can install the latest LTS version of node alongside the one above above via:
+You can install the latest LTS version of node alongside the one above above:
 
 ```bash
 $ nvm install --lts
 ```
 
-Then change which version of node is active by running:
+Change which version of node is active by running:
 
 ```bash
 $ nvm use <version>
@@ -284,7 +284,7 @@ Install via:
 $ sudo apt install git-all
 ```
 
-Set username, email and default editor as follows:
+Set username, email, default editor, etc, either manually or through an imported config file:
 
 ```bash
 $ git config --global user.name "username"
@@ -292,13 +292,13 @@ $ git config --global user.email "email@email.com"
 $ git config --global core.editor code
 ```
 
-Then set autocrlf to `input`, to ensure CRLF's are converted to LF's during a push, and CRLF's are preserved during a pull.
+If appropriate, set autocrlf to `input` to ensure CRLF's are converted to LF's during a push, and CRLF's are preserved during a pull.
 
 ```bash
 $ git config --global core.autocrlf input
 ```
 
-To generate and use SSH and/or GPG keys, follow the steps in these guides:
+To generate and use SSH and/or GPG keys, work through these guides:
 
 https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh
 

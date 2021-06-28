@@ -21,7 +21,7 @@ Contents:
 
 ### Core settings
 
-When faced with a fresh Windows install, work through the following system changes:
+When faced with a fresh Windows install:
 
 1. Do a full sweep of every single control panel setting to configure UI, security, privacy, security etc.
 2. Clean up the taskbar. Remove Cortana, search, the notifications button, and use small icons
@@ -31,24 +31,25 @@ When faced with a fresh Windows install, work through the following system chang
 6. Add USERPROFILE and HOME local user environment variables with the value **C:\Users\\\<username>**, if they don't already exist
 7. Create a **C:\bin** folder add to it the aliasing CMD scripts found in this repo, used to open frequently used programs. Add the folder to `PATH`
 8. Force Outlook to instantly mark emails as read upon clicking by heading to Reading Pane settings and changing time to mark read as 0
+9. Install Rainmeter, then install and use the TaskbarX skin
 
 ### Software
 
 Install and configure useful software and add startup scripts to **C:\bin** where neccessary:
 
 - 7Zip
-- Windows Terminal (per instructions below)
+- Windows Terminal
 - sysinternals (place in **C:\bin** and add to `PATH`)
 - WireShark
 - Firefox (import useful bookmarks and configure addons/UI)
-- Python (per instructions below)
+- Python
 - Chocolatey
-- Node (per instructions below)
+- Node
 - AutoHotKey (set **qwerty-extend.ahk** to run at startup with admin rights via Task Scheduler)
 - Postman
 - Sourcetree
 - Visual Studio (per instructions in **./visual-studio/README.md**)
-- VSCode (import settings from the default gist, then create a new copy for the new machine)
+- VSCode
 
 Refresh on common Windows tooling aliases for quick startup via *Win+R*:
 
@@ -68,7 +69,7 @@ Refresh on common Windows tooling aliases for quick startup via *Win+R*:
 
 ## <a id="terminal"></a> <img src="../img/terminal.png" alt="terminal" width="23"/> <span style="font-size:larger;"> Windows Terminal </span>
 
-Install Windows Terminal from the Microsoft Store or elsewhere. Install posh-git and oh-my-posh via:
+Install Windows Terminal the Microsoft Store. Install posh-git and oh-my-posh:
 
 ```powershell
 > Install-Module posh-git -Scope CurrentUser
@@ -94,7 +95,7 @@ Now replace the default Windows Terminal Settings with **./terminal/settings.jso
 
 ### Install
 
-Enable WSL via powershell by running:
+Enable WSL:
 
 ```powershell
 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -113,13 +114,11 @@ This will output an error message. Follow the link in the error message and inst
 > wsl --set-default-version 2
 ```
 
-Go to the Microsoft Store (or otherwise) and install Ubuntu (or otherwise). Once done, both **Ubuntu.exe** and **wsl.exe** will now open bash. Update the fresh install via:
+Go to the Microsoft Store and install Ubuntu. Once done, both **Ubuntu.exe** and **wsl.exe** will now open bash. Update the fresh install:
 
 ```powershell
 > sudo apt-get update
 ```
-
-Then carry out a full Unix setup as specified above.
 
 ### Importing an existing WSL setup to a new system
 
@@ -143,7 +142,7 @@ Follow these steps:
 > wsl --unregister <new-install-name>
 ```
 
-While this removes the new distribution, the Ubuntu appx package is still installed. This can be verified by checking the start menu for the distribution icon
+While this removes the new distribution, the Ubuntu appx package is still installed. This can be verified by checking the start menu for the distribution icon.
 
 6. You can finally run the import to inject your customized distribution. Note in the command below that the folder for install must be the location of the original install mentioned in step 4. The distribution name likely needs to be the same too, e.g:
 
@@ -151,8 +150,8 @@ While this removes the new distribution, the Ubuntu appx package is still instal
 > wsl --import <distribution-name> C:\Users\\%USERPROFILE\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState TarFileLocation
 ```
 
-7. Run the distribution, and a console window should open and prompt a login. Verify your files are there.
-8. The last step is to configure the default user for the newly installed distribution, so the shell opens using the login details from your import. This can be done with the following command:
+7. Run the distribution, and a terminal window should open and prompt a login. Verify your files are there.
+8. The last step is to configure the default user for the newly installed distribution, so the shell opens using the login details from your import:
 
 ```powershell
 > <distribution-executable> config --default-user <username>
@@ -172,7 +171,7 @@ With MinGW installed and it's binaries added to `PATH`, VSCode can be used as a 
 
 ## <a id="python"></a> <img src="../img/python.png" alt="python" width="20"/> <span style="font-size:larger;"> System Python </span>
 
-Install the latest version of Python for Windows, found at https://www.python.org/downloads/windows/. When running the installer, opt to add Python to `PATH` and make sure Python intalls for the current user only (i.e to AppData). The installer will install Python, pip, IDLE and the py launcher.
+Install the latest version of Python for Windows found at https://www.python.org/downloads/windows/. When running the installer, opt to add Python to `PATH` and make sure Python intalls for the current user only (i.e, to AppData). The installer will install Python, pip, IDLE and the py launcher.
 
 The py launcher is a utility that can be used to locate and run a specific version of Python installed on the system. This is useful if multiple Python installations are present and need to be distinguished. For example, to invoke the latest version of Python 3.x simply run:
 
