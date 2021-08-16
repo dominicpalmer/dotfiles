@@ -1,1 +1,0 @@
-start %USERPROFILE%\AppData\Local\SourceTree\SourceTree.exe
