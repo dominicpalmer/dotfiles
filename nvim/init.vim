@@ -167,8 +167,8 @@ inoremap <C-d> <C-o>dW
 inoremap <C-w> <C-w><C-g>u
 
 " Delete the current word, then allow repeats forward (*) or backward (#)
-nnoremap d* /\<<C-r>=expand('<cword>')<CR>\>\C<CR>``dgn
-nnoremap d# ?\<<C-r>=expand('<cword>')<CR>\>\C<CR>``dgN
+nnoremap d* *``dgn
+nnoremap d# *``dgN
 
 " Y yanks cursor to EOL
 nnoremap Y y$
@@ -180,14 +180,14 @@ nnoremap c# #``cgN
 " Sensible redo
 nnoremap U <C-r>
 
-" In visual mode, prepend <leader> to paste without storing the overwriten text
-xnoremap <leader>p "_xP
+" In visual mode, always paste without storing the overwriten text
+xnoremap p "_xP
 
 " Better navigation between line start and line end
-nnoremap H ^
-nnoremap ^ H
-nnoremap L $
-nnoremap $ L
+noremap H ^
+noremap ^ H
+noremap L $
+noremap $ L
 
 " Copy with <C-c>
 vnoremap <C-c> y
@@ -215,9 +215,13 @@ inoremap <C-z> <C-o>u
 nnoremap <C-a> ggVG
 inoremap <C-a> <Esc>ggVG
 
-" Sensible write and close, with autodeletion of trailing whitespace
+" Write with <C-s>
+noremap <C-s> :w<CR>
+
+" Sensible write and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader><leader>q :q!<CR>
 
 " Maintain centered line focus when navigating search results
 nnoremap n nzzzv
@@ -232,7 +236,7 @@ inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
-" Additional jump point insertions for relative line jumping beyond 5 lines
+" Additional jump list insertions for relative line jumping beyond 5 lines
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
@@ -240,9 +244,19 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Better indentation
+nnoremap > mz>>'z
+nnoremap < mz<<'z
+vnoremap > >gv
+vnoremap < <gv
+
 " Indent recently pasted text
 nnoremap <leader>< V`]<
 nnoremap <leader>> V`]>
+
+" Navigate through the autocompletion list with <C-j> and <C-k>
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
 
 " Sensible window movement
 noremap <leader>h <C-w>h
@@ -250,8 +264,11 @@ noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 
+" Enter command mode
+nnoremap <silent> <leader>; :
+
 " FZF
-nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <leader>o :Files<CR>
 
 " Gitgutter
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
@@ -289,12 +306,12 @@ nnoremap <leader>u :UndotreeShow<CR>
 
 " CoC - use <Tab>/<S-Tab> for navigating suggestion list
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

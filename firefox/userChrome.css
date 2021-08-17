@@ -1,0 +1,51 @@
+/*
+ * Firefox configuration
+*/
+
+/* Bookmarks toolbar */
+#PersonalToolbar,
+#PersonalToolbar menuitem,
+#PersonalToolbar menu {
+  font-size: 11.5px !important;
+  max-height: 11px !important;
+  align-content: center !important;
+}
+
+#PersonalToolbar {
+  margin-bottom: 1px !important;
+}
+
+#personal-toolbar-empty-description,
+#PersonalToolbar .toolbarbutton-1,
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+    margin: 0px !important;
+}
+
+toolbarbutton.bookmark-item {
+    padding-top: 0 !important;
+    font-size: 11.5px !important;
+}
+
+toolbarseperator {
+    padding-bottom: 1px !important;
+}
+
+/* Search bar */
+#urlbar-container {
+    font-size: 13px !important;
+}
+
+/* Tabs and tab scrollbox */
+.tab-label {
+    font-size: 12px !important;
+}
+
+scrollbox {
+    --tab-min-height: 30px !important;
+}
+
+/* Move the titlebar buttons top right */
+.titlebar-button {
+    margin-right: -7px !important;
+    margin-top: -17px !important;
+}

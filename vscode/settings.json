@@ -1,0 +1,296 @@
+{
+  // Editor
+  "editor.fontFamily": "UbuntuMono Nerd Font",
+  "editor.fontSize": 16.5,
+
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.renderWhitespace": "none",
+  "editor.formatOnSave": false,
+
+  "editor.rulers": [80, 100, 120],
+  "editor.lineNumbers": "relative",
+  "editor.minimap.maxColumn": 75,
+  "editor.minimap.showSlider": "always",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+
+  "editor.codeLens": true,
+  "editor.tabCompletion": "on",
+  "editor.suggestSelection": "first",
+  "editor.quickSuggestionsDelay": 0,
+
+  // Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "explorer.incrementalNaming": "smart",
+  "explorer.openEditors.visible": 0,
+
+  // Workbench
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "workbench.commandPalette.history": 500,
+  "workbench.panel.defaultLocation": "right",
+  "workbench.settings.editor": "json",
+  "workbench.view.alwaysShowHeaderActions": true,
+  "workbench.tree.indent": 12,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.openPositioning": "last",
+
+  // Window
+  "window.menuBarVisibility": "toggle",
+  "window.titleSeparator": " | ",
+  "window.zoomLevel": -1,
+
+  // Search
+  "search.searchOnTypeDebouncePeriod": 0,
+  "search.smartCase": true,
+  "search.useGlobalIgnoreFiles": true,
+
+  // Terminal
+  "terminal.integrated.fontFamily": "UbuntuMono Nerd Font",
+  "terminal.integrated.fontSize": 17,
+  "terminal.integrated.fontWeight": "normal",
+
+  // No telemetry
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+
+  // No workspace trust prompts
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+
+  // Tasks
+  "typescript.tsc.autoDetect": "on",
+  "npm.autoDetect": "on",
+  "grunt.autoDetect": "on",
+  "gulp.autoDetect": "on",
+  "jake.autoDetect": "on",
+
+  // Make Zen mode slightly less Zen
+  "zenMode.silentNotifications": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideActivityBar": false,
+
+  // Files and characters
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.eol": "\n",
+
+  // Word wrap output logs
+  "[Log]": { "editor.wordWrap": "on" },
+
+  // No breadcrumb icons
+  "breadcrumbs.icons": false,
+
+  // Do not use Emmet snippets
+  "emmet.showExpandedAbbreviation": "never",
+
+  // JSON
+  "[json]": {
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
+  },
+  "json.format.enable": false,
+
+  // HTML
+  "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.suggest.html5": true,
+
+  // Markdown
+  "markdownlint.config": {
+    // Allow inline HTML
+    "MD033": false
+  },
+
+  // JavaScript
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true,
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "javascript.referencesCodeLens.enabled": true,
+  "eslint.validate": ["javascript", "typescript"],
+
+  // TypeScript
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true,
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+
+  // Python
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2
+  },
+  "python.pythonPath": "/usr/bin/python3",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.languageServer": "Pylance",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+
+  // C and C++
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2
+  },
+  "C_Cpp.default.includePath": [
+    "/usr/bin"
+  ],
+  "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+  "clang-tidy.executable": "clang-tidy-10",
+  "clang-tidy.compilerArgsBefore": [
+    "-xc++",
+    "-std=c++17"
+  ],
+
+  // Project Manager
+  "projectManager.git.baseFolders": [
+    "",
+    ""
+  ],
+
+  // Gitlens
+  "gitlens.statusBar.enabled": true,
+  "gitlens.statusBar.alignment": "left",
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.blame.heatmap.enabled": true,
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers",
+    "blocks"
+  ],
+  "gitlens.menus": {
+    "editorGroup": false,
+  },
+
+  // Visual Studio Intellicode
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // Trailing Spaces
+  "trailing-spaces.highlightCurrentLine": false,
+  "trailing-spaces.trimOnSave": true,
+
+  // YAML support
+  "redhat.telemetry.enabled": false,
+
+  // GlassIt - transparent background
+  "glassit.alpha": 240,
+
+  // Vim
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/bin/nvim",
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.config/nvim/vscode.vim",
+
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.easymotion": true,
+
+  // To get capslock working as escape
+  "keyboard.dispatch": "keyCode",
+
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Easymotion JumpToAnywhere
+    { "before": ["<leader>", "e"], "after": ["<leader>", "<leader>", "<leader>", "j"] },
+    // Handle tab key indentation in VSCode as terminals treat ctrl-i and tab the same
+    { "before": ["<tab>"], "after": [">", ">"] },
+    { "before": ["<S-tab>"], "after": ["<", "<"] },
+    // Use VSCode's undo stack over Vim's to maintain synchronicity
+    { "before": ["u"], "commands": ["undo"] },
+    { "before": ["<C-z>"], "commands": ["undo"] },
+    { "before": ["U"], "commands": ["redo"] },
+    { "before": ["<C-r>"], "commands": ["redo"] },
+    // Enter/shift+enter to add line breaks below/above the current line
+    { "before": ["<CR>"], "commands": ["editor.action.insertLineAfter"] },
+    { "before": ["<leader>", "<CR>"], "commands": ["editor.action.insertLineBefore"] },
+    // Toggle GitLens line blame
+    { "before": ["<leader>", "<leader>", "b"], "commands": ["gitlens.toggleLineBlame"] },
+    // Open the Git Graph
+    { "before": ["<leader>", "<leader>", "g"], "commands": ["git-graph.view"] },
+    // Find and replace
+    { "before": ["<leader>", "r"], "commands": ["editor.action.startFindReplaceAction"] },
+    // Open a new untitled file
+    { "before": ["<leader>", "n"], "commands": ["workbench.action.files.newUntitledFile"] },
+    // Open the fuzzy finder
+    { "before": ["<leader>", "o"], "commands": ["workbench.action.quickOpen"] },
+    // Open the command palette
+    { "before": ["<leader>", ";"], "commands": ["workbench.action.showCommands"] },
+    // Open the tasks menu
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.tasks.runTask"] },
+    // Pin the focused file
+    { "before": ["<leader>", "i"], "commands": ["workbench.action.pinEditor"] },
+    { "before": ["<leader>", "u"], "commands": ["workbench.action.unpinEditor"] },
+    // Toggle the sidebar
+    { "before": ["<leader>", "s"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+    // Toggle the panel
+    { "before": ["<leader>", "d"], "commands": ["workbench.action.togglePanel"] },
+    // Shift to a tab by index with <leader>. If the current tab is not an editor, use ctrl
+    { "before": ["<leader>", "1"], "commands": ["workbench.action.openEditorAtIndex1"] },
+    { "before": ["<leader>", "2"], "commands": ["workbench.action.openEditorAtIndex2"] },
+    { "before": ["<leader>", "3"], "commands": ["workbench.action.openEditorAtIndex3"] },
+    { "before": ["<leader>", "4"], "commands": ["workbench.action.openEditorAtIndex4"] },
+    { "before": ["<leader>", "5"], "commands": ["workbench.action.openEditorAtIndex5"] },
+    { "before": ["<leader>", "6"], "commands": ["workbench.action.openEditorAtIndex6"] },
+    { "before": ["<leader>", "7"], "commands": ["workbench.action.openEditorAtIndex7"] },
+    { "before": ["<leader>", "8"], "commands": ["workbench.action.openEditorAtIndex8"] },
+    { "before": ["<leader>", "9"], "commands": ["workbench.action.openEditorAtIndex9"] },
+    // Editor splits
+    { "before": ["<leader>", "v"], "commands": ["workbench.action.splitEditor"] },
+    { "before": ["<leader>", "c"], "commands": ["workbench.action.splitEditorOrthogonal"] },
+    // Editor focus
+    { "before": ["<leader>", "h"], "commands": ["workbench.action.navigateLeft"] },
+    { "before": ["<leader>", "j"], "commands": ["workbench.action.navigateDown"] },
+    { "before": ["<leader>", "k"], "commands": ["workbench.action.navigateUp"] },
+    { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Easymotion JumpToAnywhere
+    { "before": ["<leader>", "e"], "after": ["<leader>", "<leader>", "<leader>", "j"] },
+    // Visual mode indentation
+    { "before": ["<tab>"], "after": [">", "g", "v"] },
+    { "before": ["<S-tab>"], "after": ["<", "g", "v"] },
+    { "before": ["u"], "after": ["<Esc>", "u"] },
+    // Enter in visual mode cuts the selection to the clipboard
+    { "before": ["<CR>"], "after": ["d"] },
+    // Paste over without storing the deleted content with ctrl+v
+    { "before": ["<C-v>"], "commands": ["editor.action.clipboardPasteAction"] },
+    // Line shifting is better handled by VSCode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    // Find and replace
+    { "before": ["<leader>", "r"], "commands": ["editor.action.startFindReplaceAction"] },
+  ],
+
+  // Settings Sync
+  "sync.gist": "",
+  "workbench.colorTheme": "Light+ Pro"
+}

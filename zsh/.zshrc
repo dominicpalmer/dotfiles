@@ -11,6 +11,7 @@ alias arc="vim ~/.config/alacritty/alacritty.yml"
 alias trc="vim ~/.tmux.conf"
 alias zrc="vim ~/.zshrc"
 alias vrc="vim ~/.config/nvim/init.vim"
+alias crc="vim ~/.config/nvim/vscode.vim"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
