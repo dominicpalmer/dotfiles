@@ -1,8 +1,12 @@
 # dotfiles
 
-Welcome. This is my personal config. It is updated in somewhat regular intervals.
+Welcome. This is my personal configuration.
 
-Alongside configuration, this repo is home to anything I deem moderately useful enough to be easily accessible on new machines. That includes notes applicable to installation and use of software, system settings for Unix and Windows environments, plus custom keyboard layouts and extension layer implementations.
+This repo is home to anything I deem moderately useful enough to be easily accessible on new machines. That includes dotfiles for Alacritty, Tmux, Zsh, Neovim, VSCode and Firefox, plus a couple of my favorite fonts. To install:
+
+```bash
+cd && git clone https://github.com/dominicpalmer/dotfiles.git && ./install.sh
+```
 
 <p align="center">
     <img align="center" src="img/xkcd.png" alt="drawing" width="300" />

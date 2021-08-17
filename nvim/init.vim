@@ -10,7 +10,7 @@ set shiftwidth=4
 " Apply the current line indentation to the next
 set autoindent
 
-" React to the React style React the React file
+" Allow indentation to react to the syntax and style of the text in the buffer
 set smartindent
 
 " Source additional configuration from opened directories, if available

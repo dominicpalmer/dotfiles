@@ -205,7 +205,7 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/bin/nvim",
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "~/.config/nvim/vscode.vim",
+  "vim.vimrc.path": "~/dotfiles/vscode/vscode.vim",
 
   "vim.cursorStylePerMode.insert": "line",
   "vim.useSystemClipboard": true,
