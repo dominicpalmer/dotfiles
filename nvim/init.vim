@@ -146,6 +146,40 @@ augroup END
 
 let mapleader = " "
 
+" Yank (take), paste (resolve), replace (place) and till (yet)
+noremap t y
+noremap T y$
+noremap y t
+noremap Y T
+nnoremap r p
+xnoremap r "_xP
+noremap R P
+noremap p r
+noremap P R
+
+" Home row navigation between line start and line end
+noremap H ^
+noremap ^ H
+noremap L $
+noremap $ L
+
+" Home row navigation between paragraphs
+noremap J }
+noremap K {
+
+" Page up, page down
+noremap { <C-f>
+noremap } <C-b>
+
+" Replace J (join) with M (merge)
+noremap M J
+
+" Bracket matching
+noremap Q %
+
+" Search for the word under the cursor
+noremap ! *
+
 " Re source init.vim with <leader>r
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
@@ -170,24 +204,12 @@ inoremap <C-w> <C-w><C-g>u
 nnoremap d* *``dgn
 nnoremap d# *``dgN
 
-" Y yanks cursor to EOL
-nnoremap Y y$
-
 " Change the current word, then allow repeats forward (*) or backward (#)
 nnoremap c* *``cgn
 nnoremap c# #``cgN
 
 " Sensible redo
 nnoremap U <C-r>
-
-" In visual mode, always paste without storing the overwriten text
-xnoremap p "_xP
-
-" Better navigation between line start and line end
-noremap H ^
-noremap ^ H
-noremap L $
-noremap $ L
 
 " Copy with <C-c>
 vnoremap <C-c> y
@@ -206,6 +228,15 @@ inoremap <C-v> <C-o>gp
 
 " Regain visual block mode with <C-q>
 noremap <C-q> <C-v>
+
+" Delete line content
+nnoremap X 0D
+
+" Delete selection content
+vnoremap <CR> d
+
+" Regain normal mode backspace
+nnoremap <BS> X
 
 " Undo with <C-z>
 noremap <C-z> u
@@ -228,7 +259,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Maintain cursor position when joining lines
-nnoremap J mzJ'z
+nnoremap M mzJ'z
 
 " Additional undo break points
 inoremap , ,<C-g>u
@@ -241,8 +272,8 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " Line and block shifting
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap - :m '>+1<CR>gv=gv
+vnoremap = :m '<-2<CR>gv=gv
 
 " Better indentation
 nnoremap > mz>>'z

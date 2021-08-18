@@ -7,11 +7,11 @@ alias ..="cd .."
 alias .2="cd ..; cd .."
 alias .3="cd ..; cd ..; cd .."
 
-alias arc="vim ~/.config/alacritty/alacritty.yml"
-alias trc="vim ~/.tmux.conf"
-alias zrc="vim ~/.zshrc"
-alias vrc="vim ~/.config/nvim/init.vim"
-alias crc="vim ~/.config/nvim/vscode.vim"
+alias arc="vim $HOME/.config/alacritty/alacritty.yml"
+alias trc="vim $HOME/.tmux.conf"
+alias zrc="vim $HOME/.zshrc"
+alias vrc="vim $HOME/.config/nvim/init.vim"
+alias crc="vim $HOME/dotfiles/vscode/vscode.vim"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

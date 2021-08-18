@@ -30,4 +30,4 @@ if [ -f "$FIREFOX" ]; then
 fi
 ln -s $DOTFILES/firefox/userChrome.css $FIREFOX
 
-mv $DOTFILES/fonts/*.ttf $HOME/.local/share/fonts
+cp $DOTFILES/fonts/*.ttf $HOME/.local/share/fonts

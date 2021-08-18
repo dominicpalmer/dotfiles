@@ -2,31 +2,42 @@
 " and .vim configuration files. Only remaps are currently supported, so this
 " file is an additional Vim mapping layer over the default vscodevim bindings
 
-" x to delete into the 0 register. Used for deleting inbetween copy and paste
-noremap x "0x
+" Yank (take), paste (resolve), replace (place) and till (yet)
+noremap t y
+noremap T y$
+noremap y t
+noremap Y T
+nnoremap r p
+xnoremap r "_xP
+noremap R P
+noremap p r
+noremap P R
 
-" Delete forward by words in insert mode
-inoremap <C-d> <C-o>dW
-
-" Delete the current word, then allow repeats forward (*) or backward (#)
-nnoremap d* *``dgn
-nnoremap d# #``dgN
-
-" Y yanks cursor to EOL
-nnoremap Y y$
-
-" Change the current word, then allow repeats forward (*) or backward (#)
-nnoremap c* *``cgn
-nnoremap c# #``cgN
-
-" In visual mode, always paste without storing the overwriten text
-xnoremap p "_xP
-
-" Better navigation between line start and line end
+" Home row navigation between line start and line end
 noremap H ^
 noremap ^ H
 noremap L $
 noremap $ L
+
+" Home row navigation between paragraphs
+noremap J }
+noremap K {
+
+" Page up, page down
+noremap { <C-f>
+noremap } <C-b>
+
+" Replace J (join) with M (merge)
+noremap M J
+
+" Bracket matching
+noremap Q %
+
+" Search for the word under the cursor
+noremap ! *
+
+" x to delete into the 0 register. Used for deleting inbetween copy and paste
+noremap x "0x
 
 " Copy with <C-c>
 vnoremap <C-c> y
@@ -46,6 +57,26 @@ inoremap <C-v> <C-o>gp
 " Regain visual block mode with <C-q>
 noremap <C-q> <C-v>
 
+" Delete line content
+nnoremap X 0D
+
+" Delete selection content
+vnoremap <CR> d
+
+" Regain normal mode backspace
+nnoremap <BS> X
+
+" Delete forward by words in insert mode
+inoremap <C-d> <C-o>dW
+
+" Delete the current word, then allow repeats forward (*) or backward (#)
+nnoremap d* *``dgn
+nnoremap d# #``dgN
+
+" Change the current word, then allow repeats forward (*) or backward (#)
+nnoremap c* *``cgn
+nnoremap c# #``cgN
+
 " Select all with <C-a>
 nnoremap <C-a> ggVG
 inoremap <C-a> <Esc>ggVG
@@ -63,7 +94,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Maintain cursor position when joining lines
-nnoremap J mzJ'z
+nnoremap M mzJ'z
 
 " Better indentation
 nnoremap > mz>>'z
@@ -77,3 +108,6 @@ inoremap <C-k> <C-p>
 
 " Turn off search higlighting
 nnoremap <leader>/ :nohl<CR>
+
+" EasyMotion jump to anywhere
+noremap <leader>e <leader><leader><leader>j

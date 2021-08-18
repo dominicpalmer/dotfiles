@@ -199,7 +199,7 @@
   "redhat.telemetry.enabled": false,
 
   // GlassIt - transparent background
-  "glassit.alpha": 240,
+  "glassit.alpha": 246,
 
   // Vim
   "vim.enableNeovim": true,
@@ -219,8 +219,6 @@
 
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Easymotion JumpToAnywhere
-    { "before": ["<leader>", "e"], "after": ["<leader>", "<leader>", "<leader>", "j"] },
     // Handle tab key indentation in VSCode as terminals treat ctrl-i and tab the same
     { "before": ["<tab>"], "after": [">", ">"] },
     { "before": ["<S-tab>"], "after": ["<", "<"] },
@@ -273,24 +271,20 @@
     { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    // Easymotion JumpToAnywhere
-    { "before": ["<leader>", "e"], "after": ["<leader>", "<leader>", "<leader>", "j"] },
     // Visual mode indentation
     { "before": ["<tab>"], "after": [">", "g", "v"] },
     { "before": ["<S-tab>"], "after": ["<", "g", "v"] },
     { "before": ["u"], "after": ["<Esc>", "u"] },
-    // Enter in visual mode cuts the selection to the clipboard
-    { "before": ["<CR>"], "after": ["d"] },
     // Paste over without storing the deleted content with ctrl+v
     { "before": ["<C-v>"], "commands": ["editor.action.clipboardPasteAction"] },
     // Line shifting is better handled by VSCode
-    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
-    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    { "before": ["-"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["="], "commands": ["editor.action.moveLinesUpAction"] },
     // Find and replace
     { "before": ["<leader>", "r"], "commands": ["editor.action.startFindReplaceAction"] },
   ],
 
   // Settings Sync
   "sync.gist": "",
-  "workbench.colorTheme": "Light+ Pro"
+  "workbench.colorTheme": "Default Light+"
 }
