@@ -34,10 +34,6 @@ ZSH_THEME="muse"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Map AltGr to Control
-# To undo: xmodmap -e 'keycode 108 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift'
-xmodmap -e 'keycode 108 = Control_R' && xmodmap -e 'add Control = Control_R'
-
 # Uncomment the following line to use case-sensitive completion.
 #CASE_SENSITIVE="true"
 

@@ -20,6 +20,7 @@
   "editor.tabCompletion": "on",
   "editor.suggestSelection": "first",
   "editor.quickSuggestionsDelay": 0,
+  "editor.acceptSuggestionOnEnter": "off",
 
   // Explorer
   "explorer.confirmDragAndDrop": false,

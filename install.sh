@@ -30,4 +30,10 @@ if [ -f "$FIREFOX" ]; then
 fi
 ln -s $DOTFILES/firefox/userChrome.css $FIREFOX
 
+STARTUP=$HOME/.config/autostart/startup.sh
+if [ -f "$STARTUP" ]; then
+  rm $STARTUP
+fi
+ln -s $DOTFILES/keyboard/startup.sh $STARTUP
+
 cp $DOTFILES/fonts/*.ttf $HOME/.local/share/fonts
