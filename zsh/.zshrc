@@ -10,8 +10,15 @@ alias .3="cd ..; cd ..; cd .."
 alias arc="vim $HOME/.config/alacritty/alacritty.yml"
 alias trc="vim $HOME/.tmux.conf"
 alias zrc="vim $HOME/.zshrc"
-alias vrc="vim $HOME/.config/nvim/init.vim"
-alias crc="vim $HOME/dotfiles/vscode/vscode.vim"
+
+alias nirc="vim $HOME/.config/nvim/init.vim"
+alias nsrc="vim $HOME/.config/nvim/sets.vim"
+alias nnrc="vim $HOME/.config/nvim/remaps_nvim.vim"
+alias ncrc="vim $HOME/.config/nvim/remaps_common.vim"
+alias nprc="vim $HOME/.config/nvim/plugins.vim"
+alias ngrc="vim $HOME/.config/nvim/general.vim"
+
+alias todo="vim $HOME/root/notes/todo.txt"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -21,6 +28,13 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # FZF base installation directory
 export FZF_BASE="$HOME/.fzf"
+
+# Source and configure FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--border --tabstop=4"
+
+# Source nvm
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,18 +149,3 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Source and configure FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--border --tabstop=4"
-
-# Source nvm
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh

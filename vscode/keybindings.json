@@ -1,20 +1,27 @@
 [
-  // Vim navigation for menus (quick open, command palette, tasks, etc.)
+  // Vim menu navigation (quick open, command palette, tasks, autocompletion)
   { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext" },
   { "key": "ctrl+k", "command": "workbench.action.quickOpenSelectPrevious" },
+  { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+  { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
 
-  // Shift to tabs by index with ctrl as a backup for when <leader> can't be used
-  { "key": "ctrl+1", "command": "workbench.action.openEditorAtIndex1" },
-  { "key": "ctrl+2", "command": "workbench.action.openEditorAtIndex2" },
-  { "key": "ctrl+3", "command": "workbench.action.openEditorAtIndex3" },
-  { "key": "ctrl+4", "command": "workbench.action.openEditorAtIndex4" },
-  { "key": "ctrl+5", "command": "workbench.action.openEditorAtIndex5" },
-  { "key": "ctrl+6", "command": "workbench.action.openEditorAtIndex6" },
-  { "key": "ctrl+7", "command": "workbench.action.openEditorAtIndex7" },
-  { "key": "ctrl+8", "command": "workbench.action.openEditorAtIndex8" },
-  { "key": "ctrl+9", "command": "workbench.action.openEditorAtIndex9" },
+  // ctrl based menu shortcuts for when <leader> isn't available
+  { "key": "ctrl+o", "command": "workbench.action.quickOpen", "when": "!editorIsOpen" },
+  { "key": "ctrl+;", "command": "workbench.action.showCommands", "when": "!editorIsOpen" },
+  { "key": "ctrl+f", "command": "workbench.action.tasks.runTask", "when": "!editorIsOpen" },
 
-  // Move focus to editor from the sidebar and panel using ctrl
+  // Shift to tabs by index with ctrl, as a backup for <leader>
+  { "key": "ctrl+1", "command": "workbench.action.openEditorAtIndex1", "when": "!editorIsOpen" },
+  { "key": "ctrl+2", "command": "workbench.action.openEditorAtIndex2", "when": "!editorIsOpen" },
+  { "key": "ctrl+3", "command": "workbench.action.openEditorAtIndex3", "when": "!editorIsOpen" },
+  { "key": "ctrl+4", "command": "workbench.action.openEditorAtIndex4", "when": "!editorIsOpen" },
+  { "key": "ctrl+5", "command": "workbench.action.openEditorAtIndex5", "when": "!editorIsOpen" },
+  { "key": "ctrl+6", "command": "workbench.action.openEditorAtIndex6", "when": "!editorIsOpen" },
+  { "key": "ctrl+7", "command": "workbench.action.openEditorAtIndex7", "when": "!editorIsOpen" },
+  { "key": "ctrl+8", "command": "workbench.action.openEditorAtIndex8", "when": "!editorIsOpen" },
+  { "key": "ctrl+9", "command": "workbench.action.openEditorAtIndex9", "when": "!editorIsOpen" },
+
+  // Shift panel focus with ctrl, as backup for <leader>
   { "key": "ctrl+l", "command": "workbench.action.focusActiveEditorGroup", "when": "sideBarFocus" },
   { "key": "ctrl+h", "command": "workbench.action.focusActiveEditorGroup", "when": "editorIsOpen || terminalFocus" },
 
@@ -24,5 +31,5 @@
   // Use ctrl+q in place of ctrl+w as a backup for <leader>q, with ctrl+shift+q to close VSCode entirely
   { "key": "ctrl+q", "command": "workbench.action.closeActiveEditor" },
   { "key": "ctrl+q", "command": "-workbench.action.quit" },
-  { "key": "ctrl+shift+q", "command": "workbench.action.quit" },
+  { "key": "ctrl+shift+q", "command": "workbench.action.quit" }
 ]
