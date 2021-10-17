@@ -18,9 +18,6 @@ highlight VertSplit guibg=None ctermbg=None
 " No parentheses match highlighting
 let loaded_matchparen = 1
 
-" Get node working with CoC
-let g:coc_node_path = '/home/dom/.nvm/versions/node/v14.17.4/bin/node'
-
 " Delete trailing whitespace on save
 fun! TrimWhitespace()
     let l:save = winsaveview()

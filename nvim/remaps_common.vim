@@ -38,7 +38,7 @@ noremap Q %
 noremap x "0x
 
 " Clear line content
-nnoremap X 0D
+nnoremap X "00D
 
 " Delete selection content
 vnoremap <CR> d

@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+
 " Fuzzy finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -16,13 +17,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 
 " File tree
-Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Status line
-" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
@@ -35,7 +32,6 @@ Plug 'dstein64/nvim-scrollview'
 
 " Styling
 Plug 'gruvbox-community/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 
 " Comments
 Plug 'tpope/vim-commentary'
@@ -74,7 +70,7 @@ let g:lightline = {
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'gitbranch#name'
+    \   'gitbranch': 'gitbranch#name',
     \ },
     \ 'enable': {
     \   'tabline': 0
@@ -85,43 +81,39 @@ let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
 
-" " Start NERDTree. If a file is specified, move the cursor to its window
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in")
-"     \ | wincmd p | endif | call lightline#update()
+" NERDTree - if a file is specified at startup, move the cursor to its window
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in")
+    \ | wincmd p | endif | call lightline#update()
 
-" " Close the tab if NERDTree is the only window remaining in it
-" autocmd BufEnter * if winnr('$') == 1
-"     \ && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" NERDTree - close the tab if NERDTree is the only window remaining
+autocmd BufEnter * if winnr('$') == 1
+    \ && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" " If another buffer tries to replace NERDTree, put it in the other window
-" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+'
-"     \ && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1
-"     \ | let buf=bufnr() | buffer# | execute "normal! \<C-W>w"
-"     \ | execute 'buffer'.buf | endif
+" NERDTree - Don't allow buffers to replace the file tree
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+'
+    \ && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1
+    \ | let buf=bufnr() | buffer# | execute "normal! \<C-W>w"
+    \ | execute 'buffer'.buf | endif
 
-" " Open the existing NERDTree on each new tab
-" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" NERDTree - open the existing NERDTree on each new tab
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" " Toggle NERDTree
-" nnoremap <silent> <leader>s :NERDTreeToggle <Bar> if &filetype ==# 'nerdtree'
-"     \ <Bar> wincmd p <Bar> endif<CR>
+" Toggle NERDTree
+nnoremap <silent> <leader>s :NERDTreeToggle <Bar> if &filetype ==# 'nerdtree'
+    \ <Bar> wincmd p <Bar> endif<CR>
 
-" " Remove the NERDTree help menu
-" let NERDTreeMinimalUI=1
+" Remove the NERDTree help menu
+let NERDTreeMinimalUI=1
 
-" " Open NERDTree directories with a single click
-" let NERDTreeMouseMode=2
-
-" nvim-tree
-let g:nvim_tree_auto_open = 1
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_highlight_opened_files = 1
-noremap <silent> <leader>s :NvimTreeToggle<CR>
+" Open NERDTree directories with a single click
+let NERDTreeMouseMode=2
 
 " Undotree
 nnoremap <leader>u :UndotreeShow<CR>
+
+" CoC - set the node path
+let g:coc_node_path = '/home/dom/.nvm/versions/node/v16.9.1/bin/node'
 
 " CoC - use <Tab>/<S-Tab> for navigating suggestion list
 function! s:check_back_space() abort

@@ -94,8 +94,10 @@ set noshowmode
 set splitbelow
 set splitright
 
-" Remove the pipe split separators
+" Better split separators
 set fillchars+=vert:\ |
+set fillchars+=stlnc:_
+set fillchars+=stl:_
 
 " Remove trailing tildes in buffers
 set fillchars+=eob:\ |

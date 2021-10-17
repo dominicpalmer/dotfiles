@@ -21,22 +21,22 @@ if [ -f "$TMUX" ]; then
 fi
 ln -s $DOTFILES/tmux/.tmux.conf $TMUX
 
-# Neovim: Lua based configuration
+# Neovim: Vimscript configuration
 NVIM=$HOME/.config/nvim
 if [ -d $NVIM ]; then
   rm -r $NVIM
 fi
 ln -s $DOTFILES/nvim $NVIM
 
-# Neovim: Vimscript based configuration
-NVIM_VIMSCRIPT=$HOME/.config/nvim_vimscript
-if [ -d $NVIM_VIMSCRIPT ]; then
-  rm -r $NVIM_VIMSCRIPT
+# Neovim: Lua configuration as an alternative
+NVIM_LUA=$HOME/.config/nvim_lua
+if [ -d $NVIM_LUA ]; then
+  rm -r $NVIM_LUA
 fi
-ln -s $DOTFILES/nvim_vimscript $NVIM_VIMSCRIPT
+ln -s $DOTFILES/nvim_lua $NVIM_LUA
 
 # xmodmaps
-STARTUP=$HOME/.config/autostart/xmodmaps.sh
+STARTUP=$HOME/.config/autostart-scripts/xmodmaps.sh
 if [ -f "$STARTUP" ]; then
   rm $STARTUP
 fi

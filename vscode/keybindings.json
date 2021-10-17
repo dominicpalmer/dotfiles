@@ -31,5 +31,8 @@
   // Use ctrl+q in place of ctrl+w as a backup for <leader>q, with ctrl+shift+q to close VSCode entirely
   { "key": "ctrl+q", "command": "workbench.action.closeActiveEditor" },
   { "key": "ctrl+q", "command": "-workbench.action.quit" },
-  { "key": "ctrl+shift+q", "command": "workbench.action.quit" }
+  { "key": "ctrl+shift+q", "command": "workbench.action.quit" },
+
+  // Workaround for the fact that you can't remap <C-z> directly through VSCodeVim settings
+  { "key": "ctrl+z", "command": "vim.remap", "when": "inputFocus && vim.mode == 'Normal'", "args": { "after": ["u"] } }
 ]
