@@ -43,7 +43,7 @@
   // Window
   "window.menuBarVisibility": "toggle",
   "window.titleSeparator": " | ",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": -0.55,
 
   // Search
   "search.searchOnTypeDebouncePeriod": 0,
@@ -84,7 +84,7 @@
   // No breadcrumb icons
   "breadcrumbs.icons": false,
 
-  // Do not use Emmet snippets
+  // No Emmet snippets
   "emmet.showExpandedAbbreviation": "never",
 
   // JSON
@@ -146,9 +146,7 @@
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
   "python.languageServer": "Pylance",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
+  "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
 
   // C and C++
   "[cpp]": {
@@ -156,9 +154,7 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2
   },
-  "C_Cpp.default.includePath": [
-    "/usr/bin"
-  ],
+  "C_Cpp.default.includePath": [ "/usr/bin" ],
   "C_Cpp.clang_format_path": "/usr/bin/clang-format",
   "clang-tidy.executable": "clang-tidy-10",
   "clang-tidy.compilerArgsBefore": [
@@ -167,10 +163,7 @@
   ],
 
   // Project Manager
-  "projectManager.git.baseFolders": [
-    "",
-    ""
-  ],
+  "projectManager.git.baseFolders": [],
 
   // Gitlens
   "gitlens.statusBar.enabled": true,
@@ -213,15 +206,16 @@
   "vim.camelCaseMotion.enable": true,
   "vim.easymotion": true,
 
-  // To get capslock working as escape
+  // To get capslock working as escape on UNIX machines
   "keyboard.dispatch": "keyCode",
 
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Handle tab key indentation in VSCode as terminals treat ctrl-i and tab the same
-    { "before": ["<tab>"], "after": [">", ">"] },
-    { "before": ["<S-tab>"], "after": ["<", "<"] },
-    // Use VSCodeVim's undo stack
+    // Goto definition, implementation, references
+    { "before": ["g", "o"], "commands": ["editor.action.revealDefinition"] },
+    { "before": ["g", "i"], "commands": ["editor.action.goToImplementation"] },
+    { "before": ["g", "d"], "commands": ["editor.action.goToReferences"] },
+    // Use VSCodeVim's undo stack. <C-z> is implemented in keybindings.json
     { "before": ["U"], "after": ["<C-r>"] },
     { "before": ["<C-y>"], "after": ["<C-r>"] },
     // EasyMotion
@@ -243,14 +237,14 @@
     // Open the command palette
     { "before": ["<leader>", ";"], "commands": ["workbench.action.showCommands"] },
     // Open the tasks menu
-    { "before": ["<leader>", "f"], "commands": ["workbench.action.tasks.runTask"] },
+    { "before": ["<leader>", "s"], "commands": ["workbench.action.tasks.runTask"] },
     // Pin the focused file
     { "before": ["<leader>", "p"], "commands": ["workbench.action.pinEditor"] },
     { "before": ["<leader>", "u"], "commands": ["workbench.action.unpinEditor"] },
     // Toggle the sidebar
-    { "before": ["<leader>", "s"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+    { "before": ["<leader>", "d"], "commands": ["workbench.action.toggleSidebarVisibility"] },
     // Toggle the panel
-    { "before": ["<leader>", "d"], "commands": ["workbench.action.togglePanel"] },
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.togglePanel"] },
     // Shift to a tab by index with <leader>. If the current tab is not an editor, use ctrl
     { "before": ["<leader>", "1"], "commands": ["workbench.action.openEditorAtIndex1"] },
     { "before": ["<leader>", "2"], "commands": ["workbench.action.openEditorAtIndex2"] },
@@ -275,9 +269,7 @@
     { "before": ["<leader>", "g"], "commands": ["git-graph.view"] }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    // Visual mode indentation
-    { "before": ["<tab>"], "after": [">", "g", "v"] },
-    { "before": ["<S-tab>"], "after": ["<", "g", "v"] },
+    // Leave visual mode
     { "before": ["u"], "after": ["<Esc>", "u"] },
     // EasyMotion
     { "before": ["<leader>", "e"], "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"] },
@@ -294,5 +286,7 @@
 
   // Settings Sync
   "sync.gist": "",
-  "workbench.colorTheme": "Light++"
+
+  // Theme
+  "workbench.colorTheme": "Solarized Light"
 }

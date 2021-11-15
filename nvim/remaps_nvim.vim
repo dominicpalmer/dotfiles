@@ -47,9 +47,6 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 vnoremap ) :m '>+1<CR>gv=gv
 vnoremap ( :m '<-2<CR>gv=gv
 
-" Turn off search highlighting
-nnoremap <Esc> :nohl<CR>
-
 " Command mode
 nnoremap <silent> <leader>; :
 

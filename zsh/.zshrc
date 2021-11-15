@@ -18,8 +18,6 @@ alias ncrc="vim $HOME/.config/nvim/remaps_common.vim"
 alias nprc="vim $HOME/.config/nvim/plugins.vim"
 alias ngrc="vim $HOME/.config/nvim/general.vim"
 
-alias todo="vim $HOME/root/notes/todo.txt"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

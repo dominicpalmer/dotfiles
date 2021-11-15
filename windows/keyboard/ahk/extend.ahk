@@ -1,33 +1,12 @@
-﻿; -------------------- QWERTY-Extend: Capslock Extend Layer --------------------
-; ------------------------------ Dominic Palmer --------------------------------
-; ------------------------------------------------------------------------------
+﻿; ------------------------------------------------------------------------------
 ; This script extends the stock QWERTY layout using an extension layer accessed
 ; via double shift.
-;
-; Also included are remaps for Windows virtual desktop shortcuts, a remap for
-; right Alt (AltGr) to Control, and a remap of CapsLock to Escape. CapsLock
-; functionality is retained via Shift + CapsLock.
 ; ------------------------------------------------------------------------------
-
-; CapsLock to Escape
-Shift & CapsLock::CapsLock
-CapsLock::Esc
-
-; Remap virtual desktop shortcuts
-#u::#Tab
-#o::^#d
-#n::^#Left
-#m::^#Right
-#i::^#F4
-
-; AltGr to Control
-RAlt::Ctrl
 
 ; Double Shift to NumLock
 LShift & RShift::NumLock
 RShift & LShift::NumLock
 
-; Extension layer entry
 #if GetKeyState("NumLock", "T")
 {
     ; Navigation

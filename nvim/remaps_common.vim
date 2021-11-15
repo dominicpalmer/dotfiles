@@ -76,8 +76,11 @@ inoremap <C-a> <Esc>ggVG
 " Write with <C-s>
 noremap <C-s> :w<CR>
 
-" Regain visual block mode with <C-q>
-noremap <C-q> <C-v>
+" Regain visual block mode with S
+noremap S <C-v>
+
+" Turn off search highlighting
+nnoremap <Esc> :nohl<CR>
 
 " Repeat word deletion forwards or backwards
 nnoremap d* *``dgn
