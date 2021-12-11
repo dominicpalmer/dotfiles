@@ -60,9 +60,6 @@ noremap <leader>l <C-w>l
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :split<CR>
 
-" Faster quit all
-nnoremap <leader><leader>q :qa<CR>
-
 " Wildmenu navigation
 set wildcharm=<C-r>
 cnoremap <expr> <C-h> wildmenumode() ? "\<up>" : "\<left>"

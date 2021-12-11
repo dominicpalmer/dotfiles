@@ -46,6 +46,9 @@ vnoremap <CR> d
 " Regain normal mode backspace
 nnoremap <BS> X
 
+" Better delete line
+nnoremap dl dd
+
 " Better indentation
 nnoremap > mz>>'z
 vnoremap > >gv
@@ -93,6 +96,7 @@ nnoremap c# #``cgN
 " Sensible write and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader><leader>q :q!<CR>
 
 " Navigate through the autocompletion list with <C-j> and <C-k>
 inoremap <C-j> <C-n>
