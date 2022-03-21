@@ -2,50 +2,52 @@
  * Firefox configuration
 */
 
-/* Bookmarks toolbar */
+/* Top level bookmark folders and bookmarks */
+toolbarbutton.bookmark-item {
+    padding-top: 0 !important;
+    font-size: 13px !important;
+}
+
+/* Nested bookmark folders */
 #PersonalToolbar,
-#PersonalToolbar menuitem,
 #PersonalToolbar menu {
-  font-size: 11.5px !important;
-  max-height: 11px !important;
+  font-size: 13px !important;
   align-content: center !important;
 }
 
-#PersonalToolbar {
-  margin-bottom: 1px !important;
+/* Nested bookmarks */
+#PersonalToolbar menuitem {
+  font-size: 13px !important;
 }
 
+/* Bookmarks container (entire row) */
 #personal-toolbar-empty-description,
 #PersonalToolbar .toolbarbutton-1,
 toolbarbutton.bookmark-item:not(.subviewbutton) {
-    margin: 0px !important;
-}
-
-toolbarbutton.bookmark-item {
-    padding-top: 0 !important;
-    font-size: 11.5px !important;
+  margin: 0px !important;
 }
 
 toolbarseperator {
-    padding-bottom: 1px !important;
+  padding-bottom: 1px !important;
 }
 
 /* Search bar */
 #urlbar-container {
-    font-size: 13px !important;
+  font-size: 15px !important;
 }
 
-/* Tabs and tab scrollbox */
+/* Tab font */
 .tab-label {
-    font-size: 12px !important;
+  font-size: 14px !important;
 }
 
+/* Tab height */
 scrollbox {
-    --tab-min-height: 30px !important;
+  --tab-min-height: 30px !important;
 }
 
 /* Move the titlebar buttons top right */
 .titlebar-button {
-    margin-right: -7px !important;
-    margin-top: -17px !important;
+  margin-right: -6px !important;
+  margin-top: -19px !important;
 }

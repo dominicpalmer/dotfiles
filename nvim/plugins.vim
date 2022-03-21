@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-
 " Fuzzy finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -81,14 +80,19 @@ let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
 
-" NERDTree - if a file is specified at startup, move the cursor to its window
+" Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in")
-    \ | wincmd p | endif | call lightline#update()
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
+    \ !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p |
+    \ enew | execute 'cd '.argv()[0] | endif
 
 " NERDTree - close the tab if NERDTree is the only window remaining
 autocmd BufEnter * if winnr('$') == 1
     \ && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
+    \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " NERDTree - Don't allow buffers to replace the file tree
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+'
@@ -100,7 +104,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+'
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Toggle NERDTree
-nnoremap <silent> <leader>s :NERDTreeToggle <Bar> if &filetype ==# 'nerdtree'
+nnoremap <silent> <leader>d :NERDTreeToggle <Bar> if &filetype ==# 'nerdtree'
     \ <Bar> wincmd p <Bar> endif<CR>
 
 " Remove the NERDTree help menu
@@ -112,8 +116,8 @@ let NERDTreeMouseMode=2
 " Undotree
 nnoremap <leader>u :UndotreeShow<CR>
 
-" CoC - set the node path
-let g:coc_node_path = '/home/dom/.nvm/versions/node/v16.9.1/bin/node'
+" CoC - node path
+let g:coc_node_path = '/home/dom/.nvm/versions/node/v17.5.0/bin/node'
 
 " CoC - use <Tab>/<S-Tab> for navigating suggestion list
 function! s:check_back_space() abort
@@ -130,7 +134,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " CoC - navigate diagnostic errors
 nmap <leader>i <Plug>(coc-diagnostic-next)
 nmap <leader>y <Plug>(coc-diagnostic-previous)
-nnoremap <leader>d :CocList diagnostics<CR>
+nnoremap <leader><leader>d :CocList diagnostics<CR>
 
 " CoC - reopen the autocompletion menu
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -138,9 +142,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Commentary
 nmap <leader>/ gcc
 vmap <leader>/ gc
-
-" EasyMotion
-nmap <leader>e <Plug>(easymotion-bd-w)
 
 " barbar
 let bufferline = get(g:, 'bufferline', {})
@@ -170,7 +171,6 @@ map * <Plug>(asterisk-gz*)<Plug>(searchhi-update)
 map g* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
 map z* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
 map gz* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
-
 map # <Plug>(asterisk-gz#)<Plug>(searchhi-update)
 map g# <Plug>(asterisk-gz#)<Plug>(searchhi-update)
 map z# <Plug>(asterisk-gz#)<Plug>(searchhi-update)

@@ -9,9 +9,6 @@ nnoremap <leader><CR> O<Esc>
 :autocmd CmdwinEnter * nnoremap <CR> <CR>
 :autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
-" Deletion backward by words adds additional undo break points
-inoremap <C-w> <C-w><C-g>u
-
 " Clear selection content in visual mode
 vnoremap X :s/^**.*/<CR> \| :nohl<CR> \| hk
 
@@ -48,7 +45,7 @@ vnoremap ) :m '>+1<CR>gv=gv
 vnoremap ( :m '<-2<CR>gv=gv
 
 " Command mode
-nnoremap <silent> <leader>; :
+nnoremap <leader>; :
 
 " Sensible window movement
 noremap <leader>h <C-w>h

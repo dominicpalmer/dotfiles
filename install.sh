@@ -1,46 +1,19 @@
 DOTFILES=$HOME/dotfiles
 
-# Alacritty
-ALACRITTY=$HOME/.config/alacritty/alacritty.yml
-if [ -f "$ALACRITTY" ]; then
-  rm $ALACRITTY
-fi
-ln -s $DOTFILES/alacritty/alacritty.yml $ALACRITTY
+ln -sf $DOTFILES/alacritty $HOME/.config/alacritty
+ln -sf $DOTFILES/nvim $HOME/.config/nvim
+ln -sf $DOTFILES/nvim_lua $HOME/.config/nvim_lua
+ln -sf $DOTFILES/zsh/.zshrc $HOME/.zshrc
+ln -sf $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 
-# Zsh
-ZSH=$HOME/.zshrc
-if [ -f "$ZSH" ]; then
-  rm $ZSH
+AUTOSTART=$HOME/.config/autostart-scripts
+if [ ! -d "$AUTOSTART" ]; then
+  mkdir -p $AUTOSTART
 fi
-ln -s $DOTFILES/zsh/.zshrc $ZSH
+ln -sf $DOTFILES/keyboard/xmodmaps.sh $HOME/.config/autostart-scripts/xmodmaps.sh
 
-# Tmux
-TMUX=$HOME/.tmux.conf
-if [ -f "$TMUX" ]; then
-  rm $TMUX
+FONTS=$HOME/.local/share/fonts
+if [ ! -d "$FONTS" ]; then
+  mkdir -p $FONTS
 fi
-ln -s $DOTFILES/tmux/.tmux.conf $TMUX
-
-# Neovim: Vimscript configuration
-NVIM=$HOME/.config/nvim
-if [ -d $NVIM ]; then
-  rm -r $NVIM
-fi
-ln -s $DOTFILES/nvim $NVIM
-
-# Neovim: Lua configuration as an alternative
-NVIM_LUA=$HOME/.config/nvim_lua
-if [ -d $NVIM_LUA ]; then
-  rm -r $NVIM_LUA
-fi
-ln -s $DOTFILES/nvim_lua $NVIM_LUA
-
-# xmodmaps
-STARTUP=$HOME/.config/autostart-scripts/xmodmaps.sh
-if [ -f "$STARTUP" ]; then
-  rm $STARTUP
-fi
-ln -s $DOTFILES/keyboard/xmodmaps.sh $STARTUP
-
-# Fonts
-cp $DOTFILES/fonts/*.* $HOME/.local/share/fonts
+cp $DOTFILES/fonts/*.* $FONTS
