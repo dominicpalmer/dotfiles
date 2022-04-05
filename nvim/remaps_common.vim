@@ -40,23 +40,17 @@ noremap x "0x
 " Clear line content
 nnoremap X "00D
 
-" Delete selection content
-vnoremap <CR> d
-
 " Regain normal mode backspace
 nnoremap <BS> X
 
-" Better delete line
-nnoremap dl dd
+" Delete selection content
+vnoremap <CR> d
 
 " Better indentation
 nnoremap > mz>>'z
 vnoremap > >gv
 nnoremap < mz<<'z
 vnoremap < <gv
-
-" Delete forward by words in insert mode
-inoremap <C-d> <C-o>dW
 
 " Copy with <C-c>
 vnoremap <C-c> y
