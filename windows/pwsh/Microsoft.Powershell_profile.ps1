@@ -5,15 +5,21 @@ Import-Module oh-my-posh
 Set-Theme agnoster
 $global:DefaultUser = [System.Environment]::UserName
 
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '', Scope='Function')]
+$Dotfiles = "$HOME\root\cs\projects\dotfiles"
+
 function OnViModeChange {
     if ($args[0] -eq 'Command') {
-        # Set the cursor to a block.
+        # Block cursor
         Write-Host -NoNewLine "`e[2 q"
     } else {
-        # Set the cursor to a line.
+        # Line cursor
         Write-Host -NoNewLine "`e[6 q"
     }
 }
+
+# Insert mode line cursor on startup
+Write-Host -NoNewLine "`e[6 q"
 
 # Options
 Set-PSReadlineOption -EditMode Vi

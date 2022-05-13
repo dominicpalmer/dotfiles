@@ -1,1 +1,1 @@
-start alacritty.exe -e wsl ~ -d Ubuntu
+start alacritty

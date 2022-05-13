@@ -5,7 +5,8 @@ window:
   padding:
     x: 2
     y: 4
-  dynamic_padding: true
+  dynamic_padding: false
+  opacity: 0.95
 font:
   normal:
     family: UbuntuMono Nerd Font
@@ -22,14 +23,9 @@ font:
   size: 12
 draw_bold_text_with_bright_colors: true
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
     background: '#282828'
-    # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
-
-  # Normal colors
   normal:
     black: '#282828'
     red: '#cc241d'
@@ -39,8 +35,6 @@ colors:
     magenta: '#b16286'
     cyan: '#689d6a'
     white: '#a89984'
-
-  # Bright colors
   bright:
     black: '#928374'
     red: '#fb4934'
@@ -50,16 +44,15 @@ colors:
     magenta: '#d3869b'
     cyan: '#8ec07c'
     white: '#ebdbb2'
-background_opacity: 0.95
 bell_duration: 0
 cursor:
   style: Beam
 selection:
   save_to_clipboard: true
 shell:
-  program: pwsh
+  program: C:\Program Files\PowerShell\7\pwsh.exe
   args: [ "-nologo" ]
-working_directory: C:\Users\Dom
+working_directory: $HOME
 key_bindings:
   - key: Back
     mods: Control

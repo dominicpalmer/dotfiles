@@ -1,0 +1,40 @@
+[
+  // Vim dropdown menu navigation (for quick open, command palette, tasks, autocompletion)
+  { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext" },
+  { "key": "ctrl+k", "command": "workbench.action.quickOpenSelectPrevious" },
+  { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+  { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+
+  // Ctrl based panel focus shifting
+  { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
+  { "key": "ctrl+j", "command": "workbench.action.navigateDown", "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus" },
+  { "key": "ctrl+k", "command": "workbench.action.navigateUp", "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus" },
+  { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
+
+  // Ctrl based tab shifting
+  { "key": "ctrl+1", "command": "workbench.action.openEditorAtIndex1" },
+  { "key": "ctrl+2", "command": "workbench.action.openEditorAtIndex2" },
+  { "key": "ctrl+3", "command": "workbench.action.openEditorAtIndex3" },
+  { "key": "ctrl+4", "command": "workbench.action.openEditorAtIndex4" },
+  { "key": "ctrl+5", "command": "workbench.action.openEditorAtIndex5" },
+  { "key": "ctrl+6", "command": "workbench.action.openEditorAtIndex6" },
+  { "key": "ctrl+7", "command": "workbench.action.openEditorAtIndex7" },
+  { "key": "ctrl+8", "command": "workbench.action.openEditorAtIndex8" },
+  { "key": "ctrl+9", "command": "workbench.action.openEditorAtIndex9" },
+
+  // Ctrl based sidebar and panel toggle
+  { "key": "ctrl+f", "command": "workbench.action.togglePanel" },
+  { "key": "ctrl+d", "command": "workbench.action.toggleSidebarVisibility" },
+
+  // Ctrl based menu shortcuts
+  { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
+  { "key": "ctrl+;", "command": "workbench.action.showCommands" },
+
+  // Use ctrl+q in place of ctrl+w as a backup for <leader>q, with ctrl+shift+q to close VSCode entirely
+  { "key": "ctrl+q", "command": "-workbench.action.quit" },
+  { "key": "ctrl+q", "command": "workbench.action.closeActiveEditor" },
+  { "key": "ctrl+shift+q", "command": "workbench.action.quit" },
+
+  // Workaround for the fact that you can't remap <C-z> directly through VSCodeVim settings
+  { "key": "ctrl+z", "command": "vim.remap", "when": "inputFocus && vim.mode == 'Normal'", "args": { "after": [ "u" ] } },
+]
