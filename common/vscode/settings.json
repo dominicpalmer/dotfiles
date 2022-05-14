@@ -165,7 +165,7 @@
 
   // Vim
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "~/root/cs/projects/dotfiles/unix/nvim_vimscript/remaps_common.vim",
+  "vim.vimrc.path": "~/root/cs/projects/dotfiles/common/nvim_vimscript/remaps_common.vim",
   "vim.cursorStylePerMode.insert": "line",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
