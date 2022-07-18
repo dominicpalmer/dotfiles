@@ -12,7 +12,7 @@ M.dark = {
       "orange", -- Prompt git background (modified)
       "#006de0", -- Prompt directory background
       "red",
-      "blue",
+      "yellow", -- Git commit message text
       "yellow"
    },
 
