@@ -1,7 +1,6 @@
+local bufferline = require "bufferline"
 local utils = require "lib.utils"
 local map = utils.map
-
-local bufferline = require "bufferline"
 
 map("n", "<leader>p", ":BufferLineTogglePin<CR>")
 map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>")
@@ -58,7 +57,7 @@ bufferline.setup {
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
          return "("..count..")"
       end,
-      offsets = {{ filetype = "NvimTree", text = "", text_align = "left" }},
+      -- offsets = {{ filetype = "NvimTree", text = "", text_align = "left" }},
 
       color_icons = true,
       show_buffer_icons = true,

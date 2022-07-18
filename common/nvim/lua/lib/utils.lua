@@ -3,31 +3,15 @@ local M = {}
 M.light_theme = "vscode"
 M.dark_theme = "gruvbox"
 
+M.dark_theme_vsplit_bg = "#303030"
+M.light_theme_vsplit_bg = "#a1a1a1"
+
 M.map = function(mode, lhs, rhs, opt)
    local options = { noremap = true }
    if opt then
       options = vim.tbl_extend("force", options, opt)
    end
    vim.keymap.set(mode, lhs, rhs, opt)
-end
-
-M.hide_statusline = function()
-   local shown = {}
-   local hidden = {}
-   local api = vim.api
-   local buftype = api.nvim_buf_get_option(0, "ft")
-
-   if vim.tbl_contains(shown, buftype) then
-      api.nvim_set_option("laststatus", 2)
-      return
-   end
-
-   if vim.tbl_contains(hidden, buftype) then
-      api.nvim_set_option("laststatus", 0)
-      return
-   else
-      api.nvim_set_option("laststatus", 2)
-   end
 end
 
 M.change_theme = function()
@@ -39,24 +23,57 @@ M.change_theme = function()
 
    -- Change the theme
    if _G.colourscheme == M.dark_theme then
-      current_theme = M.dark_theme
-      _G.colourscheme = M.light_theme
+      new_background = "light"
+      new_theme = M.light_theme
    else
-      current_theme = M.light_theme
-      _G.colourscheme = M.dark_theme
+      new_background = "dark"
+      new_theme = M.dark_theme
    end
 
-   local find = "colourscheme = .?" .. current_theme .. ".?"
-   local replace = 'colourscheme = "' .. _G.colourscheme .. '"'
-   local content = string.gsub(data, find, replace)
+   local find = "background = .?" .. vim.o.background .. ".?"
+   local replace = 'background = "' .. new_background .. '"'
+   local updated_bg = string.gsub(data, find, replace)
+
+   local find = "colourscheme = .?" .. _G.colourscheme .. ".?"
+   local replace = 'colourscheme = "' .. new_theme .. '"'
+   local updated_theme = string.gsub(updated_bg, find, replace)
 
    -- Write the new theme to the file
    local fdw = assert(vim.loop.fs_open(file, "w", 438))
    local stat = assert(vim.loop.fs_fstat(fdw))
-   assert(vim.loop.fs_write(fdw, content, 0))
+   assert(vim.loop.fs_write(fdw, updated_theme, 0))
    assert(vim.loop.fs_close(fdw))
 
    require("lib.reload").reload()
+end
+
+local winbar_filetype_exclude = {
+   '',
+   'NvimTree',
+   'TelescopePrompt',
+   'fzf',
+   'help',
+   'neoterm',
+   'packer',
+}
+
+M.get_winbar = function(focused, old_buf)
+   return function()
+      if not focused and vim.bo.filetype == "NvimTree" and old_buf ~= "NvimTree" then
+         pcall(vim.api.nvim_set_option_value, 'winbar', '%#WinBarActive# %f %m%*', { scope = 'local' })
+         return
+      end
+
+      if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+         vim.opt_local.winbar = ''
+      else
+         if focused then
+            pcall(vim.api.nvim_set_option_value, 'winbar', '%#WinBarActive# %f %m%*', { scope = 'local' })
+         else
+            pcall(vim.api.nvim_set_option_value, 'winbar', '%#WinBarInactive# %f %m%*', { scope = 'local' })
+         end
+      end
+   end
 end
 
 return M

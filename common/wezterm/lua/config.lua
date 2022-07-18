@@ -1,6 +1,6 @@
 local wezterm = require "wezterm"
 local common = require "common"
-local colours = require "colours"
+local theme = require "theme"
 local utils = require "utils"
 local keys = require "keys"
 
@@ -16,9 +16,8 @@ local shared = {
       initial_cols = 90,
       initial_rows = 55,
 
-      colors = colours.light,
-      window_background_image = common.light_theme_bg_image,
-      window_background_image_hsb = common.light_theme_bg_hsb,
+      window_background_image = theme.default_bg_img,
+      window_background_image_hsb = theme.default_bg_hsb,
 
       automatically_reload_config = true,
       audible_bell = "Disabled",
@@ -27,11 +26,10 @@ local shared = {
    unix = {
       leader = {key=".", mods="CTRL"},
       keys = keys.platform.unix,
-      enable_scroll_bar = false,
-
       enable_tab_bar = false,
 
-      color_scheme = "Github",
+      -- Use builtin colour schemes when on unix, and no custom defined colours
+      color_scheme = theme.default_theme,
    },
 }
 
@@ -41,9 +39,12 @@ M.platform = {
 
       leader = {key="n", mods="CTRL"},
       keys = keys.platform.windows,
-      enable_scroll_bar = true,
-
       enable_tab_bar = true,
+
+      -- Use custom defined colors when on Windows, and no builtin color schemes
+      colors = theme.default_colours,
+
+      enable_scroll_bar = true,
       use_fancy_tab_bar = false,
       tab_bar_at_bottom = true,
       tab_max_width = 14,
@@ -66,7 +67,7 @@ M.platform = {
    }
 }
 
-local all_platform_maps = {M.platform.windows, M.platform.wsl, M.platform.linux}
+local all_platform_maps = {M.platform.windows, M.platform.unix.wsl, M.platform.unix.linux}
 for _, map in ipairs(all_platform_maps) do
    utils.add_to_map(map, shared.all)
 end

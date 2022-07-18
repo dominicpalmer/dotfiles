@@ -1,12 +1,12 @@
 local M = {}
 
-M.light_theme = "Github"
-M.light_theme_bg_image = "C:/Users/Dom/root/media/other/wallpapers/white.png"
-M.light_theme_bg_hsb = {brightness = 1.0, saturation = 1.0}
-
 M.dark_theme = "Gruvbox Dark"
-M.dark_theme_bg_image = "C:/Users/Dom/root/media/other/wallpapers/yosemite.jpg"
-M.dark_theme_bg_hsb = {brightness = 0.02, saturation = 0.5}
+M.dark_theme_bg_img = "C:/Users/Dom/root/media/other/wallpapers/yosemite.jpg"
+M.dark_theme_bg_hsb = {brightness = 0.004, saturation = 0.5}
+
+M.light_theme = "Github"
+M.light_theme_bg_img = "C:/Users/Dom/root/media/other/wallpapers/white.png"
+M.light_theme_bg_hsb = {brightness = 1.0, saturation = 1.0}
 
 M.custom_black = "#000000"
 M.custom_white = "#e6e6e6"

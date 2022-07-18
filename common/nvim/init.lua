@@ -1,7 +1,7 @@
 local modules = {
    "core",
-   "style",
    "plugins",
+   "style",
 }
 
 for _, module in ipairs(modules) do

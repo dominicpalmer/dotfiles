@@ -55,7 +55,7 @@ opt.completeopt = {
 }
 
 -- Column marker
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 
 -- Line gutter
 opt.signcolumn = "yes"
@@ -108,3 +108,6 @@ opt.fillchars = {
 
 -- Wrap to the previous/next line with h/l or left arrow/right arrow
 opt.whichwrap = opt.whichwrap + "<>hl"
+
+-- Global statusline
+opt.laststatus = 3

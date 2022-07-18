@@ -1,6 +1,5 @@
-local wezterm = require "wezterm";
-local common = require "common"
-local colours = require "colours"
+local wezterm = require "wezterm"
+local theme = require "theme"
 
 local M = {}
 
@@ -10,10 +9,10 @@ M.ct_wezterm = function(window, pane)
    if next(overrides) then
       overrides = {}
    else
-      overrides.color_scheme = common.dark_theme
-      overrides.colors = colours.dark
-      overrides.window_background_image = common.dark_theme_bg_image
-      overrides.window_background_image_hsb = common.dark_theme_bg_hsb
+      overrides.color_scheme = theme.alternate_theme
+      overrides.colors = theme.alternate_colours
+      overrides.window_background_image = theme.alternate_bg_img
+      overrides.window_background_image_hsb = theme.alternate_bg_hsb
    end
 
    window:set_config_overrides(overrides)

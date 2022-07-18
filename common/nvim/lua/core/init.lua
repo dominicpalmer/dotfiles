@@ -1,6 +1,7 @@
 local core_modules = {
    "core.options",
    "core.general",
+   "core.winbar"
 }
 
 for _, module in ipairs(core_modules) do

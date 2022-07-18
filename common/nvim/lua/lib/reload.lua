@@ -90,7 +90,9 @@ local function reload_runtime_files()
          local runtime_files = get_runtime_files_in_path(path)
 
          for _, file in ipairs(runtime_files) do
-            cmd("source " .. file)
+            if not string.find(file, 'clap') then
+               cmd("source " .. file)
+            end
          end
       end
    end
@@ -129,7 +131,11 @@ function M.reload()
 
    cmd "luafile ~/.config/nvim/lua/core/init.lua"
    cmd "luafile ~/.config/nvim/lua/plugins/init.lua"
+   cmd "luafile ~/.config/nvim/lua/plugins/config/nvimtree.lua"
+   cmd "luafile ~/.config/nvim/lua/plugins/config/lualine.lua"
    cmd "luafile ~/.config/nvim/lua/plugins/config/bufferline.lua"
+
+   -- Set the theme only after plugins have loaded
    cmd "luafile ~/.config/nvim/lua/style/init.lua"
 end
 

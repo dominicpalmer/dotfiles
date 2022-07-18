@@ -10,13 +10,23 @@ end
 local present, packer = pcall(require, "packer")
 local use = packer.use
 
-return require("packer").startup(function()
-   use {
-      "wbthomason/packer.nvim",
-   }
+return packer.startup(function()
+   use { "wbthomason/packer.nvim" }
+   use { "kyazdani42/nvim-web-devicons" }
+   use { "Mofiqul/vscode.nvim" }
+   use { "morhetz/gruvbox" }
+   use { "nvim-lua/plenary.nvim" }
+   use { "hrsh7th/cmp-nvim-lsp" }
+   use { "hrsh7th/cmp-buffer" }
+   use { "hrsh7th/cmp-path" }
+   use { "hrsh7th/cmp-cmdline" }
+   use { "hrsh7th/nvim-cmp" }
 
    use {
-      "kyazdani42/nvim-web-devicons",
+      "lukas-reineke/virt-column.nvim",
+      config = function()
+         require("virt-column").setup {}
+      end
    }
 
    use {
@@ -45,15 +55,39 @@ return require("packer").startup(function()
    }
 
    use {
-      "nvim-lua/plenary.nvim",
+      "airblade/vim-gitgutter",
+      config = function()
+         require "plugins.config.gitgutter"
+      end
    }
 
    use {
-      "Mofiqul/vscode.nvim",
+      "liuchengxu/vim-clap",
+      config = function()
+         require "plugins.config.clap"
+      end
    }
 
    use {
-      "morhetz/gruvbox",
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function()
+         require "plugins.config.treesitter"
+      end
+   }
+
+   use {
+      "neovim/nvim-lspconfig",
+      config = function()
+         require "plugins.config.lspconfig"
+      end
+   }
+
+   use {
+      "williamboman/nvim-lsp-installer",
+      config = function()
+         require "plugins.config.lspinstaller"
+      end
    }
 
    if packer_bootstrap then

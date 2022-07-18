@@ -17,6 +17,10 @@
   "editor.scrollbar.verticalScrollbarSize": 0,
 
   // Intellisense: no lag, autoselect the first suggestion, use tab completion
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off"
+  },
   "editor.quickSuggestionsDelay": 0,
   "editor.suggestSelection": "first",
   "editor.acceptSuggestionOnEnter": "off",
@@ -73,11 +77,6 @@
   // JSON
   "json.format.enable": false,
 
-  // HTML
-  "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
   // Markdown
   "markdownlint.config": {
     "MD012": false,
@@ -95,7 +94,7 @@
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "vscode.typescript-language-features",
   },
   "javascript.referencesCodeLens.enabled": true,
   "eslint.validate": ["javascript", "typescript"],
@@ -108,7 +107,7 @@
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
@@ -117,10 +116,9 @@
   "[python]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 4
   },
-  "python.linting.pylintEnabled": true,
-  "python.linting.flake8Enabled": true,
+  // "python.linting.pylintEnabled": true,
   "python.languageServer": "Pylance",
 
   // C and C++
@@ -165,7 +163,7 @@
 
   // Vim
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "~/root/cs/projects/dotfiles/common/nvim_vimscript/remaps_common.vim",
+  "vim.vimrc.path": "~/remaps_common.vim",
   "vim.cursorStylePerMode.insert": "line",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
@@ -254,8 +252,6 @@
 
   // Settings Sync
   "sync.gist": "",
-
-  // Dynamic settings
-  "workbench.colorTheme": "Light++",
-  "window.zoomLevel": -0.5,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "window.zoomLevel": -0.4
 }
