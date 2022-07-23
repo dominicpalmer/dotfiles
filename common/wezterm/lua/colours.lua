@@ -2,29 +2,36 @@ local common = require "common"
 
 local M = {}
 
+local gb_red = "#cc241d"
+local gb_green = "#98971a"
+local gb_yellow = "#fabd2f"
+local gb_purple = "#d3869b"
+local gb_blue = "#458588"
+local gb_offwhite_1 = "#fbf1c7"
+
 M.dark = {
    scrollbar_thumb = common.custom_dark_grey,
 
    ansi = {
-      "black", -- Prompt symbols and highlights
-      "#c70014", -- Prompt error indicator
-      "green", -- Prompt git background (unmodified)
-      "orange", -- Prompt git background (modified)
-      "#006de0", -- Prompt directory background
-      "red",
-      "yellow", -- Git commit message text
-      "yellow"
+      "black", -- Prompt symbols and highlights (black)
+      gb_red, -- Prompt error indicator (red)
+      gb_green, -- Prompt git background, unmodified (green)
+      gb_yellow, -- Prompt git background, modified (yellow)
+      gb_blue, -- Prompt directory background (blue)
+      gb_purple, -- Prompt git background, unpushed changes (purple)
+      "yellow", -- Git commit message text (yellow)
+      "yellow",
    },
 
    brights = {
-      "#4b8a32", -- Command argument text
-      "#c70014", -- Error text
-      "#0f873b", -- Title and exit text
-      "orange", -- Command text
+      gb_purple, -- Command argument text
+      gb_red, -- Error text (red)
+      gb_green, -- Title and exit text (green)
+      gb_yellow, -- Command text (yellow)
       "yellow",
       "yellow",
       "yellow",
-      "#e8e8e8", -- Prompt base directory text
+      gb_offwhite_1, -- Prompt base directory text (white)
    },
 
    tab_bar = {
