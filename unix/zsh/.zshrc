@@ -21,7 +21,7 @@ export DOTFILES="$HOME/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 tmux setenv TMUX_ACTIVE true
-tmux setenv THEME light
+tmux setenv THEME dark
 
 # For Neovim on WSL
 export PATH="$HOME/squashfs-root/usr/bin:$PATH"

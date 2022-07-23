@@ -3,35 +3,37 @@ local common = require "common"
 local M = {}
 
 local gb_red = "#cc241d"
-local gb_green = "#98971a"
+local gb_green_1 = "#98971a"
+local gb_green_2 = "#b8bb26"
 local gb_yellow = "#fabd2f"
 local gb_purple = "#d3869b"
-local gb_blue = "#458588"
-local gb_offwhite_1 = "#fbf1c7"
+local gb_blue_1 = "#458588"
+local gb_blue_2 = "#83a598"
+local gb_offwhite = "#fbf1c7"
 
 M.dark = {
    scrollbar_thumb = common.custom_dark_grey,
 
    ansi = {
-      "black", -- Prompt symbols and highlights (black)
-      gb_red, -- Prompt error indicator (red)
-      gb_green, -- Prompt git background, unmodified (green)
-      gb_yellow, -- Prompt git background, modified (yellow)
-      gb_blue, -- Prompt directory background (blue)
-      gb_purple, -- Prompt git background, unpushed changes (purple)
-      "yellow", -- Git commit message text (yellow)
+      "black", -- Prompt symbols and highlights
+      gb_red, -- Prompt error indicator
+      gb_green_1, -- Prompt git background, unmodified
+      gb_yellow, -- Prompt git background, modified
+      gb_blue_1, -- Prompt directory background
+      gb_purple, -- Prompt git background, unpushed changes
+      gb_green_2, -- Git commit message text
       "yellow",
    },
 
    brights = {
       gb_purple, -- Command argument text
-      gb_red, -- Error text (red)
-      gb_green, -- Title and exit text (green)
-      gb_yellow, -- Command text (yellow)
+      gb_red, -- Error text
+      gb_green_1, -- Title and exit text
+      gb_yellow, -- Command text
       "yellow",
       "yellow",
       "yellow",
-      gb_offwhite_1, -- Prompt base directory text (white)
+      gb_offwhite, -- Prompt base directory text
    },
 
    tab_bar = {
@@ -60,12 +62,12 @@ M.light = {
    ansi = {
       "black", -- Prompt symbols and highlights
       "maroon", -- Prompt error indicator
-      "green", -- Prompt git background (unmodified)
-      "#8abd99", -- Prompt git background (modified)
-      "#83a8cc", -- Prompt directory background
+      "#8abd99", -- Prompt git background, unmodified
+      gb_yellow, -- Prompt git background, modified
+      gb_blue_2, -- Prompt directory background
+      gb_purple, -- Prompt git background, unpushed changes
+      "green", -- Git commit message text
       "yellow",
-      "yellow",
-      "yellow"
    },
 
    brights = {

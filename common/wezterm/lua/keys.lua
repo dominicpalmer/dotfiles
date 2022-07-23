@@ -3,9 +3,7 @@ local wezterm = require "wezterm";
 local M = {}
 
 local shared = {
-   -- Reload, change theme
-   {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm_tmux"}},
-   {key="t", mods="CTRL", action=wezterm.action{EmitEvent="ct_wezterm_tmux_nvim"}},
+   -- Reload
    {key="r", mods="LEADER", action="ReloadConfiguration"},
 
    -- Compatibility
@@ -14,6 +12,9 @@ local shared = {
 
 M.platform = {
    windows = {
+      -- Change theme
+      {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm"}},
+
       -- Tab handlers
       {key="m", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
       {key="h", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=false}}},
@@ -47,6 +48,10 @@ M.platform = {
    },
 
    unix = {
+      -- Change theme
+      {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm_tmux"}},
+      {key="t", mods="CTRL", action=wezterm.action{EmitEvent="ct_wezterm_tmux_nvim"}},
+
       -- Sends PageDown to tmux, which sends <C-j> to Neovim if it's open
       -- If Neovim isn't open, tmux will call PageDown on scrollback
       {key="j", mods="CTRL", action=wezterm.action{SendKey={key="PageDown"}}},
