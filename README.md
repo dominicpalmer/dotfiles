@@ -7,13 +7,15 @@ This repo is home to anything I value being easily acessible on new machines. Th
 ## Unix
 
 ```bash
-cd && git clone https://github.com/dominicpalmer/dotfiles.git && cd dotfiles/unix/install && ./install.sh
+cd && git clone https://github.com/dominicpalmer/dotfiles.git
+cd dotfiles/unix/install && ./install.sh
 ```
 
 ## Windows/WSL
 
 ```powershell
-cd && git clone https://github.com/dominicpalmer/dotfiles.git && cd dotfiles/windows/install && ./install.ps1
+cd && git clone https://github.com/dominicpalmer/dotfiles.git
+cd dotfiles/windows/install && ./install.ps1
 ```
 
 <p align="center">
