@@ -94,10 +94,9 @@
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    // "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
   },
   "javascript.referencesCodeLens.enabled": true,
-  "eslint.validate": ["javascript", "typescript"],
 
   // TypeScript
   "[typescript]": {
@@ -107,7 +106,7 @@
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
   },
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
@@ -118,7 +117,6 @@
     "editor.formatOnType": true,
     "editor.tabSize": 4
   },
-  // "python.linting.pylintEnabled": true,
   "python.languageServer": "Pylance",
 
   // C and C++
@@ -170,6 +168,7 @@
   "vim.highlightedyank.enable": true,
   "vim.leader": " ",
   "keyboard.dispatch": "keyCode",
+
   "vim.normalModeKeyBindingsNonRecursive": [
     // Use VSCodeVim's undo stack. <C-z> is implemented in keybindings.json
     { "before": ["U"], "after": ["<C-r>"] },
@@ -252,6 +251,5 @@
 
   // Settings Sync
   "sync.gist": "",
-  "workbench.colorTheme": "Visual Studio Dark",
-  "window.zoomLevel": -0.4
+  "workbench.colorTheme": "Light++"
 }

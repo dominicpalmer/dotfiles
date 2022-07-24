@@ -1,14 +1,12 @@
 [
   // Vim dropdown menu navigation (for quick open, command palette, tasks, autocompletion)
-  { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext" },
-  { "key": "ctrl+k", "command": "workbench.action.quickOpenSelectPrevious" },
+  { "key": "ctrl+j", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
+  { "key": "ctrl+k", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
   { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
   { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
 
   // Ctrl based panel focus shifting
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
-  { "key": "ctrl+j", "command": "workbench.action.navigateDown", "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus" },
-  { "key": "ctrl+k", "command": "workbench.action.navigateUp", "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus" },
   { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
 
   // Ctrl based tab shifting
@@ -37,4 +35,10 @@
 
   // Workaround for the fact that you can't remap <C-z> directly through VSCodeVim settings
   { "key": "ctrl+z", "command": "vim.remap", "when": "inputFocus && vim.mode == 'Normal'", "args": { "after": [ "u" ] } },
+
+  // Get pageup and pagedown working with VSCodeVim's visual select
+  { "key": "ctrl+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'Normal'", "args": { "after": [ "<C-f>" ] } },
+  { "key": "ctrl+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'", "args": { "after": [ "<C-f>" ] } },
+  { "key": "ctrl+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'Normal'", "args": { "after": [ "<C-b>" ] } },
+  { "key": "ctrl+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'", "args": { "after": [ "<C-b>" ] } },
 ]
