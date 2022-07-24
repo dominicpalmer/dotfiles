@@ -13,6 +13,7 @@ local gb_offwhite = "#fbf1c7"
 
 M.dark = {
    scrollbar_thumb = common.custom_dark_grey,
+   foreground = gb_offwhite,
 
    ansi = {
       "black", -- Prompt symbols and highlights
