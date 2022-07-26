@@ -23,10 +23,6 @@ noremap $ L
 noremap J }
 noremap K {
 
-" Page up, page down
-noremap <C-k> <C-b>
-noremap <C-j> <C-f>
-
 " J (join) to M (merge), with fixed cursor position from normal mode
 xnoremap M J
 nnoremap M mzJ'z
@@ -90,10 +86,8 @@ nnoremap c# #``cgN
 " Sensible write and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader><leader>q :q!<CR>
+nnoremap <leader><leader>q :qa<CR>
 
-" Navigate through the autocompletion list with <C-j> and <C-k>
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "j"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "k"
+" Navigate through the autocompletion list with <M-j> and <M-k>
+inoremap <M-j> <C-n>
+inoremap <M-k> <C-p>

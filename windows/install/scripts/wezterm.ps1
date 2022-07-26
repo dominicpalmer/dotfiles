@@ -1,8 +1,10 @@
-$WezTermConfig = "C:\Program Files\WezTerm\wezterm.lua"
-if (Get-Item -Path $WezTermConfig -ErrorAction Ignore) {
-  Remove-Item $WezTermConfig
+# Links Wezterm config
+
+$WeztermConfig = "C:\Program Files\WezTerm\wezterm.lua"
+if (Get-Item -Path $WeztermConfig -ErrorAction Ignore) {
+  Remove-Item $WeztermConfig
 }
-New-Item -ItemType SymbolicLink -Path $WezTermConfig -Target "$Dotfiles\common\wezterm\wezterm.lua"
+New-Item -ItemType SymbolicLink -Path $WeztermConfig -Target "$Dotfiles\common\wezterm\wezterm.lua"
 
 $WezTermDir = "C:\Program Files\WezTerm\lua"
 if (Get-Item -Path $WezTermDir -ErrorAction Ignore) {
@@ -10,7 +12,7 @@ if (Get-Item -Path $WezTermDir -ErrorAction Ignore) {
 }
 New-Item -ItemType SymbolicLink -Path $WezTermDir -Target "$Dotfiles\common\wezterm\lua"
 
-# Adds WezTerm binary directory to PATH
+# Adds Wezterm binary directory to PATH
 $BinaryPath = "C:\Program Files\WezTerm"
 $Path = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name path).path
 if (!($Path -clike $BinaryPath)) {

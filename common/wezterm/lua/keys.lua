@@ -35,14 +35,14 @@ M.platform = {
       {key="9", mods="LEADER", action=wezterm.action{ActivateTab=8}},
 
       -- Pane switchers
-      {key="h", mods="ALT", action=wezterm.action{ActivatePaneDirection="Left"}},
-      {key="j", mods="ALT", action=wezterm.action{ActivatePaneDirection="Down"}},
-      {key="k", mods="ALT", action=wezterm.action{ActivatePaneDirection="Up"}},
-      {key="l", mods="ALT", action=wezterm.action{ActivatePaneDirection="Right"}},
+      {key="h", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Left"}},
+      {key="j", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Down"}},
+      {key="k", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Up"}},
+      {key="l", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Right"}},
 
       -- Scroll
-      {key="j", mods="CTRL", action=wezterm.action{ScrollByPage=1}},
-      {key="k", mods="CTRL", action=wezterm.action{ScrollByPage=-1}},
+      {key="j", mods="ALT", action=wezterm.action{ScrollByPage=1}},
+      {key="k", mods="ALT", action=wezterm.action{ScrollByPage=-1}},
 
       table.unpack(shared),
    },
@@ -52,9 +52,9 @@ M.platform = {
       {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm_tmux"}},
       {key="t", mods="CTRL", action=wezterm.action{EmitEvent="ct_wezterm_tmux_nvim"}},
 
-      -- Sends PageDown to tmux, which sends <C-j> to Neovim if it's open
+      -- Sends PageDown to tmux, which sends <M-j> to Neovim if it's open
       -- If Neovim isn't open, tmux will call PageDown on scrollback
-      {key="j", mods="CTRL", action=wezterm.action{SendKey={key="PageDown"}}},
+      {key="j", mods="ALT", action=wezterm.action{SendKey={key="PageDown"}}},
 
       table.unpack(shared),
    }

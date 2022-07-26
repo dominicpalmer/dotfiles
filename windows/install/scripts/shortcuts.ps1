@@ -1,4 +1,5 @@
 # Binary shortcuts
+
 $BinRoot = "C:\Bin"
 if (Get-Item -Path $BinRoot -ErrorAction Ignore) {
   Remove-Item $BinRoot -Recurse

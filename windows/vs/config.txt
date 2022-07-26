@@ -1,0 +1,40 @@
+---- Extensions
+VSVim
+Hot Commands
+Roslynator
+Output Enhancer
+File Icons
+Trailing Whitespace Visualiser
+Color Themes from VS2019
+GitHub Themes
+gruvboxvs
+Visual Studio Spell Checker
+Align Assignments
+Fix Mixed Tabs
+Match Margin
+Editor Guidelines (set guidelines at 120 and 150)
+
+---- Settings (should all be imported via .vssettings)
+Environment/Documents: Show miscellaneous files in Solution Explorer
+Environment/Find and Replace: Use editor background in the Find All References tool window
+Environment/Keyboard: Apply Visual Studio Code keybindings
+Environment/Preview Features: Enable multi-repo support, rich navigation support
+Environment/Tabs and Windows: Insert new tabs to the right of existing tabs
+Environment/Tabs and Windows: Show pinned tabs in a separate row
+Text Editor/General: Disable selection margin
+Text Editor/All Languages: Enable line numbers, navigation bar, automatic brace completion
+Text Editor/All Languages/Scroll Bars: Use map mode for vertical scroll bar, with narrow width
+Text Editor/C#/Intellisense: Show completion list after a character is deleted as true
+Text Editor/C#/Intellisense: Automatically complete statement on semicolon as false
+Assign 'Text Editor' VS shortcuts of Ctrl+j to Edit.LineDown and Ctrl+k to Edit.LineUp. The
+latter may require https://github.com/VsVim/VsVim/issues/1082#issuecomment-239600450
+
+---- UI
+Window layouts
+Set word wrap in the Output window
+Remove unnecessary columns from error and task lists
+
+---- VSVim
+Link .vimrc using dotfiles install
+Set Defaults/Output Window to true
+Set Defaults/Item Colors/Block Caret Background to White

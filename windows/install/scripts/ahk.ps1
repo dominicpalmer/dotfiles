@@ -1,4 +1,5 @@
 # AHK keybindings
+
 $TaskName = "keybindings"
 if (Get-ScheduledTask | Where-Object { $_.TaskName -like $TaskName }) {
   Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false

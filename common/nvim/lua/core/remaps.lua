@@ -29,8 +29,8 @@ M.bind = function()
       map("", "K", "{")
 
       -- Page up, page down
-      map("", "<C-k>", "<C-b>")
-      map("", "<C-j>", "<C-f>")
+      map("", "<M-j>", "<C-f>")
+      map("", "<M-k>", "<C-b>")
 
       -- J (join) to M (merge), with fixed cursor position from normal mode
       map("x", "M", "J")
@@ -96,12 +96,6 @@ M.bind = function()
       map("n", "<leader><leader>q", ":qa<CR>")
       map("n", "<leader>n", ":enew<CR>", { silent = true })
       map("n", "<leader>f", ":bp<bar>sp<bar>bn<bar>bd<CR>")
-
-      -- Autocompletion list navigation
-      map("i", "<C-j>", "<C-n>")
-      map("i", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\j"', { expr = true })
-      map("i", "<C-k>", "<C-p>")
-      map("i", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\k"', { expr = true })
 
       -- Reload configuration, change theme
       map("n", "<leader>r", ":lua require('lib.reload').reload()<CR>")

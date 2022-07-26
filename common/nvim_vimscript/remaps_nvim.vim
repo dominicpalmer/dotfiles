@@ -2,6 +2,10 @@
 
 let mapleader = " "
 
+" Page up, page down
+noremap <M-j> <C-f>
+noremap <M-k> <C-b>
+
 " Have <CR>/<leader><CR> add line breaks below/above the cursor in normal mode.
 " The autocommands fix issues raised from remapping <CR>
 nnoremap <CR> o<Esc>
@@ -59,10 +63,14 @@ nnoremap <leader>c :split<CR>
 
 " Wildmenu navigation
 set wildcharm=<C-r>
-cnoremap <expr> <C-h> wildmenumode() ? "\<up>" : "\<left>"
-cnoremap <expr> <C-j> wildmenumode() ? "\<right>" : "\<down>"
-cnoremap <expr> <C-k> wildmenumode() ? "\<left>" : "\<up>"
-cnoremap <expr> <C-l> wildmenumode() ? " \<bs>\<C-r>" : "\<right>"
+cnoremap <expr> <M-h> wildmenumode() ? "\<up>" : "\<left>"
+cnoremap <expr> <M-j> wildmenumode() ? "\<right>" : "\<down>"
+cnoremap <expr> <M-k> wildmenumode() ? "\<left>" : "\<up>"
+cnoremap <expr> <M-l> wildmenumode() ? " \<bs>\<C-r>" : "\<right>"
+
+" More autocompletion navigation with <M-j> and <M-k>
+inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "j"
+inoremap <expr> <M-k> pumvisible() ? "\<C-p>" : "k"
 
 " Open an unnamed buffer
 nnoremap <silent> <leader>n :enew<CR>

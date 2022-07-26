@@ -6,3 +6,4 @@
 ./shortcuts.ps1
 ./ahk.ps1
 ./wsl.ps1
+./vsvim.ps1
