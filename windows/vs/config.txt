@@ -1,18 +1,22 @@
 ---- Extensions
 VSVim
 Hot Commands
-Roslynator
-Output Enhancer
-File Icons
+Hot Tabs
+Visual Studio Show Inline Errors
+Align Assignments 2022
+Fix Mixed Tabs 2022
+Match Margin 2022
+Copy as HTML 2022
+Time Stamp Margin 2022
+Editor Guidelines (set guidelines at 120 and 150)
 Trailing Whitespace Visualiser
+File Icons
+Output Enhancer
+Roslynator
+Visual Studio Spell Checker
 Color Themes from VS2019
 GitHub Themes
 gruvboxvs
-Visual Studio Spell Checker
-Align Assignments
-Fix Mixed Tabs
-Match Margin
-Editor Guidelines (set guidelines at 120 and 150)
 
 ---- Settings (should all be imported via .vssettings)
 Environment/Documents: Show miscellaneous files in Solution Explorer

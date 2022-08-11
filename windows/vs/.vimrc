@@ -164,9 +164,16 @@ noremap <leader>r :vsc Refactor.Rename<CR>
 " Comment selection (requires the 'Hot Commands' extension)
 noremap <leader>/ :vsc Edit.ToggleComment<CR>
 
-" TODO: Select tabs by index in all modes. E.g:
-" { "before": ["<leader>", "1"], "commands": ["workbench.action.openEditorAtIndex1"] },
-" Extension 'Hot Tabs' implements this, but it isn't available for VS2022 yet.
+" Select tabs by index
+noremap <leader>1 :vsc Window.GoToUnpinnedTab1<CR>
+noremap <leader>2 :vsc Window.GoToUnpinnedTab2<CR>
+noremap <leader>3 :vsc Window.GoToUnpinnedTab3<CR>
+noremap <leader>4 :vsc Window.GoToUnpinnedTab4<CR>
+noremap <leader>5 :vsc Window.GoToUnpinnedTab5<CR>
+noremap <leader>6 :vsc Window.GoToUnpinnedTab6<CR>
+noremap <leader>7 :vsc Window.GoToUnpinnedTab7<CR>
+noremap <leader>8 :vsc Window.GoToUnpinnedTab8<CR>
+noremap <leader>9 :vsc Window.GoToUnpinnedTab9<CR>
 
 " TODO: Menu navigation using Alt-j and Alt-k. Menus include the fuzzy finder,
 " solution explorer, test explorer, task list, references list, implementation
