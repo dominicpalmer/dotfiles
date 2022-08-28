@@ -6,7 +6,7 @@ Set-Theme agnoster
 $global:DefaultUser = [System.Environment]::UserName
 
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '', Scope='Function')]
-$Dotfiles = "$HOME\root\cs\projects\dotfiles"
+$Dotfiles = $env:dotfiles
 
 function OnViModeChange {
     if ($args[0] -eq 'Command') {
