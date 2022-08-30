@@ -161,6 +161,9 @@ noremap <leader>p :vsc Window.PinTab<CR>
 " Rename object
 noremap <leader>r :vsc Refactor.Rename<CR>
 
+" Find and replace
+noremap gh :vsc Edit.Replace<CR>
+
 " Comment selection (requires the 'Hot Commands' extension)
 noremap <leader>/ :vsc Edit.ToggleComment<CR>
 
