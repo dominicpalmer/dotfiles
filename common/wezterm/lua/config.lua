@@ -13,8 +13,8 @@ local shared = {
 
       window_padding = {left = 2, right = 0, top = 2, bottom = 0},
       window_close_confirmation = "NeverPrompt",
-      initial_cols = 90,
-      initial_rows = 55,
+      initial_cols = 220,
+      initial_rows = 65,
 
       window_background_image = theme.default_bg_img,
       window_background_image_hsb = theme.default_bg_hsb,
@@ -47,7 +47,7 @@ M.platform = {
       enable_scroll_bar = true,
       use_fancy_tab_bar = false,
       tab_bar_at_bottom = true,
-      tab_max_width = 14,
+      tab_max_width = 50,
       window_frame = {
          font = wezterm.font("UbuntuMono Nerd Font"),
          font_size = 11.0,
@@ -59,10 +59,14 @@ M.platform = {
    unix = {
       wsl = {
          default_prog = {"bash.exe", "-c", "tmux attach -t tmux || tmux new-session -s tmux -c ~"},
+
+         enable_scroll_bar = false,
       },
 
       linux = {
          default_prog = {"tmux attach -t tmux || tmux new-session -s tmux -c ~"},
+
+         enable_scroll_bar = false,
       },
    }
 }

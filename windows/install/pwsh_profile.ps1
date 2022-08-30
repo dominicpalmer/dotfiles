@@ -1,8 +1,8 @@
-# Creates a PowerShell profile symbolic link
+# Creates symbolic links for PowerShell profile scripts
 
-$PowerShellConfig = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
-if (Get-Item -Path $PowerShellConfig -ErrorAction Ignore) {
-  Remove-Item $PowerShellConfig
+$ProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
+if (Get-Item -Path $ProfilePath -ErrorAction Ignore) {
+  Remove-Item $ProfilePath
 }
 
-New-Item -ItemType SymbolicLink -Path "$PowerShellConfig" -Target "$Dotfiles\windows\pwsh\Microsoft.Powershell_profile.ps1"
+New-Item -ItemType SymbolicLink -Path "$ProfilePath" -Target "$Dotfiles\windows\pwsh\Microsoft.Powershell_profile.ps1"

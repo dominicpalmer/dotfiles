@@ -8,18 +8,23 @@ $global:DefaultUser = [System.Environment]::UserName
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '', Scope='Function')]
 $Dotfiles = $env:dotfiles
 
+# Aliases
+Set-Alias -Name e -Value explorer
+
+# Use insert mode line cursor on startup, and switch cursors on mode change
+$LineCursor = "`e[6 q"
+$BlockCursor = "`e[2 q"
+Write-Host -NoNewLine $LineCursor
+
 function OnViModeChange {
     if ($args[0] -eq 'Command') {
         # Block cursor
-        Write-Host -NoNewLine "`e[2 q"
+        Write-Host -NoNewLine $BlockCursor
     } else {
         # Line cursor
-        Write-Host -NoNewLine "`e[6 q"
+        Write-Host -NoNewLine $LineCursor
     }
 }
-
-# Insert mode line cursor on startup
-Write-Host -NoNewLine "`e[6 q"
 
 # Options
 Set-PSReadlineOption -EditMode Vi
