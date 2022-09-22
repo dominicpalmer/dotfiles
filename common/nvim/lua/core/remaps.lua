@@ -18,6 +18,12 @@ M.bind = function()
       map("", "p", "r")
       map("", "P", "R")
 
+      -- Swap find and search
+      map("", "f", "/")
+      map("", "F", "?")
+      map("", "/", "f")
+      map("", "?", "F")
+
       -- Home row navigation between line start and line end
       map("", "H", "^")
       map("", "L", "$")

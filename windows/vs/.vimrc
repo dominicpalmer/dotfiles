@@ -1,4 +1,4 @@
-" ---- VSVim settings
+" ---- VSVim Settings
 
 " Start scrolling 8 lines before the end of the window
 set scrolloff=8
@@ -22,6 +22,7 @@ set hlsearch
 " Use the unnamed register by default
 set clipboard=unnamed
 
+
 " ---- VSVim keybindings
 
 let mapleader = " "
@@ -39,6 +40,12 @@ noremap R P | :vsc Edit.FormatDocument<CR>
 noremap p r
 noremap P R
 
+" Swap find and search
+noremap f /
+noremap F ?
+noremap / f
+noremap ? F
+
 " Home row navigation between line start and line end
 noremap H ^
 noremap ^ H
@@ -55,9 +62,9 @@ vnoremap <M-j> :vsc Edit.PageDownExtend<CR>
 nnoremap <M-k> :vsc Edit.PageUp<CR>
 vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
 
-" J (join) to M (merge), with fixed cursor position from normal mode
+" J (join) to M (merge)
 xnoremap M J
-nnoremap M mzJ'z
+nnoremap M J
 
 " Bracket matching
 noremap Q %
@@ -69,7 +76,7 @@ noremap x "0x
 nnoremap X 0"0D
 
 " Regain normal mode backspace
-nnoremap <BS> X
+noremap <BS> X
 
 " Delete selection content
 vnoremap <CR> d
@@ -117,8 +124,8 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
 " Line and block shifting
-vnoremap ) :vsc Edit.MoveSelectedLinesDown<CR>
-vnoremap ( :vsc Edit.MoveSelectedLinesUp<CR>
+noremap ) :vsc Edit.MoveSelectedLinesDown<CR>
+noremap ( :vsc Edit.MoveSelectedLinesUp<CR>
 
 " Command mode
 nnoremap <leader>; :
@@ -134,7 +141,7 @@ nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>c :split<CR>
 
 " Open an unnamed buffer
-nnoremap <leader>n :vsc File.NewFile<CR>
+noremap <leader>n :vsc File.NewFile<CR>
 
 " Reload configuration
 nnoremap <leader><leader>r :so ~\.vimrc<CR>
@@ -143,7 +150,7 @@ nnoremap <leader><leader>r :so ~\.vimrc<CR>
 noremap gp :vsc Edit.PeekDefinition<CR>
 noremap go :vsc Edit.GoToDefinition<CR>
 noremap gi :vsc Edit.GoToImplementation<CR>
-noremap gd :vsc Edit.FindAllReferences<CR>
+noremap gu :vsc Edit.FindAllReferences<CR>
 
 " Navigate errors
 noremap <leader>i :vsc View.NextError<CR>
@@ -163,9 +170,10 @@ noremap <leader>r :vsc Refactor.Rename<CR>
 
 " Find and replace
 noremap gh :vsc Edit.Replace<CR>
+noremap <leader>gh :vsc Edit.ReplaceInFiles<CR>
 
 " Comment selection (requires the 'Hot Commands' extension)
-noremap <leader>/ :vsc Edit.ToggleComment<CR>
+noremap <leader>/ :vsc Edit.ToggleComment<CR> | <Esc><CR>
 
 " Select tabs by index
 noremap <leader>1 :vsc Window.GoToUnpinnedTab1<CR>
@@ -177,9 +185,5 @@ noremap <leader>6 :vsc Window.GoToUnpinnedTab6<CR>
 noremap <leader>7 :vsc Window.GoToUnpinnedTab7<CR>
 noremap <leader>8 :vsc Window.GoToUnpinnedTab8<CR>
 noremap <leader>9 :vsc Window.GoToUnpinnedTab9<CR>
-
-" TODO: Menu navigation using Alt-j and Alt-k. Menus include the fuzzy finder,
-" solution explorer, test explorer, task list, references list, implementation
-" list, error list.
 
 :echo ".vimrc loaded successfully"

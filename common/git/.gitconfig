@@ -8,7 +8,7 @@
 	st = status
 	co = checkout
 	cob = checkout -b
-	a = add
+	a = add .
 	cm = commit -m
 	p = push
 	pu = push --set-upstream origin

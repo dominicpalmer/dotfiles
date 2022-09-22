@@ -1,0 +1,5 @@
+Abc.MoqComplete.Rider
+IdeaVIM
+com.intellij.resharper.StructuredLogging
+com.nasller.CodeGlancePro
+net.seesharpsoft.intellij.plugins.csv

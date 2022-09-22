@@ -1,1 +1,1 @@
-start C:\"Program Files (x86)"\Notepad++\notepad++.exe
+start C:\"Program Files"\Notepad++\notepad++.exe"

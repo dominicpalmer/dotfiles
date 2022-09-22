@@ -9,7 +9,7 @@ $global:DefaultUser = [System.Environment]::UserName
 $Dotfiles = $env:dotfiles
 
 # Aliases
-Set-Alias -Name e -Value explorer
+function sudo { gsudo --loadProfile $args }
 
 # Use insert mode line cursor on startup, and switch cursors on mode change
 $LineCursor = "`e[6 q"

@@ -1,8 +1,16 @@
 # Creates symbolic links for PowerShell profile scripts
 
-$ProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
-if (Get-Item -Path $ProfilePath -ErrorAction Ignore) {
-  Remove-Item $ProfilePath
+$Item = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
+
+# Delete any existing profile
+if (Get-Item -Path $Item -ErrorAction Ignore) {
+  Remove-Item $Item
 }
 
-New-Item -ItemType SymbolicLink -Path "$ProfilePath" -Target "$Dotfiles\windows\pwsh\Microsoft.Powershell_profile.ps1"
+# Momentarily re-copy and re-delete the profile, to prevent authorisation errors
+$DotfilesItem = "$Dotfiles\windows\pwsh\$ItemName" + $Item.Split('\')[-1]
+Copy-Item -Path $DotfilesItem -Destination $Item
+Remove-Item $Item
+
+# Then create the Symlink
+New-Item -ItemType SymbolicLink -Path $Item -Target $DotfilesItem

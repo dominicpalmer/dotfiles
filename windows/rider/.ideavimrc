@@ -1,0 +1,204 @@
+" ---- IdeaVim Settings
+
+" Start scrolling 8 lines before the end of the window
+set scrolloff=8
+
+" No sound
+set visualbell
+
+" Case insensitive searching unless case is specified
+set ignorecase
+set smartcase
+
+" Timeout length for remaps to complete
+set timeoutlen=400
+
+" NOTE: Not yet supported in IdeaVim
+" Wrap to the previous/next line with h/l or left arrow/right arrow
+" set whichwrap=<,>,h,l
+
+" Use the unnamed register by default
+set clipboard=unnamed
+
+" Reduce the need for multiple undos in various scenarios
+set nooldundo
+
+" Show partial commands in the status bar
+set showcmd
+
+" Set handlers define ownership of keybindings by Rider and/or IdeaVim
+sethandler <C-C> a:ide
+sethandler <C-X> a:ide
+sethandler <C-V> a:ide
+sethandler <C-Z> a:ide
+sethandler <C-Y> a:ide
+sethandler <C-A> a:ide
+sethandler <C-S> a:ide
+sethandler <C-H> a:ide
+sethandler <C-k> a:ide
+
+
+" ---- IdeaVim keybindings
+
+let mapleader = " "
+
+" Yank (take), paste (resolve), replace (place) and till (yet)
+noremap t y
+noremap T y$
+noremap y t
+noremap Y T
+nnoremap r p :action AutoIndentLines<CR>
+xnoremap r "_xP :action AutoIndentLines<CR>
+nnoremap ]r ]p :action AutoIndentLines<CR>
+xnoremap ]r "_x]P :action AutoIndentLines<CR>
+noremap R P :action AutoIndentLines<CR>
+noremap p r
+noremap P R
+
+" Swap find and search
+noremap f /
+noremap F ?
+noremap / f
+noremap ? F
+
+" Home row navigation between line start and line end
+noremap H ^
+noremap ^ H
+noremap L $
+noremap $ L
+
+" Home row navigation between paragraphs
+noremap J }
+noremap K {
+
+" Page up and page down
+noremap <A-j> <C-f>
+noremap <A-k> <C-b>
+
+" J (join) to M (merge)
+xnoremap M J
+nnoremap M J
+
+" Bracket matching
+noremap Q %
+
+" x to delete into the 0 register. Used for deleting inbetween copy and paste
+noremap x "0x
+
+" Clear line content
+nnoremap X 0"0D
+
+" Regain backspace
+noremap <BS> X
+
+" Delete selection content
+vnoremap <CR> d
+
+" Better indentation
+nnoremap > mz>>'z
+vnoremap > >gv
+nnoremap < mz<<'z
+vnoremap < <gv
+
+" Regain visual block mode with S
+noremap S <C-v>
+
+" Turn off search highlighting
+nnoremap <Esc> :nohl<CR>
+
+" Repeat word deletion forwards or backwards
+nnoremap d* *``dgn
+nnoremap d# *``dgN
+
+" Repeat word changes forwards or backwards
+nnoremap c* *``cgn
+nnoremap c# #``cgN
+
+" Sensible write and close
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader><leader>q :qa<CR>
+
+" Have <CR>/<leader><CR> add line breaks below/above the cursor in normal mode
+nnoremap <CR> o<Esc>
+nnoremap <leader><CR> O<Esc>
+
+" Indent recently pasted text
+nnoremap <leader>> V`]>
+nnoremap <leader>< V`]<
+
+" Sensible redo: IdeaVim uses the Vim undo stack, so this works as-is
+nnoremap U <C-r>
+
+" TODO: IdeaVim doesn't support adding undo breakpoints through a remap
+" Additional undo break points
+"inoremap , ,<C-g>u
+"inoremap . .<C-g>u
+"inoremap ! !<C-g>u
+"inoremap ? ?<C-g>u
+
+" Line and block shifting
+noremap ) :action MoveLineDown<CR>
+noremap ( :action MoveLineUp<CR>
+
+" Command mode
+nnoremap <leader>; :
+
+" Sensible window movement
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+
+" Window splits
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>c :split<CR>
+
+" Open an unnamed buffer
+noremap <leader>n :action NewFile<CR>
+
+" Reload configuration
+nnoremap <leader><leader>r :so ~\.ideavimrc<CR>
+
+" Goto definition, references, implementation
+noremap gp :action QuickImplementations<CR>
+noremap go :action GotoDeclaration<CR>
+noremap gi :action GotoImplementation<CR>
+noremap gu :action FindUsages<CR>
+
+" Navigate errors
+noremap <leader>i :action GotoNextError<CR>
+noremap <leader>y :action GotoPreviousError<CR>
+
+" Open fuzzy finder
+noremap <leader>o :action SearchEverywhere<CR>
+
+" NOTE: Rider doesn't support toggling the project explorer without giving it
+" focus. It is toggled with focus via Alt+1.
+" Open project explorer
+" noremap <leader>d :action ActivateProjectToolWindow<CR>
+
+" Pin tab
+noremap <leader>p :action PinActiveEditorTab<CR>
+
+" Rename object
+noremap <leader>r :action RenameElement<CR>
+
+" Find and replace
+noremap gh :action Replace<CR>
+noremap <leader>gh :action ReplaceInPath<CR>
+
+" NOTE: IdeaVim doesn't support immediate escape after commenting a block
+" Comment selection
+noremap <leader>/ :action CommentByLineComment<CR>
+
+" Select tabs by index
+noremap <leader>1 :action GoToTab1<CR>
+noremap <leader>2 :action GoToTab2<CR>
+noremap <leader>3 :action GoToTab3<CR>
+noremap <leader>4 :action GoToTab4<CR>
+noremap <leader>5 :action GoToTab5<CR>
+noremap <leader>6 :action GoToTab6<CR>
+noremap <leader>7 :action GoToTab7<CR>
+noremap <leader>8 :action GoToTab8<CR>
+noremap <leader>9 :action GoToTab9<CR>

@@ -40,49 +40,56 @@ have been deleted somewhere during the debloat process.
   'Title bars and window borders'.
 
 7. Web installations
-  - Firefox
-  - Notepad++. Set default app for .txt files to Notepad++, change Notepad++
-  backup settings to never create backup files.
   - Powershell 7. Install PSReadLine v2.1.0 over the top via
   'Install-Module -Name PSReadLine -RequiredVersion 2.1.0 -AllowPreRelease',
   then delete the bundled version from
   $HOME\Documents\PowerShell\Modules\PSReadLine)
-  - Wezterm (https://wezfurlong.org/wezterm/install/windows.html)
+  - SQLSearch (https://www.red-gate.com/products/sql-development/sql-search/installer/)
+  - Redis Insight (https://redis.com/redis-enterprise/redis-insight/)
   - AutoHotKey
-  - Neovim
-  - Everything
-  - dnGrep
   - SysInternals (Extract and place in Program Files)
-  - Postman
-  - ScreenToGif
-  - Spotify
-  - MikTex
-  - TexStudio
   - Nvidia Graphics Driver
   - KeePass 2
-  - MailSpring
-  - LibreOffice
   - Jekyll (https://jekyllrb.com/docs/installation/windows/) via WSL route.
   Before running 'gem update', run 'export GEM_HOME="$HOME/.gem"'.
-  - Steam
   - EA Origin
 
 8. Install 'App Installer' (winget) from Microsoft Store.
 
-9. Winget installations via 'winget install ...'
+9. Winget installations via 'winget install -e --id <name>'
+  - Mozilla.Firefox
+  - Mozilla.Thunderbird
+  - wez.wezterm
   - Git.Git (Copy common/git/.gitconfig to $HOME with email updated. Run
   'ssh-keygen' to create a key, then configure it in GitHub.)
+  - Notepad++.Notepad++ (Set default app for .txt files to Notepad++, change
+  Notepad++ backup settings to never create backup files.)
   - Microsoft.VisualStudioCode
+  - JetBrains.Rider
   - Microsoft.VisualStudio.2022.Community
+  - Microsoft.SQLServer.2019.Express (also installs Microsoft.AzureDataStudio)
+  - Microsoft.SQLServerManagementStudio
+  - PostgreSQL.PostgreSQL
   - Python.Python.3
+  - Docker.DockerDesktop
+  - Postman.Postman
   - Microsoft.PowerToys (Turn off 'Awake', change 'Run' shortcut to use
   Win+Space, clear the previous query on launch, and don't make URL or web
   queries without activation key)
+  - voidtools.Everything
+  - dnGrep.dnGrep
+  - gerardog.gsudo
+  - NickeManarin.ScreenToGif
+  - ChristianSchenk.MiKTeX
+  - TeXstudio.TeXstudio
   - TranslucentTB (Run it once installed, and set all options to 'clear')
+  - Spotify.Spotify
   - VideoLAN.VLC
   - DuongDieuPhap.ImageGlass
   - KDE.Krita
   - IDRIX.VeraCrypt
+  - TheDocumentFoundation.LibreOffice
+  - Valve.Steam
   - Ubisoft.Connect
 
 10. Node
@@ -120,6 +127,7 @@ have been deleted somewhere during the debloat process.
 
 17. Install the Ubuntu Mono Nerd Font from dotfiles.
 
-18. Sign into all accounts and services.
+18. Sign into all accounts and services. Setup VSCode settings sync and import
+Rider setings.
 
 19. Activate Windows license.

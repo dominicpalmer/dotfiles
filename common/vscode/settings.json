@@ -1,9 +1,9 @@
 {
   // Fonts
-  "editor.fontFamily": "UbuntuMono Nerd Font",
-  "editor.fontSize": 16,
-  "terminal.integrated.fontFamily": "UbuntuMono Nerd Font",
-  "terminal.integrated.fontSize": 16,
+  "editor.fontFamily": "Cascadia Code",
+  "editor.fontSize": 15,
+  "terminal.integrated.fontFamily": "Cascadia Code",
+  "terminal.integrated.fontSize": 15,
 
   // Characters: autodetect indentations else use spaces, use LF
   "editor.tabSize": 2,
@@ -115,7 +115,6 @@
   // Python
   "[python]": {
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
     "editor.tabSize": 4
   },
   "python.languageServer": "Pylance",
@@ -176,9 +175,10 @@
     { "before": ["<C-y>"], "after": ["<C-r>"] },
 
     // Goto definition, implementation, references
+    { "before": ["g", "p"], "commands": ["editor.action.peekDefinition"] },
     { "before": ["g", "o"], "commands": ["editor.action.revealDefinition"] },
     { "before": ["g", "i"], "commands": ["editor.action.goToImplementation"] },
-    { "before": ["g", "d"], "commands": ["editor.action.goToReferences"] },
+    { "before": ["g", "u"], "commands": ["editor.action.goToReferences"] },
 
     // Rename symbol
     {

@@ -13,6 +13,12 @@ noremap R P
 noremap p r
 noremap P R
 
+" Swap find and search
+noremap f /
+noremap F ?
+noremap / f
+noremap ? F
+
 " Home row navigation between line start and line end
 noremap H ^
 noremap ^ H
