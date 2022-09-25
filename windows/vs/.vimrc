@@ -124,8 +124,8 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
 " Line and block shifting
-noremap ) :vsc Edit.MoveSelectedLinesDown<CR>
-noremap ( :vsc Edit.MoveSelectedLinesUp<CR>
+vnoremap ) :vsc Edit.MoveSelectedLinesDown<CR>
+vnoremap ( :vsc Edit.MoveSelectedLinesUp<CR>
 
 " Command mode
 nnoremap <leader>; :
