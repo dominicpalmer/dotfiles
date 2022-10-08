@@ -39,11 +39,15 @@ have been deleted somewhere during the debloat process.
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then
   'Title bars and window borders'.
 
-7. Web installations
+7. Web installations. Install in C:\Program Files\ where possible:
   - Powershell 7. Install PSReadLine v2.1.0 over the top via
   'Install-Module -Name PSReadLine -RequiredVersion 2.1.0 -AllowPreRelease',
   then delete the bundled version from
   $HOME\Documents\PowerShell\Modules\PSReadLine)
+  - JetBrains Toolbox (Update settings to install to C:\Program Files\JetBrains,
+  and to not generate shell scripts)
+  - JetBrains.Rider (Via Toolbox run as admin)
+  - JetBrains.DataGrip (Via Toolbox run as admin)
   - SQLSearch (https://www.red-gate.com/products/sql-development/sql-search/installer/)
   - Redis Insight (https://redis.com/redis-enterprise/redis-insight/)
   - AutoHotKey
@@ -56,7 +60,7 @@ have been deleted somewhere during the debloat process.
 
 8. Install 'App Installer' (winget) from Microsoft Store.
 
-9. Winget installations via 'winget install -e --id <name>'
+9. Winget installations via 'winget install -e --id <name> --location <location>':
   - Mozilla.Firefox
   - Mozilla.Thunderbird
   - wez.wezterm
@@ -65,7 +69,6 @@ have been deleted somewhere during the debloat process.
   - Notepad++.Notepad++ (Set default app for .txt files to Notepad++, change
   Notepad++ backup settings to never create backup files.)
   - Microsoft.VisualStudioCode
-  - JetBrains.Rider
   - Microsoft.VisualStudio.2022.Community
   - Microsoft.SQLServer.2019.Express (also installs Microsoft.AzureDataStudio)
   - Microsoft.SQLServerManagementStudio
@@ -94,7 +97,7 @@ have been deleted somewhere during the debloat process.
 
 10. Node
   a) Install nvm (https://github.com/coreybutler/nvm-windows/releases)
-  b) Run 'nvm list available' and 'node install <latest LTS from list results>'.
+  b) Run 'nvm list available' and 'nvm install lts'.
   c) Set the default version with 'nvm use <version you have just installed>'.
 
 11. Configure startup apps via settings.
