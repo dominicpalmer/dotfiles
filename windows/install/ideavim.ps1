@@ -5,4 +5,4 @@ if (Get-Item -Path $IdeaVimRC -ErrorAction Ignore) {
   Remove-Item $IdeaVimRC
 }
 
-New-Item -ItemType SymbolicLink -Path $IdeaVimRC -Target "$Dotfiles\windows\rider\.ideavimrc"
+New-Item -ItemType SymbolicLink -Path $IdeaVimRC -Target "$Dotfiles\windows\jetbrains\.ideavimrc"
