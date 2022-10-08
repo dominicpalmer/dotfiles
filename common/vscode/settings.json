@@ -161,7 +161,7 @@
 
   // Vim
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "$HOME/remaps_common.vim",
+  "vim.vimrc.path": "$Dotfiles/common/vscode/.vscodevimrc",
   "vim.cursorStylePerMode.insert": "line",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
@@ -169,54 +169,38 @@
   "vim.leader": " ",
   "keyboard.dispatch": "keyCode",
 
+  // Ideally, all keybindings would be in .vscodevimrc. But unlike Visual Studio
+  // and Rider, there's no way to define keybindings for VSCode's native commands
+  // from within a .vimrc config file. Keybindings below are those which make use
+  // of VSCode's native commands.
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Use VSCodeVim's undo stack. <C-z> is implemented in keybindings.json
-    { "before": ["U"], "after": ["<C-r>"] },
-    { "before": ["<C-y>"], "after": ["<C-r>"] },
+    // ---- COMMON
 
-    // Goto definition, implementation, references
+    // Code navigation
     { "before": ["g", "p"], "commands": ["editor.action.peekDefinition"] },
     { "before": ["g", "o"], "commands": ["editor.action.revealDefinition"] },
     { "before": ["g", "i"], "commands": ["editor.action.goToImplementation"] },
     { "before": ["g", "u"], "commands": ["editor.action.goToReferences"] },
-
-    // Rename symbol
-    {
-      "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"],
-      "when": ["editorHasRenameProvider && editorTextFocus && !editorReadonly"]
-    },
-
-    // Navigate errors
-    { "before": ["<leader>", "i"], "commands": ["editor.action.marker.nextInFiles"] },
-    { "before": ["<leader>", "y"], "commands": ["editor.action.marker.prevInFiles"] },
-
-    // Comments
-    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] },
-
-    // Enter/leader+enter to add line breaks below/above the current line
-    { "before": ["<CR>"], "commands": ["editor.action.insertLineAfter"] },
-    { "before": ["<leader>", "<CR>"], "commands": ["editor.action.insertLineBefore"] },
-
-    // Find and replace
-    { "before": ["g", "h"], "commands": ["editor.action.startFindReplaceAction"] },
-
-    // New untitled file
-    { "before": ["<leader>", "n"], "commands": ["workbench.action.files.newUntitledFile"] },
-
-    // Open fuzzy finder, command palette
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.findInFiles"] },
     { "before": ["<leader>", "o"], "commands": ["workbench.action.quickOpen"] },
     { "before": ["<leader>", ";"], "commands": ["workbench.action.showCommands"] },
 
-    // Toggle sidebar, panel
-    { "before": ["<leader>", "d"], "commands": ["workbench.action.toggleSidebarVisibility"] },
-    { "before": ["<leader>", "f"], "commands": ["workbench.action.togglePanel"] },
+    // Code editing
+    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] },
+    { "before": ["<leader>", "n"], "commands": ["workbench.action.files.newUntitledFile"] },
+    { "before": ["<leader>", "r"], "commands": ["editor.action.rename"], "when": ["editorHasRenameProvider && editorTextFocus && !editorReadonly"] },
 
-    // Pin/unpin file
+    // Editor windows, tabs, panels
+    { "before": ["g", "j"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+    { "before": ["g", "k"], "commands": ["workbench.action.togglePanel"] },
+    { "before": ["<leader>", "h"], "commands": ["workbench.action.navigateLeft"] },
+    { "before": ["<leader>", "j"], "commands": ["workbench.action.navigateDown"] },
+    { "before": ["<leader>", "k"], "commands": ["workbench.action.navigateUp"] },
+    { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
+    { "before": ["<leader>", "v"], "commands": ["workbench.action.splitEditor"] },
+    { "before": ["<leader>", "c"], "commands": ["workbench.action.splitEditorOrthogonal"] },
     { "before": ["<leader>", "p"], "commands": ["workbench.action.pinEditor"] },
     { "before": ["<leader>", "u"], "commands": ["workbench.action.unpinEditor"] },
-
-    // Shift to a tab by index with <leader>
     { "before": ["<leader>", "1"], "commands": ["workbench.action.openEditorAtIndex1"] },
     { "before": ["<leader>", "2"], "commands": ["workbench.action.openEditorAtIndex2"] },
     { "before": ["<leader>", "3"], "commands": ["workbench.action.openEditorAtIndex3"] },
@@ -227,45 +211,86 @@
     { "before": ["<leader>", "8"], "commands": ["workbench.action.openEditorAtIndex8"] },
     { "before": ["<leader>", "9"], "commands": ["workbench.action.openEditorAtIndex9"] },
 
-    // Editor focus and splits
+    // Extensions
+    { "before": ["<leader>", "b"], "commands": ["gitlens.toggleLineBlame"] },
+    { "before": ["<leader>", "g"], "commands": ["git-graph.view"] },
+
+    // ---- NORMAL MODE
+
+    // Use VSCode's undo stack. These keybindings don't work from within .vscodevimrc.
+    { "before": ["U"], "after": ["<C-r>"] },
+    { "before": ["<C-y>"], "after": ["<C-r>"] },
+
+    // Line insertion
+    { "before": ["<CR>"], "commands": ["editor.action.insertLineAfter"] },
+    { "before": ["<leader>", "<CR>"], "commands": ["editor.action.insertLineBefore"] },
+
+    // Navigate errors
+    { "before": ["<leader>", "i"], "commands": ["editor.action.marker.nextInFiles"] },
+    { "before": ["<leader>", "y"], "commands": ["editor.action.marker.prevInFiles"] },
+
+    // Replace the word under the cursor, without first having to visual select it
+    { "before": ["g", "h"], "commands": [ "editor.action.addSelectionToNextFindMatch", "editor.action.startFindReplaceAction" ] },
+    { "before": ["<leader>", "g", "h"], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.replaceInFiles" ] },
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // ---- COMMON
+
+    // Code navigation
+    { "before": ["g", "p"], "commands": ["editor.action.peekDefinition"] },
+    { "before": ["g", "o"], "commands": ["editor.action.revealDefinition"] },
+    { "before": ["g", "i"], "commands": ["editor.action.goToImplementation"] },
+    { "before": ["g", "u"], "commands": ["editor.action.goToReferences"] },
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.findInFiles"] },
+    { "before": ["<leader>", "o"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", ";"], "commands": ["workbench.action.showCommands"] },
+
+    // Code editing
+    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] },
+    { "before": ["<leader>", "n"], "commands": ["workbench.action.files.newUntitledFile"] },
+    { "before": ["<leader>", "r"], "commands": ["editor.action.rename"], "when": ["editorHasRenameProvider && editorTextFocus && !editorReadonly"] },
+
+    // Editor windows, tabs, panels
+    { "before": ["g", "j"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+    { "before": ["g", "k"], "commands": ["workbench.action.togglePanel"] },
     { "before": ["<leader>", "h"], "commands": ["workbench.action.navigateLeft"] },
     { "before": ["<leader>", "j"], "commands": ["workbench.action.navigateDown"] },
     { "before": ["<leader>", "k"], "commands": ["workbench.action.navigateUp"] },
     { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
     { "before": ["<leader>", "v"], "commands": ["workbench.action.splitEditor"] },
     { "before": ["<leader>", "c"], "commands": ["workbench.action.splitEditorOrthogonal"] },
+    { "before": ["<leader>", "p"], "commands": ["workbench.action.pinEditor"] },
+    { "before": ["<leader>", "u"], "commands": ["workbench.action.unpinEditor"] },
+    { "before": ["<leader>", "1"], "commands": ["workbench.action.openEditorAtIndex1"] },
+    { "before": ["<leader>", "2"], "commands": ["workbench.action.openEditorAtIndex2"] },
+    { "before": ["<leader>", "3"], "commands": ["workbench.action.openEditorAtIndex3"] },
+    { "before": ["<leader>", "4"], "commands": ["workbench.action.openEditorAtIndex4"] },
+    { "before": ["<leader>", "5"], "commands": ["workbench.action.openEditorAtIndex5"] },
+    { "before": ["<leader>", "6"], "commands": ["workbench.action.openEditorAtIndex6"] },
+    { "before": ["<leader>", "7"], "commands": ["workbench.action.openEditorAtIndex7"] },
+    { "before": ["<leader>", "8"], "commands": ["workbench.action.openEditorAtIndex8"] },
+    { "before": ["<leader>", "9"], "commands": ["workbench.action.openEditorAtIndex9"] },
 
     // Extensions
     { "before": ["<leader>", "b"], "commands": ["gitlens.toggleLineBlame"] },
-    { "before": ["<leader>", "g"], "commands": ["git-graph.view"] },
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // Rename symbol
-    {
-      "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"],
-      "when": ["editorHasRenameProvider && editorTextFocus && !editorReadonly"]
-    },
 
-    // Leave visual mode
-    { "before": ["u"], "after": ["<Esc>", "u"] },
-
-    // Comments
-    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] },
+    // ---- VISUAL MODE
 
     // Paste over without storing the deleted content with ctrl+v
     { "before": ["<C-v>"], "commands": ["editor.action.clipboardPasteAction"] },
 
-    // Line shifting is better handled by VSCode
+    // Movement by lines
     { "before": ["("], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": [")"], "commands": ["editor.action.moveLinesUpAction"] },
 
-    // Find and replace
+    // No need to select the word under cursor before find and replace in visual mode
     { "before": ["g", "h"], "commands": ["editor.action.startFindReplaceAction"] },
+    { "before": ["<leader>", "g", "h"], "commands": ["workbench.action.replaceInFiles"] },
   ],
 
   // Settings Sync
   "sync.gist": "",
+  "window.zoomLevel": -0.5,
   "workbench.colorTheme": "Light++",
-  "window.zoomLevel": -0.4,
 }

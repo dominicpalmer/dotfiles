@@ -21,6 +21,7 @@ local shared = {
 
       automatically_reload_config = true,
       audible_bell = "Disabled",
+      check_for_updates = false,
    },
 
    unix = {

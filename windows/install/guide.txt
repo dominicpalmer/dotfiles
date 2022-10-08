@@ -110,6 +110,8 @@ have been deleted somewhere during the debloat process.
   the dotfiles directory passed as an argument.
   b) Run Windows dotfiles install scripts in turn. If the $Dotfiles environment
   variable isn't set yet, set it temporarily.
+  c) Before running disable_lock_workstation.reg, create the registry key:
+  HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
 16. WSL
   a) In RegEdit, go to

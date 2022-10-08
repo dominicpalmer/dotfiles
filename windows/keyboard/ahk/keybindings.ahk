@@ -1,9 +1,17 @@
 ; CapsLock to Esc
 CapsLock::Esc
-Shift & CapsLock::CapsLock
+
+; RCtrl to Capslock
+RCtrl::CapsLock
 
 ; AltGr to Ctrl
 RAlt::Ctrl
+
+; Windows key controls
+#h::SendInput {Left}
+#j::SendInput {Down}
+#k::SendInput {Up}
+#l::SendInput {Right}
 
 ; Remap virtual desktop shortcuts
 #o::^#d

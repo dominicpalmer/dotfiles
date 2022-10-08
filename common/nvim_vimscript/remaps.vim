@@ -1,6 +1,83 @@
-" Dedicated Neovim remaps
-
 let mapleader = " "
+
+" Yank (take), paste (resolve), replace (place) and till (yet)
+noremap t y
+nnoremap T y$
+noremap y t
+noremap Y T
+nnoremap r p
+vnoremap r P
+nnoremap ]r ]p
+vnoremap ]r "_x]P
+noremap R P
+noremap p r
+noremap P R
+
+" J (join) to M (merge)
+noremap M J
+
+" Swap find and search
+noremap f /
+noremap F ?
+noremap / f
+noremap ? F
+
+" Line and paragraph navigation
+noremap J }
+noremap K {
+noremap H ^
+noremap ^ H
+noremap L $
+noremap $ L
+noremap Q %
+
+" 0 register deletion and line clearing, and normal mode backspace
+noremap x "0x
+nnoremap X "00D
+vnoremap <BS> "0x
+vnoremap <CR> "0x
+nnoremap <BS> X
+
+" Better indentation
+nnoremap > mz>>'z
+vnoremap > >gv
+nnoremap < mz<<'z
+vnoremap < <gv
+
+" Select all, copy, cut, save
+nnoremap <C-a> ggVG
+inoremap <C-a> <Esc>ggVG
+vnoremap <C-c> y
+vnoremap <C-x> x
+noremap <C-s> :w<CR>
+
+" In normal mode, paste before with <C-v>. Good for pasting blocks from outside
+" the editor, or pasting character wise within lines
+nnoremap <C-v> gP
+
+" In insert mode, paste after with <C-v>. Good for pasting character wise from
+" outside the editor at the end of existing lines
+inoremap <C-v> <C-o>gp
+
+" Regain visual block mode with S
+noremap S <C-v>
+
+" Turn off search highlighting
+nnoremap <Esc> :nohl<CR>
+
+" Undo immediately, without needing an extra escape out of visual mode
+vnoremap u <Esc>u
+
+" Repeat word deletion or changes, forwards or backwards
+nnoremap d* *``dgn
+nnoremap d# *``dgN
+nnoremap c* *``cgn
+nnoremap c# #``cgN
+
+" Sensible write and close
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader><leader>q :qa<CR>
 
 " Page up, page down
 noremap <M-j> <C-f>

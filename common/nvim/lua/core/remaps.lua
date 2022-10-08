@@ -124,8 +124,8 @@ M.bind = function()
       map("n", "<leader>>", "V`]<")
 
       -- Line and block shifting
-      map("v", ")", ":m '>+1<CR>gv=gv")
-      map("v", "(", ":m '<-2<CR>gv=gv")
+      map("v", "(", ":m '>+1<CR>gv=gv")
+      map("v", ")", ":m '<-2<CR>gv=gv")
 
       -- Turn off highlighting
       map("n", "<Esc>", ":nohl<CR>")
