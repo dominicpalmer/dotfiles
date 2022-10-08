@@ -161,7 +161,7 @@
 
   // Vim
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "$Dotfiles/common/vscode/.vscodevimrc",
+  "vim.vimrc.path": "~/root/dotfiles/common/vscode/.vscodevimrc",
   "vim.cursorStylePerMode.insert": "line",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,

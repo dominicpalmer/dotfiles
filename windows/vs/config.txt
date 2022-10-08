@@ -30,8 +30,6 @@ Text Editor/All Languages: Enable line numbers, navigation bar, automatic brace 
 Text Editor/All Languages/Scroll Bars: Use map mode for vertical scroll bar, with narrow width
 Text Editor/C#/Intellisense: Show completion list after a character is deleted as true
 Text Editor/C#/Intellisense: Automatically complete statement on semicolon as false
-Assign 'Text Editor' VS shortcuts of Ctrl+j to Edit.LineDown and Ctrl+k to Edit.LineUp. The
-latter may require https://github.com/VsVim/VsVim/issues/1082#issuecomment-239600450
 
 ---- UI
 Window layouts
