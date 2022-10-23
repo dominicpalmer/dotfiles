@@ -213,7 +213,6 @@
 
     // Extensions
     { "before": ["<leader>", "b"], "commands": ["gitlens.toggleLineBlame"] },
-    { "before": ["<leader>", "g"], "commands": ["git-graph.view"] },
 
     // ---- NORMAL MODE
 

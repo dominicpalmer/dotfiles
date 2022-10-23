@@ -55,6 +55,9 @@ M.platform = {
          active_titlebar_bg = common.custom_white,
          inactive_titlebar_bg = common.custom_white,
       },
+
+      -- For VDI use
+      -- prefer_egl = true
    },
 
    unix = {
