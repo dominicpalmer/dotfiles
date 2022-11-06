@@ -1,0 +1,12 @@
+---- Extensions
+.env files support
+.NET Core User Secrets
+CodeGlance Pro
+Cognitive Complexity
+CSV
+Entity Framework Core UI
+Heap Allocations Viewer
+IdeaVim
+MoqComplete
+Structured Logging
+Tabnine

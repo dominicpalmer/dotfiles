@@ -149,6 +149,7 @@ noremap <leader>gh :action ReplaceInPath<CR>
 
 " Editor windows, tabs, panels
 noremap gj :action ActivateProjectToolWindow<CR>
+noremap gk :action ActivateProblemsViewToolWindow<CR>
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
