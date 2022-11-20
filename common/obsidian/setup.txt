@@ -1,0 +1,36 @@
+## Editor
+	-  Tick 'Show line number'
+	-  Untick 'Indent using tabs'
+	-  Untick 'Fold heading'
+	-  Untick 'Fold indent'
+	-  Untick 'Show indentation guides'
+
+## Appearance
+- Tick 'Native menus'
+- 'Window frame style' as 'Native frame'
+- 'Base color scheme' as 'Light'
+- Reduce zoom level and font size in tandem
+- Set 'Cascadia Code' as font for 'Text', 'Interface' and 'Monospace'
+- Untick 'Show tab title bar'
+- Install 'Minimal theme' from Appearance/Themes
+
+
+## Community Plugins
+- Turn on community plugins via 'Community Plugins'
+- Install 'Hider', 'Minimal Theme', 'Native Scrollbars'
+
+## Hider
+- Hide 'Tab bar', 'Tooltips, and 'Instructions'
+
+## Minimal Theme
+- 'Light mode background constrast' as 'High contrast'
+- Tick 'Colorful active states'
+- Tick 'Colorful window frame'
+- Tick 'Colorful headings'
+
+## Native Scrollbars
+- Go back to 'Community plugins'/'Browse plugins', enable 'Native Scrollbars'
+
+## Custom CSS
+- Copy obsidian.css into the .obsidian/snippets directory of the 'main' vault
+- Enable CSS snippets via 'Appearance/CSS snippets'

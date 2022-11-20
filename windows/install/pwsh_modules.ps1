@@ -11,7 +11,7 @@ if (Get-Item -Path $OhMyPoshRoot -ErrorAction Ignore) {
   Remove-Item $OhMyPoshRoot -Recurse -Force
 }
 
-# In placing oh-my-posh V2 source in the Modules directory, it becomes usable
+# By placing oh-my-posh V2 source in the Modules directory, it becomes usable
 git clone https://github.com/JanDeDobbeleer/oh-my-posh2
 Rename-Item "oh-my-posh2" "oh-my-posh"
 Push-Location $PSScriptRoot

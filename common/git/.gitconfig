@@ -2,20 +2,18 @@
 	name = Dominic Palmer
 	email = example@example.com
 [core]
-	autocrlf = input
+	autocrlf = false
 	editor = code
 [alias]
 	st = status
 	co = checkout
 	cob = checkout -b
-	a = add .
 	cm = commit -m
-	p = push
 	pu = push --set-upstream origin
-	d = diff
 	wa = worktree add
 	wr = worktree remove
 	ll = log --oneline
 	last = log -1 HEAD --stat
 	rv = remote -v
 	gl = config --global -l
+	re = reset HEAD~

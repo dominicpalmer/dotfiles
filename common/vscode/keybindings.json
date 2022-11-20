@@ -5,6 +5,8 @@
 
   // Ctrl based panel focus shifting
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
+  { "key": "ctrl+j", "command": "workbench.action.navigateDown" },
+  { "key": "ctrl+k", "command": "workbench.action.focusLastEditorGroup" },
   { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
 
   // Ctrl based tab shifting
@@ -18,9 +20,23 @@
   { "key": "ctrl+8", "command": "workbench.action.openEditorAtIndex8" },
   { "key": "ctrl+9", "command": "workbench.action.openEditorAtIndex9" },
 
-  // Ctrl based sidebar and panel toggle
-  { "key": "ctrl+[", "command": "workbench.action.toggleSidebarVisibility" },
-  { "key": "ctrl+]", "command": "workbench.action.togglePanel" },
+  // Toggle lefthand sidebar
+  { "key": "ctrl+alt+h", "command": "workbench.action.toggleSidebarVisibility" },
+
+  // Toggle panel
+  {
+    "key": "ctrl+alt+j",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.togglePanel",
+        "workbench.action.focusLastEditorGroup"
+      ]
+    },
+  },
+
+  // Toggle righthand sidebar
+  { "key": "ctrl+alt+l", "command": "workbench.action.toggleAuxiliaryBar" },
 
   // Ctrl based menu shortcuts
   { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
@@ -39,4 +55,8 @@
   { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'", "args": { "after": [ "<C-f>" ] } },
   { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'Normal'", "args": { "after": [ "<C-b>" ] } },
   { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'", "args": { "after": [ "<C-b>" ] } },
+
+  // Quckfix with Alt+Enter
+  { "key": "alt+enter", "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" },
+  { "key": "ctrl+oem_period", "command": "-editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" },
 ]

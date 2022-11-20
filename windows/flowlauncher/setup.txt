@@ -1,0 +1,20 @@
+## General
+- Start flow launcher on system startup
+- Hide flow launcher on startup
+- 'Last Query Style' as 'Empty last Query'
+- 'Maximum results shown' as 8
+- Hotkey to Alt+Space
+
+## Theme
+- 'Theme' as Win10Light
+- 'Query Box Font' as Cascadia Code
+- 'Result Item Font' as Cascadia Code
+
+## Hotkey
+- Untick 'Show Hotkey'
+
+## Plugin installs
+- run 'pm install color' in the launcher
+
+## Plugin
+- Shell: untick 'Always run as administrator', select 'RunCommand' from dropdown

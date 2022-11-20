@@ -103,12 +103,9 @@ Set-PSReadLineKeyHandler -Key "Q" -Function ViGotoBrace -ViMode Command
 Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 
 # Searching history incrementally from / doesn't always work
-# It does work if the search is straight from the current input
+# Up/Down straight from the current input does
 Set-PSReadLineKeyHandler -Key "j" -Function HistorySearchForward -ViMode Command
 Set-PSReadLineKeyHandler -Key "k" -Function HistorySearchBackward -ViMode Command
-
-# PSReadLine does not allow Ctrl+Space to be remapped
-# Set-PSReadLineKeyHandler -Chord "Ctrl+Space" -Function PossibleCompletions -ViMode Command
 
 # PSReadLine does not allow ViDeleteToBeforeChar to be remapped
 # Set-PSReadLineKeyHandler -Chord "d,y" -Function ViDeleteToBeforeChar -ViMode Command
