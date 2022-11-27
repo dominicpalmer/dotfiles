@@ -34,8 +34,6 @@ noremap y t
 noremap Y T
 nnoremap r p | :vsc Edit.FormatDocument<CR>
 vnoremap r P | :vsc Edit.FormatDocument<CR>
-nnoremap ]r ]p | :vsc Edit.FormatDocument<CR>
-vnoremap ]r "_x]P | :vsc Edit.FormatDocument<CR>
 noremap R P | :vsc Edit.FormatDocument<CR>
 noremap p r
 noremap P R
@@ -49,13 +47,11 @@ noremap F ?
 noremap / f
 noremap ? F
 
-" Line and paragraph navigation
+" Line and block navigation
+noremap H ^
 noremap J }
 noremap K {
-noremap H ^
-noremap ^ H
 noremap L $
-noremap $ L
 noremap Q %
 
 " 0 register deletion and line clearing, and normal mode backspace
@@ -91,13 +87,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
-" Have <CR>/<leader><CR> add line breaks below/above the cursor in normal mode
+" Have <CR>/<S-CR> add line breaks below/above the cursor in normal mode
 nnoremap <CR> o<Esc>
-nnoremap <leader><CR> O<Esc>
-
-" Indent recently pasted text
-nnoremap <leader>> V`]>
-nnoremap <leader>< V`]<
+nnoremap <S-CR> O<Esc>
 
 " Sensible redo: VSVim forces VS to use the Vim undo stack, so this works as-is
 nnoremap U <C-r>
@@ -117,9 +109,10 @@ noremap gu :vsc Edit.FindAllReferences<CR>
 noremap gi :vsc Edit.GoToImplementation<CR>
 noremap go :vsc Edit.GoToDefinition<CR>
 noremap gp :vsc Edit.PeekDefinition<CR>
+noremap gm :vsc Edit.QuickInfo<CR>
 noremap <leader>f :vsc Edit.FindInFiles<CR>
 noremap <leader>o :vsc Edit.GoToAll<CR>
-nnoremap <leader>; :
+nnoremap <leader>; :vsc Window.QuickLaunch<CR>
 
 " Comment selection (requires the 'Hot Commands' extension)
 nnoremap <leader>/ :vsc Edit.ToggleComment<CR>
@@ -130,9 +123,9 @@ noremap <leader>n :vsc File.NewFile<CR>
 noremap <leader>r :vsc Refactor.Rename<CR>
 noremap gh :vsc Edit.Replace<CR>
 noremap <leader>gh :vsc Edit.ReplaceInFiles<CR>
-noremap <leader>b :vsc Build.BuildSolution<CR>
-noremap gc :vsc Build.CleanSolution<CR>
-noremap gf :vsc Edit.FormatDocument<CR>
+noremap gb :vsc Build.BuildSolution<CR> | :echo "Building solution"<CR>
+noremap gc :vsc Build.CleanSolution<CR> | :echo "Cleaning solution"<CR>
+noremap gf :vsc Edit.FormatDocument<CR> | :echo "Formatted document"<CR>
 
 " Editor windows, tabs, panels
 noremap <leader>h <C-w>h

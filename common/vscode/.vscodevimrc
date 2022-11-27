@@ -7,8 +7,6 @@ noremap y t
 noremap Y T
 nnoremap r p
 vnoremap r P
-nnoremap ]r ]p
-vnoremap ]r "_x]P
 noremap R P
 noremap p r
 noremap P R
@@ -22,13 +20,11 @@ noremap F ?
 noremap / f
 noremap ? F
 
-" Line and paragraph navigation
+" Line and block navigation
+noremap H ^
 noremap J }
 noremap K {
-noremap H ^
-noremap ^ H
 noremap L $
-noremap $ L
 noremap Q %
 
 " 0 register deletion and line clearing, and normal mode backspace

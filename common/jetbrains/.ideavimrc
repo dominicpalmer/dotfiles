@@ -49,8 +49,6 @@ noremap y t
 noremap Y T
 nnoremap r p :action AutoIndentLines<CR>
 vnoremap r P :action AutoIndentLines<CR>
-nnoremap ]r ]p :action AutoIndentLines<CR>
-vnoremap ]r "_x]P :action AutoIndentLines<CR>
 noremap R P :action AutoIndentLines<CR>
 noremap p r
 noremap P R
@@ -64,13 +62,11 @@ noremap F ?
 noremap / f
 noremap ? F
 
-" Line and paragraph navigation
+" Line and block navigation
+noremap H ^
 noremap J }
 noremap K {
-noremap H ^
-noremap ^ H
 noremap L $
-noremap $ L
 noremap Q %
 
 " 0 register deletion and line clearing, and normal mode backspace
@@ -92,8 +88,10 @@ noremap S <C-v>
 " Turn off search highlighting
 nnoremap <Esc> :nohl<CR>
 
-" Undo immediately, without needing an extra escape out of visual mode
-vnoremap u <Esc>u
+" Undo immediately with the subsequent undo selection cleared, and without
+" needing an extra escape out of visual mode
+nnoremap u u<Esc>
+vnoremap u <Esc>u<Esc>
 
 " Repeat word deletion or changes, forwards or backwards
 nnoremap d* *``dgn
@@ -106,13 +104,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
-" Have <CR>/<leader><CR> add line breaks below/above the cursor in normal mode
+" Have <CR>/<S-CR> add line breaks below/above the cursor in normal mode
 nnoremap <CR> o<Esc>
-nnoremap <leader><CR> O<Esc>
-
-" Indent recently pasted text
-nnoremap <leader>> V`]>
-nnoremap <leader>< V`]<
+nnoremap <S-CR> O<Esc>
 
 " Sensible redo: IdeaVim uses the Vim undo stack, so this works as-is
 nnoremap U <C-r>
@@ -130,15 +124,16 @@ noremap ( :action MoveLineUp<CR>
 
 " Code navigation
 noremap gu :action FindUsages<CR>
-noremap gi :action GotoImplementation<CR>
-noremap go :action GotoDeclaration<CR>
+noremap gi :action GotoDeclaration<CR>
+noremap go :action GotoImplementation<CR>
 noremap gp :action QuickImplementations<CR>
+noremap gm :action QuickInfo<CR>
 noremap <leader>f :action FindInPath<CR>
 noremap <leader>o :action SearchEverywhere<CR>
 nnoremap <leader>; :
 
 " NOTE: IdeaVim doesn't support immediate escape after commenting a block
-" Comment selection
+" comment selection
 noremap <leader>/ :action CommentByLineComment<CR>
 
 " Code editing
@@ -146,7 +141,7 @@ noremap <leader>n :action NewFile<CR>
 noremap <leader>r :action RenameElement<CR>
 noremap gh :action Replace<CR>
 noremap <leader>gh :action ReplaceInPath<CR>
-noremap <leader>b :action BuildSolutionAction<CR>
+noremap gb :action BuildSolutionAction<CR>
 noremap gc :action CleanSolutionAction<CR>
 noremap gf :action ReformatCode<CR>
 
@@ -177,8 +172,8 @@ noremap <A-j> <C-f>
 noremap <A-k> <C-b>
 
 " Navigate errors
-noremap <leader>i :action GotoNextError<CR>
-noremap <leader>y :action GotoPreviousError<CR>
+noremap <leader>u :action GotoNextError<CR>
+noremap <leader>i :action GotoPreviousError<CR>
 
 " Reload configuration
 nnoremap <leader><leader>r :so ~\.ideavimrc<CR>

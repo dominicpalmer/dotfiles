@@ -5,11 +5,9 @@ Import-Module oh-my-posh
 Set-Theme agnoster
 $global:DefaultUser = [System.Environment]::UserName
 
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUserDeclaredVarsMoreThanAssignments', '', Scope='Function')]
-$Dotfiles = $env:dotfiles
-
 # Aliases
 function sudo { gsudo --loadProfile $args }
+function dotfiles { Set-Location $env:Dotfiles }
 
 # Use insert mode line cursor on startup, and switch cursors on mode change
 $LineCursor = "`e[6 q"
@@ -20,7 +18,8 @@ function OnViModeChange {
     if ($args[0] -eq 'Command') {
         # Block cursor
         Write-Host -NoNewLine $BlockCursor
-    } else {
+    }
+    else {
         # Line cursor
         Write-Host -NoNewLine $LineCursor
     }
@@ -31,21 +30,22 @@ Set-PSReadlineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 Set-PSReadlineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c'}
+Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c' }
 
 # Autocompletion
 Set-PSReadLineKeyHandler -Key "l" -ViMode Command -ScriptBlock {
-       param($key, $arg)
+    param($key, $arg)
 
-       $line = $null
-       $cursor = $null
-       [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
 
-       if ($cursor -lt $line.Length - 1) {
-           [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
-       } else {
-           [Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion($key, $arg)
-       }
+    if ($cursor -lt $line.Length - 1) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
+    }
+    else {
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion($key, $arg)
+    }
 }
 
 # Keybindings

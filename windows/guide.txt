@@ -42,10 +42,7 @@ have been deleted somewhere during the debloat process.
 7. Web installations. Install in C:\Program Files\ where possible.
   - AutoHotKey
   - Flow Launcher
-  - Powershell 7 (install PSReadLine v2.1.0 over the top via
-  'Install-Module -Name PSReadLine -RequiredVersion 2.1.0 -AllowPreRelease',
-  then delete the bundled version from
-  $HOME\Documents\PowerShell\Modules\PSReadLine)
+  - Powershell 7
   - Node (install nvm from https://github.com/coreybutler/nvm-windows/releases,
   run 'nvm install lts' then 'nvm use <version_you_just_installed>')
   - JetBrains Toolbox (update settings to install to C:\Program Files\JetBrains,
@@ -70,8 +67,7 @@ have been deleted somewhere during the debloat process.
   - Mozilla.Firefox
   - Mozilla.Thunderbird
   - wez.wezterm
-  - Git.Git (copy common/git/.gitconfig to $HOME with email updated, run
-  'ssh-keygen' to create a key, then configure it in GitHub)
+  - Git.Git
   - Notepad++.Notepad++
   - Microsoft.VisualStudioCode
   - Microsoft.VisualStudio.2022.Community
@@ -87,7 +83,7 @@ have been deleted somewhere during the debloat process.
   - NickeManarin.ScreenToGif
   - ChristianSchenk.MiKTeX
   - TeXstudio.TeXstudio
-  - TranslucentTB (run once installed, and set all options to 'clear')
+  - TranslucentTB
   - Spotify.Spotify
   - VideoLAN.VLC
   - DuongDieuPhap.ImageGlass
@@ -100,11 +96,11 @@ have been deleted somewhere during the debloat process.
 10. Configure startup apps via settings, and turn off protected folder access.
 
 11. In an elevated PowerShell session, create a dotfiles path env variable with
-'setx dotfiles <path_to_dotfiles>'
+'setx /m dotfiles <path_to_where_dotfiles_will_live>'
 
 12. Restart.
 
-13. Transfer root or clone dotfiles, and run dotfiles scripts in turn.
+13. Transfer root or clone dotfiles, and run './df.ps1 -pwsh_modules'.
 
 14. Sign into accounts and services, and apply manual configurations.
   - Flow Launcher (setup.txt)
@@ -115,7 +111,10 @@ have been deleted somewhere during the debloat process.
   change font, font size, never create backup files)
   - Install Cascadia Code PL font
   - VSCode (setup.txt)
+  - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to
+  create an SSH key and configure via settings on GitHub)
   - Firefox
+  - TranslucentTB (run once installed, and set all options to 'clear')
 
 15. WSL
   a) In RegEdit, go to
@@ -125,10 +124,10 @@ have been deleted somewhere during the debloat process.
   b) Run wsl_enable_vmp.ps1 as admin from dotfiles.
   c) Add WSL directories to quick access. The WSL root directory can be accessed
   in File Explorer via '\\wsl$'.
-  c) Restart to allow Windows to enable WSL2, then run
+  c) Restart, then run
   'wsl --set-default-version 2' and 'wsl --set-version Ubuntu-20.04 2'.
-  d) Open a bash prompt in Wezterm. Navigate to ~ and run
-  '/mnc/c/Users/<user>/root/cs/projects/dotfiles/windows/install/wsl_install.sh',
-  '/mnc/c/Users/<user>/root/cs/projects/dotfiles/windows/install/wsl_link.sh'.
+  d) Open a bash prompt. Run from ~:
+  '/mnc/c/Users/<user>/<path to wsl_install.sh>',
+  '/mnc/c/Users/<user>/<path to wsl_link.sh>'.
 
 16. Activate Windows license.

@@ -2,20 +2,6 @@ alias vim=nvim
 alias at=alacritty-themes
 alias pip=pip3
 alias python=python3
-alias ..="cd .."
-alias .2="cd ..; cd .."
-alias .3="cd ..; cd ..; cd .."
-
-alias todo="vim $HOME/root/notes/todo.txt"
-alias arc="vim $HOME/.config/alacritty/alacritty.yml"
-alias trc="vim $HOME/.tmux.conf"
-alias zrc="vim $HOME/.zshrc"
-alias nirc="vim $HOME/.config/nvim/init.vim"
-alias nsrc="vim $HOME/.config/nvim/sets.vim"
-alias nnrc="vim $HOME/.config/nvim/remaps_nvim.vim"
-alias ncrc="vim $HOME/.config/nvim/remaps_common.vim"
-alias nprc="vim $HOME/.config/nvim/plugins.vim"
-alias ngrc="vim $HOME/.config/nvim/general.vim"
 
 export DOTFILES="$HOME/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"

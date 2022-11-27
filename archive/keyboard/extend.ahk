@@ -16,15 +16,15 @@ RShift & LShift::NumLock
     l::Right
     u::Home
     o::End
-	h::PgDn
+    h::PgDn
     t::PgUp
-	VKBA::Delete ; VBKA = semicolon
-	g::XButton2 ; XButton2 = Mouse forward
-	'::XButton1 ; XButton1 = Mouse back
+    VKBA::Delete ; VBKA = semicolon
+    g::XButton2 ; XButton2 = Mouse forward
+    '::XButton1 ; XButton1 = Mouse back
 
     ; Text editing
-	c::^c
-	w::^x
+    c::^c
+    w::^x
     v::^v
     e::^z
     r::^y
@@ -52,26 +52,26 @@ RShift & LShift::NumLock
     -::F11
     =::F12
 
-	; All other keys
-	\::PrintScreen
-	z::ScrollLock
-	x::Pause
+    ; All other keys
+    \::PrintScreen
+    z::ScrollLock
+    x::Pause
 
     ; Unmapped base layer keys from left to right, top to bottom
     `::
 
-	q::
-	y::
+    q::
+    y::
     p::
     [::
-	]::
+    ]::
 
-	a::
+    a::
     #::
 
     b::
     ,::
     .::
-	/::
+    /::
         return
 }

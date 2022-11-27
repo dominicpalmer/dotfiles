@@ -1,5 +1,4 @@
 # Creates symbolic links in WSl that link up to dotfiles in Windows at /mnt/c
-
 DOTFILES=/mnt/c/$1
 
 ln -sf $DOTFILES/unix/zsh/.zshrc $HOME/.zshrc

@@ -1,10 +1,14 @@
+## Settings, UI
+Populate settings.json and keybindings.json
+Setup layout per layout.png
+
 ## Extensions
 Auto-Using for C#
 C/C++
 C#
 C# Extensions
 C# IL Viewer
-C~ Namespace Autocompletion
+C# Namespace Autocompletion
 C# to TypeScript
 C# XML Documentation Comments
 CSS Peek
@@ -29,17 +33,8 @@ Remote - SSH
 Remote - SSH: Editing Configuration Files
 Remote Explorer
 Trailing Spaces
-Vim
+Vim (link .vscodevimrc)
 vscode-icons
 WSL
 XML
 YAML
-
-## Settings
-Populate settings.json and keybindings.json
-
-## UI
-Setup layout per layout.png
-
-## VSCodeVim
-Link .vscodevimrc

@@ -1,21 +1,22 @@
+#SingleInstance Force
+
 CapsLock::Esc
 RCtrl::CapsLock
 RAlt::Ctrl
 
-#h::SendInput {Left}
-#j::SendInput {Down}
-#k::SendInput {Up}
-#l::SendInput {Right}
+LWin & h::SendInput {Left}
+LWin & j::SendInput {Down}
+LWin & k::SendInput {Up}
+LWin & l::SendInput {Right}
 
-; Winkey up to Alt Space, for Flow Launcher
+; LWin-Up to Alt+Space, for Flow Launcher search
 LWin Up::
     If (A_PriorKey = "LWin")
         Send !{Space}
 return
 
-; Regain Winkey+r
-LWin & r::
+; Flow Launcher run command with RWin+r
+RWin & r::
     Send !{Space}
-    SendInput >
-    SendInput {Space}
+    SendInput >{Space}
 return
