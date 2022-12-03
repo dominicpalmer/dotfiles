@@ -72,5 +72,6 @@ nnoremap c# #``cgN
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
+nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>

@@ -84,6 +84,7 @@ nnoremap c# #``cgN
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
+nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
@@ -104,12 +105,17 @@ inoremap ? ?<C-g>u
 vnoremap ( :vsc Edit.MoveSelectedLinesDown<CR>
 vnoremap ) :vsc Edit.MoveSelectedLinesUp<CR>
 
-" Code navigation
-noremap gu :vsc Edit.FindAllReferences<CR>
-noremap gi :vsc Edit.GoToImplementation<CR>
-noremap go :vsc Edit.GoToDefinition<CR>
-noremap gp :vsc Edit.PeekDefinition<CR>
-noremap gm :vsc Edit.QuickInfo<CR>
+" g edit commands
+noremap gj :vsc Edit.GoToImplementation<CR>
+noremap gk :vsc Edit.GoToDefinition<CR>
+noremap gl :vsc Edit.FindAllReferences<CR>
+noremap gm :vsc Edit.PeekDefinition<CR>
+noremap gn :vsc Edit.QuickInfo<CR>
+noremap gf :vsc Edit.FormatDocument<CR> | :echo "Formatted document"<CR>
+
+" <leader> commands
+noremap <leader>r :vsc Refactor.Rename<CR>
+noremap <leader>n :vsc File.NewFile<CR>
 noremap <leader>f :vsc Edit.FindInFiles<CR>
 noremap <leader>o :vsc Edit.GoToAll<CR>
 nnoremap <leader>; :vsc Window.QuickLaunch<CR>
@@ -118,16 +124,7 @@ nnoremap <leader>; :vsc Window.QuickLaunch<CR>
 nnoremap <leader>/ :vsc Edit.ToggleComment<CR>
 vnoremap <leader>/ :vsc Edit.ToggleComment<CR> | <Esc><CR>
 
-" Code editing
-noremap <leader>n :vsc File.NewFile<CR>
-noremap <leader>r :vsc Refactor.Rename<CR>
-noremap gh :vsc Edit.Replace<CR>
-noremap <leader>gh :vsc Edit.ReplaceInFiles<CR>
-noremap gb :vsc Build.BuildSolution<CR> | :echo "Building solution"<CR>
-noremap gc :vsc Build.CleanSolution<CR> | :echo "Cleaning solution"<CR>
-noremap gf :vsc Edit.FormatDocument<CR> | :echo "Formatted document"<CR>
-
-" Editor windows, tabs, panels
+" Windows and tabs
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
@@ -144,6 +141,10 @@ noremap <leader>6 :vsc Window.GoToUnpinnedTab6<CR>
 noremap <leader>7 :vsc Window.GoToUnpinnedTab7<CR>
 noremap <leader>8 :vsc Window.GoToUnpinnedTab8<CR>
 noremap <leader>9 :vsc Window.GoToUnpinnedTab9<CR>
+
+" Find and replace
+noremap gh :vsc Edit.Replace<CR>
+noremap <leader>gh :vsc Edit.ReplaceInFiles<CR>
 
 " Forward, back
 noremap <M-i> :vsc View.NavigateForward<CR>

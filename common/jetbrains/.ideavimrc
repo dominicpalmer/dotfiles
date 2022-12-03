@@ -101,6 +101,7 @@ nnoremap c# #``cgN
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
+nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
@@ -122,30 +123,26 @@ nnoremap U <C-r>
 noremap ) :action MoveLineDown<CR>
 noremap ( :action MoveLineUp<CR>
 
-" Code navigation
-noremap gu :action FindUsages<CR>
-noremap gi :action GotoDeclaration<CR>
-noremap go :action GotoImplementation<CR>
-noremap gp :action QuickImplementations<CR>
-noremap gm :action QuickInfo<CR>
+" g edit commands
+noremap gj :action GotoImplementation<CR>
+noremap gk :action GotoDeclaration<CR>
+noremap gl :action FindUsages<CR>
+noremap gm :action QuickImplementations<CR>
+noremap gn :action QuickJavaDoc<CR>
+noremap gf :action ReformatCode<CR>
+
+" <leader> commands
+noremap <leader>r :action RenameElement<CR>
+noremap <leader>n :action NewFile<CR>
 noremap <leader>f :action FindInPath<CR>
 noremap <leader>o :action SearchEverywhere<CR>
-nnoremap <leader>; :
+nnoremap <leader>; :action SearchEverywhere<CR>
 
 " NOTE: IdeaVim doesn't support immediate escape after commenting a block
 " comment selection
 noremap <leader>/ :action CommentByLineComment<CR>
 
-" Code editing
-noremap <leader>n :action NewFile<CR>
-noremap <leader>r :action RenameElement<CR>
-noremap gh :action Replace<CR>
-noremap <leader>gh :action ReplaceInPath<CR>
-noremap gb :action BuildSolutionAction<CR>
-noremap gc :action CleanSolutionAction<CR>
-noremap gf :action ReformatCode<CR>
-
-" Editor windows, tabs, panels
+" Windows and tabs
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
@@ -163,11 +160,15 @@ noremap <leader>7 :action GoToTab7<CR>
 noremap <leader>8 :action GoToTab8<CR>
 noremap <leader>9 :action GoToTab9<CR>
 
+" Find and replace
+noremap gh :action Replace<CR>
+noremap <leader>gh :action ReplaceInPath<CR>
+
 " Forward, back
 noremap <A-i> :action Forward<CR>
 noremap <A-u> :action Back<CR>
 
-" Page up and page down
+" Page up, page down
 noremap <A-j> <C-f>
 noremap <A-k> <C-b>
 

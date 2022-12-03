@@ -1,13 +1,15 @@
+## Settings
+Reassign 'Toggle Bookmark' to F4
+Reassign 'Build Solution' to F7
+Reassign 'Clean Solution' to F8
+Reassign 'Vim Emulator' to Ctrl+Alt+v
+
 ## Extensions
 IdeaVim
-
-
 Tabnine
-CodeGlance Pro
+CodeGlance2
 Cognitive Complexity
 Heap Allocations Viewer
-Entity Framework Core UI
-MoqComplete
 Structured Logging
 CSV
 .env files support

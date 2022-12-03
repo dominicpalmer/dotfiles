@@ -12,7 +12,7 @@
   { "key": "ctrl+k", "command": "workbench.action.focusLastEditorGroup" },
   { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
 
-  // Find, find and replace menu focus
+  // Vertical navigation the find and find-replace menu focus
   { "key": "ctrl+j", "command": "workbench.action.focusLastEditorGroup", "when": "findWidgetVisible && findInputFocussed" },
   { "key": "ctrl+k", "command": "actions.find", "when": "editorFocus && findWidgetVisible" },
 
@@ -48,6 +48,14 @@
   // Toggle righthand sidebar
   { "key": "ctrl+alt+l", "command": "workbench.action.toggleAuxiliaryBar" },
 
+  // Toggle bookmarks with F4
+  { "key": "F4", "command": "bookmarks.toggle" },
+
+  // Build with F7
+  { "key": "F7", "command": "workbench.action.tasks.build" },
+  { "key": "F7", "command": "-editor.action.diffReview.next", "when": "isInDiffEditor" },
+  { "key": "F7", "command": "-editor.action.wordHighlight.next", "when": "editorTextFocus && hasWordHighlights" },
+
   // Ctrl based menu shortcuts
   { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
   { "key": "ctrl+;", "command": "workbench.action.showCommands" },
@@ -69,4 +77,7 @@
   // Quckfix with Alt+Enter
   { "key": "alt+enter", "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" },
   { "key": "ctrl+oem_period", "command": "-editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" },
+
+  // Toggle VSCodeVim
+  { "key": "ctrl+alt+v", "command": "toggleVim" },
 ]

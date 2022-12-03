@@ -4,6 +4,10 @@ Environment/Tabs and Windows: Insert new tabs to the right of existing tabs
 Environment/Tabs and Windows: Show tabs in multiple rows
 Environment/Tabs and Windows: Show pinned tabs in a separate row
 Environment/Tabs and Windows: Colorize document tabs by Project
+Environment/Keyboard: Reassign F4 to Edit.ToggleBookmark
+Environment/Keyboard: Reassign F7 to Build.BuildSolution
+Environment/Keyboard: Reassign F8 to Build.CleanSolution
+Environment/Keyboard: Reassign Ctrl+Alt+v to VsVim.ToggleEnabled
 Text Editor/General: View zero-width characters
 Text Editor/All Languages: Enable line numbers, navigation bar
 Text Editor/All Languages/Scroll Bars: Use map mode for vertical scroll bar, with narrow width
