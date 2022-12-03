@@ -12,7 +12,7 @@
   { "key": "ctrl+k", "command": "workbench.action.focusLastEditorGroup" },
   { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
 
-  // Vertical navigation the find and find-replace menu focus
+  // Vertical navigation for the find and find-replace menus
   { "key": "ctrl+j", "command": "workbench.action.focusLastEditorGroup", "when": "findWidgetVisible && findInputFocussed" },
   { "key": "ctrl+k", "command": "actions.find", "when": "editorFocus && findWidgetVisible" },
 
