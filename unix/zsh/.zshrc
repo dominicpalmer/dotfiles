@@ -3,7 +3,7 @@ alias at=alacritty-themes
 alias pip=pip3
 alias python=python3
 
-export DOTFILES="$HOME/dotfiles"
+export Dotfiles="$HOME/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 tmux setenv TMUX_ACTIVE true

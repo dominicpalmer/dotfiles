@@ -127,7 +127,7 @@ have been deleted somewhere during the debloat process.
   c) Restart, then run
   'wsl --set-default-version 2' and 'wsl --set-version Ubuntu-20.04 2'.
   d) Open a bash prompt. Run from ~:
-  '/mnc/c/Users/<user>/<path to wsl_install.sh>',
-  '/mnc/c/Users/<user>/<path to wsl_link.sh>'.
+  '/mnc/c/Users/<user>/<path to wsl_install.sh>'
+  '/mnc/c/Users/<user>/<path to wsl_link.sh>' (update beforehand)
 
 16. Activate Windows license.
