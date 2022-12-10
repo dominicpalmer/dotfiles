@@ -22,7 +22,7 @@ IntelliCode
 IntelliCode API Usage Examples
 IntelliCode Completions
 isort
-Light++}
+Light++
 markdownlint
 multi-command
 PowerShell

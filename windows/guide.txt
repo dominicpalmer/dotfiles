@@ -51,6 +51,7 @@ have been deleted somewhere during the debloat process.
   - JetBrains.DataGrip (via Toolbox run as admin)
   - Obsidian
   - OneCommaner (via Microsoft Store, not winget)
+  - 7Zip
   - SQLSearch
   - Redis Insight
   - SysInternals

@@ -65,9 +65,9 @@ New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarge
 
 ############################### 2. vimrc symbolic links
 
-New-Item -ItemType SymbolicLink -Path "$HOME/.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME/.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME/.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
 
 ############################### 3. WezTerm symbolic links and binary
 
@@ -84,7 +84,7 @@ foreach ($WezTermPath in $WezTermPathsToLink) {
 Add-To-Path "C:\Program Files\WezTerm"
 
 ############################### 4. TODO: VSCode symbolic links
-$VSCodeUserPath = "C:\Users\Dom\AppData\Roaming\Code\User"
+$VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$env:Dotfiles\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force

@@ -1,10 +1,17 @@
+/* Background colour */
+.theme-light, .theme-light.minimal-default-light, body .excalidraw {
+  --bg1: #fffefa;
+}
+
 /* Editor window */
 .markdown-source-view {
   color: black;
 }
 
 /* Rendered markdown symbols (e.g. bullet points, ## from headings) */
-.theme-light, .theme-light.minimal-default-light, body .excalidraw {
+.theme-light,
+.theme-light.minimal-default-light,
+body .excalidraw {
   --tx3: gray;
 }
 
@@ -47,14 +54,14 @@
 }
 
 /* Filetree file and folder names */
-.nav-file-title, .nav-folder-title {
+.nav-file-title,
+.nav-folder-title {
   color: white;
 }
 
 /* Active panel header icon */
-.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active
-.workspace-tab-header-inner-icon, .colorful-frame .mod-right-split .mod-top
-.workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
+.colorful-frame .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
   color: white;
 }
 
@@ -64,13 +71,10 @@
 }
 
 /* Active panel header icon hover */
-.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active
-.workspace-tab-header-inner-icon, .colorful-frame .mod-right-split .mod-top
-.workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame.is-focused .mod-left-split .mod-top
-.workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame.is-focused .mod-right-split .mod-top
-.workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
+.colorful-frame .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
+.colorful-frame.is-focused .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
+.colorful-frame.is-focused .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
   --icon-color-hover: white;
   color: white;
 }
@@ -78,15 +82,16 @@
 /* Inactive panel header icon hover */
 .colorful-frame .mod-left-split .mod-top .workspace-tab-header,
 .colorful-frame .mod-right-split .mod-top .workspace-tab-header,
-.colorful-frame .sidebar-toggle-button, .colorful-frame
-.workspace-tab-header-new-tab, .colorful-frame .workspace-tab-header-tab-list,
+.colorful-frame .sidebar-toggle-button,
+.colorful-frame .workspace-tab-header-new-tab,
+.colorful-frame .workspace-tab-header-tab-list,
 .colorful-frame .workspace-tab-header:not(.is-active),
 .colorful-frame.is-focused .mod-left-split .mod-top .workspace-tab-header,
 .colorful-frame.is-focused .mod-right-split .mod-top .workspace-tab-header,
-.colorful-frame.is-focused .sidebar-toggle-button, .colorful-frame.is-focused
-.workspace-tab-header-new-tab, .colorful-frame.is-focused
-.workspace-tab-header-tab-list, .colorful-frame.is-focused
-.workspace-tab-header:not(.is-active) {
+.colorful-frame.is-focused .sidebar-toggle-button,
+.colorful-frame.is-focused .workspace-tab-header-new-tab,
+.colorful-frame.is-focused .workspace-tab-header-tab-list,
+.colorful-frame.is-focused .workspace-tab-header:not(.is-active) {
   --icon-color-hover: white;
   color: white;
 }
