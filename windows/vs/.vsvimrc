@@ -102,8 +102,8 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
 " Line and block shifting
-vnoremap ( :vsc Edit.MoveSelectedLinesDown<CR>
-vnoremap ) :vsc Edit.MoveSelectedLinesUp<CR>
+noremap ( :vsc Edit.MoveSelectedLinesDown<CR>
+noremap ) :vsc Edit.MoveSelectedLinesUp<CR>
 
 " g edit commands
 noremap gj :vsc Edit.GoToImplementation<CR>
@@ -157,8 +157,8 @@ nnoremap <M-k> :vsc Edit.PageUp<CR>
 vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
 
 " Navigate errors
-noremap <leader>u :vsc View.NextError<CR>
-noremap <leader>i :vsc View.PreviousError<CR>
+noremap <leader>i :vsc View.NextError<CR>
+noremap <leader>u :vsc View.PreviousError<CR>
 
 " Reload configuration
 noremap <leader><leader>r :so ~\.vsvimrc<CR>

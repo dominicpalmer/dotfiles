@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# 0. Installs PowerShell modules if invoked with -modules                      #
+# 0. Installs PowerShell modules if invoked with pwsh-modules                  #
 # 1. Creates PowerShell profile symbolic link                                  #
 # 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                #
 # 3. Creates WezTerm symbolic links and adds binary to PATH                    #
@@ -83,7 +83,7 @@ foreach ($WezTermPath in $WezTermPathsToLink) {
 
 Add-To-Path "C:\Program Files\WezTerm"
 
-############################### 4. TODO: VSCode symbolic links
+############################### 4. VSCode symbolic links
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$env:Dotfiles\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force

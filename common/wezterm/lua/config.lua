@@ -36,7 +36,7 @@ local shared = {
 
 M.platform = {
    windows = {
-      default_prog = {"pwsh", "-NoLogo"},
+      default_prog = {"pwsh.exe", "-NoLogo"},
 
       leader = {key="n", mods="CTRL"},
       keys = keys.platform.windows,
@@ -56,7 +56,7 @@ M.platform = {
          inactive_titlebar_bg = common.custom_white,
       },
 
-      -- For VDI use
+      -- Set to true when targeting a VDI
       -- prefer_egl = true
    },
 

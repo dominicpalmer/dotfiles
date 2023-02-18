@@ -173,8 +173,8 @@ noremap <A-j> <C-f>
 noremap <A-k> <C-b>
 
 " Navigate errors
-noremap <leader>u :action GotoNextError<CR>
-noremap <leader>i :action GotoPreviousError<CR>
+noremap <leader>i :action GotoNextError<CR>
+noremap <leader>u :action GotoPreviousError<CR>
 
 " Reload configuration
 nnoremap <leader><leader>r :so ~\.ideavimrc<CR>

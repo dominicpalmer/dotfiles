@@ -1,107 +1,22 @@
-/* Background colour */
-.theme-light, .theme-light.minimal-default-light, body .excalidraw {
-  --bg1: #fffefa;
+/* File explorer folder text colour */
+.nav-folder-title-content {
+  color: #d1d1d1;
 }
 
-/* Editor window */
-.markdown-source-view {
-  color: black;
+/* File explorer file text colour */
+.nav-file-title-content {
+  color: #9edb9a;
 }
 
-/* Rendered markdown symbols (e.g. bullet points, ## from headings) */
-.theme-light,
-.theme-light.minimal-default-light,
-body .excalidraw {
-  --tx3: gray;
+/* File explorer item padding */
+:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title),
+.vertical-tab-nav-item,
+.tree-item-self,
+button {
+  padding: 0.5em;
 }
 
-/* Current line number */
-.cm-editor .cm-lineNumbers .cm-gutterElement.cm-active {
-  color: blue;
-  font-weight: bold;
-}
-
-/* Current line background */
-.cm-active.cm-line {
-  background-color: #468eeb33;
-}
-
-/* Text selection background */
-.markdown-source-view.mod-cm6 ::selection {
-  background-color: lightgray;
-}
-
-/* Inline title */
-.markdown-source-view.mod-cm6:not(.is-readable-line-width) .inline-title {
-  font-size: 2em;
-  color: green;
-}
-
-/* h1 headings */
-.HyperMD-header-1 {
-  color: blue;
-}
-
-/* h2 headings */
-.HyperMD-header-2 {
-  color: red;
-}
-
-/* Thin line separator between line numbers and editor */
-.markdown-source-view.mod-cm6:not(.is-readable-line-width) .cm-contentContainer {
-  border-left: solid 1px lightgray;
-  padding-left: 4px;
-}
-
-/* Filetree file and folder names */
-.nav-file-title,
-.nav-folder-title {
-  color: white;
-}
-
-/* Active panel header icon */
-.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
-  color: white;
-}
-
-/* Inactive panel header icons */
-.workspace-tab-header-inner .workspace-tab-header-inner-icon {
-  color: white;
-}
-
-/* Active panel header icon hover */
-.colorful-frame .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame.is-focused .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.colorful-frame.is-focused .mod-right-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
-  --icon-color-hover: white;
-  color: white;
-}
-
-/* Inactive panel header icon hover */
-.colorful-frame .mod-left-split .mod-top .workspace-tab-header,
-.colorful-frame .mod-right-split .mod-top .workspace-tab-header,
-.colorful-frame .sidebar-toggle-button,
-.colorful-frame .workspace-tab-header-new-tab,
-.colorful-frame .workspace-tab-header-tab-list,
-.colorful-frame .workspace-tab-header:not(.is-active),
-.colorful-frame.is-focused .mod-left-split .mod-top .workspace-tab-header,
-.colorful-frame.is-focused .mod-right-split .mod-top .workspace-tab-header,
-.colorful-frame.is-focused .sidebar-toggle-button,
-.colorful-frame.is-focused .workspace-tab-header-new-tab,
-.colorful-frame.is-focused .workspace-tab-header-tab-list,
-.colorful-frame.is-focused .workspace-tab-header:not(.is-active) {
-  --icon-color-hover: white;
-  color: white;
-}
-
-/* Filetree action buttons */
-.clickable-icon {
-  color: white;
-}
-
-.nav-buttons-container {
-  display: flex;
-  flex-wrap: wrap;
+/* File explorer background */
+.nav-files-container {
+  background: #000000;
 }

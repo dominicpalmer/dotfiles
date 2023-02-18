@@ -142,6 +142,7 @@
   "editor.cursorSurroundingLines": 8,
 
   // Intellisense: no lag, autoselect the first suggestion, use tab completion
+  "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestionsDelay": 0,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -237,6 +238,8 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
+    { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
+    { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
     { "before": [ "g", "k" ], "commands": [ "editor.action.revealDefinition" ] },
     { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
@@ -278,8 +281,8 @@
     { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
 
     // Navigate errors
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.prevInFiles" ] },
+    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
+    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
 
     // Replace the word under the cursor, without first having to visual select it
     { "before": [ "g", "h" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "editor.action.startFindReplaceAction" ] },
@@ -288,6 +291,8 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
+    { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
+    { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
     { "before": [ "g", "k" ], "commands": [ "editor.action.revealDefinition" ] },
     { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
@@ -323,10 +328,6 @@
 
     // Paste over without storing the deleted content with ctrl+v
     { "before": [ "<C-v>" ], "commands": [ "editor.action.clipboardPasteAction" ] },
-
-    // Movement by lines
-    { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
-    { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
 
     // No need to select the word under cursor before find and replace in visual mode
     { "before": [ "g", "h" ], "commands": [ "editor.action.startFindReplaceAction" ] },

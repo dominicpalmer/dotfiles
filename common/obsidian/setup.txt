@@ -12,8 +12,7 @@
 - Reduce zoom level and font size in tandem
 - Set 'Cascadia Code' as font for 'Text', 'Interface' and 'Monospace'
 - Untick 'Show tab title bar'
-- Install 'Minimal theme' from Appearance/Themes
-
+- Install 'Mado 11' from Appearance/Themes
 
 ## Community Plugins
 - Turn on community plugins via 'Community Plugins'
