@@ -1,22 +1,26 @@
 /* File explorer folder text colour */
 .nav-folder-title-content {
-  color: #d1d1d1;
+    color: #d1d1d1;
 }
 
 /* File explorer file text colour */
 .nav-file-title-content {
-  color: #9edb9a;
+    color: #9edb9a;
 }
 
 /* File explorer item padding */
-:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title),
-.vertical-tab-nav-item,
-.tree-item-self,
-button {
-  padding: 0.5em;
+:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title), 
+.vertical-tab-nav-item, 
+.tree-item-self, button {
+    padding: 0.5em;
 }
 
 /* File explorer background */
 .nav-files-container {
-  background: #000000;
+    background: #000000;
+}
+
+/* File explorer header background */
+.nav-header {
+    background: black;
 }
