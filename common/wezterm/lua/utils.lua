@@ -14,6 +14,7 @@ M.platform = {
             overrides.colors = theme.alternate_colours
             overrides.window_background_image = theme.alternate_bg_img
             overrides.window_background_image_hsb = theme.alternate_bg_hsb
+            overrides.window_background_opacity = theme.alternate_bg_opacity
          end
 
          window:set_config_overrides(overrides)
@@ -30,6 +31,7 @@ M.platform = {
             overrides.color_scheme = theme.alternate_theme
             overrides.window_background_image = theme.alternate_bg_img
             overrides.window_background_image_hsb = theme.alternate_bg_hsb
+            overrides.window_background_opacity = theme.alternate_bg_opacity
          end
 
          window:set_config_overrides(overrides)
@@ -54,6 +56,11 @@ M.platform = {
       end,
    },
 }
+
+M.gui_startup = function(cmd)
+   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+   window:gui_window():maximize()
+end
 
 M.format_tab_title = function(tab, tabs, panes, config, hover, max_width)
    local pane = tab.active_pane

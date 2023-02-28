@@ -1,6 +1,11 @@
-local common = require "common"
-
 local M = {}
+
+M.custom_black = "#000000"
+M.custom_white = "#e6e6e6"
+M.custom_off_white = "#f5e9ce"
+M.custom_dark_grey = "#4f4f4f"
+M.custom_light_grey = "#cfcfcf"
+M.custom_tab_green = "#1c5e00"
 
 local gb_red = "#cc241d"
 local gb_green_1 = "#98971a"
@@ -12,7 +17,7 @@ local gb_blue_2 = "#83a598"
 local gb_offwhite = "#fbf1c7"
 
 M.dark = {
-   scrollbar_thumb = common.custom_dark_grey,
+   scrollbar_thumb = M.custom_dark_grey,
    foreground = gb_offwhite,
 
    ansi = {
@@ -38,24 +43,24 @@ M.dark = {
    },
 
    tab_bar = {
-      background = common.custom_black,
+      background = M.custom_black,
       active_tab = {
-         bg_color = common.custom_tab_green,
-         fg_color = common.custom_off_white,
+         bg_color = M.custom_tab_green,
+         fg_color = M.custom_off_white,
       },
       inactive_tab = {
-         bg_color = common.custom_dark_grey,
-         fg_color = common.custom_off_white,
+         bg_color = M.custom_dark_grey,
+         fg_color = M.custom_off_white,
       },
       new_tab = {
-         bg_color = common.custom_black,
-         fg_color = common.custom_black,
+         bg_color = M.custom_black,
+         fg_color = M.custom_black,
       }
    }
 }
 
 M.light = {
-   scrollbar_thumb = common.custom_light_grey,
+   scrollbar_thumb = M.custom_light_grey,
    foreground = "black",
    cursor_bg = "black",
    cursor_fg = "white",
@@ -83,18 +88,18 @@ M.light = {
    },
 
    tab_bar = {
-      background = common.custom_white,
+      background = M.custom_white,
       active_tab = {
-         bg_color = common.custom_tab_green,
-         fg_color = common.custom_off_white,
+         bg_color = M.custom_tab_green,
+         fg_color = M.custom_off_white,
       },
       inactive_tab = {
-         bg_color = common.custom_dark_grey,
-         fg_color = common.custom_off_white,
+         bg_color = M.custom_dark_grey,
+         fg_color = M.custom_off_white,
       },
       new_tab = {
-         bg_color = common.custom_white,
-         fg_color = common.custom_white,
+         bg_color = M.custom_white,
+         fg_color = M.custom_white,
       },
    }
 }

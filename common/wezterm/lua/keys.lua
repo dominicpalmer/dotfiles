@@ -17,12 +17,12 @@ M.platform = {
 
       -- Tab handlers
       {key="m", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
-      {key="h", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=false}}},
       {key="j", mods="LEADER", action=wezterm.action{CloseCurrentPane={confirm=false}}},
+      {key="k", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=false}}},
       {key="v", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
       {key="c", mods="LEADER", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
 
-      -- Tab switchers
+      -- Tab switching
       {key="n", mods="LEADER", action="ActivateLastTab"},
       {key="1", mods="LEADER", action=wezterm.action{ActivateTab=0}},
       {key="2", mods="LEADER", action=wezterm.action{ActivateTab=1}},
@@ -34,13 +34,13 @@ M.platform = {
       {key="8", mods="LEADER", action=wezterm.action{ActivateTab=7}},
       {key="9", mods="LEADER", action=wezterm.action{ActivateTab=8}},
 
-      -- Pane switchers
+      -- Pane switching
       {key="h", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Left"}},
       {key="j", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Down"}},
       {key="k", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Up"}},
       {key="l", mods="CTRL", action=wezterm.action{ActivatePaneDirection="Right"}},
 
-      -- Scroll
+      -- Pageup, Pagedown
       {key="j", mods="ALT", action=wezterm.action{ScrollByPage=1}},
       {key="k", mods="ALT", action=wezterm.action{ScrollByPage=-1}},
 

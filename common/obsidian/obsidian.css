@@ -9,9 +9,10 @@
 }
 
 /* File explorer item padding */
-:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title), 
-.vertical-tab-nav-item, 
-.tree-item-self, button {
+:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title),
+.vertical-tab-nav-item,
+.tree-item-self,
+button {
     padding: 0.5em;
 }
 
@@ -23,4 +24,14 @@
 /* File explorer header background */
 .nav-header {
     background: black;
+}
+
+/* No file explorer active item indicator */
+.nav-file-title.is-active::before {
+    background: none;
+}
+
+/* No file explorer active item clickaway transition */
+.nav-file-title:before {
+    transition: none;
 }
