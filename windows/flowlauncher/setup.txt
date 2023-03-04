@@ -6,9 +6,11 @@
 - Hotkey to Alt+Space
 
 ## Theme
-- 'Theme' as Win10Light
-- 'Query Box Font' as Cascadia Code
-- 'Result Item Font' as Cascadia Code
+- 'Theme' as Darker
+- 'Query Box Font' as Segoe UI
+- 'Result Item Font' as Segoe UI
+- No animations
+- No sound effects
 
 ## Hotkey
 - Untick 'Show Hotkey'

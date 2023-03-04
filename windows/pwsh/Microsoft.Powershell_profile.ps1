@@ -8,6 +8,30 @@ $global:DefaultUser = [System.Environment]::UserName
 # Aliases
 function sudo { gsudo --loadProfile $args }
 function dotfiles { Set-Location $env:Dotfiles }
+function grep {
+    $Arguments = $args
+    $ArgumentCount = $Arguments.Length
+
+    if ($ArgumentCount -eq 0) {
+        Write-Host "No arguments, nothing to do"
+        return
+    }
+
+    $Recurse = $Arguments[0] -eq '-r'
+
+    if ($Recurse) {
+        $Before = "Get-ChildItem ./ -Recurse |"
+
+        $RecursiveArgs = $Arguments[1..$ArgumentCount]
+        $After = "$RecursiveArgs"
+    }
+    else {
+        $Before = ""
+        $After = "$Arguments"
+    }
+
+    Invoke-Expression "$Before Select-String $After"
+}
 
 # Use insert mode line cursor on startup, and switch cursors on mode change
 $LineCursor = "`e[6 q"
@@ -36,11 +60,11 @@ Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c' }
 Set-PSReadLineKeyHandler -Key "l" -ViMode Command -ScriptBlock {
     param($key, $arg)
 
-    $line = $null
-    $cursor = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+    $Line = $null
+    $Cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$Line, [ref]$Cursor)
 
-    if ($cursor -lt $line.Length - 1) {
+    if ($Cursor -lt $Line.Length - 1) {
         [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
     }
     else {

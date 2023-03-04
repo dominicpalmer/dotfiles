@@ -93,7 +93,7 @@ New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target
 $PathRegistry = "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment"
 $Path = (Get-ItemProperty -Path $PathRegistry -Name path).path
 
-$DirectoriesToAdd = Get-ChildItem "$env:Dotfiles\windows\bin" -Exclude "template"
+$DirectoriesToAdd = Get-ChildItem "$env:Dotfiles\windows\shortcuts" -Exclude "template"
 $DirectoriesToAdd = $DirectoriesToAdd + "$env:Dotfiles\windows"
 
 foreach ($Directory in $DirectoriesToAdd) {

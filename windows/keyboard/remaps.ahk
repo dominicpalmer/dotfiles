@@ -22,11 +22,6 @@ return
 #k::SendInput {Up}
 #l::SendInput {Right}
 
-!#h::SendInput ^{Left}
-!#j::SendInput ^{Down}
-!#k::SendInput ^{Up}
-!#l::SendInput ^{Right}
-
 CapsLock::Esc
 RCtrl::CapsLock
 RAlt::Ctrl
