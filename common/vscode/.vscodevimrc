@@ -40,29 +40,11 @@ vnoremap > >gv
 nnoremap < mz<<'z
 vnoremap < <gv
 
-" Select all, copy, cut, save
-nnoremap <C-a> ggVG
-inoremap <C-a> <Esc>ggVG
-vnoremap <C-c> y
-vnoremap <C-x> x
-noremap <C-s> :w<CR>
-
-" In normal mode, paste before with <C-v>. Good for pasting blocks from outside
-" the editor, or pasting character wise within lines
-nnoremap <C-v> gP
-
-" In insert mode, paste after with <C-v>. Good for pasting character wise from
-" outside the editor at the end of existing lines
-inoremap <C-v> <C-o>gp
-
 " Regain visual block mode with S
 noremap S <C-v>
 
 " Turn off search highlighting
 nnoremap <Esc> :nohl<CR>
-
-" Undo immediately, without needing an extra escape out of visual mode
-vnoremap u <Esc>u
 
 " Repeat word deletion or changes, forwards or backwards
 nnoremap d* *``dgn

@@ -228,7 +228,14 @@
   "vim.highlightedyank.enable": true,
   "vim.leader": " ",
   "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-s>": false,
     "<C-f>": false,
+    "<C-y>": false,
+    "<C-z>": false,
   },
 
   // Ideally, all keybindings would be in .vscodevimrc. But unlike Visual Studio
@@ -238,6 +245,9 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
+    { "before": [ "u" ], "commands": [ "undo" ] },
+    { "before": [ "U" ], "commands": [ "redo" ] },
+    { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
     { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
@@ -246,20 +256,22 @@
     { "before": [ "g", "m" ], "commands": [ "editor.action.peekDefinition" ] },
     { "before": [ "g", "n" ], "commands": [ "editor.action.showHover" ] },
     { "before": [ "g", "f" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
     { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
     { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
+    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
+    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
     { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
+    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
+    { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
     { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
     { "before": [ "<leader>", "j" ], "commands": [ "workbench.action.navigateDown" ] },
     { "before": [ "<leader>", "k" ], "commands": [ "workbench.action.navigateUp" ] },
     { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
     { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
     { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
-    { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
+    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
+    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
     { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
     { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
@@ -272,27 +284,18 @@
 
     // ---- NORMAL
 
-    // Use VSCode's undo stack. These keybindings don't work from within .vscodevimrc.
-    { "before": [ "U" ], "after": [ "<C-r>" ] },
-    { "before": [ "<C-y>" ], "after": [ "<C-r>" ] },
-
-    // Line insertion (insert line above is handled in keybindings.json)
-    { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
-
-    // Navigate errors
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
-
-    // Search for the word under the cursor, without first having to visual select it
+    // Find/replace for the word under the cursor, without first having to visual select it
     { "before": [ "<leader>", "f" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.findInFiles" ] },
-
-    // Replace the word under the cursor, without first having to visual select it
     { "before": [ "g", "h" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "editor.action.startFindReplaceAction" ] },
     { "before": [ "<leader>", "g", "h" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.replaceInFiles" ] },
   ],
+
   "vim.visualModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
+    { "before": [ "u" ], "commands": [ "undo" ] },
+    { "before": [ "U" ], "commands": [ "redo" ] },
+    { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
     { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
@@ -301,21 +304,22 @@
     { "before": [ "g", "m" ], "commands": [ "editor.action.peekDefinition" ] },
     { "before": [ "g", "n" ], "commands": [ "editor.action.showHover" ] },
     { "before": [ "g", "f" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "f" ], "commands": [ "workbench.action.findInFiles" ] },
     { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
     { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
-    { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
+    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
     { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
+    { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
+    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
+    { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
     { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
     { "before": [ "<leader>", "j" ], "commands": [ "workbench.action.navigateDown" ] },
     { "before": [ "<leader>", "k" ], "commands": [ "workbench.action.navigateUp" ] },
     { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
     { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
     { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
-    { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
+    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
+    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
     { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
     { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
@@ -328,10 +332,8 @@
 
     // ---- VISUAL
 
-    // Paste over without storing the deleted content with ctrl+v
-    { "before": [ "<C-v>" ], "commands": [ "editor.action.clipboardPasteAction" ] },
-
-    // No need to select the word under cursor before find and replace in visual mode
+    // Find/replace for the word under the cursor
+    { "before": [ "<leader>", "f" ], "commands": [ "workbench.action.findInFiles" ] },
     { "before": [ "g", "h" ], "commands": [ "editor.action.startFindReplaceAction" ] },
     { "before": [ "<leader>", "g", "h" ], "commands": [ "workbench.action.replaceInFiles" ] },
   ],

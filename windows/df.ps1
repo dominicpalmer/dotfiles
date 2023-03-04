@@ -6,8 +6,7 @@
 # 3. Creates WezTerm symbolic links and adds binary to PATH                    #
 # 4. Creates VSCode symbolic links                                             #
 # 5. Adds shortcut and dotfiles install directories to PATH                    #
-# 6. Disables Win+l screen locking, to allow an AHK remap                      #
-# 7. Creates an AHK remap scheduled task to run at logon                       #
+# 6. Creates an AHK remap scheduled task to run at logon                       #
 #                                                                              #
 ################################################################################
 
@@ -101,21 +100,7 @@ foreach ($Directory in $DirectoriesToAdd) {
     Add-To-Path $Directory
 }
 
-############################### 6. Disables Win+l screen locking
-
-$RegistryPath = 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
-$Name = 'DisableLockWorkstation'
-$Value = '00000001'
-
-# Creates the registry path if it does not exist
-If (!(Test-Path $RegistryPath)) {
-    New-Item -Path $RegistryPath -Force | Out-Null
-}
-
-# Sets the value
-New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force
-
-############################### 7. AHK scheduled task for keyboard remaps
+############################### 6. AHK scheduled task for keyboard remaps
 
 $TaskName = "remaps"
 

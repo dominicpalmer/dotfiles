@@ -1,1 +1,0 @@
-net stop MSSQL$SQLEXPRESS
