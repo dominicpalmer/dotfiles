@@ -1,103 +1,73 @@
-" ---- IdeaVim settings
+" ---- Settings
 
-" Start scrolling 8 lines before the end of the window
 set scrolloff=8
-
-" No sound
 set visualbell
-
-" Case insensitive searching unless case is specified
 set ignorecase
 set smartcase
-
-" Timeout length for remaps to complete
 set timeoutlen=400
-
-" NOTE: Not yet supported in IdeaVim
-" Wrap to the previous/next line with h/l or left arrow/right arrow
-" set whichwrap=<,>,h,l
-
-" Use the unnamed register by default
+" Not yet supported: set whichwrap=<,>,h,l
 set clipboard=unnamed
-
-" Reduce the need for multiple undos in various scenarios
 set nooldundo
-
-" Show partial commands in the status bar
 set showcmd
 
-" Set handlers define ownership of keybindings by Rider and/or IdeaVim
-sethandler <C-C> a:ide
-sethandler <C-X> a:ide
-sethandler <C-V> a:ide
-sethandler <C-Z> a:ide
-sethandler <C-Y> a:ide
-sethandler <C-A> a:ide
-sethandler <C-S> a:ide
-sethandler <C-H> a:ide
+sethandler <C-c> a:ide
+sethandler <C-x> a:ide
+sethandler <C-v> a:ide
+sethandler <C-z> a:ide
+sethandler <C-y> a:ide
+sethandler <C-a> a:ide
+sethandler <C-s> a:ide
+sethandler <C-h> a:ide
 sethandler <C-k> a:ide
 
 
-" ---- IdeaVim keybindings
+" ---- Keybindings
 
 let mapleader = " "
 
-" Yank (take), paste (resolve), replace (place) and till (yet)
-noremap t y
-nnoremap T y$
-noremap y t
-noremap Y T
-nnoremap r p :action AutoIndentLines<CR>
-vnoremap r P :action AutoIndentLines<CR>
-noremap R P :action AutoIndentLines<CR>
-noremap p r
-noremap P R
+" Repeat with ;, place with , and delete to null with m and X
+nnoremap ; .
+nnoremap , r
+noremap f "0x
+nnoremap F 0"0D
 
-" J (join) to M (merge)
-noremap M J
+" Search with ' and @
+noremap ' /
+noremap @ ?
+noremap v' v/
+noremap v@ v?
 
-" Swap find and search
-noremap f /
-noremap F ?
-noremap / f
-noremap ? F
-
-" Line and block navigation
+" Cursor movement
 noremap H ^
 noremap J }
 noremap K {
 noremap L $
-noremap Q %
 
-" 0 register deletion and line clearing, and normal mode backspace
-noremap x "0x
-nnoremap X 0"0D
-vnoremap <BS> "0x
-vnoremap <CR> "0x
-nnoremap <BS> X
+" Copy paste
+noremap t y
+nnoremap T y$
+nnoremap r p :action AutoIndentLines<CR>
+vnoremap r P :action AutoIndentLines<CR>
+noremap R P :action AutoIndentLines<CR>
 
-" Better indentation
+" Line and block shifting
+noremap M J
+noremap ( :action MoveLineUp<CR>
+noremap ) :action MoveLineDown<CR>
 nnoremap > mz>>'z
 vnoremap > >gv
 nnoremap < mz<<'z
 vnoremap < <gv
+nnoremap <CR> o<Esc>
+nnoremap <S-CR> O<Esc>
 
-" Regain visual block mode with S
-noremap S <C-v>
-
-" Turn off search highlighting
-nnoremap <Esc> :nohl<CR>
-
-" Undo immediately with the subsequent undo selection cleared, and without
-" needing an extra escape out of visual mode
+" Undo, redo, search highlighting, static casing, visual block
 nnoremap u u<Esc>
 vnoremap u <Esc>u<Esc>
-
-" Repeat word deletion or changes, forwards or backwards
-nnoremap d* *``dgn
-nnoremap d# *``dgN
-nnoremap c* *``cgn
-nnoremap c# #``cgN
+nnoremap U <C-r>
+nnoremap <Esc> :nohl<CR>
+nnoremap ~ ~h
+noremap S <C-v>
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
@@ -105,50 +75,78 @@ nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
-" Have <CR>/<S-CR> add line breaks below/above the cursor in normal mode
-nnoremap <CR> o<Esc>
-nnoremap <S-CR> O<Esc>
+" Inner shortcuts (excludes ')
+nnoremap c" ci"
+nnoremap c( ci(
+nnoremap c) ci)
+nnoremap c{ ci{
+nnoremap c} ci}
+nnoremap c[ ci[
+nnoremap c] ci]
+nnoremap ct cit
+nnoremap c< ci<
+nnoremap c> ci>
 
-" Sensible redo: IdeaVim uses the Vim undo stack, so this works as-is
-nnoremap U <C-r>
+nnoremap d" di"
+nnoremap d( di(
+nnoremap d) di)
+nnoremap d{ di{
+nnoremap d} di}
+nnoremap d[ di[
+nnoremap d] di]
+nnoremap dt dit
+nnoremap d< di<
+nnoremap d> di>
 
-" TODO: IdeaVim doesn't support adding undo breakpoints through a remap
-" Additional undo break points
-"inoremap , ,<C-g>u
-"inoremap . .<C-g>u
-"inoremap ! !<C-g>u
-"inoremap ? ?<C-g>u
+nnoremap v" vi"
+nnoremap v( vi(
+nnoremap v) vi)
+nnoremap v{ vi{
+nnoremap v} vi}
+nnoremap v[ vi[
+nnoremap v] vi]
+nnoremap vt vt
+nnoremap v< v<
+nnoremap v> v>
 
-" Line and block shifting
-noremap ) :action MoveLineDown<CR>
-noremap ( :action MoveLineUp<CR>
-
-" g edit commands
+" Code navigation and modification
 noremap gj :action GotoImplementation<CR>
 noremap gk :action GotoDeclaration<CR>
 noremap gl :action FindUsages<CR>
-noremap gm :action QuickImplementations<CR>
 noremap gn :action QuickJavaDoc<CR>
-noremap gf :action ReformatCode<CR>
-
-" <leader> commands
+noremap gu :action OptimizeImports<CR>
+noremap gi :action ReformatCode<CR>
+noremap <leader>' :action CommentByLineComment<CR>
+vnoremap <leader>s :action SurroundWith<CR>
+vnoremap <leader>e :action ExtractMethod<CR>
 noremap <leader>r :action RenameElement<CR>
-noremap <leader>n :action NewFile<CR>
-noremap <leader>f :action FindInPath<CR>
-noremap <leader>o :action SearchEverywhere<CR>
-nnoremap <leader>; :action SearchEverywhere<CR>
+noremap <leader>d :action SelectIn<CR>
+noremap <leader>f :action RevealIn<CR>
 
-" NOTE: IdeaVim doesn't support immediate escape after commenting a block
-" comment selection
-noremap <leader>/ :action CommentByLineComment<CR>
+" Launchers
+noremap <leader>; :action GotoAction<CR>
+noremap <leader>o :action SearchEverywhere<CR>
+noremap <leader>n :action FindInPath<CR>
+noremap <leader>m :action ReplaceInPath<CR>
+noremap gh :action Replace<CR>
+noremap <leader>, :action NewFile<CR>
+noremap <C-,> :action ShowSettings<CR>
+
+" Pageup/Pagedown, Forward/Back, NextError/PreviousError
+noremap <A-j> <C-f>
+noremap <A-k> <C-b>
+noremap <A-i> :action Forward<CR>
+noremap <A-u> :action Back<CR>
+noremap <leader>i :action GotoNextError<CR>
+noremap <leader>u :action GotoPreviousError<CR>
 
 " Windows and tabs
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>c :split<CR>
+noremap <leader>v :vsplit<CR>
+noremap <leader>c :split<CR>
 noremap <leader>p :action PinActiveEditorTab<CR>
 noremap <leader>1 :action GoToTab1<CR>
 noremap <leader>2 :action GoToTab2<CR>
@@ -160,21 +158,5 @@ noremap <leader>7 :action GoToTab7<CR>
 noremap <leader>8 :action GoToTab8<CR>
 noremap <leader>9 :action GoToTab9<CR>
 
-" Find and replace
-noremap gh :action Replace<CR>
-noremap <leader>gh :action ReplaceInPath<CR>
-
-" Forward, back
-noremap <A-i> :action Forward<CR>
-noremap <A-u> :action Back<CR>
-
-" Page up, page down
-noremap <A-j> <C-f>
-noremap <A-k> <C-b>
-
-" Navigate errors
-noremap <leader>i :action GotoNextError<CR>
-noremap <leader>u :action GotoPreviousError<CR>
-
 " Reload configuration
-nnoremap <leader><leader>r :so ~\.ideavimrc<CR>
+noremap <leader><leader>r :so ~\.ideavimrc<CR>j

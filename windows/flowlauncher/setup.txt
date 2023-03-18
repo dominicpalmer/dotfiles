@@ -15,8 +15,5 @@
 ## Hotkey
 - Untick 'Show Hotkey'
 
-## Plugin installs
-- run 'pm install color' in the launcher
-
 ## Plugin
 - Shell: untick 'Always run as administrator', select 'RunCommand' from dropdown

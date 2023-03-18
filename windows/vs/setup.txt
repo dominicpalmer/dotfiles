@@ -1,35 +1,49 @@
-## Settings, UI (all be imported via .vssettings)
-Environment/Documents: Show miscellaneous files in Solution Explorer
-Environment/Tabs and Windows: Insert new tabs to the right of existing tabs
-Environment/Tabs and Windows: Show tabs in multiple rows
-Environment/Tabs and Windows: Show pinned tabs in a separate row
-Environment/Tabs and Windows: Colorize document tabs by Project
-Environment/Keyboard: Reassign F4 to Edit.ToggleBookmark
-Environment/Keyboard: Reassign F7 to Build.BuildSolution
-Environment/Keyboard: Reassign F8 to Build.CleanSolution
-Environment/Keyboard: Reassign Ctrl+Alt+v to VsVim.ToggleEnabled
-Text Editor/General: View zero-width characters
-Text Editor/All Languages: Enable line numbers, navigation bar
-Text Editor/All Languages/Scroll Bars: Use map mode for vertical scroll bar, with narrow width
-Text Editor/C#/Advanced: Default IntelliSense completion mode as 'Tab-only'
-Text Editor/C#/Advanced: Untick 'Enter outlining mode when files open'
-Text Editor/C#/Advanced: Underline reassigned variables
-Text Editor/C#/Advanced: Combine inheritance margin with indicator margin
-
-## Extensions
-VSVim (link .vsvimrc, set 'Defaults/Output Window', set Alt+i and Shift+Enter to
-be handled by VsVim via Settings/VsVim/Keyboard)
-Hot Commands (for the ToggleComment command)
-Hot Tabs (for selecting tabs by index)
+## 1. Extensions
+VSVim
+    - Set <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
+    - Map Ctrl+Alt+v to VsVim.ToggleEnabled after install
+GitHub Copilot
+Hot Commands
+Hot Tabs
 Visual Studio Show Inline Errors
-Align Assignments 2022
-Match Margin 2022
-Time Stamp Margin 2022
-Editor Guidelines (set guidelines at 120 and 150)
 Trailing Whitespace Visualiser
 File Icons
-Output Enhancer
-Roslynator
 Visual Studio Spell Checker
 Color Themes from VS2019
-GitHub Themes
+Add New File 64-bit
+Editor Guidelines
+    - Guidelines at 120 and 150
+Match Margin 2022
+Time Stamp Margin 2022
+Output Enhancer
+Roslynator
+
+## 2. Settings (can be imported via .vssettings)
+Environment/Documents:
+    - Show miscellaneous files in Solution Explorer
+Environment/Tabs and Windows:
+    - Insert new tabs to the right of existing tabs
+    - Show tabs in multiple rows
+    - Show pinned tabs in a separate row
+    - Colorize document tabs by Project
+Environment/Keyboard (Global maps):
+    - Ctrl+o to Edit.GoToAll
+    - Ctrl+n to Edit.FindInFiles
+    - F4 to Edit.ToggleBookmark
+    - F7 to Build.BuildSolution
+    - F8 to Build.CleanSolution
+    - Alt+Enter to EditorContextMenus.CodeWindow.QuickActionsForPosition
+Text Editor/General:
+    - View zero-width characters
+Text Editor/All Languages:
+    - Line numbers,
+    - Navigation bar
+    - Map mode for vertical scroll bar, with narrow width
+Text Editor/C#/Advanced:
+    - Default IntelliSense completion mode as 'Tab-only'
+    - 'Where should the rename UI be shown' as 'dashboard in top right'
+    - Place system directives first when sorting usings
+    - Untick everything under 'Outlining'
+    - Untick 'Underline reassigned variables'
+    - Prefer auto properties
+    - Combine inheritance margin with indicator margin

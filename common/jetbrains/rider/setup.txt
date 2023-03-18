@@ -1,9 +1,28 @@
-## Settings (can be imported via settings.zip)
+## 1. Extensions
+IdeaVim
+GitHub Copilot
+CodeGlance2
+SpecFlow
+Gherkin
+Cognitive Complexity
+Heap Allocations Viewer
+Structured Logging
+.env files support
+Tabnine
+
+## 2. Keybindings
+Remove 'Open terminal with <C-`>'
+'Toggle Bookmark' to F4
+'Build Solution' to F7
+'Clean Solution' to F8
+'Vim Emulator' to Ctrl+Alt+v
+
+## 3. Settings (can be imported via settings.zip)
 Appearance & Behaviour/Appearance
+    - 'Theme' as 'Visual Assist Light'
     - 'Show tree indent guides' as true
+    - Set 'Use custom font' as true, using 'Inter' at size 12
     - 'Smooth scrolling' as false
-Appearance & Behaviour/New UI
-    - 'Enable new UI', 'Compact mode', 'Show main menu in a separate toolbar' as true
 Appearance & Behaviour/System Settings
     - 'Reopen projects on startup' as true
     - 'Saves files when switching to a different application or a built-in terminal' as false
@@ -23,28 +42,15 @@ Editor/General
         'When the current tab is closed, activate' to 'Most recently opened tab'
     - In 'Code Folding' untick everything under 'Fold by default'
 Editor/Code Editing
-    - 'Show quick documentation on hover' as false
+    - Tooltip delay as 50ms
 Editor/Font
     - 'Font' as any 'Cascadia Code'
+    - 'Size' as 13.0
     - 'Line height' as 1
+Editor/Color Scheme/Language Defaults
+    - Set 'Visual Assist Light/String/String text' to '007F00'
 Editor/Code Style
+    - 'Hard wrap' as 120 and 'Wrap on typing' as true
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
     - 'Generated member default body style' as 'Return default value'
-
-## Extensions
-IdeaVim
-Tabnine
-CodeGlance2
-Cognitive Complexity
-Heap Allocations Viewer
-Structured Logging
-CSV
-.env files support
-.NET Core User Secrets
-
-## Keybindings
-Reassign 'Toggle Bookmark' to F4
-Reassign 'Build Solution' to F7
-Reassign 'Clean Solution' to F8
-Reassign 'Vim Emulator' to Ctrl+Alt+v
