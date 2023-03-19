@@ -25,9 +25,9 @@ sethandler <C-k> a:ide
 
 let mapleader = " "
 
-" Repeat with ;, place with , and delete to null with m and X
+" Repeat with ;, place with m, delete to null with m and X
 nnoremap ; .
-nnoremap , r
+nnoremap m r
 noremap f "0x
 nnoremap F 0"0D
 
@@ -111,12 +111,12 @@ nnoremap v> v>
 
 " Code navigation and modification
 noremap gj :action GotoImplementation<CR>
-noremap gk :action GotoDeclaration<CR>
-noremap gl :action FindUsages<CR>
+noremap gk :action FindUsages<CR>
+noremap gl :action GotoDeclaration<CR>
 noremap gn :action QuickJavaDoc<CR>
-noremap gu :action OptimizeImports<CR>
-noremap gi :action ReformatCode<CR>
-noremap <leader>' :action CommentByLineComment<CR>
+noremap gi :action OptimizeImports<CR>
+noremap go :action ReformatCode<CR>
+noremap <leader>/ :action CommentByLineComment<CR>
 vnoremap <leader>s :action SurroundWith<CR>
 vnoremap <leader>e :action ExtractMethod<CR>
 noremap <leader>r :action RenameElement<CR>
@@ -129,25 +129,25 @@ noremap <leader>o :action SearchEverywhere<CR>
 noremap <leader>n :action FindInPath<CR>
 noremap <leader>m :action ReplaceInPath<CR>
 noremap gh :action Replace<CR>
-noremap <leader>, :action NewFile<CR>
+noremap gm :action NewFile<CR>
 noremap <C-,> :action ShowSettings<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
 noremap <A-j> <C-f>
 noremap <A-k> <C-b>
-noremap <A-i> :action Forward<CR>
 noremap <A-u> :action Back<CR>
-noremap <leader>i :action GotoNextError<CR>
+noremap <A-i> :action Forward<CR>
 noremap <leader>u :action GotoPreviousError<CR>
+noremap <leader>i :action GotoNextError<CR>
 
 " Windows and tabs
+noremap <leader>p :action PinActiveEditorTab<CR>
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>v :vsplit<CR>
 noremap <leader>c :split<CR>
-noremap <leader>p :action PinActiveEditorTab<CR>
 noremap <leader>1 :action GoToTab1<CR>
 noremap <leader>2 :action GoToTab2<CR>
 noremap <leader>3 :action GoToTab3<CR>

@@ -1,18 +1,23 @@
 ## 1. Extensions
 IdeaVim
 GitHub Copilot
+InlineProblems
+    - Untick 'Draw boxes around problem labels'
+    - Inlay size delta as 1
 CodeGlance2
-SpecFlow
-Gherkin
 Cognitive Complexity
 Heap Allocations Viewer
+SpecFlow
+Gherkin
 Structured Logging
 .env files support
-Tabnine
 
 ## 2. Keybindings
-Remove 'Open terminal with <C-`>'
-'Toggle Bookmark' to F4
+Remove 'Open terminal with <C-`>
+'Go to definition' to F1
+'Find all references' to F3
+'Go to implementation' to F4
+'Toggle Bookmark' to F6
 'Build Solution' to F7
 'Clean Solution' to F8
 'Vim Emulator' to Ctrl+Alt+v
@@ -40,6 +45,7 @@ Editor/General
         'Tab Order' to 'Open new tabs at the end'
         'Closing Policy' - 'Tab limit' to 100
         'When the current tab is closed, activate' to 'Most recently opened tab'
+    - In 'Code Completion' set 'Show the parameter info popup in' to 100ms
     - In 'Code Folding' untick everything under 'Fold by default'
 Editor/Code Editing
     - Tooltip delay as 50ms
@@ -47,8 +53,13 @@ Editor/Font
     - 'Font' as any 'Cascadia Code'
     - 'Size' as 13.0
     - 'Line height' as 1
+Editor/Color Scheme/General
+    - 'Selected Tab' foreground/background to FFFFFF/395EC2
+    - 'Selected Tab inactive' foreground/background to FFFFFF/79B0FF
+    - 'Underline' background to 395EC2
+    - 'Underline inactive' background to 79B0FF
 Editor/Color Scheme/Language Defaults
-    - Set 'Visual Assist Light/String/String text' to '007F00'
+    - Visual Assist Light/String/String text' to '007F00'
 Editor/Code Style
     - 'Hard wrap' as 120 and 'Wrap on typing' as true
     - 'Visual guides' as 120, 140, 160

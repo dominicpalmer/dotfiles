@@ -14,9 +14,9 @@ set vsvim_hidemarks=<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 let mapleader = " "
 
-" Repeat with ;, place with , and delete to null with m and X
+" Repeat with ;, place with m, delete to null with m and X
 nnoremap ; .
-nnoremap , r
+nnoremap m r
 noremap f "0x
 nnoremap F 0"0D
 
@@ -99,13 +99,13 @@ nnoremap v> v>
 
 " Code navigation and modification
 noremap gj :vsc Edit.GoToImplementation<CR>
-noremap gk :vsc Edit.GoToDefinition<CR>
-noremap gl :vsc Edit.FindAllReferences<CR>
+noremap gk :vsc Edit.FindAllReferences<CR>
+noremap gl :vsc Edit.GoToDefinition<CR>
 noremap gn :vsc Edit.QuickInfo<CR>
-noremap gu :vsc Edit.RemoveAndSort<CR>
-noremap gi :vsc Edit.FormatDocument<CR>
-nnoremap <leader>' :vsc Edit.ToggleComment<CR>
-vnoremap <leader>' :vsc Edit.ToggleComment<CR> | <Esc><CR>
+noremap gi :vsc Edit.RemoveAndSort<CR>
+noremap go :vsc Edit.FormatDocument<CR>
+nnoremap <leader>/ :vsc Edit.ToggleComment<CR>
+vnoremap <leader>/ :vsc Edit.ToggleComment<CR> | <Esc><CR>
 vnoremap <leader>s :vsc Edit.SurroundWith<CR>
 vnoremap <leader>e :vsc Refactor.ExtractMethod<CR>
 noremap <leader>r :vsc Refactor.Rename<CR>
@@ -114,10 +114,11 @@ noremap <leader>d :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 " Launchers
 noremap <leader>; :vsc Window.QuickLaunch<CR>
 noremap <leader>o :vsc Edit.GoToAll<CR>
+"[Optional] noremap <leader>o :vsc ReSharper.ReSharper_GotoType<CR>
 noremap <leader>n :vsc Edit.FindInFiles<CR>
 noremap <leader>m :vsc Edit.ReplaceInFiles<CR>
 noremap gh :vsc Edit.Replace<CR>
-noremap <leader>, :vsc ProjectandSolutionContextMenus.Project.Add.NewEmptyFile<CR>
+noremap gm :vsc ProjectandSolutionContextMenus.Project.Add.NewEmptyFile<CR>
 noremap <C-,> :vsc Tools.Options<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
@@ -125,19 +126,19 @@ nnoremap <M-j> :vsc Edit.PageDown<CR>
 vnoremap <M-j> :vsc Edit.PageDownExtend<CR>
 nnoremap <M-k> :vsc Edit.PageUp<CR>
 vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
-noremap <M-i> :vsc View.NavigateForward<CR>
 noremap <M-u> :vsc View.NavigateBackward<CR>
-noremap <leader>i :vsc View.NextError<CR>
+noremap <M-i> :vsc View.NavigateForward<CR>
 noremap <leader>u :vsc View.PreviousError<CR>
+noremap <leader>i :vsc View.NextError<CR>
 
 " Windows and tabs
+noremap <leader>p :vsc Window.PinTab<CR>
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>v :vsplit<CR>
 noremap <leader>c :split<CR>
-noremap <leader>p :vsc Window.PinTab<CR>
 noremap <leader>1 :vsc Window.GoToUnpinnedTab1<CR>
 noremap <leader>2 :vsc Window.GoToUnpinnedTab2<CR>
 noremap <leader>3 :vsc Window.GoToUnpinnedTab3<CR>

@@ -1,7 +1,7 @@
 ## 1. Extensions
 VSVim
     - Set <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
-    - Map Ctrl+Alt+v to VsVim.ToggleEnabled after install
+    - Ctrl+Alt+v to VsVim.ToggleEnabled
 GitHub Copilot
 Hot Commands
 Hot Tabs
@@ -17,6 +17,7 @@ Match Margin 2022
 Time Stamp Margin 2022
 Output Enhancer
 Roslynator
+[Optional] ReSharper
 
 ## 2. Settings (can be imported via .vssettings)
 Environment/Documents:
@@ -29,7 +30,10 @@ Environment/Tabs and Windows:
 Environment/Keyboard (Global maps):
     - Ctrl+o to Edit.GoToAll
     - Ctrl+n to Edit.FindInFiles
-    - F4 to Edit.ToggleBookmark
+    - F1 to Edit.GoToDefinition
+    - F3 to Edit.FindAllReferences
+    - F4 to Edit.GoToImplementation
+    - F6 to Edit.ToggleBookmark
     - F7 to Build.BuildSolution
     - F8 to Build.CleanSolution
     - Alt+Enter to EditorContextMenus.CodeWindow.QuickActionsForPosition
@@ -47,3 +51,15 @@ Text Editor/C#/Advanced:
     - Untick 'Underline reassigned variables'
     - Prefer auto properties
     - Combine inheritance margin with indicator margin
+
+## 3. ReSharper Settings
+Environment/General:
+    - Show managed memory usage in status bar
+Environment/Keyboard:
+    - Untick Refactor.Rename from overridden commands
+Environment/Editor/Appearance:
+    - Highlight matching delimiters when caret is at both sides
+Environment/IntelliSense/General:
+    - Use Visual Studio IntelliSense
+Code Editing/Members Generation:
+    - Generated member default body style as 'Return default value'

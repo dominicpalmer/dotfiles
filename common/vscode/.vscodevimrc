@@ -1,59 +1,80 @@
-" ---- VSCodeVim keybindings
+" ---- Keybindings
 
-" Yank (take), paste (resolve), replace (place) and till (yet)
-noremap t y
-nnoremap T y$
-noremap y t
-noremap Y T
-nnoremap r p
-vnoremap r P
-noremap R P
-noremap p r
-noremap P R
+" Repeat with ;, place with m and delete to null with m and X
+nnoremap ; .
+nnoremap m r
+noremap f "0x
+nnoremap F 0"0D
 
-" J (join) to M (merge)
-noremap M J
+" Search with ' and @
+noremap ' /
+noremap @ ?
+noremap v' v/
+noremap v@ v?
 
-" Swap find and search
-noremap f /
-noremap F ?
-noremap / f
-noremap ? F
-
-" Line and block navigation
+" Cursor movement
 noremap H ^
 noremap J }
 noremap K {
 noremap L $
-noremap Q %
 
-" 0 register deletion and line clearing, and normal mode backspace
-noremap x "0x
-nnoremap X 0"0D
-vnoremap <BS> "0x
-vnoremap <CR> "0x
-nnoremap <BS> X
+" Copy paste
+noremap t y
+nnoremap T y$
+nnoremap r p
+vnoremap r P
+noremap R P
 
-" Better indentation
+" Line and block shifting
+noremap M J
 nnoremap > mz>>'z
 vnoremap > >gv
 nnoremap < mz<<'z
 vnoremap < <gv
+nnoremap <CR> o<Esc>
+nnoremap <S-CR> O<Esc>
 
-" Regain visual block mode with S
-noremap S <C-v>
-
-" Turn off search highlighting
+" Search highlighting, static casing, visual block
 nnoremap <Esc> :nohl<CR>
-
-" Repeat word deletion or changes, forwards or backwards
-nnoremap d* *``dgn
-nnoremap d# *``dgN
-nnoremap c* *``cgn
-nnoremap c# #``cgN
+nnoremap ~ ~h
+noremap S <C-v>
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
+
+" Inner shortcuts (excludes ')
+nnoremap c" ci"
+nnoremap c( ci(
+nnoremap c) ci)
+nnoremap c{ ci{
+nnoremap c} ci}
+nnoremap c[ ci[
+nnoremap c] ci]
+nnoremap ct cit
+nnoremap c< ci<
+nnoremap c> ci>
+
+nnoremap d" di"
+nnoremap d( di(
+nnoremap d) di)
+nnoremap d{ di{
+nnoremap d} di}
+nnoremap d[ di[
+nnoremap d] di]
+nnoremap dt dit
+nnoremap d< di<
+nnoremap d> di>
+
+nnoremap v" vi"
+nnoremap v( vi(
+nnoremap v) vi)
+nnoremap v{ vi{
+nnoremap v} vi}
+nnoremap v[ vi[
+nnoremap v] vi]
+nnoremap vt vt
+nnoremap v< v<
+nnoremap v> v>

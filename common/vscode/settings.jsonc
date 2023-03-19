@@ -57,18 +57,6 @@
   },
   "python.analysis.autoImportCompletions": true,
 
-  // C and C++
-  "[cpp]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": false,
-      "source.organizeImports": true,
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-  },
-  "C_Cpp.default.includePath": [],
-
   // JSON
   "[json]": {
     "editor.formatOnSave": false,
@@ -89,10 +77,8 @@
 		"schema": { "allowTrailingCommas": true },
 	}],
 
-  // YAML
+  // Markup
   "yaml.format.enable": true,
-
-  // XML
   "xml.format.enabled": true,
 
 
@@ -171,23 +157,11 @@
   "search.searchOnTypeDebouncePeriod": 0,
   "search.smartCase": true,
 
-  // Tasks: autodetect formats
-  "grunt.autoDetect": "on",
-  "gulp.autoDetect": "on",
-  "jake.autoDetect": "on",
-
-  // Zen mode: don't hide panels, just center the editor
-  "zenMode.hideStatusBar": false,
-  "zenMode.hideActivityBar": false,
-  "zenMode.hideLineNumbers": false,
-  "zenMode.hideTabs": false,
-  "zenMode.silentNotifications": false,
-
   // General UI
   "workbench.panel.defaultLocation": "right",
   "window.titleSeparator": " | ",
   "window.menuBarVisibility": "compact",
-  "editor.rulers": [ 80, 100, 120, 150 ],
+  "editor.rulers": [ 80, 100, 120, 140 ],
   "[Log]": { "editor.wordWrap": "on" },
 
   // General functionality
@@ -223,9 +197,14 @@
 
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "~/.vscodevimrc",
+
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.whichwrap": "<,>,h,l",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
   "vim.highlightedyank.enable": true,
+
   "vim.leader": " ",
   "vim.handleKeys": {
     "<C-a>": false,
@@ -251,17 +230,21 @@
     { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.revealDefinition" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "m" ], "commands": [ "editor.action.peekDefinition" ] },
+    { "before": [ "g", "k" ], "commands": [ "editor.action.goToReferences" ] },
+    { "before": [ "g", "l" ], "commands": [ "editor.action.revealDefinition" ] },
     { "before": [ "g", "n" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "f" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
-    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
+    { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
+    { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
     { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
-    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
+    { "before": [ "<leader>", "e" ], "commands": [ "editor.action.refactor" ] },
+    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
+    { "before": [ "<leader>", "d" ], "commands": [ "editor.action.revealInExplorer" ] },
+    { "before": [ "<leader>", "f" ], "commands": [ "editor.action.revealFileInOs" ] },
+    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
+    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
+    { "before": [ "g", "m" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
+    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
+    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
     { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
     { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
@@ -270,8 +253,6 @@
     { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
     { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
     { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
     { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
     { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
@@ -281,13 +262,15 @@
     { "before": [ "<leader>", "7" ], "commands": [ "workbench.action.openEditorAtIndex7" ] },
     { "before": [ "<leader>", "8" ], "commands": [ "workbench.action.openEditorAtIndex8" ] },
     { "before": [ "<leader>", "9" ], "commands": [ "workbench.action.openEditorAtIndex9" ] },
+    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
 
     // ---- NORMAL
 
+
     // Find/replace for the word under the cursor, without first having to visual select it
-    { "before": [ "<leader>", "f" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.findInFiles" ] },
+    { "before": [ "<leader>", "n" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.findInFiles" ] },
+    { "before": [ "<leader>", "m" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.replaceInFiles" ] },
     { "before": [ "g", "h" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "editor.action.startFindReplaceAction" ] },
-    { "before": [ "<leader>", "g", "h" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.replaceInFiles" ] },
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -299,17 +282,21 @@
     { "before": [ "(" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ ")" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.revealDefinition" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "m" ], "commands": [ "editor.action.peekDefinition" ] },
+    { "before": [ "g", "k" ], "commands": [ "editor.action.goToReferences" ] },
+    { "before": [ "g", "l" ], "commands": [ "editor.action.revealDefinition" ] },
     { "before": [ "g", "n" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "f" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
-    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
+    { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
+    { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
     { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
-    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
+    { "before": [ "<leader>", "e" ], "commands": [ "editor.action.refactor" ] },
+    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
+    { "before": [ "<leader>", "d" ], "commands": [ "editor.action.revealInExplorer" ] },
+    { "before": [ "<leader>", "f" ], "commands": [ "editor.action.revealFileInOs" ] },
+    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
+    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
+    { "before": [ "g", "m" ], "commands": [ "workbench.action.files.newUntitledFile" ] },
+    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
+    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.pinEditor" ] },
     { "before": [ "<leader>", "y" ], "commands": [ "workbench.action.unpinEditor" ] },
     { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
@@ -318,8 +305,6 @@
     { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
     { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
     { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.prevInFiles" ] },
     { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
     { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
     { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
@@ -329,13 +314,16 @@
     { "before": [ "<leader>", "7" ], "commands": [ "workbench.action.openEditorAtIndex7" ] },
     { "before": [ "<leader>", "8" ], "commands": [ "workbench.action.openEditorAtIndex8" ] },
     { "before": [ "<leader>", "9" ], "commands": [ "workbench.action.openEditorAtIndex9" ] },
+    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
 
     // ---- VISUAL
 
+    { "before": [ "<leader>", "s" ], "commands": [ "editor.action.surroundWithSnippet" ] },
+
     // Find/replace for the word under the cursor
-    { "before": [ "<leader>", "f" ], "commands": [ "workbench.action.findInFiles" ] },
+    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.findInFiles" ] },
+    { "before": [ "<leader>", "m" ], "commands": [ "workbench.action.replaceInFiles" ] },
     { "before": [ "g", "h" ], "commands": [ "editor.action.startFindReplaceAction" ] },
-    { "before": [ "<leader>", "g", "h" ], "commands": [ "workbench.action.replaceInFiles" ] },
   ],
 
 
