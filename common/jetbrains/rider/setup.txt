@@ -24,7 +24,7 @@ Remove 'Open terminal with <C-`>
 
 ## 3. Settings (can be imported via settings.zip)
 Appearance & Behaviour/Appearance
-    - 'Theme' as 'Visual Assist Light'
+    - 'Theme' as 'Visual Studio Light'
     - 'Show tree indent guides' as true
     - Set 'Use custom font' as true, using 'Inter' at size 12
     - 'Smooth scrolling' as false
@@ -46,20 +46,26 @@ Editor/General
         'Closing Policy' - 'Tab limit' to 100
         'When the current tab is closed, activate' to 'Most recently opened tab'
     - In 'Code Completion' set 'Show the parameter info popup in' to 100ms
-    - In 'Code Folding' untick everything under 'Fold by default'
 Editor/Code Editing
     - Tooltip delay as 50ms
 Editor/Font
     - 'Font' as any 'Cascadia Code'
     - 'Size' as 13.0
     - 'Line height' as 1
-Editor/Color Scheme/General
-    - 'Selected Tab' foreground/background to FFFFFF/395EC2
-    - 'Selected Tab inactive' foreground/background to FFFFFF/79B0FF
-    - 'Underline' background to 395EC2
-    - 'Underline inactive' background to 79B0FF
-Editor/Color Scheme/Language Defaults
-    - Visual Assist Light/String/String text' to '007F00'
+Editor/Color Scheme/General/Code
+    - 'Line number' foreground to 219017
+Editor/Color Scheme/General/Editor
+    - 'Caret row' to F1EFE0
+    - 'Code Vision/Default' to 323232
+    - 'Tabs/Selected Tab' foreground/background to FFFFFF/CCDB7B
+    - 'Tabs/Selected Tab inactive' background to B1BFB1
+    - 'Tabs/Underline' background to CCDB7B
+    - 'Tabs/Underline inactive' background to B1BFB1
+    - 'Tear line' foreground to AFAFAF
+    - 'Tear line' foreground to AFAFAF
+    - 'Guides/Hard wrap guide' foreground to AFAFAF
+    - 'Guides/Indent Guide' background to DCDCDC
+    - 'Gutter background' to EBEBEB
 Editor/Code Style
     - 'Hard wrap' as 120 and 'Wrap on typing' as true
     - 'Visual guides' as 120, 140, 160
