@@ -1,0 +1,72 @@
+########################## Settings
+
+is_global = true
+
+roslynator_refactorings.enabled = true
+roslynator_compiler_diagnostic_fixes.enabled = true
+
+roslynator_analyzers.enabled_by_default = true
+dotnet_analyzer_diagnostic.category-roslynator.severity = default
+
+
+########################## Silent
+
+# Declare each type in a separate file
+dotnet_diagnostic.RCS1060.severity = silent
+
+# Use 'var' instead of explicit type
+dotnet_diagnostic.RCS1176.severity = silent
+
+# Use explicit type instead of 'var'
+dotnet_diagnostic.RCS1008.severity = silent
+
+
+########################## None
+
+# Use linefeed as new line
+dotnet_diagnostic.RCS0045.severity = none
+
+# Remove braces from if statement
+dotnet_diagnostic.RCS1002.severity = none
+
+# Convert to documentation comment
+dotnet_diagnostic.RCS1181.severity = none
+
+# RCS1223: mark with DebuggerDisplay attribute
+dotnet_diagnostic.RCS1223.severity = none
+
+# RCS0021: Format braces on multiple lines
+dotnet_diagnostic.RCS0021.severity = none
+
+# RCS0022: Format braces on a single line
+dotnet_diagnostic.RCS0022.severity = none
+
+#RCS0008: Add blank line between closing brace and next statement
+dotnet_diagnostic.RCS0008.severity = none
+
+#RCS1004FadeOut: Remove braces from if-else
+dotnet_diagnostic.RCS1004.severity = none
+
+#RCS0001: Add blank line after embedded statement
+dotnet_diagnostic.RCS0001.severity = none
+
+#RCS1035: Remove redundant comma in intializer
+dotnet_diagnostic.RCS1035.severity = none
+
+
+########################## Duplicate removals (these are covered by VS)
+
+# Covered by IDE0054: Use compound assignment
+dotnet_diagnostic.RCS1058.severity = none
+
+# Covered by IDE0054: Use ++ operator instead of assignment
+dotnet_diagnostic.RCS1089.severity = none
+
+# Covered by CS1729: Does not contain a constructor that takes 0 arguments
+dotnet_diagnostic.CS1729.severity = none
+
+# Covered by IDE0060: Remove unused parameter. RCS1164 is 'Unused parameter'
+dotnet_diagnostic.RCS1163.severity = none
+
+# Covered by CA1050: Declare types in namespaces. RCS1110 is 'Declare inside namespace'
+dotnet_diagnostic.RCS1110.severity = none

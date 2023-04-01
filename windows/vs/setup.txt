@@ -1,65 +1,64 @@
 ## 1. Extensions
 VSVim
-    - Set <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
-    - Ctrl+Alt+v to VsVim.ToggleEnabled
+    - Config file symlinked
+    - <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
+    - <C-A-v> to VsVim.ToggleEnabled
 GitHub Copilot
+    - Sign in and restart to enable
+    - <A-n> to Edit.Copilot.TriggerInlineSuggestion
 Hot Commands
 Hot Tabs
 Visual Studio Show Inline Errors
-Trailing Whitespace Visualiser
-File Icons
-Visual Studio Spell Checker
-Color Themes from VS2019
-Add New File 64-bit
+    - Enable everything except 'Show Null Error Markings'
+Solution Error Visualiser
+    - Only underline items containing errors
 Editor Guidelines
     - Guidelines at 120 and 150
+Roslynator
+    - Config file symlinked
+Trailing Whitespace Visualiser
 Match Margin 2022
 Time Stamp Margin 2022
+Visual Studio Spell Checker
 Output Enhancer
-Roslynator
-[Optional] ReSharper
+File Icons
+SpecFlow for Visual Studio 2022
 
 ## 2. Settings (can be imported via .vssettings)
 Environment/Documents:
-    - Show miscellaneous files in Solution Explorer
-Environment/Tabs and Windows:
-    - Insert new tabs to the right of existing tabs
-    - Show tabs in multiple rows
-    - Show pinned tabs in a separate row
-    - Colorize document tabs by Project
+    - 'Show miscellaneous files in Solution Explorer'
 Environment/Keyboard (Global maps):
-    - Ctrl+o to Edit.GoToAll
-    - Ctrl+n to Edit.FindInFiles
+    - <A-CR> to EditorContextMenus.CodeWindow.QuickActionsForPosition
+    - <C-o> to Edit.GoToAll
+    - <C-n> to Edit.FindInFiles
     - F1 to Edit.GoToDefinition
     - F3 to Edit.FindAllReferences
     - F4 to Edit.GoToImplementation
     - F6 to Edit.ToggleBookmark
     - F7 to Build.BuildSolution
     - F8 to Build.CleanSolution
-    - Alt+Enter to EditorContextMenus.CodeWindow.QuickActionsForPosition
-Text Editor/General:
-    - View zero-width characters
-Text Editor/All Languages:
-    - Line numbers,
-    - Navigation bar
-    - Map mode for vertical scroll bar, with narrow width
+Environment/Preview Features
+    - 'Rich Code Navigation' and 'New Visual Studio Search Experience'
+Environment/Tabs and Windows:
+    - 'Insert new tabs to the right of existing tabs'
+    - 'Show tabs in multiple rows'
+    - 'Show pinned tabs in a separate row'
+    - 'Colorize document tabs by Project'
+Text Editor/General/Display:
+    - 'View zero-width characters'
+Text Editor/Advanced
+    - 'Default IntelliSense completion mode' as 'Tab-only'
+Text Editor/All Languages/General:
+    - 'Line numbers'
+    - 'Navigation bar'
+Text Editor/All Languages/Scroll Bars:
+    - 'Map mode' for vertical scroll bar, with narrow width
 Text Editor/C#/Advanced:
-    - Default IntelliSense completion mode as 'Tab-only'
-    - 'Where should the rename UI be shown' as 'dashboard in top right'
-    - Place system directives first when sorting usings
-    - Untick everything under 'Outlining'
-    - Untick 'Underline reassigned variables'
-    - Prefer auto properties
-    - Combine inheritance margin with indicator margin
-
-## 3. ReSharper Settings
-Environment/General:
-    - Show managed memory usage in status bar
-Environment/Keyboard:
-    - Untick Refactor.Rename from overridden commands
-Environment/Editor/Appearance:
-    - Highlight matching delimiters when caret is at both sides
-Environment/IntelliSense/General:
-    - Use Visual Studio IntelliSense
-Code Editing/Members Generation:
-    - Generated member default body style as 'Return default value'
+    - Under 'Rename' set 'Where should the rename UI be shown' as 'dashboard in top right'
+    - Under 'Using Directives' set 'Place system directives first when sorting usings'
+    - Under 'Outlining' unset everything
+    - Under 'Editor Help' unset 'Underline reassigned variables'
+    - Under 'Implement Interface or Abstract Class' set 'Prefer auto properties'
+    - Under 'Inheritance Margin' set 'Combine inheritance margin with indicator margin'
+Text Editor/C#/IntelliSense:
+    - 'Show completion list after a character is deleted'

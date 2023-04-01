@@ -1,13 +1,15 @@
 ## 1. Extensions
 IdeaVim
 GitHub Copilot
+    - Sign in and restart to enable
 InlineProblems
-    - Untick 'Draw boxes around problem labels'
-    - Inlay size delta as 1
-CodeGlance2
+    - Unset 'Draw boxes around problem labels'
+    - Change inlay size delta as required by display resolution
+CodeGlance Pro
+    -
 Cognitive Complexity
 Heap Allocations Viewer
-SpecFlow
+SpecFlow for Rider
 Gherkin
 Structured Logging
 .env files support
@@ -25,27 +27,26 @@ Remove 'Open terminal with <C-`>
 ## 3. Settings (can be imported via settings.zip)
 Appearance & Behaviour/Appearance
     - 'Theme' as 'Visual Studio Light'
-    - 'Show tree indent guides' as true
+    - 'Show tree indent guides'
     - Set 'Use custom font' as true, using 'Inter' at size 12
-    - 'Smooth scrolling' as false
+    - Unset 'Smooth scrolling'
 Appearance & Behaviour/System Settings
-    - 'Reopen projects on startup' as true
-    - 'Saves files when switching to a different application or a built-in terminal' as false
+    - 'Reopen projects on startup'
+    - Unset 'Saves files when switching to a different application or a built-in terminal'
 Editor/General
-    - Enable smooth scrolling' as false
+    - Unset 'Enable smooth scrolling'
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
     - 'Remove trailing spaces' as 'All lines',
-    - 'Keep trailing spaces on caret line' as false
-    - In 'Appeareance' set:
-        'Render documentation comments' as true
+    - Unset 'Keep trailing spaces on caret line'
+    - In 'Appeareance' set 'Render documentation comments'
     - In 'Editor Tabs' set:
-        'Show tabs in' to 'Multiple rows'
-        'Show pinned tabs in a separate row' to true
-        'Mark modified' to true
-        'Tab Order' to 'Open new tabs at the end'
-        'Closing Policy' - 'Tab limit' to 100
-        'When the current tab is closed, activate' to 'Most recently opened tab'
-    - In 'Code Completion' set 'Show the parameter info popup in' to 100ms
+        - 'Show tabs in multiple rows'
+        - 'Show pinned tabs in a separate row'
+        - 'Mark modified'
+        - 'Tab Order' as 'Open new tabs at the end'
+        - 'Closing Policy' - 'Tab limit' as 100
+        - 'When the current tab is closed, activate' as 'Most recently opened tab'
+    - In 'Code Completion' set 'Show the parameter info popup in' as 100ms
 Editor/Code Editing
     - Tooltip delay as 50ms
 Editor/Font
@@ -53,21 +54,20 @@ Editor/Font
     - 'Size' as 13.0
     - 'Line height' as 1
 Editor/Color Scheme/General/Code
-    - 'Line number' foreground to 219017
+    - 'Line number' foreground as 219017
 Editor/Color Scheme/General/Editor
-    - 'Caret row' to F1EFE0
-    - 'Code Vision/Default' to 323232
-    - 'Tabs/Selected Tab' foreground/background to FFFFFF/CCDB7B
-    - 'Tabs/Selected Tab inactive' background to B1BFB1
-    - 'Tabs/Underline' background to CCDB7B
-    - 'Tabs/Underline inactive' background to B1BFB1
-    - 'Tear line' foreground to AFAFAF
-    - 'Tear line' foreground to AFAFAF
-    - 'Guides/Hard wrap guide' foreground to AFAFAF
-    - 'Guides/Indent Guide' background to DCDCDC
-    - 'Gutter background' to EBEBEB
+    - 'Caret row' background as F1EFE0
+    - 'Code Vision/Default' foreground as 323232
+    - 'Tabs/Selected Tab' foreground/background as FFFFFF/CCDB7B
+    - 'Tabs/Selected Tab inactive' background as B1BFB1
+    - 'Tabs/Underline' background as CCDB7B
+    - 'Tabs/Underline inactive' background as B1BFB1
+    - 'Tear line' foreground as AFAFAF
+    - 'Guides/Hard wrap guide' foreground as AFAFAF
+    - 'Guides/Indent Guide' background as DCDCDC
+    - 'Gutter background' as EBEBEB
 Editor/Code Style
-    - 'Hard wrap' as 120 and 'Wrap on typing' as true
+    - 'Hard wrap' as 120
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
     - 'Generated member default body style' as 'Return default value'
