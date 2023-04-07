@@ -1,80 +1,91 @@
 " ---- Keybindings
 
-" Repeat with ;, place with m and delete to null with m and X
-nnoremap ; .
-nnoremap m r
-noremap f "0x
-nnoremap F 0"0D
-
-" Search with ' and @
-noremap ' /
-noremap @ ?
-noremap v' v/
-noremap v@ v?
-
-" Cursor movement
+" Cursor, line and block movement
+noremap f b
 noremap H ^
 noremap J }
 noremap K {
 noremap L $
+noremap M J
+nnoremap , mz>>'z
+vnoremap , >gv
+nnoremap x mz<<'z
+vnoremap x <gv
 
-" Copy paste
+" Search
+noremap ; /
+noremap : ?
+nnoremap g; viwy/<C-r>0
+vnoremap g; y/<C-r>0
+noremap = :
+nnoremap <Esc> :nohl<CR>
+
+" Copy and paste
 noremap t y
 nnoremap T y$
 nnoremap r p
 vnoremap r P
 noremap R P
 
-" Line and block shifting
-noremap M J
-nnoremap > mz>>'z
-vnoremap > >gv
-nnoremap < mz<<'z
-vnoremap < <gv
+" Text modification
+noremap s "0x
+noremap S 0"0D
+noremap m r
+noremap b <C-v>
+noremap ' ~h
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 
-" Search highlighting, static casing, visual block
-nnoremap <Esc> :nohl<CR>
-nnoremap ~ ~h
-noremap S <C-v>
-
-" Sensible write and close
-nnoremap <leader>w :w<CR>
-nnoremap <leader><leader>w :wa<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader><leader>q :qa<CR>
-
-" Inner shortcuts (excludes ')
+" Inner shortcuts
 nnoremap c" ci"
-nnoremap c( ci(
-nnoremap c) ci)
+nnoremap c' ci'
+nnoremap c( 0f(ci(
+nnoremap c) 0f)ci)
 nnoremap c{ ci{
 nnoremap c} ci}
-nnoremap c[ ci[
-nnoremap c] ci]
+nnoremap c[ 0f[ci[
+nnoremap c] 0f]ci]
 nnoremap ct cit
 nnoremap c< ci<
 nnoremap c> ci>
 
 nnoremap d" di"
-nnoremap d( di(
-nnoremap d) di)
+nnoremap d' di'
+nnoremap d( 0f(di(
+nnoremap d) 0f)di)
 nnoremap d{ di{
 nnoremap d} di}
-nnoremap d[ di[
-nnoremap d] di]
+nnoremap d[ 0f[di[
+nnoremap d] 0f]di]
 nnoremap dt dit
 nnoremap d< di<
 nnoremap d> di>
 
 nnoremap v" vi"
-nnoremap v( vi(
-nnoremap v) vi)
+nnoremap v' vi'
+nnoremap v( 0f(vi(
+nnoremap v) 0f)vi)
 nnoremap v{ vi{
 nnoremap v} vi}
-nnoremap v[ vi[
-nnoremap v] vi]
-nnoremap vt vt
-nnoremap v< v<
-nnoremap v> v>
+nnoremap v[ 0f[vi[
+nnoremap v] 0f]vi]
+nnoremap vt vit
+nnoremap v< vi<
+nnoremap v> vi>
+
+nnoremap t" yi"
+nnoremap t' yi'
+nnoremap t( mz0f(yi(`z
+nnoremap t) mz0f)yi)`z
+nnoremap t{ yi{
+nnoremap t} yi}
+nnoremap t[ mz0f[yi[`z
+nnoremap t] mz0f]yi]`z
+nnoremap t< yi<
+nnoremap t> yi>
+
+" Write and close
+noremap <leader>w :w<CR>
+noremap <leader><leader>w :wa<CR>
+noremap <leader>q :q<CR>
+noremap <leader><leader>q :qa<CR>

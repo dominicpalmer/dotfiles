@@ -24,7 +24,7 @@ Output Enhancer
 File Icons
 SpecFlow for Visual Studio 2022
 
-## 2. Settings (can be imported via .vssettings)
+## 2. Settings
 Environment/Documents:
     - 'Show miscellaneous files in Solution Explorer'
 Environment/Keyboard (Global maps):

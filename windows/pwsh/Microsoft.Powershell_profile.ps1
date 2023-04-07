@@ -90,8 +90,6 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+x" -Function Cut
 Set-PSReadLineKeyHandler -Chord "Ctrl+x" -Function Cut -ViMode Command
 
 Set-PSReadLineKeyHandler -Key "U" -Function Redo -ViMode Command
-Set-PSReadLineKeyHandler -Key "Backspace" -Function BackwardDeleteChar -ViMode Command
-Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function BackwardDeleteWord
 Set-PSReadLineKeyHandler -Key "L" -Function EndOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Key "H" -Function GotoFirstNonBlankOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Key "M" -Function ViJoinLines -ViMode Command
@@ -102,10 +100,6 @@ Set-PSReadLineKeyHandler -Key "R" -Function PasteAfter -ViMode Command
 Set-PSReadLineKeyHandler -Key "d" -Function BackwardDeleteChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "d,H" -Function DeleteLineToFirstChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "d,L" -Function DeleteToEnd -ViMode Command
-Set-PSReadLineKeyHandler -Chord "d,Y" -Function ViDeleteToBeforeCharBackward -ViMode Command
-
-Set-PSReadLineKeyHandler -Chord "c,y" -Function ViReplaceToBeforeChar -ViMode Command
-Set-PSReadLineKeyHandler -Chord "c,Y" -Function ViReplaceToBeforeCharBackward -ViMode Command
 
 Set-PSReadLineKeyHandler -Key "t" -Function Yank -ViMode Command
 Set-PSReadLineKeyHandler -Key "T" -Function ViYankToEndOfLine -ViMode Command
@@ -123,13 +117,9 @@ Set-PSReadLineKeyHandler -Chord "t,t" -Function ViYankLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,0" -Function ViYankBeginningOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,Q" -Function ViYankPercent -ViMode Command
 
-Set-PSReadLineKeyHandler -Key "Q" -Function ViGotoBrace -ViMode Command
 Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 
 # Searching history incrementally from / doesn't always work
 # Up/Down straight from the current input does
 Set-PSReadLineKeyHandler -Key "j" -Function HistorySearchForward -ViMode Command
 Set-PSReadLineKeyHandler -Key "k" -Function HistorySearchBackward -ViMode Command
-
-# PSReadLine does not allow ViDeleteToBeforeChar to be remapped
-# Set-PSReadLineKeyHandler -Chord "d,y" -Function ViDeleteToBeforeChar -ViMode Command

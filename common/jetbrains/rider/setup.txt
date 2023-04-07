@@ -5,8 +5,16 @@ GitHub Copilot
 InlineProblems
     - Unset 'Draw boxes around problem labels'
     - Change inlay size delta as required by display resolution
+    - 'Error text color' as FF0000
+    - 'Warning text color' as FF7900
+    - Set 'Show infos'
 CodeGlance Pro
-    -
+    - 'Width' as 75, locked
+    - 'Viewport Color' as CDF6C2
+    - 'Viewport Border Color' as 000000
+    - 'Viewport Border Thickness' as 2
+    - 'Render Style' as 'Accurate'
+    - 'Hide Original ScrollBar and ErrorStripes"
 Cognitive Complexity
 Heap Allocations Viewer
 SpecFlow for Rider
@@ -15,24 +23,34 @@ Structured Logging
 .env files support
 
 ## 2. Keybindings
-Remove 'Open terminal with <C-`>
-'Go to definition' to F1
-'Find all references' to F3
-'Go to implementation' to F4
-'Toggle Bookmark' to F6
-'Build Solution' to F7
-'Clean Solution' to F8
-'Vim Emulator' to Ctrl+Alt+v
+Remove 'Search Everywhere' bound to <C-,>
+Remove 'Terminal' bound to <C-`>
+'GotoAction' to <C-;>
+'SearchEverywhere' to <C-o>
+'GotoImplementation' to F1
+'FindUsages' to F3
+'GotoDeclaration' to F4
+'ToggleBookmark' to F6
+'BuildSolutionAction' to F7
+'CleanSolutionAction' to F8
+'VimPluginToggle' to <C-A-v>
+'copilot.cycleNextInlays' to <A-j>
+'copilot.cyclePrevInlays' to <A-k>
 
-## 3. Settings (can be imported via settings.zip)
+## 3. Settings
+User Interface
+    - Right click the status bar and set 'Backend memory usage'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'Visual Studio Light'
     - 'Show tree indent guides'
-    - Set 'Use custom font' as true, using 'Inter' at size 12
+    - Set 'Use custom font' with 'Segoe UI' at size 12
     - Unset 'Smooth scrolling'
+    - In 'Tool Windows' set 'Widescreen tool window layout'
 Appearance & Behaviour/System Settings
     - 'Reopen projects on startup'
     - Unset 'Saves files when switching to a different application or a built-in terminal'
+Appearance & Behaviour/Notifications
+    - Unset 'Display balloon notifications'
 Editor/General
     - Unset 'Enable smooth scrolling'
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
@@ -47,6 +65,7 @@ Editor/General
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
     - In 'Code Completion' set 'Show the parameter info popup in' as 100ms
+    - In 'Code Folding' untick everything under 'Fold by default'
 Editor/Code Editing
     - Tooltip delay as 50ms
 Editor/Font
@@ -55,9 +74,10 @@ Editor/Font
     - 'Line height' as 1
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 219017
+    - 'TODO defaults' as 007F00
 Editor/Color Scheme/General/Editor
     - 'Caret row' background as F1EFE0
-    - 'Code Vision/Default' foreground as 323232
+    - 'Code Vision/Default' foreground as 000000
     - 'Tabs/Selected Tab' foreground/background as FFFFFF/CCDB7B
     - 'Tabs/Selected Tab inactive' background as B1BFB1
     - 'Tabs/Underline' background as CCDB7B
@@ -67,7 +87,8 @@ Editor/Color Scheme/General/Editor
     - 'Guides/Indent Guide' background as DCDCDC
     - 'Gutter background' as EBEBEB
 Editor/Code Style
-    - 'Hard wrap' as 120
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
     - 'Generated member default body style' as 'Return default value'
+Build, Execution, Deployment
+    - In 'Debugger' set 'Truncate presentation of long strings' threshold to 75

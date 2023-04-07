@@ -17,7 +17,10 @@ sethandler <C-z> a:ide
 sethandler <C-y> a:ide
 sethandler <C-a> a:ide
 sethandler <C-s> a:ide
+sethandler <C-f> a:ide
 sethandler <C-h> a:ide
+sethandler <C-o> a:ide
+sethandler <C-;> a:ide
 sethandler <C-k> a:ide
 
 
@@ -25,49 +28,95 @@ sethandler <C-k> a:ide
 
 let mapleader = " "
 
-" Repeat with ;, place with m, delete to null with m and X
-nnoremap ; .
-nnoremap m r
-noremap f "0x
-nnoremap F 0"0D
-
-" Search with ' and @
-noremap ' /
-noremap @ ?
-noremap v' v/
-noremap v@ v?
-
-" Cursor movement
+" Cursor, line and block movement
+noremap f b
 noremap H ^
 noremap J }
 noremap K {
 noremap L $
+noremap M J
+noremap \ :action MoveLineDown<CR>
+noremap / :action MoveLineUp<CR>
+nnoremap , mz>>'z
+vnoremap , >gv
+nnoremap x mz<<'z
+vnoremap x <gv
+
+" Search
+noremap ; /
+noremap : ?
+nnoremap g; viwy/<C-r>0
+vnoremap g; y/<C-r>0
+noremap = :
+nnoremap <Esc> :nohl<CR>
 
 " Copy paste
 noremap t y
 nnoremap T y$
-nnoremap r p :action AutoIndentLines<CR>
-vnoremap r P :action AutoIndentLines<CR>
-noremap R P :action AutoIndentLines<CR>
+nnoremap r p:action AutoIndentLines<CR>
+vnoremap r P:action AutoIndentLines<CR>
+noremap R P:action AutoIndentLines<CR>
 
-" Line and block shifting
-noremap M J
-noremap ( :action MoveLineUp<CR>
-noremap ) :action MoveLineDown<CR>
-nnoremap > mz>>'z
-vnoremap > >gv
-nnoremap < mz<<'z
-vnoremap < <gv
+" Text modification
+noremap s "0x
+noremap S 0"0D
+noremap m r
+noremap b <C-v>
+nnoremap ' ~h
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
-
-" Undo, redo, search highlighting, static casing, visual block
 nnoremap u u<Esc>
 vnoremap u <Esc>u<Esc>
 nnoremap U <C-r>
-nnoremap <Esc> :nohl<CR>
-nnoremap ~ ~h
-noremap S <C-v>
+
+" Inner shortcuts
+nnoremap c" ci"
+nnoremap c' ci'
+nnoremap c( 0f(ci(
+nnoremap c) 0f)ci)
+nnoremap c{ ci{
+nnoremap c} ci}
+nnoremap c[ 0f[ci[
+nnoremap c] 0f]ci]
+nnoremap ct cit
+nnoremap c< ci<
+nnoremap c> ci>
+
+nnoremap d" di"
+nnoremap d' di'
+nnoremap d( 0f(di(
+nnoremap d) 0f)di)
+nnoremap d{ di{
+nnoremap d} di}
+nnoremap d[ 0f[di[
+nnoremap d] 0f]di]
+nnoremap dt dit
+nnoremap d< di<
+nnoremap d> di>
+
+nnoremap v" vi"
+nnoremap v' vi'
+nnoremap v( 0f(vi(
+nnoremap v) 0f)vi)
+nnoremap v{ vi{
+nnoremap v} vi}
+nnoremap v[ 0f[vi[
+nnoremap v] 0f]vi]
+nnoremap vt vit
+nnoremap v< vi<
+nnoremap v> vi>
+
+nnoremap t" yi"
+nnoremap t' yi'
+nnoremap t( mz0f(yi(`z
+nnoremap t) mz0f)yi)`z
+nnoremap t{ yi{
+nnoremap t} yi}
+nnoremap t[ mz0f[yi[`z
+nnoremap t] mz0f]yi]`z
+nnoremap tt yit
+nnoremap t< yi<
+nnoremap t> yi>
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
@@ -75,48 +124,17 @@ nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
-" Inner shortcuts (excludes ')
-nnoremap c" ci"
-nnoremap c( ci(
-nnoremap c) ci)
-nnoremap c{ ci{
-nnoremap c} ci}
-nnoremap c[ ci[
-nnoremap c] ci]
-nnoremap ct cit
-nnoremap c< ci<
-nnoremap c> ci>
-
-nnoremap d" di"
-nnoremap d( di(
-nnoremap d) di)
-nnoremap d{ di{
-nnoremap d} di}
-nnoremap d[ di[
-nnoremap d] di]
-nnoremap dt dit
-nnoremap d< di<
-nnoremap d> di>
-
-nnoremap v" vi"
-nnoremap v( vi(
-nnoremap v) vi)
-nnoremap v{ vi{
-nnoremap v} vi}
-nnoremap v[ vi[
-nnoremap v] vi]
-nnoremap vt vt
-nnoremap v< v<
-nnoremap v> v>
-
 " Code navigation and modification
-noremap gj :action GotoImplementation<CR>
+noremap gh :action QuickJavaDoc<CR>
+noremap gj :action GotoDeclaration<CR>
 noremap gk :action FindUsages<CR>
-noremap gl :action GotoDeclaration<CR>
-noremap gn :action QuickJavaDoc<CR>
+noremap gl :action GotoImplementation<CR>
 noremap gi :action OptimizeImports<CR>
 noremap go :action ReformatCode<CR>
-noremap <leader>/ :action CommentByLineComment<CR>
+nnoremap gn viw:action Find<CR>
+nnoremap gm viw:action Replace<CR>
+vnoremap gm :action Replace<CR>
+noremap <leader>' :action CommentByLineComment<CR>
 vnoremap <leader>s :action SurroundWith<CR>
 vnoremap <leader>e :action ExtractMethod<CR>
 noremap <leader>r :action RenameElement<CR>
@@ -126,10 +144,11 @@ noremap <leader>f :action RevealIn<CR>
 " Launchers
 noremap <leader>; :action GotoAction<CR>
 noremap <leader>o :action SearchEverywhere<CR>
-noremap <leader>n :action FindInPath<CR>
-noremap <leader>m :action ReplaceInPath<CR>
-noremap gh :action Replace<CR>
-noremap gm :action NewFile<CR>
+nnoremap <leader>n viw:action FindInPath<CR>
+vnoremap <leader>n :action FindInPath<CR>
+noremap <leader>m viw:action ReplaceInPath<CR>
+vnoremap <leader>m :action ReplaceInPath<CR>
+noremap gu :action NewFile<CR>
 noremap <C-,> :action ShowSettings<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
@@ -141,11 +160,11 @@ noremap <leader>u :action GotoPreviousError<CR>
 noremap <leader>i :action GotoNextError<CR>
 
 " Windows and tabs
-noremap <leader>p :action PinActiveEditorTab<CR>
-noremap <leader>h <C-w>h
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
+noremap p :action PinActiveEditorTab<CR>
+noremap <leader>h <C-w>w
+noremap <leader>j <C-w>w
+noremap <leader>k <C-w>w
+noremap <leader>l <C-w>w
 noremap <leader>v :vsplit<CR>
 noremap <leader>c :split<CR>
 noremap <leader>1 :action GoToTab1<CR>

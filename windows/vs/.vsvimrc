@@ -15,16 +15,12 @@ set vsvim_hidemarks=<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 let mapleader = " "
 
 " Cursor, line and block movement
+noremap f b
 noremap H ^
 noremap J }
 noremap K {
 noremap L $
 noremap M J
-noremap f g
-noremap ff gg
-noremap F G
-noremap f; g;
-noremap f, g,
 noremap \ :vsc Edit.MoveSelectedLinesDown<CR>
 noremap / :vsc Edit.MoveSelectedLinesUp<CR>
 nnoremap , mz>>'z
@@ -35,6 +31,8 @@ vnoremap x <gv
 " Search
 noremap ; /
 noremap : ?
+nnoremap g; viwy/<C-r>0
+vnoremap g; y/<C-r>0
 noremap = :
 nnoremap <Esc> :nohl<CR>
 
@@ -46,14 +44,15 @@ vnoremap r P | :vsc Edit.FormatDocument<CR>
 noremap R P | :vsc Edit.FormatDocument<CR>
 
 " Text modification
-vnoremap u <Esc>u
-noremap U <C-r>
-noremap S <C-v>
+noremap s "0x
+noremap S 0"0D
 noremap m r
-noremap g "0x
-nnoremap ' ~h
+noremap b <C-v>
+noremap ' ~h
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
+vnoremap u <Esc>u
+noremap U <C-r>
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -111,14 +110,14 @@ noremap <leader>q :q<CR>
 noremap <leader><leader>q :qa<CR>
 
 " Code navigation and modification
-noremap fj :vsc Edit.GoToImplementation<CR>
-noremap fk :vsc Edit.FindAllReferences<CR>
-noremap fl :vsc Edit.GoToDefinition<CR>
-noremap f; :vsc Edit.QuickInfo<CR>
-noremap fi :vsc Edit.RemoveAndSort<CR>
-noremap fo :vsc Edit.FormatDocument<CR>
-noremap fn :vsc Edit.Find<CR>
-noremap fm :vsc Edit.Replace<CR>
+noremap gh :vsc Edit.QuickInfo<CR>
+noremap gj :vsc Edit.GoToImplementation<CR>
+noremap gk :vsc Edit.FindAllReferences<CR>
+noremap gl :vsc Edit.GoToDefinition<CR>
+noremap gi :vsc Edit.RemoveAndSort<CR>
+noremap go :vsc Edit.FormatDocument<CR>
+noremap gn :vsc Edit.Find<CR>
+noremap gm :vsc Edit.Replace<CR>
 nnoremap <leader>' :vsc Edit.ToggleComment<CR>k$
 vnoremap <leader>' :vsc Edit.ToggleComment<CR> | <Esc><CR>k$
 vnoremap <leader>s :vsc Edit.SurroundWith<CR>
@@ -131,7 +130,7 @@ noremap <leader>; :vsc Window.QuickLaunch<CR>
 noremap <leader>o :vsc Edit.GoToAll<CR>
 noremap <leader>n :vsc Edit.FindInFiles<CR>
 noremap <leader>m :vsc Edit.ReplaceInFiles<CR>
-noremap fu :vsc AddQuickFile<CR>
+noremap gu :vsc AddQuickFile<CR>
 noremap <C-,> :vsc Tools.Options<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
