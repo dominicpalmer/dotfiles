@@ -117,9 +117,11 @@ Set-PSReadLineKeyHandler -Chord "t,t" -Function ViYankLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,0" -Function ViYankBeginningOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,Q" -Function ViYankPercent -ViMode Command
 
+Set-PSReadLineKeyHandler -Key "Backspace" -Function BackwardDeleteChar -ViMode Command
+Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function BackwardDeleteWord
 Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 
 # Searching history incrementally from / doesn't always work
-# Up/Down straight from the current input does
+# Searching up/down straight from the current input does work
 Set-PSReadLineKeyHandler -Key "j" -Function HistorySearchForward -ViMode Command
 Set-PSReadLineKeyHandler -Key "k" -Function HistorySearchBackward -ViMode Command

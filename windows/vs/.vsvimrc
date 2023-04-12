@@ -16,6 +16,7 @@ let mapleader = " "
 
 " Cursor, line and block movement
 noremap f b
+noremap F b
 noremap H ^
 noremap J }
 noremap K {
