@@ -16,7 +16,7 @@ let mapleader = " "
 
 " Cursor, line and block movement
 noremap f b
-noremap F b
+noremap F B
 noremap H ^
 noremap J }
 noremap K {
@@ -24,17 +24,17 @@ noremap L $
 noremap M J
 noremap \ :vsc Edit.MoveSelectedLinesDown<CR>
 noremap / :vsc Edit.MoveSelectedLinesUp<CR>
-nnoremap , mz>>'z
-vnoremap , >gv
-nnoremap x mz<<'z
-vnoremap x <gv
+nnoremap z mz>>'z
+vnoremap z >gv
+nnoremap , mz<<'z
+vnoremap , <gv
 
 " Search
 noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap = :
+noremap y :
 nnoremap <Esc> :nohl<CR>
 
 " Copy and paste
@@ -45,11 +45,13 @@ vnoremap r P | :vsc Edit.FormatDocument<CR>
 noremap R P | :vsc Edit.FormatDocument<CR>
 
 " Text modification
+noremap x s
 noremap s "0x
 noremap S 0"0D
 noremap m r
 noremap b <C-v>
-noremap ' ~h
+nnoremap ' ~h
+vnoremap ' ~
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 vnoremap u <Esc>u
@@ -88,7 +90,6 @@ nnoremap v{ vi{
 nnoremap v} vi}
 nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
-nnoremap vt vit
 nnoremap v< vi<
 nnoremap v> vi>
 
@@ -100,7 +101,6 @@ nnoremap t{ yi{
 nnoremap t} yi}
 nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
-nnoremap tt yit
 nnoremap t< yi<
 nnoremap t> yi>
 
@@ -108,7 +108,7 @@ nnoremap t> yi>
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
-noremap <leader><leader>q :qa<CR>
+noremap <leader><leader>q :vsc Window.CloseAllDocuments<CR>
 
 " Code navigation and modification
 noremap gh :vsc Edit.QuickInfo<CR>

@@ -38,17 +38,17 @@ noremap L $
 noremap M J
 noremap \ :action MoveLineDown<CR>
 noremap / :action MoveLineUp<CR>
-nnoremap , mz>>'z
-vnoremap , >gv
-nnoremap x mz<<'z
-vnoremap x <gv
+nnoremap z mz>>'z
+vnoremap z >gv
+nnoremap , mz<<'z
+vnoremap , <gv
 
 " Search
 noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap = :
+noremap y :
 nnoremap <Esc> :nohl<CR>
 
 " Copy paste
@@ -59,11 +59,13 @@ vnoremap r P:action AutoIndentLines<CR>
 noremap R P:action AutoIndentLines<CR>
 
 " Text modification
+noremap x s
 noremap s "0x
 noremap S 0"0D
 noremap m r
 noremap b <C-v>
 nnoremap ' ~h
+vnoremap ' ~
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 nnoremap u u<Esc>
@@ -103,7 +105,6 @@ nnoremap v{ vi{
 nnoremap v} vi}
 nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
-nnoremap vt vit
 nnoremap v< vi<
 nnoremap v> vi>
 
@@ -115,7 +116,6 @@ nnoremap t{ yi{
 nnoremap t} yi}
 nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
-nnoremap tt yit
 nnoremap t< yi<
 nnoremap t> yi>
 

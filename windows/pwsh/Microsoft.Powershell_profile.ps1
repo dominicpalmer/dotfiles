@@ -73,6 +73,7 @@ Set-PSReadLineKeyHandler -Key "l" -ViMode Command -ScriptBlock {
 }
 
 # Keybindings
+# https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.psconsolereadline?view=powershellsdk-1.1.0
 Set-PSReadLineKeyHandler -Chord "Shift+LeftArrow" -Function SelectBackwardChar
 Set-PSReadLineKeyHandler -Chord "Shift+LeftArrow" -Function SelectBackwardChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "Shift+RightArrow" -Function SelectForwardChar
@@ -81,6 +82,9 @@ Set-PSReadLineKeyHandler -Chord "Shift+Ctrl+LeftArrow" -Function SelectBackwardW
 Set-PSReadLineKeyHandler -Chord "Shift+Ctrl+LeftArrow" -Function SelectBackwardWord -ViMode Command
 Set-PSReadLineKeyHandler -Chord "Shift+Ctrl+RightArrow" -Function SelectForwardWord
 Set-PSReadLineKeyHandler -Chord "Shift+Ctrl+RightArrow" -Function SelectForwardWord -ViMode Command
+
+Set-PSReadLineKeyHandler -Key "f" -Function ViBackwardWord -ViMode Command
+Set-PSReadLineKeyHandler -Key "F" -Function ViBackwardGlob -ViMode Command
 
 Set-PSReadLineKeyHandler -Chord "Ctrl+a" -Function SelectAll
 Set-PSReadLineKeyHandler -Chord "Ctrl+a" -Function SelectAll -ViMode Command
@@ -121,7 +125,6 @@ Set-PSReadLineKeyHandler -Key "Backspace" -Function BackwardDeleteChar -ViMode C
 Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function BackwardDeleteWord
 Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 
-# Searching history incrementally from / doesn't always work
-# Searching up/down straight from the current input does work
+# Search up/down based on the current input
 Set-PSReadLineKeyHandler -Key "j" -Function HistorySearchForward -ViMode Command
 Set-PSReadLineKeyHandler -Key "k" -Function HistorySearchBackward -ViMode Command
