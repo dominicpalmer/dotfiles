@@ -1,40 +1,19 @@
 ## 1. Extensions
-Auto-Using for C#
-C/C++
-C#
-C# Extensions
-C# IL Viewer
-C# Namespace Autocompletion
-C# to TypeScript
-C# XML Documentation Comments
-CSS Peek
-Dev Containers
 Error Lens
-ESLint
 GitLens -- Git supercharged
 GlassIt-VSC
-HTML CSS Support
 IntelliCode
 IntelliCode API Usage Examples
 IntelliCode Completions
-isort
-Light++
-markdownlint
-multi-command
-PowerShell
-Prettier - Code formatter
-Pylance
-Python
-Remote - SSH
-Remote - SSH: Editing Configuration Files
-Remote Explorer
-Trailing Spaces
 Vim
-vscode-icons
-WSL
+multi-command
+Trailing Spaces
+PowerShell
+markdownlint
 XML
 YAML
+vscode-icons
+Light++
 
 ## 2. Settings, layout
 settings.json and keybindings.json linked
-Setup layout per layout.png

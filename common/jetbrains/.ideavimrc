@@ -5,7 +5,7 @@ set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400
-" Not yet supported: set whichwrap=<,>,h,l
+set whichwrap=<,>,h,l
 set clipboard=unnamed
 set nooldundo
 set showcmd

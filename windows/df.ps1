@@ -66,7 +66,9 @@ New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarge
 
 New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.obsidian.vimrc" -Target "$env:Dotfiles\common\obsidian\.obsidian.vimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$env:Dotfiles\windows\shared\.vimrc" -Force
 
 ############################### 3. WezTerm symbolic links and binary
 
@@ -111,6 +113,6 @@ if (Get-ScheduledTask | Where-Object { $_.TaskName -like $TaskName }) {
 
 # Create the new task to run at logon
 $Trigger = New-ScheduledTaskTrigger -AtLogOn
-$Action = New-ScheduledTaskAction -Execute "$env:Dotfiles\windows\keyboard\remaps.ahk"
+$Action = New-ScheduledTaskAction -Execute "$env:Dotfiles\windows\autohotkey\remaps.ahk"
 Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"

@@ -1,5 +1,4 @@
 ## 1. Extensions
-IdeaVim
 GitHub Copilot
     - Sign in and restart to enable
 InlineProblems
@@ -15,12 +14,14 @@ CodeGlance Pro
     - 'Viewport Border Thickness' as 2
     - 'Render Style' as 'Accurate'
     - 'Hide Original ScrollBar and ErrorStripes"
+IdeaVim
 Cognitive Complexity
 Heap Allocations Viewer
 SpecFlow for Rider
 Gherkin
 Structured Logging
 .env files support
+High Contrast Light
 
 ## 2. Keybindings
 Remove 'Search Everywhere' bound to <C-,>
@@ -39,16 +40,14 @@ Remove 'Terminal' bound to <C-`>
 
 ## 3. Settings
 User Interface
-    - Right click the status bar and set 'Backend memory usage'
+    - Right click the status bar and set 'Memory Indicator'
 Appearance & Behaviour/Appearance
-    - 'Theme' as 'Visual Studio Light'
+    - 'Theme' as 'High Contrast Light'
     - 'Show tree indent guides'
-    - Set 'Use custom font' with 'Segoe UI' at size 12
     - Unset 'Smooth scrolling'
     - In 'Tool Windows' set 'Widescreen tool window layout'
 Appearance & Behaviour/System Settings
     - 'Reopen projects on startup'
-    - Unset 'Saves files when switching to a different application or a built-in terminal'
 Appearance & Behaviour/Notifications
     - Unset 'Display balloon notifications'
 Editor/General
@@ -56,11 +55,10 @@ Editor/General
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
     - 'Remove trailing spaces' as 'All lines',
     - Unset 'Keep trailing spaces on caret line'
-    - In 'Appeareance' set 'Render documentation comments'
-    - In 'Editor Tabs' set:
-        - 'Show tabs in multiple rows'
-        - 'Show pinned tabs in a separate row'
-        - 'Mark modified'
+    - In 'Editor Tabs':
+        - Unset 'Show tabs in multiple rows'
+        - Set 'Show pinned tabs in a separate row'
+        - Set 'Mark modified'
         - 'Tab Order' as 'Open new tabs at the end'
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
@@ -69,19 +67,13 @@ Editor/General
 Editor/Code Editing
     - Tooltip delay as 50ms
 Editor/Font
-    - 'Font' as any 'Cascadia Code'
-    - 'Size' as 13.0
-    - 'Line height' as 1
+    - 'Font' as 'Cascadia Code', size 12, line height 1
 Editor/Color Scheme/General/Code
-    - 'Line number' foreground as 219017
+    - 'Line number' foreground as 000000
     - 'TODO defaults' as 007F00
 Editor/Color Scheme/General/Editor
     - 'Caret row' background as F1EFE0
     - 'Code Vision/Default' foreground as 000000
-    - 'Tabs/Selected Tab' foreground/background as FFFFFF/CCDB7B
-    - 'Tabs/Selected Tab inactive' background as B1BFB1
-    - 'Tabs/Underline' background as CCDB7B
-    - 'Tabs/Underline inactive' background as B1BFB1
     - 'Tear line' foreground as AFAFAF
     - 'Guides/Hard wrap guide' foreground as AFAFAF
     - 'Guides/Indent Guide' background as DCDCDC

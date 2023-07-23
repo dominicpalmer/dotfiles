@@ -6,8 +6,6 @@ VSVim
 GitHub Copilot
     - Sign in and restart to enable
     - <A-n> to Edit.Copilot.TriggerInlineSuggestion
-Hot Commands
-Hot Tabs
 Visual Studio Show Inline Errors
     - Enable everything except 'Show Null Error Markings'
 Solution Error Visualiser
@@ -16,6 +14,8 @@ Editor Guidelines
     - Guidelines at 120 and 150
 Roslynator
     - Config file symlinked
+Hot Commands
+Hot Tabs
 Trailing Whitespace Visualiser
 Match Margin 2022
 Time Stamp Margin 2022

@@ -1,5 +1,7 @@
 #SingleInstance Force
 
+; --------------------------- Sleep/lock workstation
+
 ; On lock or sleep:
 ; 1. DisableLockWorkstation registry key is momentarily set to 0, and the computer is locked or put to sleep.
 ; 2. This script is reloaded and DisableLockWorkstation is set back to 1, so that the Win+l remap works again.
@@ -17,7 +19,7 @@ LWin & \::
     Reload
 return
 
-; Toggle between instances of the same application
+; --------------------------- Toggle between instances of the same application
 !`::
 WinGetClass, OldClass, A
 WinGet, ActiveProcessName, ProcessName, A
@@ -32,16 +34,24 @@ loop, 2 {
     break
 }
 
+; --------------------------- Winkey navigation
 #h::SendInput {Left}
 #j::SendInput {Down}
 #k::SendInput {Up}
 #l::SendInput {Right}
+#y::SendInput {Home}
+#o::SendInput {End}
+#i::SendInput ^{Delete}
+#u::SendInput ^{Backspace}
+#n::Send {Home}{Shift down}{End}{Shift up}
 
+; --------------------------- Escape and capslock
 CapsLock::Esc
 RCtrl::CapsLock
 RAlt::Ctrl
 
-; Flow Launcher search
+; --------------------------- Flow launcher
+; Search with LWin
 LWin Up::
     if (A_PriorKey = "RWin")
         Send {RWin}
@@ -49,7 +59,7 @@ LWin Up::
         Send !{Space}
 return
 
-; Flow Launcher run
+; Run with LWin+;
 LWin & `;::
     Send !{Space}
     SendInput >{Space}
