@@ -1,27 +1,14 @@
 ## 1. Extensions
-GitHub Copilot
-    - Sign in and restart to enable
-InlineProblems
-    - Unset 'Draw boxes around problem labels'
-    - Change inlay size delta as required by display resolution
-    - 'Error text color' as FF0000
-    - 'Warning text color' as FF7900
-    - Set 'Show infos'
+High Contrast Light
 CodeGlance Pro
-    - 'Width' as 75, locked
-    - 'Viewport Color' as CDF6C2
-    - 'Viewport Border Color' as 000000
-    - 'Viewport Border Thickness' as 2
-    - 'Render Style' as 'Accurate'
-    - 'Hide Original ScrollBar and ErrorStripes"
+InlineProblems
 IdeaVim
 Cognitive Complexity
-Heap Allocations Viewer
+GitHub Copilot
 SpecFlow for Rider
 Gherkin
-Structured Logging
 .env files support
-High Contrast Light
+Structured Logging
 
 ## 2. Keybindings
 Remove 'Search Everywhere' bound to <C-,>
@@ -29,6 +16,7 @@ Remove 'Terminal' bound to <C-`>
 'GotoAction' to <C-;>
 'SearchEverywhere' to <C-o>
 'GotoImplementation' to F1
+'RenameElement' to F1
 'FindUsages' to F3
 'GotoDeclaration' to F4
 'ToggleBookmark' to F6
@@ -38,12 +26,12 @@ Remove 'Terminal' bound to <C-`>
 'copilot.cycleNextInlays' to <A-j>
 'copilot.cyclePrevInlays' to <A-k>
 
-## 3. Settings
+## 3. General Settings
 User Interface
     - Right click the status bar and set 'Memory Indicator'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Light'
-    - 'Show tree indent guides'
+    - Set 'Show tree indent guides'
     - Unset 'Smooth scrolling'
     - In 'Tool Windows' set 'Widescreen tool window layout'
 Appearance & Behaviour/System Settings
@@ -55,32 +43,49 @@ Editor/General
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
     - 'Remove trailing spaces' as 'All lines',
     - Unset 'Keep trailing spaces on caret line'
+    - Set 'Remove trailing blank lines at the end of saved files'
+    - In 'Appearance' set 'Show whitespaces' for 'Trailing' and 'Selection'
+    - In 'Code Completion' set 'Show the parameter info popup in' as 100ms
+    - In 'Code Folding' untick everything under 'Fold by default'
     - In 'Editor Tabs':
-        - Unset 'Show tabs in multiple rows'
+        - Unset 'Show tabs in one row'
         - Set 'Show pinned tabs in a separate row'
         - Set 'Mark modified'
         - 'Tab Order' as 'Open new tabs at the end'
+        - Set 'Enable preview tab'
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
-    - In 'Code Completion' set 'Show the parameter info popup in' as 100ms
-    - In 'Code Folding' untick everything under 'Fold by default'
 Editor/Code Editing
     - Tooltip delay as 50ms
 Editor/Font
-    - 'Font' as 'Cascadia Code', size 12, line height 1
+    - 'Font' as 'Cascadia Code', size 13, line height 1
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 000000
     - 'TODO defaults' as 007F00
 Editor/Color Scheme/General/Editor
     - 'Caret row' background as F1EFE0
     - 'Code Vision/Default' foreground as 000000
-    - 'Tear line' foreground as AFAFAF
     - 'Guides/Hard wrap guide' foreground as AFAFAF
     - 'Guides/Indent Guide' background as DCDCDC
-    - 'Gutter background' as EBEBEB
+    - 'Gutter background' as DCDCDC
+    - 'Tear line' foreground as 555555
+    - 'Text/Whitespaces' as 000000
+Editor/Color Scheme/Language Defaults
+    - 'Classes/Static method' as 8E00B1
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
     - 'Generated member default body style' as 'Return default value'
 Build, Execution, Deployment
     - In 'Debugger' set 'Truncate presentation of long strings' threshold to 75
+
+## 4. Plugin Settings
+InlineProblems
+    - 'Error text color' as FF0000
+    - Set 'Show weak warnings' and 'Show infos'
+CodeGlance Pro
+    - 'Pixels per line' as 1
+    - 'Viewport Border Color' as 000000
+    - 'Viewport Border Thickness' as 2
+GitHub Copilot
+    - Sign in and restart to enable
