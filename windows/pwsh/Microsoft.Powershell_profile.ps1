@@ -121,7 +121,7 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+c" -Function CopyOrCancelLine
 Set-PSReadLineKeyHandler -Chord "Ctrl+c" -Function CopyOrCancelLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "Ctrl+x" -Function Cut
 Set-PSReadLineKeyHandler -Chord "Ctrl+x" -Function Cut -ViMode Command
-
+Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function BackwardDeleteWord
 
 # Search up/down based on the current input
 Set-PSReadLineKeyHandler -Key "j" -Function HistorySearchForward -ViMode Command
