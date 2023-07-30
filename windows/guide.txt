@@ -1,16 +1,12 @@
 1. SophiaScript.
-  a) Download the SophiaScript wrapper and library zips from
-  https://github.com/farag2/Sophia-Script-for-Windows, then extract.
-  b) Take windows/debloat/preset.ps1 from dotfiles. Place in the extracted
-  wrapper folder alongside the default.
+  a) Download the SophiaScript wrapper and library zips from https://github.com/farag2/Sophia-Script-for-Windows, then extract.
+  b) Take windows/debloat/preset.ps1 from dotfiles. Place in the extracted wrapper folder alongside the default.
   b) Open the script wrapper and import the preset.
-  c) Go to 'Output Console' and run the script. As it runs, choose options from
-  terminal as appropriate.
+  c) Go to 'Output Console' and run the script. As it runs, choose options from terminal as appropriate.
   d) Restart.
 
 2. Windows10Debloater.
-  a) Copy script contents from
-  https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10Debloater.ps1
+  a) Copy script contents from https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10Debloater.ps1
   b) Run 'Set-ExecutionPolicy Unrestricted -Force', then run the script.
   c) Delete C:/Temp/Windows10Debloater, so SophiaScript can be re-run later.
 
@@ -24,112 +20,86 @@
   a) Download from https://github.com/builtbybel/bloatbox/releases
   b) Run and verify that no bloatware apps are present.
   c) Check the repos 'marketplace' scripts. Download 'Block telemetry.ps1'.
-  d) Open the script locally and remove references to 'force-mkdir'. The HKLM
-  registry assignment at the start will work without the force-mkdir call. Also
-  comment out the 'causes problems with Microsoft Store' IP at the bottom.
+  d) Open the script locally and remove references to 'force-mkdir'. The HKLM registry assignment at the start will work without the
+  force-mkdir call. Also comment out the 'causes problems with Microsoft Store' IP at the bottom.
   e) Run the script as admin.
 
-5. Install Nvidia Control Panel and Ubuntu LTS from Microsoft Store. They may
-have been deleted somewhere during the debloat process.
+5. Install Nvidia Control Panel and Ubuntu LTS from Microsoft Store. They may have been deleted somewhere during the debloat process.
 
 6. Walkthrough of settings, including validation of debloat changes.
   a) UI (including taskbar links hack)
   b) Settings GUI
   c) Control panel
-  d) Show File Explorer window border via settings GUI 'Themes/Colours' then
-  'Title bars and window borders'.
+  d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-7. Web installations. Install in C:\Program Files\ where possible.
-  - AutoHotKey
-  - Flow Launcher
-  - Powershell 7
-  - Node (install nvm from https://github.com/coreybutler/nvm-windows/releases,
-  run 'nvm install lts' then 'nvm use <version_you_just_installed>')
-  - JetBrains Toolbox (update settings to install to C:\Program Files\JetBrains,
-  and to not generate shell scripts)
-  - JetBrains Rider (via Toolbox run as admin)
-  - JetBrains DataGrip (via Toolbox run as admin)
-  - dotTrace
-  - dotMemory
-  - dotPeek
-  - dotCover
-  - Obsidian
-  - 7Zip
-  - SysInternals
+7. Program installations. Install in C:\Program Files\ where possible.
   - Nvidia Graphics Driver
+  - Mozilla Firefox
+  - Mozilla Thunderbird
+  - LibreOffice
+  - VLC
+  - 7Zip
+  - Notepad++
   - KeePass 2
-  - Jekyll (via WSL approach. Before running 'gem update', run
-  'export GEM_HOME="$HOME/.gem"')
-  - EA Origin
-
-8. Install 'App Installer' (winget) from Microsoft Store.
-
-9. Winget installation and configuration via
-'winget install -e --id <name> --location <location_on_c_drive>'.
-  - Mozilla.Firefox
-  - Mozilla.Thunderbird
-  - wez.wezterm
-  - Git.Git
-  - Notepad++.Notepad++
-  - Microsoft.VisualStudioCode
-  - Microsoft.VisualStudio.2022.Community
-  - Microsoft.SQLServer.2019.Express
-  - Microsoft.SQLServerManagementStudio
-  - PostgreSQL.PostgreSQL
-  - Python.Python.3
-  - Docker.DockerDesktop
-  - Insomnia
-  - Microsoft.PowerToys
-  - voidtools.Everything
-  - gerardog.gsudo
-  - NickeManarin.ScreenToGif
-  - ChristianSchenk.MiKTeX
-  - TeXstudio.TeXstudio
+  - VeraCrypt
+  - CopyQ (custom install with 'Encryption' and 'Pinned Items' plugins)
+  - Everything
+  - ImageGlass
   - TranslucentTB
-  - Spotify.Spotify
-  - VideoLAN.VLC
-  - DuongDieuPhap.ImageGlass
-  - KDE.Krita
-  - IDRIX.VeraCrypt
-  - TheDocumentFoundation.LibreOffice
-  - Valve.Steam
-  - Ubisoft.Connect
+  - Flow Launcher
+  - AutoHotKey
+  - Greenshot
+  - ScreenToGif
+  - PowerToys
+  - SysInternals
+  - Obsidian
+  - Okular
+  - Krita
+  - Spotify
+  - Steam
+  - Ubisoft Connect
+  - EA App
+  - Wezterm
+  - gsudo
+  - Powershell 7
+  - Git
+  - Docker
+  - Insomnia
+  - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
+  - JetBrains Rider EAP (via Toolbox)
+  - JetBrains PyCharm Community (via Toolbox)
+  - JetBrains dotTrace (via Toolbox)
+  - JetBrains dotMemory (via Toolbox)
+  - JetBrains dotPeek (via Toolbox)
+  - JetBrains dotCover (via Toolbox)
+  - Visual Studio Community
+  - Visual Studio Code
+  - Python
+  - Node (nvm from https://github.com/coreybutler/nvm-windows/releases, run 'nvm install lts' then 'nvm use <version>')
+  - Jekyll
+  - MiKTeX
+  - TeXstudio
 
-10. Configure startup apps via settings, and turn off protected folder access.
+8. Configure startup apps via settings, and turn off protected folder access.
 
-11. In an elevated PowerShell session, create a dotfiles path env variable with
-'setx /m dotfiles <path_to_where_dotfiles_will_live>'
+9. In admin PowerShell create a dotfiles path env variable with 'setx /m dotfiles <path_to_dotfiles_root>'
 
-12. Restart.
+10. Restart.
 
-13. Transfer root or clone dotfiles, and run './df.ps1 -pwsh_modules'.
+11. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'.
 
-14. Sign into accounts and services, and apply manual configurations.
+12. Sign into accounts and services, and apply manual configurations.
   - Flow Launcher (setup.txt)
-  - JetBrains products (setup.txt)
-  - Visual Studio (setup.txt)
   - Obsidian (setup.txt)
-  - Notepad++ (set as default for .txt, hide most menus, change tab layout,
-  change font, font size, never create backup files)
+  - CopyQ (setup.txt)
+  - JetBrains apps (setup.txt)
+  - Visual Studio (setup.txt)
+  - Visual Studio Code (setup.txt)
+  - Notepad++ (set as default for .txt, hide most menus, then change tab layout, font, font size, and never create backup files)
   - Install Cascadia Code PL font
-  - VSCode (setup.txt)
-  - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to
-  create an SSH key and configure via settings on GitHub)
+  - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to create an SSH key and configure via settings on GitHub)
   - Firefox
   - TranslucentTB (run once installed, and set all options to 'clear')
+  - Greenshot (launch on startup, don't show magnifier, destination as 'Open in image editor', suppress save dialog when closing the editor)
 
-15. WSL
-  a) In RegEdit, go to
-  Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss
-  and open the folder labelled with a guid. If the 'DistributionName' key is
-  using a format like 'Ubuntu20.04LTS', change it to 'Ubuntu-20.04'.
-  b) Run wsl_enable_vmp.ps1 as admin from dotfiles.
-  c) Add WSL directories to quick access. The WSL root directory can be accessed
-  in File Explorer via '\\wsl$'.
-  c) Restart, then run
-  'wsl --set-default-version 2' and 'wsl --set-version Ubuntu-20.04 2'.
-  d) Open a bash prompt. Run from ~:
-  '/mnc/c/Users/<user>/<path to wsl_install.sh>'
-  '/mnc/c/Users/<user>/<path to wsl_link.sh>' (update beforehand)
-
-16. Activate Windows license.
+13. Activate Windows license.

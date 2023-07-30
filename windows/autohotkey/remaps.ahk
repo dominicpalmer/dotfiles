@@ -1,7 +1,6 @@
 #SingleInstance Force
 
 ; --------------------------- Sleep/lock workstation
-
 ; On lock or sleep:
 ; 1. DisableLockWorkstation registry key is momentarily set to 0, and the computer is locked or put to sleep.
 ; 2. This script is reloaded and DisableLockWorkstation is set back to 1, so that the Win+l remap works again.
@@ -21,18 +20,22 @@ return
 
 ; --------------------------- Toggle between instances of the same application
 !`::
-WinGetClass, OldClass, A
-WinGet, ActiveProcessName, ProcessName, A
-WinGet, WinClassCount, Count, ahk_exe %ActiveProcessName%
-if WinClassCount = 1
-    Return
-loop, 2 {
-  WinSet, Bottom,, A
-  WinActivate, ahk_exe %ActiveProcessName%
-  WinGetClass, NewClass, A
-  if (OldClass <> "CabinetWClass" or NewClass = "CabinetWClass")
-    break
-}
+    WinGetClass, OldClass, A
+    WinGet, ActiveProcessName, ProcessName, A
+    WinGet, WinClassCount, Count, ahk_exe %ActiveProcessName%
+
+    if WinClassCount = 1
+        Return
+
+    loop, 2 {
+        WinSet, Bottom,, A
+        WinActivate, ahk_exe %ActiveProcessName%
+        WinGetClass, NewClass, A
+
+        if (OldClass <> "CabinetWClass" or NewClass = "CabinetWClass")
+            break
+    }
+return
 
 ; --------------------------- Winkey navigation
 #h::SendInput {Left}
@@ -41,9 +44,23 @@ loop, 2 {
 #l::SendInput {Right}
 #y::SendInput {Home}
 #o::SendInput {End}
+
+; --------------------------- Winkey text modification
 #i::SendInput ^{Delete}
 #u::SendInput ^{Backspace}
 #n::Send {Home}{Shift down}{End}{Shift up}
+
+; --------------------------- Winkey CopyQ cycle copy
+#v::Send ^!{y}
+
+; --------------------------- Winkey clear system and CopyQ clipboards
+#b::
+    ; CopyQ
+    Send ^!{t}
+
+    ; System
+    Clipboard=
+return
 
 ; --------------------------- Escape and capslock
 CapsLock::Esc

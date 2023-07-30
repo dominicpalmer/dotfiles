@@ -1,0 +1,26 @@
+## General
+- Unset 'Confirm application exit'
+
+## Layout
+- Set 'Hide tabs', 'Hide toolbar', 'Hide toolbar labels' and 'Hide main window'
+
+## History
+- 'Unload tab after an interval in minutes' to 15
+
+## Tray
+- Unset 'Show commands for clipboard content'
+- Set 'Number of items in tray menu' to 0
+
+## Commands/Global Shortcuts
+- Add 'Show/Hide main window' command with keybinding 'ctrl+alt+y'
+- Add 'Ignore *"Password"* window' command with 'Window' equal to 'KeePass'
+- Load the 'clearclipboardtab.ini' file as a command
+
+## [Optional Encryption] Items
+- Run the 'gpg4win-2.0.4.exe' installer, use minimal installation
+- Under 'Encryption' click 'Generate Keys' then 'Change Password...'
+- Add '&clipboard' to the list of tabs
+- Test that the .dat file at '%APPDATA%\copyq' contains encrypted data on copy
+
+## Set to Run at Startup
+- Search for 'CopyQ' via start menu. Right click and 'Open file location'. Copy the shortcut to shell:startup

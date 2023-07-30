@@ -45,7 +45,9 @@ Editor/General
     - Unset 'Keep trailing spaces on caret line'
     - Set 'Remove trailing blank lines at the end of saved files'
     - In 'Appearance' set 'Show whitespaces' for 'Trailing' and 'Selection'
-    - In 'Code Completion' set 'Show the parameter info popup in' as 100ms
+    - In 'Code Completion'
+        - Unset 'Preselect the best match to insert it by pressing dot...'
+        - Set 'Show the parameter info popup in' as 750
     - In 'Code Folding' untick everything under 'Fold by default'
     - In 'Editor Tabs':
         - Unset 'Show tabs in one row'
@@ -55,8 +57,6 @@ Editor/General
         - Set 'Enable preview tab'
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
-Editor/Code Editing
-    - Tooltip delay as 50ms
 Editor/Font
     - 'Font' as 'Cascadia Code', size 13, line height 1
 Editor/Color Scheme/General/Code
