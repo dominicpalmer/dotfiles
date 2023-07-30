@@ -34,6 +34,7 @@
 
 7. Program installations. Install in C:\Program Files\ where possible.
   - Nvidia Graphics Driver
+  - Vivaldi
   - Mozilla Firefox
   - Mozilla Thunderbird
   - LibreOffice
@@ -89,6 +90,7 @@
 11. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'.
 
 12. Sign into accounts and services, and apply manual configurations.
+  - Vivaldi (setup.txt)
   - Flow Launcher (setup.txt)
   - Obsidian (setup.txt)
   - CopyQ (setup.txt)

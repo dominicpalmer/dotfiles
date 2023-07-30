@@ -1,19 +1,17 @@
-## General
-- Start flow launcher on system startup
-- Hide flow launcher on startup
-- 'Last Query Style' as 'Empty last Query'
-- 'Maximum results shown' as 8
-- Hotkey to Alt+Space
+## 1. Settings
+- Under 'General':
+    - Start flow launcher on system startup
+    - Hide flow launcher on startup
+    - 'Last Query Style' as 'Empty last Query'
+    - 'Maximum results shown' as 8
+    - Hotkey to Alt+Space
+- Under 'Theme':
+    - 'Theme' as Darker
+    - 'Query Box Font' as Segoe UI
+    - 'Result Item Font' as Segoe UI
+    - No animations
+    - No sound effects
+- Under 'Hotkey' unset 'Show Hotkey'
 
-## Theme
-- 'Theme' as Darker
-- 'Query Box Font' as Segoe UI
-- 'Result Item Font' as Segoe UI
-- No animations
-- No sound effects
-
-## Hotkey
-- Untick 'Show Hotkey'
-
-## Plugin
-- Shell: untick 'Always run as administrator', select 'RunCommand' from dropdown
+## 2. Plugin
+- Under 'Shell' unset 'Always run as administrator' and select 'RunCommand' from dropdown
