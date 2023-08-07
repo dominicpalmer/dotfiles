@@ -32,7 +32,7 @@
   c) Control panel
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-7. Program installations. Install in C:\Program Files\ where possible.
+7. Program installations, as required. Install to C:\Program Files\ where possible.
   - Nvidia Graphics Driver
   - Vivaldi
   - Mozilla Firefox
@@ -66,6 +66,7 @@
   - Git
   - Docker
   - Insomnia
+  - Brisqi
   - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
   - JetBrains Rider EAP (via Toolbox)
   - JetBrains PyCharm Community (via Toolbox)

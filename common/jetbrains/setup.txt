@@ -1,10 +1,12 @@
+Some config is applicable to all JetBrains IDEs, some is IDE-specific.
+
 ## 1. Extensions
 High Contrast Light
 CodeGlance Pro
 InlineProblems
+GitHub Copilot
 IdeaVim
 Cognitive Complexity
-GitHub Copilot
 SpecFlow for Rider
 Gherkin
 .env files support
@@ -47,9 +49,11 @@ Editor/General
     - In 'Appearance' set 'Show whitespaces' for 'Trailing' and 'Selection'
     - In 'Code Completion'
         - Unset 'Preselect the best match to insert it by pressing dot...'
-        - Set 'Show the parameter info popup in' as 750
+        - Unset 'Enter inserts suggestion even if completion popup is not focused'
+        - Set 'Mark the most relevant item in the completion popup'
+        - Set 'Show the parameter info popup in' as 750ms
     - In 'Code Folding' untick everything under 'Fold by default'
-    - In 'Editor Tabs':
+    - In 'Editor Tabs'
         - Unset 'Show tabs in one row'
         - Set 'Show pinned tabs in a separate row'
         - Set 'Mark modified'
@@ -57,21 +61,30 @@ Editor/General
         - Set 'Enable preview tab'
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
+    - In 'Typing Assistance'
+        - Unset 'Jump outside of closing brackets with tab'
 Editor/Font
     - 'Font' as 'Cascadia Code', size 13, line height 1
 Editor/Color Scheme/General/Code
-    - 'Line number' foreground as 000000
+    - 'Line number' foreground as 5A615A
     - 'TODO defaults' as 007F00
 Editor/Color Scheme/General/Editor
     - 'Caret row' background as F1EFE0
     - 'Code Vision/Default' foreground as 000000
     - 'Guides/Hard wrap guide' foreground as AFAFAF
     - 'Guides/Indent Guide' background as DCDCDC
-    - 'Gutter background' as DCDCDC
-    - 'Tear line' foreground as 555555
+    - 'Gutter background' as EFEFEF
+    - 'Tear line' foreground as 000000
     - 'Text/Whitespaces' as 000000
 Editor/Color Scheme/Language Defaults
     - 'Classes/Static method' as 8E00B1
+Editor/Color Scheme/Debugger
+    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' FF0000
+    - 'Execution point' background as FFDCD7, effects as 'Bordered' FF0000
+Editor/Color Scheme/Diff and Merge
+    - 'Changed' important as A6C0FF, error stripe as 6D96E8
+    - 'Conflict' important as D9AFFF, error stripe as CD6DFF
+    - 'Deleted' important as FF8383, error stripe as F56262
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
@@ -81,6 +94,8 @@ Build, Execution, Deployment
 
 ## 4. Plugin Settings
 InlineProblems
+    - Unset 'Draw boxes around problem labels'
+    - Set 'Italic problem labels'
     - 'Error text color' as FF0000
     - Set 'Show weak warnings' and 'Show infos'
 CodeGlance Pro

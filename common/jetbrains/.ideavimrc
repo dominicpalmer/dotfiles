@@ -1,5 +1,4 @@
-" ---- Settings
-
+" --------------------- Settings
 set scrolloff=8
 set visualbell
 set ignorecase
@@ -24,8 +23,11 @@ sethandler <C-;> a:ide
 sethandler <C-k> a:ide
 
 
-" ---- Keybindings
+" --------------------- Plugins
+Plug 'tpope/vim-surround'
 
+
+" --------------------- Keybindings
 let mapleader = " "
 
 " Cursor, line and block movement
