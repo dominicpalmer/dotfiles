@@ -129,6 +129,7 @@
   "window.menuBarVisibility": "compact",
 
   // General functionality
+  "workbench.startupEditor": "none",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.editor.openPositioning": "last",
   "workbench.commandPalette.history": 500,

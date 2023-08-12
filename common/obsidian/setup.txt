@@ -1,5 +1,4 @@
 ## Editor
-  - Unset 'Readable line length'
   - Unset 'Fold heading'
   - Unset 'Fold indent'
   - Set 'Show line numbers'
@@ -9,12 +8,11 @@
 
 ## Appearance
 - 'Base color scheme' as 'Light'
-- 'Interface' and 'Monospace' font as 'Segoe UI'
 - 'Text' font as 'Cascadia Code'
-- Set zoom level and font size as needed
 - Set 'Native menus'
 - 'Window frame style' as 'Native frame'
 - Unset 'Show tab title bar'
+- Set zoom level and font size as needed
 
 ## Community Plugins
 - Turn on community plugins via 'Community Plugins'

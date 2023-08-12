@@ -43,13 +43,13 @@
   - Notepad++
   - KeePass 2
   - VeraCrypt
-  - CopyQ (custom install with 'Encryption' and 'Pinned Items' plugins)
+  - CopyQ (custom install with 'Encryption' and 'Pinned Items' plugins, launch on startup)
   - Everything
   - ImageGlass
   - TranslucentTB
   - Flow Launcher
   - AutoHotKey
-  - Greenshot
+  - Greenshot (launch on startup)
   - ScreenToGif
   - PowerToys
   - SysInternals
@@ -100,9 +100,9 @@
   - Visual Studio Code (setup.txt)
   - Notepad++ (set as default for .txt, hide most menus, then change tab layout, font, font size, and never create backup files)
   - Install Cascadia Code PL font
-  - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to create an SSH key and configure via settings on GitHub)
+  - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to create SSH key, then configure via GitHub settings)
   - Firefox
-  - TranslucentTB (run once installed, and set all options to 'clear')
-  - Greenshot (launch on startup, don't show magnifier, destination as 'Open in image editor', suppress save dialog when closing the editor)
+  - TranslucentTB (set all JSON options to 'clear')
+  - Greenshot (don't show magnifier or capture mouse, destination as 'Open in image editor', suppress save dialog on editor close)
 
 13. Activate Windows license.

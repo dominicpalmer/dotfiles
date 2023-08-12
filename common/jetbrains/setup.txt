@@ -6,7 +6,6 @@ CodeGlance Pro
 InlineProblems
 GitHub Copilot
 IdeaVim
-Cognitive Complexity
 SpecFlow for Rider
 Gherkin
 .env files support
@@ -18,7 +17,7 @@ Remove 'Terminal' bound to <C-`>
 'GotoAction' to <C-;>
 'SearchEverywhere' to <C-o>
 'GotoImplementation' to F1
-'RenameElement' to F1
+'RenameElement' to F2
 'FindUsages' to F3
 'GotoDeclaration' to F4
 'ToggleBookmark' to F6
@@ -77,10 +76,10 @@ Editor/Color Scheme/General/Editor
     - 'Tear line' foreground as 000000
     - 'Text/Whitespaces' as 000000
 Editor/Color Scheme/Language Defaults
-    - 'Classes/Static method' as 8E00B1
+    - 'Classes/Static method' foreground as 8E00B1
 Editor/Color Scheme/Debugger
     - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' FF0000
-    - 'Execution point' background as FFDCD7, effects as 'Bordered' FF0000
+    - 'Execution point' background as FFF181, effects as 'Bordered' FF0000
 Editor/Color Scheme/Diff and Merge
     - 'Changed' important as A6C0FF, error stripe as 6D96E8
     - 'Conflict' important as D9AFFF, error stripe as CD6DFF
