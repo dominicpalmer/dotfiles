@@ -1,7 +1,6 @@
 ## 1. Extensions
 Error Lens
 GitLens -- Git supercharged
-GlassIt-VSC
 IntelliCode
 IntelliCode API Usage Examples
 IntelliCode Completions

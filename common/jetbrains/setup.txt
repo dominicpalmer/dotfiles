@@ -1,7 +1,7 @@
 Some config is applicable to all JetBrains IDEs, some is IDE-specific.
 
 ## 1. Extensions
-High Contrast Light
+High Contrast Light/Blue
 CodeGlance Pro
 InlineProblems
 GitHub Copilot

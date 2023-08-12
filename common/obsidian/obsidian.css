@@ -1,11 +1,42 @@
-/* File explorer folder text colour */
-.nav-folder-title-content {
-    color: #d1d1d1;
+/* Black UI background */
+.nav-files-container,
+.nav-header,
+.workspace-tab-header-container {
+    background: #000000;
+    border-bottom: none;
 }
 
-/* File explorer file text colour */
-.nav-file-title-content {
-    color: #9edb9a;
+/* Black active tab title foreground */
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+    color: #000000;
+}
+
+/* Grey inactive tab title foreground */
+.workspace-tab-header-inner-title {
+    color: #c1c1c1;
+}
+
+/* Dark grey active file background */
+body:not(.is-grabbing) .nav-file-title.is-active:hover,
+body:not(.is-grabbing) .nav-folder-title.is-active:hover,
+.nav-file-title.is-active,
+.nav-folder-title.is-active {
+    background: #424242;
+}
+
+/* Dark grey hover file background */
+body:not(.is-grabbing) .tree-item-self.is-clickable:hover {
+    background: #424242;
+}
+
+/* Hidden tab bar buttons */
+.mod-left-split .workspace-tab-header-container-inner {
+    visibility: hidden;
+}
+
+/* File explorer padding from window border */
+.nav-files-container {
+    padding-left: 20px;
 }
 
 /* File explorer item padding */
@@ -13,25 +44,48 @@
 .vertical-tab-nav-item,
 .tree-item-self,
 button {
-    padding: 0.5em;
+    padding: 4px;
 }
 
-/* File explorer background */
-.nav-files-container {
-    background: #000000;
+/* White file explorer folder text foreground */
+.nav-folder-title-content {
+    color: #ffffff;
 }
 
-/* File explorer header background */
-.nav-header {
-    background: black;
+/* File explorer file text foreground */
+.nav-file-title-content {
+    color: #bccdff;
 }
 
-/* No file explorer active item indicator */
-.nav-file-title.is-active::before {
-    background: none;
+/* File explorer file text foreground */
+.nav-file-title-content.is-grabbing {
+    color: #bccdff;
 }
 
-/* No file explorer active item clickaway transition */
-.nav-file-title:before {
-    transition: none;
+/* Solid black editor text foreground */
+.cm-line {
+    color: #000000;
+}
+
+/* Purple file header title */
+.inline-title {
+    color: #5f5fff;
+}
+
+/* Grey tear line between editor and line numbers */
+.cm-content {
+    border-left: 1px solid #e9e9e9;
+    padding-left: 5px !important;
+}
+
+/* Less padding between line numbers and tear line */
+.cm-gutters {
+    padding-right: 10px !important;
+}
+
+/* Longer max line length */
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
+    max-width: 1400px;
 }

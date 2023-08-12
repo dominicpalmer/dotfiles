@@ -1,34 +1,27 @@
 ## Editor
-	-  Tick 'Show line number'
-	-  Untick 'Indent using tabs'
-	-  Untick 'Fold heading'
-	-  Untick 'Fold indent'
-	-  Untick 'Show indentation guides'
+  - Unset 'Readable line length'
+  - Unset 'Fold heading'
+  - Unset 'Fold indent'
+  - Set 'Show line numbers'
+  - Unset 'Show indentation guides'
+  - Unset 'Spellcheck'
+  - Unset 'Indent using tabs'
 
 ## Appearance
-- Tick 'Native menus'
-- 'Window frame style' as 'Native frame'
 - 'Base color scheme' as 'Light'
-- Reduce zoom level and font size in tandem
-- Set 'Cascadia Code' as font for 'Text', 'Interface' and 'Monospace'
-- Untick 'Show tab title bar'
-- Install 'Mado 11' from Appearance/Themes
+- 'Interface' and 'Monospace' font as 'Segoe UI'
+- 'Text' font as 'Cascadia Code'
+- Set zoom level and font size as needed
+- Set 'Native menus'
+- 'Window frame style' as 'Native frame'
+- Unset 'Show tab title bar'
 
 ## Community Plugins
 - Turn on community plugins via 'Community Plugins'
-- Install 'Hider', 'Minimal Theme', 'Native Scrollbars'
-
-## Hider
-- Hide 'Tab bar', 'Tooltips, and 'Instructions'
-
-## Minimal Theme
-- 'Light mode background constrast' as 'High contrast'
-- Tick 'Colorful active states'
-- Tick 'Colorful window frame'
-- Tick 'Colorful headings'
-
-## Native Scrollbars
-- Go back to 'Community plugins'/'Browse plugins', enable 'Native Scrollbars'
+- Install 'Hider', enable, and hide everything except:
+  - Tab bar
+  - Scroll bars
+  - File explorer buttons
 
 ## Custom CSS
 - Copy obsidian.css into the .obsidian/snippets directory of the 'main' vault
