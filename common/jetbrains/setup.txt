@@ -1,4 +1,5 @@
 Some config is applicable to all JetBrains IDEs, some is IDE-specific.
+For DataGrip, multiple F2 rename keymaps are required.
 
 ## 1. Extensions
 High Contrast Light/Blue
@@ -66,15 +67,15 @@ Editor/Font
     - 'Font' as 'Cascadia Code', size 13, line height 1
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 5A615A
-    - 'TODO defaults' as 007F00
+    - 'TODO defaults' foreground as 007F00
 Editor/Color Scheme/General/Editor
     - 'Caret row' background as F1EFE0
     - 'Code Vision/Default' foreground as 000000
     - 'Guides/Hard wrap guide' foreground as AFAFAF
     - 'Guides/Indent Guide' background as DCDCDC
-    - 'Gutter background' as EFEFEF
+    - 'Gutter background' background as EFEFEF
     - 'Tear line' foreground as 000000
-    - 'Text/Whitespaces' as 000000
+    - 'Text/Whitespaces' foreground as 000000
 Editor/Color Scheme/Language Defaults
     - 'Classes/Static method' foreground as 8E00B1
 Editor/Color Scheme/Debugger
