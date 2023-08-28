@@ -1,5 +1,5 @@
 Some config is applicable to all JetBrains IDEs, some is IDE-specific.
-For DataGrip, multiple F2 rename keymaps are required.
+E.g. for DataGrip, multiple F2 rename keymaps are required.
 
 ## 1. Extensions
 High Contrast Light/Blue
@@ -14,23 +14,26 @@ Structured Logging
 
 ## 2. Keybindings
 Remove 'Search Everywhere' bound to <C-,>
-Remove 'Terminal' bound to <C-`>
-'GotoAction' to <C-;>
-'SearchEverywhere' to <C-o>
-'GotoImplementation' to F1
+'Settings' to <C-,>
+'SearchEverywhere' to <C-;>
+'GoToFile' to <C-o>
+'Find in Files' to <C-n>
+'Replace in Files' to <C-m>
+'VimPluginToggle' to <C-A-v>
+'copilot.cycleNextInlays' to <A-j>
+'copilot.cyclePrevInlays' to <A-k>
+'FindUsages' to F1
 'RenameElement' to F2
-'FindUsages' to F3
+'GotoImplementation' to F3
 'GotoDeclaration' to F4
 'ToggleBookmark' to F6
 'BuildSolutionAction' to F7
 'CleanSolutionAction' to F8
-'VimPluginToggle' to <C-A-v>
-'copilot.cycleNextInlays' to <A-j>
-'copilot.cyclePrevInlays' to <A-k>
 
 ## 3. General Settings
 User Interface
     - Right click the status bar and set 'Memory Indicator'
+    - Right click the pencil icons and 'Move to Status Bar'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Light'
     - Set 'Show tree indent guides'
@@ -79,8 +82,8 @@ Editor/Color Scheme/General/Editor
 Editor/Color Scheme/Language Defaults
     - 'Classes/Static method' foreground as 8E00B1
 Editor/Color Scheme/Debugger
-    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' FF0000
-    - 'Execution point' background as FFF181, effects as 'Bordered' FF0000
+    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' 000000
+    - 'Execution point' no foreground, effects as 'Bordered' 000000
 Editor/Color Scheme/Diff and Merge
     - 'Changed' important as A6C0FF, error stripe as 6D96E8
     - 'Conflict' important as D9AFFF, error stripe as CD6DFF
@@ -89,8 +92,15 @@ Editor/Code Style
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
     - 'Generated member default body style' as 'Return default value'
-Build, Execution, Deployment
-    - In 'Debugger' set 'Truncate presentation of long strings' threshold to 75
+Build, Execution, Deployment/Debugger
+    - Set 'Scroll execution point to center'
+    - Set 'Truncate presentation of long strings' threshold to 75
+Build, Execution, Deployment/Toolset and Build
+    - Set 'Restore NuGet packages before build'
+Advanced Settings/Editor Tabs
+    - Unset 'Perform hide all Tool Windows with double-click on editor tab'
+Advanced Settings/Search Everywhere
+    - Set 'Sort results in the All tab based on machine learning'
 
 ## 4. Plugin Settings
 InlineProblems

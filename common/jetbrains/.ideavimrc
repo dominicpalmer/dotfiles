@@ -8,6 +8,7 @@ set whichwrap=<,>,h,l
 set clipboard=unnamed
 set nooldundo
 set showcmd
+set hls
 
 sethandler <C-c> a:ide
 sethandler <C-x> a:ide
@@ -21,6 +22,8 @@ sethandler <C-h> a:ide
 sethandler <C-o> a:ide
 sethandler <C-;> a:ide
 sethandler <C-k> a:ide
+sethandler <C-n> a:ide
+sethandler <C-m> a:ide
 
 
 " --------------------- Plugins
@@ -50,7 +53,7 @@ noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap y :
+noremap @ :
 nnoremap <Esc> :nohl<CR>
 
 " Copy paste
@@ -130,8 +133,8 @@ nnoremap <leader><leader>q :qa<CR>
 " Code navigation and modification
 noremap gh :action QuickJavaDoc<CR>
 noremap gj :action GotoDeclaration<CR>
-noremap gk :action FindUsages<CR>
-noremap gl :action GotoImplementation<CR>
+noremap gk :action GotoImplementation<CR>
+noremap gl :action FindUsages<CR>
 noremap gi :action OptimizeImports<CR>
 noremap go :action ReformatCode<CR>
 nnoremap gn viw:action Find<CR>
@@ -145,8 +148,8 @@ noremap <leader>d :action SelectIn<CR>
 noremap <leader>f :action RevealIn<CR>
 
 " Launchers
-noremap <leader>; :action GotoAction<CR>
-noremap <leader>o :action SearchEverywhere<CR>
+noremap <leader>; :action SearchEverywhere<CR>
+noremap <leader>o :action GotoFile<CR>
 nnoremap <leader>n viw:action FindInPath<CR>
 vnoremap <leader>n :action FindInPath<CR>
 noremap <leader>m viw:action ReplaceInPath<CR>
@@ -164,6 +167,7 @@ noremap <leader>i :action GotoNextError<CR>
 
 " Windows and tabs
 noremap p :action PinActiveEditorTab<CR>
+noremap <leader>b :action Annotate<CR>
 noremap <leader>h <C-w>w
 noremap <leader>j <C-w>w
 noremap <leader>k <C-w>w
@@ -181,4 +185,7 @@ noremap <leader>8 :action GoToTab8<CR>
 noremap <leader>9 :action GoToTab9<CR>
 
 " Reload configuration
-noremap <leader><leader>r :so ~\.ideavimrc<CR>j
+noremap <leader><leader>r :so ~\.ideavimrc<CR>l
+
+" Clear existing search highlights
+:nohl
