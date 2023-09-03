@@ -33,14 +33,30 @@ Plug 'tpope/vim-surround'
 " --------------------- Keybindings
 let mapleader = " "
 
+" Note: noremaps are split into n/x/o-noremaps to fix live templates
+
 " Cursor, line and block movement
-noremap f b
-noremap F B
-noremap H ^
-noremap J }
-noremap K {
-noremap L $
-noremap M J
+nnoremap f b
+xnoremap f b
+onoremap f b
+nnoremap F B
+xnoremap F B
+onoremap F B
+nnoremap H ^
+xnoremap H ^
+onoremap H ^
+nnoremap J }
+xnoremap J }
+onoremap J }
+nnoremap K {
+xnoremap K {
+onoremap K {
+nnoremap L $
+xnoremap L $
+onoremap L $
+nnoremap M J
+xnoremap M J
+onoremap M J
 noremap \ :action MoveLineDown<CR>
 noremap / :action MoveLineUp<CR>
 nnoremap z mz>>'z
@@ -53,22 +69,36 @@ noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap @ :
+nnoremap @ :
+xnoremap @ :
+onoremap @ :
 nnoremap <Esc> :nohl<CR>
 
 " Copy paste
-noremap t y
+nnoremap t y
+xnoremap t y
+onoremap t y
 nnoremap T y$
 nnoremap r p:action AutoIndentLines<CR>
 vnoremap r P:action AutoIndentLines<CR>
 noremap R P:action AutoIndentLines<CR>
 
 " Text modification
-noremap x s
-noremap s "0x
-noremap S 0"0D
-noremap m r
-noremap b <C-v>
+nnoremap x s
+xnoremap x s
+onoremap x s
+nnoremap s "0x
+xnoremap s "0x
+onoremap s "0x
+nnoremap S 0"0D
+xnoremap S 0"0D
+onoremap S 0"0D
+nnoremap m r
+xnoremap m r
+onoremap m r
+nnoremap b <C-v>
+xnoremap b <C-v>
+onoremap b <C-v>
 nnoremap ' ~h
 vnoremap ' ~
 nnoremap <CR> o<Esc>
@@ -89,6 +119,8 @@ nnoremap c] 0f]ci]
 nnoremap ct cit
 nnoremap c< ci<
 nnoremap c> ci>
+nnoremap cw ciw
+nnoremap cW ciW
 
 nnoremap d" di"
 nnoremap d' di'
@@ -101,6 +133,8 @@ nnoremap d] 0f]di]
 nnoremap dt dit
 nnoremap d< di<
 nnoremap d> di>
+nnoremap dw diw
+nnoremap dW diW
 
 nnoremap v" vi"
 nnoremap v' vi'
@@ -112,6 +146,8 @@ nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
 nnoremap v< vi<
 nnoremap v> vi>
+nnoremap vw viw
+nnoremap vW viW
 
 nnoremap t" yi"
 nnoremap t' yi'
@@ -123,6 +159,8 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
+nnoremap tw yiw
+nnoremap tW yiW
 
 " Sensible write and close
 nnoremap <leader>w :w<CR>
@@ -154,7 +192,9 @@ nnoremap <leader>n viw:action FindInPath<CR>
 vnoremap <leader>n :action FindInPath<CR>
 noremap <leader>m viw:action ReplaceInPath<CR>
 vnoremap <leader>m :action ReplaceInPath<CR>
-noremap gu :action NewFile<CR>
+nnoremap gu :action NewFile<CR>
+xnoremap gu :action NewFile<CR>
+onoremap gu :action NewFile<CR>
 noremap <C-,> :action ShowSettings<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
@@ -166,7 +206,9 @@ noremap <leader>u :action GotoPreviousError<CR>
 noremap <leader>i :action GotoNextError<CR>
 
 " Windows and tabs
-noremap p :action PinActiveEditorTab<CR>
+nnoremap p :action PinActiveEditorTab<CR>
+xnoremap p :action PinActiveEditorTab<CR>
+onoremap p :action PinActiveEditorTab<CR>
 noremap <leader>b :action Annotate<CR>
 noremap <leader>h <C-w>w
 noremap <leader>j <C-w>w
