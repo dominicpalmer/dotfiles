@@ -195,7 +195,6 @@ vnoremap <leader>m :action ReplaceInPath<CR>
 nnoremap gu :action NewFile<CR>
 xnoremap gu :action NewFile<CR>
 onoremap gu :action NewFile<CR>
-noremap <C-,> :action ShowSettings<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
 noremap <A-j> <C-f>

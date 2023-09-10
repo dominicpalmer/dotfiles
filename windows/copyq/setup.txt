@@ -10,7 +10,7 @@
 ## 2. Commands and Global Shortcuts
 - Add 'Show/Hide main window' command with keybinding 'ctrl+alt+y'
 - Add 'Ignore *"Password"* window' command with 'Window' equal to 'KeePass'
-- Load the 'clearclipboardtab.ini' file as a command
+- Load command files from /ini
 
 ## 3. [Optional] Encryption
 - Run the 'gpg4win-2.0.4.exe' installer, use minimal installation
