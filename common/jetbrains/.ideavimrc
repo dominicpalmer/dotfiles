@@ -10,18 +10,18 @@ set nooldundo
 set showcmd
 set hls
 
-sethandler <C-c> a:ide
-sethandler <C-x> a:ide
-sethandler <C-v> a:ide
-sethandler <C-z> a:ide
 sethandler <C-y> a:ide
+sethandler <C-o> a:ide
 sethandler <C-a> a:ide
 sethandler <C-s> a:ide
 sethandler <C-f> a:ide
 sethandler <C-h> a:ide
-sethandler <C-o> a:ide
-sethandler <C-;> a:ide
 sethandler <C-k> a:ide
+sethandler <C-;> a:ide
+sethandler <C-z> a:ide
+sethandler <C-x> a:ide
+sethandler <C-c> a:ide
+sethandler <C-v> a:ide
 sethandler <C-n> a:ide
 sethandler <C-m> a:ide
 
@@ -57,18 +57,26 @@ onoremap L $
 nnoremap M J
 xnoremap M J
 onoremap M J
-noremap \ :action MoveLineDown<CR>
-noremap / :action MoveLineUp<CR>
+nnoremap \ :action MoveLineDown<CR>
+xnoremap \ :action MoveLineDown<CR>
+onoremap \ :action MoveLineDown<CR>
+nnoremap / :action MoveLineUp<CR>
+xnoremap / :action MoveLineUp<CR>
+onoremap / :action MoveLineUp<CR>
 nnoremap z mz>>'z
-vnoremap z >gv
+xnoremap z >gv
 nnoremap , mz<<'z
-vnoremap , <gv
+xnoremap , <gv
 
 " Search
-noremap ; /
-noremap : ?
+nnoremap ; /
+xnoremap ; /
+onoremap ; /
+nnoremap : ?
+onoremap : ?
+xnoremap : ?
 nnoremap g; viwy/<C-r>0
-vnoremap g; y/<C-r>0
+xnoremap g; y/<C-r>0
 nnoremap @ :
 xnoremap @ :
 onoremap @ :
@@ -80,8 +88,10 @@ xnoremap t y
 onoremap t y
 nnoremap T y$
 nnoremap r p:action AutoIndentLines<CR>
-vnoremap r P:action AutoIndentLines<CR>
-noremap R P:action AutoIndentLines<CR>
+xnoremap r P:action AutoIndentLines<CR>
+nnoremap R P:action AutoIndentLines<CR>
+xnoremap R P:action AutoIndentLines<CR>
+onoremap R P:action AutoIndentLines<CR>
 
 " Text modification
 nnoremap x s
@@ -100,11 +110,11 @@ nnoremap b <C-v>
 xnoremap b <C-v>
 onoremap b <C-v>
 nnoremap ' ~h
-vnoremap ' ~
+xnoremap ' ~
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 nnoremap u u<Esc>
-vnoremap u <Esc>u<Esc>
+xnoremap u <Esc>u<Esc>
 nnoremap U <C-r>
 
 " Inner shortcuts
@@ -169,64 +179,136 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
 
 " Code navigation and modification
-noremap gh :action QuickJavaDoc<CR>
-noremap gj :action GotoDeclaration<CR>
-noremap gk :action GotoImplementation<CR>
-noremap gl :action FindUsages<CR>
-noremap gi :action OptimizeImports<CR>
-noremap go :action ReformatCode<CR>
+nnoremap gh :action QuickJavaDoc<CR>
+xnoremap gh :action QuickJavaDoc<CR>
+onoremap gh :action QuickJavaDoc<CR>
+nnoremap gj :action GotoDeclaration<CR>
+xnoremap gj :action GotoDeclaration<CR>
+onoremap gj :action GotoDeclaration<CR>
+nnoremap gk :action GotoImplementation<CR>
+xnoremap gk :action GotoImplementation<CR>
+onoremap gk :action GotoImplementation<CR>
+nnoremap gl :action FindUsages<CR>
+xnoremap gl :action FindUsages<CR>
+onoremap gl :action FindUsages<CR>
+nnoremap gi :action OptimizeImports<CR>
+xnoremap gi :action OptimizeImports<CR>
+onoremap gi :action OptimizeImports<CR>
+nnoremap go :action ReformatCode<CR>
+xnoremap go :action ReformatCode<CR>
+onoremap go :action ReformatCode<CR>
 nnoremap gn viw:action Find<CR>
 nnoremap gm viw:action Replace<CR>
-vnoremap gm :action Replace<CR>
-noremap <leader>' :action CommentByLineComment<CR>
-vnoremap <leader>s :action SurroundWith<CR>
-vnoremap <leader>e :action ExtractMethod<CR>
-noremap <leader>r :action RenameElement<CR>
-noremap <leader>d :action SelectIn<CR>
-noremap <leader>f :action RevealIn<CR>
+xnoremap gm :action Replace<CR>
+nnoremap <leader>' :action CommentByLineComment<CR>
+xnoremap <leader>' :action CommentByLineComment<CR>
+onoremap <leader>' :action CommentByLineComment<CR>
+xnoremap <leader>s :action SurroundWith<CR>
+xnoremap <leader>e :action ExtractMethod<CR>
+nnoremap <leader>r :action RenameElement<CR>
+xnoremap <leader>r :action RenameElement<CR>
+onoremap <leader>r :action RenameElement<CR>
+nnoremap <leader>d :action SelectIn<CR>
+xnoremap <leader>d :action SelectIn<CR>
+onoremap <leader>d :action SelectIn<CR>
+nnoremap <leader>f :action RevealIn<CR>
+xnoremap <leader>f :action RevealIn<CR>
+onoremap <leader>f :action RevealIn<CR>
 
 " Launchers
-noremap <leader>; :action SearchEverywhere<CR>
-noremap <leader>o :action GotoFile<CR>
+nnoremap <leader>; :action SearchEverywhere<CR>
+xnoremap <leader>; :action SearchEverywhere<CR>
+onoremap <leader>; :action SearchEverywhere<CR>
+nnoremap <leader>o :action GotoFile<CR>
+xnoremap <leader>o :action GotoFile<CR>
+onoremap <leader>o :action GotoFile<CR>
 nnoremap <leader>n viw:action FindInPath<CR>
-vnoremap <leader>n :action FindInPath<CR>
-noremap <leader>m viw:action ReplaceInPath<CR>
-vnoremap <leader>m :action ReplaceInPath<CR>
+xnoremap <leader>n :action FindInPath<CR>
+nnoremap <leader>m viw:action ReplaceInPath<CR>
+xnoremap <leader>m viw:action ReplaceInPath<CR>
+onoremap <leader>m viw:action ReplaceInPath<CR>
+xnoremap <leader>m :action ReplaceInPath<CR>
 nnoremap gu :action NewFile<CR>
 xnoremap gu :action NewFile<CR>
 onoremap gu :action NewFile<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
-noremap <A-j> <C-f>
-noremap <A-k> <C-b>
-noremap <A-u> :action Back<CR>
-noremap <A-i> :action Forward<CR>
-noremap <leader>u :action GotoPreviousError<CR>
-noremap <leader>i :action GotoNextError<CR>
+nnoremap <A-j> <C-f>
+xnoremap <A-j> <C-f>
+onoremap <A-j> <C-f>
+nnoremap <A-k> <C-b>
+xnoremap <A-k> <C-b>
+onoremap <A-k> <C-b>
+nnoremap <A-u> :action Back<CR>
+xnoremap <A-u> :action Back<CR>
+onoremap <A-u> :action Back<CR>
+nnoremap <A-i> :action Forward<CR>
+xnoremap <A-i> :action Forward<CR>
+onoremap <A-i> :action Forward<CR>
+nnoremap <leader>u :action GotoPreviousError<CR>
+xnoremap <leader>u :action GotoPreviousError<CR>
+onoremap <leader>u :action GotoPreviousError<CR>
+nnoremap <leader>i :action GotoNextError<CR>
+xnoremap <leader>i :action GotoNextError<CR>
+onoremap <leader>i :action GotoNextError<CR>
 
 " Windows and tabs
 nnoremap p :action PinActiveEditorTab<CR>
 xnoremap p :action PinActiveEditorTab<CR>
 onoremap p :action PinActiveEditorTab<CR>
-noremap <leader>b :action Annotate<CR>
-noremap <leader>h <C-w>w
-noremap <leader>j <C-w>w
-noremap <leader>k <C-w>w
-noremap <leader>l <C-w>w
-noremap <leader>v :vsplit<CR>
-noremap <leader>c :split<CR>
-noremap <leader>1 :action GoToTab1<CR>
-noremap <leader>2 :action GoToTab2<CR>
-noremap <leader>3 :action GoToTab3<CR>
-noremap <leader>4 :action GoToTab4<CR>
-noremap <leader>5 :action GoToTab5<CR>
-noremap <leader>6 :action GoToTab6<CR>
-noremap <leader>7 :action GoToTab7<CR>
-noremap <leader>8 :action GoToTab8<CR>
-noremap <leader>9 :action GoToTab9<CR>
+nnoremap <leader>b :action Annotate<CR>
+xnoremap <leader>b :action Annotate<CR>
+onoremap <leader>b :action Annotate<CR>
+nnoremap <leader>h <C-w>w
+xnoremap <leader>h <C-w>w
+onoremap <leader>h <C-w>w
+nnoremap <leader>j <C-w>w
+xnoremap <leader>j <C-w>w
+onoremap <leader>j <C-w>w
+nnoremap <leader>k <C-w>w
+xnoremap <leader>k <C-w>w
+onoremap <leader>k <C-w>w
+nnoremap <leader>l <C-w>w
+xnoremap <leader>l <C-w>w
+onoremap <leader>l <C-w>w
+nnoremap <leader>v :vsplit<CR>
+xnoremap <leader>v :vsplit<CR>
+onoremap <leader>v :vsplit<CR>
+nnoremap <leader>c :split<CR>
+xnoremap <leader>c :split<CR>
+onoremap <leader>c :split<CR>
+nnoremap <leader>1 :action GoToTab1<CR>
+xnoremap <leader>1 :action GoToTab1<CR>
+onoremap <leader>1 :action GoToTab1<CR>
+nnoremap <leader>2 :action GoToTab2<CR>
+xnoremap <leader>2 :action GoToTab2<CR>
+onoremap <leader>2 :action GoToTab2<CR>
+nnoremap <leader>3 :action GoToTab3<CR>
+xnoremap <leader>3 :action GoToTab3<CR>
+onoremap <leader>3 :action GoToTab3<CR>
+nnoremap <leader>4 :action GoToTab4<CR>
+xnoremap <leader>4 :action GoToTab4<CR>
+onoremap <leader>4 :action GoToTab4<CR>
+nnoremap <leader>5 :action GoToTab5<CR>
+xnoremap <leader>5 :action GoToTab5<CR>
+onoremap <leader>5 :action GoToTab5<CR>
+nnoremap <leader>6 :action GoToTab6<CR>
+xnoremap <leader>6 :action GoToTab6<CR>
+onoremap <leader>6 :action GoToTab6<CR>
+nnoremap <leader>7 :action GoToTab7<CR>
+xnoremap <leader>7 :action GoToTab7<CR>
+onoremap <leader>7 :action GoToTab7<CR>
+nnoremap <leader>8 :action GoToTab8<CR>
+xnoremap <leader>8 :action GoToTab8<CR>
+onoremap <leader>8 :action GoToTab8<CR>
+nnoremap <leader>9 :action GoToTab9<CR>
+xnoremap <leader>9 :action GoToTab9<CR>
+onoremap <leader>9 :action GoToTab9<CR>
 
 " Reload configuration
-noremap <leader><leader>r :so ~\.ideavimrc<CR>l
+nnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
+xnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
+onoremap <leader><leader>r :so ~\.ideavimrc<CR>l
 
 " Clear existing search highlights
 :nohl
