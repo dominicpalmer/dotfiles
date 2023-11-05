@@ -1,65 +1,73 @@
 {
-  ///////////////////////////// Frequently Changing ////////////////////////////
-
-  // Trailing Spaces
-  "trailing-spaces.highlightCurrentLine": false,
-  "trailing-spaces.trimOnSave": true,
-
   // Global autoformat
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
 
-  // TypeScript
-  "[typescript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": false,
-      "source.organizeImports": true,
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
-  "typescript.format.enable": true,
-  "typescript.referencesCodeLens.enabled": true,
-  "typescript.implementationsCodeLens.enabled": true,
+  // Font
+  "editor.fontFamily": "Cascadia Code",
+  "editor.fontSize": 15,
 
-  // JavaScript
-  "[javascript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": false,
-      "source.organizeImports": true,
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
-  "javascript.format.enable": true,
-  "javascript.referencesCodeLens.enabled": true,
+  // Scrolling: use minimap, hide default scrollbar, scrolloff=8
+  "editor.minimap.maxColumn": 75,
+  "editor.minimap.showSlider": "always",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.cursorSurroundingLines": 8,
 
-  // JSON
-  "[json]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false,
-    "editor.formatOnType": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
-  "json.format.enable": false,
+  // Intellisense: no lag, autoselect first suggestion, use tab completion
+  "editor.quickSuggestionsDelay": 0,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.tabCompletion": "off",
 
-  "[jsonc]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false,
-    "editor.formatOnType": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
+  // Debugging
+  "debug.console.fontSize": 13,
+  "debug.console.lineHeight": 18,
+  "debug.toolBarLocation": "docked",
+
+  // File tree: wider indents, show guidelines and buttons, expand folders
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.view.alwaysShowHeaderActions": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "explorer.incrementalNaming": "smart",
+
+  // Search: no lag, smart case matching
+  "search.searchOnTypeDebouncePeriod": 0,
+  "search.smartCase": true,
+
+  // General functionality
+  "editor.rulers": [ 80, 100, 120 ],
+  "[Log]": { "editor.wordWrap": "on" },
+  "workbench.startupEditor": "none",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.openPositioning": "last",
+  "workbench.settings.editor": "json",
+  "telemetry.telemetryLevel": "off",
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // Allow trailing commas in VSCode config
 	"json.schemas": [{
 		"fileMatch": [ "settings.jsonc", "keybindings.jsonc" ],
 		"schema": { "allowTrailingCommas": true },
 	}],
 
-  // Markdown
+  // PowerShell: no popups
+  "powershell.integratedConsole.focusConsoleOnExecute": false,
+  "powershell.integratedConsole.showOnStartup": false,
+
+  // Yaml: no telemetry
+  "redhat.telemetry.enabled": false,
+
+  // Remove trailing spaces
+  "trailing-spaces.highlightCurrentLine": false,
+  "trailing-spaces.trimOnSave": true,
+
+  // Hide markdown warnings
   "markdownlint.config": {
     "MD012": false,
     "MD022": false,
@@ -68,86 +76,13 @@
     "MD041": false
   },
 
-  // Markup
-  "yaml.format.enable": true,
-  "xml.format.enabled": true,
-  "redhat.telemetry.enabled": false,
-
-
-  //////////////////////////////// Unchanging //////////////////////////////////
-
-  // Fonts
-  "editor.fontFamily": "Cascadia Code",
-  "editor.fontSize": 15,
-  "terminal.integrated.fontFamily": "Cascadia Code PL",
-  "terminal.integrated.fontSize": 15,
-
-  // Scrolling: hide the default scrollbar, use minimap, scrolloff = 8
-  "editor.minimap.maxColumn": 75,
-  "editor.minimap.showSlider": "always",
-  "editor.scrollbar.vertical": "hidden",
-  "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.cursorSurroundingLines": 8,
-
-  // Intellisense: no lag, autoselect the first suggestion, use tab completion
-  "editor.inlineSuggest.enabled": true,
-  "editor.quickSuggestionsDelay": 0,
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.tabCompletion": "on",
-  "emmet.showExpandedAbbreviation": "never",
-
-  // Debugging
-  "debug.console.fontSize": 13,
-  "debug.console.lineHeight": 18,
-  "debug.toolBarLocation": "docked",
-  "debug.inlineValues": "on",
-
-  // File tree UI: wider indents and better guidelines
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.tree.indent": 20,
-  "workbench.tree.renderIndentGuides": "always",
-
-  // File tree functionality: show buttons, expand folders, don't list editors
-  "workbench.view.alwaysShowHeaderActions": true,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.compactFolders": false,
-  "explorer.incrementalNaming": "smart",
-  "explorer.openEditors.visible": 0,
-
-  // Search: less lag, smart case matching
-  "search.searchOnTypeDebouncePeriod": 0,
-  "search.smartCase": true,
-
-  // General UI
-  "editor.rulers": [
-    80,
-    100,
-    120
-  ],
-  "[Log]": { "editor.wordWrap": "on" },
-  "window.menuBarVisibility": "compact",
-
-  // General functionality
-  "workbench.startupEditor": "none",
-  "workbench.editor.untitled.hint": "hidden",
-  "workbench.editor.openPositioning": "last",
-  "workbench.commandPalette.history": 500,
-  "workbench.settings.editor": "json",
-  "telemetry.telemetryLevel": "off",
-  "security.workspace.trust.enabled": false,
-  "security.workspace.trust.startupPrompt": "never",
-
-  // PowerShell: no popups
-  "powershell.integratedConsole.focusConsoleOnExecute": false,
-  "powershell.integratedConsole.showOnStartup": false,
-
+  // Gitlens: default to no line blame
+  "gitlens.currentLine.enabled": false,
 
   /////////////////////////////////// Vim //////////////////////////////////////
 
+  // Settings
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "~/.vscodevimrc",
-
   "vim.ignorecase": true,
   "vim.smartcase": true,
   "vim.whichwrap": "<,>,h,l",
@@ -155,9 +90,9 @@
   "vim.hlsearch": true,
   "vim.highlightedyank.enable": true,
 
+  // Modifiers
   "vim.leader": " ",
   "vim.handleKeys": {
-    "<C-a>": false,
     "<C-c>": false,
     "<C-v>": false,
     "<C-x>": false,
@@ -168,9 +103,8 @@
   },
 
   // Ideally, all keybindings would be in .vscodevimrc. But unlike Visual Studio
-  // and Rider, there's no way to define keybindings for VSCode's native commands
-  // from within a .vimrc config file. Keybindings below are those which make use
-  // of VSCode's native commands.
+  // and Rider, there's no way to define keybindings in .vscodevimrc for native
+  // VSCode commands. That has to be done here in settings.json.
   "vim.normalModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
@@ -180,9 +114,9 @@
     { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ "/" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "h" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.revealDefinition" ] },
+    { "before": [ "g", "j" ], "commands": [ "editor.action.goToReferences" ] },
+    { "before": [ "g", "k" ], "commands": [ "editor.action.goToImplementation" ] },
+    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
     { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
     { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
     { "before": [ "<leader>", "'" ], "commands": [ "editor.action.commentLine" ] },
@@ -231,9 +165,9 @@
     { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
     { "before": [ "/" ], "commands": [ "editor.action.moveLinesUpAction" ] },
     { "before": [ "g", "h" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "j" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.revealDefinition" ] },
+    { "before": [ "g", "j" ], "commands": [ "editor.action.goToReferences" ] },
+    { "before": [ "g", "k" ], "commands": [ "editor.action.goToImplementation" ] },
+    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
     { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
     { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
     { "before": [ "<leader>", "'" ], "commands": [ "editor.action.commentLine" ] },
@@ -267,16 +201,13 @@
 
     // ---- VISUAL
 
-    { "before": [ "<leader>", "s" ], "commands": [ "editor.action.surroundWithSnippet" ] },
-
     // Find/replace for the word under the cursor
     { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.findInFiles" ] },
     { "before": [ "<leader>", "m" ], "commands": [ "workbench.action.replaceInFiles" ] },
     { "before": [ "g", "m" ], "commands": [ "editor.action.startFindReplaceAction" ] },
-  ],
 
-  ///////////////////////////// Auto-generated ////////////////////////////
-  "workbench.colorTheme": "Light++",
-  "window.zoomLevel": -0.5,
-  "diffEditor.ignoreTrimWhitespace": false,
+    { "before": [ "<leader>", "s" ], "commands": [ "editor.action.surroundWithSnippet" ] },
+  ],
+  "window.zoomLevel": -0.1,
+  "workbench.colorTheme": "Default Light+",
 }

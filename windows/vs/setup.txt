@@ -31,6 +31,7 @@ Environment/Keyboard (Global maps):
     - <A-CR> to EditorContextMenus.CodeWindow.QuickActionsForPosition
     - <C-o> to Edit.GoToAll
     - <C-n> to Edit.FindInFiles
+    - <C-m> to Edit.ReplaceInFiles
     - F1 to Edit.GoToDefinition
     - F3 to Edit.FindAllReferences
     - F4 to Edit.GoToImplementation

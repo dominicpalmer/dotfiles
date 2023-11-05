@@ -1,19 +1,23 @@
 ################################################################################
 #                                                                              #
-# 0. Installs PowerShell modules if invoked with pwsh-modules                  #
+# 0. [Optional] Installs PowerShell modules if supplied pwsh_modules switch    #
 # 1. Creates PowerShell profile symbolic link                                  #
 # 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                #
 # 3. Creates WezTerm symbolic links and adds binary to PATH                    #
 # 4. Creates VSCode symbolic links                                             #
 # 5. Adds shortcut and dotfiles install directories to PATH                    #
 # 6. Creates an AHK remap scheduled task to run at logon                       #
+# 7. [Optional] Creates obsidian.css symbolic link for todo vault              #
 #                                                                              #
 ################################################################################
 
 [CmdletBinding()]
 param (
     [Parameter(Mandatory = $false)]
-    [Switch] $pwsh_modules
+    [Switch] $pwsh_modules,
+
+    [Parameter(Mandatory = $false)]
+    [String] $obsidian_vault_path
 )
 
 function Add-To-Path {
@@ -116,3 +120,8 @@ $Trigger = New-ScheduledTaskTrigger -AtLogOn
 $Action = New-ScheduledTaskAction -Execute "$env:Dotfiles\windows\autohotkey\remaps.ahk"
 Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
+
+############################### 7. obsidian.css symbolic link for main vault
+if (![String]::IsNullOrEmpty($obsidian_vault_path)) {
+    New-Item -ItemType SymbolicLink -Path "$obsidian_vault_path\.obsidian\snippets\obsidian.css" -Target "$env:Dotfiles\common\obsidian\obsidian.css" -Force
+}

@@ -18,7 +18,7 @@ noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap y :
+noremap @ :
 nnoremap <Esc> :nohl<CR>
 
 " Copy and paste
@@ -51,6 +51,8 @@ nnoremap c] 0f]ci]
 nnoremap ct cit
 nnoremap c< ci<
 nnoremap c> ci>
+nnoremap cw ciw
+nnoremap cW ciW
 
 nnoremap d" di"
 nnoremap d' di'
@@ -63,6 +65,8 @@ nnoremap d] 0f]di]
 nnoremap dt dit
 nnoremap d< di<
 nnoremap d> di>
+nnoremap dw diw
+nnoremap dW diW
 
 nnoremap v" vi"
 nnoremap v' vi'
@@ -74,6 +78,8 @@ nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
 nnoremap v< vi<
 nnoremap v> vi>
+nnoremap vw viw
+nnoremap vW viW
 
 nnoremap t" yi"
 nnoremap t' yi'
@@ -85,9 +91,15 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
+nnoremap tw yiw
+nnoremap tW yiW
 
 " Write and close
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :qa<CR>
+
+" Ctrl keybinds
+nnoremap <C-a> ggVG
+vnoremap <C-a> <Esc>ggVG

@@ -17,10 +17,13 @@
 ## Community Plugins
 - Turn on community plugins via 'Community Plugins'
 - Install 'Hider', enable, and hide everything except:
-  - Tab bar
   - Scroll bars
   - File explorer buttons
 
 ## Custom CSS
 - Copy obsidian.css into the .obsidian/snippets directory of the 'main' vault
 - Enable CSS snippets via 'Appearance/CSS snippets'
+
+## Other
+- Hide the sidebar. Can create a hotkey to show/hide it in the future
+- Create and use a single file

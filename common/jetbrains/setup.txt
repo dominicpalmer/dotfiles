@@ -22,6 +22,7 @@ Remove 'Search Everywhere' bound to <C-,>
 'VimPluginToggle' to <C-A-v>
 'copilot.cycleNextInlays' to <A-j>
 'copilot.cyclePrevInlays' to <A-k>
+'copilot.showCompletions' to <A-n>
 'FindUsages' to F1
 'RenameElement' to F2
 'GotoImplementation' to F3
@@ -67,7 +68,7 @@ Editor/General
     - In 'Typing Assistance'
         - Unset 'Jump outside of closing brackets with tab'
 Editor/Font
-    - 'Font' as 'Cascadia Code', size 13, line height 1
+    - 'Font' as 'Cascadia Code', size 14, line height 1
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 5A615A
     - 'TODO defaults' foreground as 007F00
@@ -114,3 +115,5 @@ CodeGlance Pro
     - 'Viewport Border Thickness' as 2
 GitHub Copilot
     - Sign in and restart to enable
+    - Set 'Show IDE completions side-by-side'
+    - Set 'Color for completions' as 9900FF

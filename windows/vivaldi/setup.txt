@@ -23,9 +23,10 @@ Start Page
     - Unset all the 'Speed Dial Appearance' 'Show' options
 Tabs
     - 'New Tab Page' as 'Blank Page'
-    - 'New Tab Position' as 'As Last Tab'
+    - 'New Tab Position' as 'After Active Tab'
     - Unset 'Keep Window Open when Last Tab is Closed'
     - Unset 'Display Trash Can'
+    - Unset 'Show Popup Thumbnails'
     - Unset 'Display Close Button'
     - Page Load Progress as 'Favicon Progress'
     - Set 'Stacking Drop Delay to 2/5
@@ -68,3 +69,4 @@ Install
 - Right click the top right profile icon and 'Remove from Toolbar'
 - Hide extension icons as required
 - Open a new instance, then in the start page settings top right unset 'Search Field'
+- Forward, back icons to left, search bar extends entire length

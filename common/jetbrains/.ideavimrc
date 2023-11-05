@@ -172,7 +172,7 @@ nnoremap t> yi>
 nnoremap tw yiw
 nnoremap tW yiW
 
-" Sensible write and close
+" Write and close
 nnoremap <leader>w :w<CR>
 nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
@@ -191,23 +191,29 @@ onoremap gk :action GotoImplementation<CR>
 nnoremap gl :action FindUsages<CR>
 xnoremap gl :action FindUsages<CR>
 onoremap gl :action FindUsages<CR>
-nnoremap gi :action OptimizeImports<CR>
-xnoremap gi :action OptimizeImports<CR>
-onoremap gi :action OptimizeImports<CR>
-nnoremap go :action ReformatCode<CR>
-xnoremap go :action ReformatCode<CR>
-onoremap go :action ReformatCode<CR>
-nnoremap gn viw:action Find<CR>
-nnoremap gm viw:action Replace<CR>
-xnoremap gm :action Replace<CR>
+nnoremap 9 :action RiderShowValueOrigin<CR>
+xnoremap 9 :action RiderShowValueOrigin<CR>
+onoremap 9 :action RiderShowValueOrigin<CR>
+nnoremap 0 :action RiderShowValueDestination<CR>
+xnoremap 0 :action RiderShowValueDestination<CR>
+onoremap 0 :action RiderShowValueDestination<CR>
+noremap <A-l> :action OptimizeImports<CR>
+noremap <A-,> :action ReformatCode<CR>
+nnoremap <A-h> viw:action Replace<CR>
+xnoremap <A-h> :action Replace<CR>
 nnoremap <leader>' :action CommentByLineComment<CR>
 xnoremap <leader>' :action CommentByLineComment<CR>
 onoremap <leader>' :action CommentByLineComment<CR>
+
+" TODO: improve
 xnoremap <leader>s :action SurroundWith<CR>
 xnoremap <leader>e :action ExtractMethod<CR>
+
 nnoremap <leader>r :action RenameElement<CR>
 xnoremap <leader>r :action RenameElement<CR>
 onoremap <leader>r :action RenameElement<CR>
+
+" TODO: improve
 nnoremap <leader>d :action SelectIn<CR>
 xnoremap <leader>d :action SelectIn<CR>
 onoremap <leader>d :action SelectIn<CR>
@@ -216,35 +222,19 @@ xnoremap <leader>f :action RevealIn<CR>
 onoremap <leader>f :action RevealIn<CR>
 
 " Launchers
-nnoremap <leader>; :action SearchEverywhere<CR>
-xnoremap <leader>; :action SearchEverywhere<CR>
-onoremap <leader>; :action SearchEverywhere<CR>
-nnoremap <leader>o :action GotoFile<CR>
-xnoremap <leader>o :action GotoFile<CR>
-onoremap <leader>o :action GotoFile<CR>
-nnoremap <leader>n viw:action FindInPath<CR>
-xnoremap <leader>n :action FindInPath<CR>
-nnoremap <leader>m viw:action ReplaceInPath<CR>
-xnoremap <leader>m viw:action ReplaceInPath<CR>
-onoremap <leader>m viw:action ReplaceInPath<CR>
-xnoremap <leader>m :action ReplaceInPath<CR>
-nnoremap gu :action NewFile<CR>
-xnoremap gu :action NewFile<CR>
-onoremap gu :action NewFile<CR>
+noremap <A-;> :action SearchEverywhere<CR>
+noremap <A-o> :action GotoFile<CR>
+nnoremap <A-n> viw:action FindInPath<CR>
+xnoremap <A-n> :action FindInPath<CR>
+nnoremap <A-m> viw:action ReplaceInPath<CR>
+xnoremap <A-m> :action ReplaceInPath<CR>
+onoremap <A-m> viw:action ReplaceInPath<CR>
 
 " Pageup/Pagedown, Forward/Back, NextError/PreviousError
-nnoremap <A-j> <C-f>
-xnoremap <A-j> <C-f>
-onoremap <A-j> <C-f>
-nnoremap <A-k> <C-b>
-xnoremap <A-k> <C-b>
-onoremap <A-k> <C-b>
-nnoremap <A-u> :action Back<CR>
-xnoremap <A-u> :action Back<CR>
-onoremap <A-u> :action Back<CR>
-nnoremap <A-i> :action Forward<CR>
-xnoremap <A-i> :action Forward<CR>
-onoremap <A-i> :action Forward<CR>
+noremap <A-j> <C-f>
+noremap <A-k> <C-b>
+noremap <A-u> :action Back<CR>
+noremap <A-i> :action Forward<CR>
 nnoremap <leader>u :action GotoPreviousError<CR>
 xnoremap <leader>u :action GotoPreviousError<CR>
 onoremap <leader>u :action GotoPreviousError<CR>

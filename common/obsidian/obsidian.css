@@ -67,15 +67,31 @@ button {
     color: #000000;
 }
 
+/* Grey line numbers */
+.cm-lineNumbers {
+    color: #606060;
+}
+
+/* Editor viewport */
+.cm-scroller {
+    background: #d5e3d1;
+	border: 1px solid #187400;
+}
+
 /* Purple file header title */
 .inline-title {
     color: #5f5fff;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-/* Grey tear line between editor and line numbers */
+/* Grey tear line between editor and line numbers, plus background */
 .cm-content {
-    border-left: 1px solid #e9e9e9;
-    padding-left: 5px !important;
+    border: 1px solid grey;
+	background: #fffcf4;
+    padding-top: 40px !important;
+	padding-right: 40px !important;
+	padding-left: 40px !important;
 }
 
 /* Less padding between line numbers and tear line */
@@ -88,4 +104,42 @@ button {
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-content,
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
     max-width: 1400px;
+}
+
+/* Link colours */
+.cm-s-obsidian span.cm-link {
+    color: #0588d5;
+	font-weight: bold;
+	font-style: italic
+}
+
+/* Header colours */
+.cm-s-obsidian span.cm-link:hover {
+    color: #0588d5;
+	font-weight: bold;
+	font-style: italic
+}
+
+.cm-header-1 {
+    text-decoration: underline;
+}
+
+.cm-header-2 {
+    color: blue;
+}
+
+.cm-header-3 {
+    color: green;
+}
+
+.cm-header-4 {
+    color: brown;
+}
+
+.cm-header-5 {
+    color: red;
+}
+
+.cm-header-6 {
+    color: purple;
 }
