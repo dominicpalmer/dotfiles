@@ -4,7 +4,7 @@
     - Hide flow launcher on startup
     - 'Last Query Style' as 'Empty last Query'
     - 'Maximum results shown' as 8
-    - Hotkey to Alt+Space
+    - Hotkey to Ctrl+Alt+Space
 - Under 'Theme':
     - 'Theme' as Darker
     - 'Query Box Font' as Segoe UI

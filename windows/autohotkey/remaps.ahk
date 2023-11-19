@@ -73,11 +73,11 @@ LWin Up::
     if (A_PriorKey = "RWin")
         Send {RWin}
     else if (A_PriorKey = "LWin")
-        Send !{Space}
+        Send !^{Space}
 return
 
 ; Run with LWin+;
 LWin & `;::
-    Send !{Space}
+    Send !^{Space}
     SendInput >{Space}
 return

@@ -20,9 +20,9 @@ Remove 'Search Everywhere' bound to <C-,>
 'Find in Files' to <C-n>
 'Replace in Files' to <C-m>
 'VimPluginToggle' to <C-A-v>
+'copilot.showCompletions' to <A-n>
 'copilot.cycleNextInlays' to <A-j>
 'copilot.cyclePrevInlays' to <A-k>
-'copilot.showCompletions' to <A-n>
 'FindUsages' to F1
 'RenameElement' to F2
 'GotoImplementation' to F3
@@ -35,6 +35,8 @@ Remove 'Search Everywhere' bound to <C-,>
 User Interface
     - Right click the status bar and set 'Memory Indicator'
     - Right click the pencil icons and 'Move to Status Bar'
+    - Under the 'Debug' tool window, click the 'View Breakpoints' button and set
+    'CLR Exception Breakpoints' and 'Exception Breakpoints'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Light'
     - Set 'Show tree indent guides'
@@ -116,4 +118,4 @@ CodeGlance Pro
 GitHub Copilot
     - Sign in and restart to enable
     - Set 'Show IDE completions side-by-side'
-    - Set 'Color for completions' as 9900FF
+    - Set 'Color for completions' as 285F23

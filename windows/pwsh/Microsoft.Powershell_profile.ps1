@@ -92,7 +92,11 @@ Set-PSReadLineKeyHandler -Key "M" -Function ViJoinLines -ViMode Command
 Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 Set-PSReadLineKeyHandler -Key "U" -Function Redo -ViMode Command
 
-Set-PSReadLineKeyHandler -Key "d" -Function BackwardDeleteChar -ViMode Command
+# Unfortunately there's no 'ReplaceChar' function
+# Set-PSReadLineKeyHandler -Key "x" -Function ReplaceChar -ViMode Command
+
+Set-PSReadLineKeyHandler -Key "s" -Function DeleteChar -ViMode Command
+Set-PSReadLineKeyHandler -Key "Backspace" -Function DeleteChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "d,H" -Function DeleteLineToFirstChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "d,L" -Function DeleteToEnd -ViMode Command
 

@@ -108,7 +108,7 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
-    { "before": [ "u" ], "commands": [ "undo" ] },
+    { "before": [ "u" ], "commands": [ "undo", "extension.vim_ctrl+[", "extension.vim_ctrl+[" ] }, // Helps get out of visual block
     { "before": [ "U" ], "commands": [ "redo" ] },
     { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
     { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
@@ -159,7 +159,7 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     // ---- COMMON
 
-    { "before": [ "u" ], "commands": [ "undo" ] },
+    { "before": [ "u" ], "commands": [ "undo", "extension.vim_ctrl+[", "extension.vim_ctrl+[" ] },
     { "before": [ "U" ], "commands": [ "redo" ] },
     { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
     { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
