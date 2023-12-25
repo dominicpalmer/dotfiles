@@ -50,8 +50,9 @@ return
 #u::SendInput ^{Backspace}
 #n::Send {Home}{Shift down}{End}{Shift up}
 
-; --------------------------- Winkey CopyQ cycle items forward
+; --------------------------- Winkey CopyQ cycle items forward, reset
 #v::Send ^!{y}
+#b::Send ^!{b}
 
 ; --------------------------- Winkey clear system and CopyQ clipboards
 #g::

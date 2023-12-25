@@ -69,11 +69,15 @@
 
   // Hide markdown warnings
   "markdownlint.config": {
+    "MD001": false,
+    "MD007": false,
     "MD012": false,
     "MD022": false,
+    "MD025": false,
     "MD032": false,
     "MD033": false,
-    "MD041": false
+    "MD041": false,
+    "MD047": false
   },
 
   // Gitlens: default to no line blame
@@ -208,6 +212,6 @@
 
     { "before": [ "<leader>", "s" ], "commands": [ "editor.action.surroundWithSnippet" ] },
   ],
-  "window.zoomLevel": -0.1,
+  "window.zoomLevel": -0.2,
   "workbench.colorTheme": "Default Light+",
 }
