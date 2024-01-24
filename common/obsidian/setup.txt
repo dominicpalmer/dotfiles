@@ -1,29 +1,25 @@
-## Editor
-  - Unset 'Fold heading'
-  - Unset 'Fold indent'
+-------------------------- Editor
   - Set 'Show line numbers'
   - Unset 'Show indentation guides'
   - Unset 'Spellcheck'
   - Unset 'Indent using tabs'
 
-## Appearance
+-------------------------- Appearance
 - 'Base color scheme' as 'Light'
 - 'Text' font as 'Cascadia Code'
 - Set 'Native menus'
 - 'Window frame style' as 'Native frame'
 - Unset 'Show tab title bar'
 - Set zoom level and font size as needed
+- Enable CSS snippets
 
-## Community Plugins
+-------------------------- Community Plugins
 - Turn on community plugins via 'Community Plugins'
 - Install 'Hider', enable, and hide everything except:
   - Scroll bars
   - File explorer buttons
 
-## Custom CSS
-- Copy obsidian.css into the .obsidian/snippets directory of the 'main' vault
-- Enable CSS snippets via 'Appearance/CSS snippets'
-
-## Other
-- Hide the sidebar. Can create a hotkey to show/hide it in the future
-- Create and use a single file
+-------------------------- Other
+- Hide the sidebar
+- Create main vault with single file
+- Run dotfiles to link CSS snippets file

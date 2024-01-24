@@ -1,4 +1,4 @@
-## 1. Extensions
+-------------------------- Extensions
 Error Lens
 GitLens -- Git supercharged
 IntelliCode
@@ -13,5 +13,5 @@ YAML
 vscode-icons
 Light++
 
-## 2. Settings, layout
+-------------------------- Settings, layout
 settings.json and keybindings.json linked

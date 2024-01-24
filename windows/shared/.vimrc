@@ -1,4 +1,4 @@
-" ---- Settings
+" -------------------------- Settings
 
 set scrolloff=8
 set visualbell
@@ -9,11 +9,11 @@ set whichwrap=<,>,h,l
 set hlsearch
 set clipboard=unnamed
 
-" ---- Keybindings
+" -------------------------- Keybindings
 
 let mapleader = " "
 
-" Cursor, line and block movement
+" Movement
 noremap f b
 noremap F B
 noremap H ^
@@ -21,12 +21,10 @@ noremap J }
 noremap K {
 noremap L $
 noremap M J
-
 nnoremap \ V :m '>+1<CR>gv=gv<Esc>
-nnoremap / V :m '<-2<CR>gv=gv<Esc>
 vnoremap \ :m '>+1<CR>gv=gv
+nnoremap / V :m '<-2<CR>gv=gv<Esc>
 vnoremap / :m '<-2<CR>gv=gv
-
 nnoremap z mz>>'z
 vnoremap z >gv
 nnoremap , mz<<'z
@@ -40,14 +38,12 @@ vnoremap g; y/<C-r>0
 noremap y :
 nnoremap <Esc> :nohl<CR>
 
-" Copy and paste
+" Text modification
 noremap t y
 nnoremap T y$
 nnoremap r p
 vnoremap r P
 noremap R P
-
-" Text modification
 noremap x s
 noremap s "0x
 noremap S 0"0D
@@ -59,6 +55,51 @@ nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 vnoremap u <Esc>u
 noremap U <C-r>
+
+" g commands
+noremap gh gd
+
+" Alt commands
+noremap <M-j> <C-f>
+noremap <M-k> <C-b>
+
+" Leader commands
+noremap <leader>w :w<CR>
+noremap <leader><leader>w :wa<CR>
+noremap <leader>q :q<CR>
+noremap <leader><leader>q :qa<CR>
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+noremap <leader>v :vsplit<CR>
+noremap <leader>c :split<CR>
+
+" Other commands
+nnoremap <C-a> ggVG
+inoremap <C-a> <Esc>ggVG
+vnoremap <C-c> y
+vnoremap <C-x> x
+noremap <C-s> :w<CR>
+
+" In normal mode, paste before with <C-v>. Good for pasting blocks from outside
+" the editor, or pasting character wise within lines
+nnoremap <C-v> gP
+
+" In insert mode, paste after with <C-v>. Good for pasting character wise from
+" outside the editor at the end of existing lines
+inoremap <C-v> <C-o>gp
+
+" Visual mode paste
+vnoremap <C-v> "_xP
+
+" Undo with <C-z>
+nnoremap <C-z> u
+xnoremap <C-z> u
+inoremap <C-z> <C-o>u
+
+" Redo with <C-y>
+noremap <C-y> <C-r>
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -106,50 +147,3 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
-
-" Write and close
-noremap <leader>w :w<CR>
-noremap <leader><leader>w :wa<CR>
-noremap <leader>q :q<CR>
-noremap <leader><leader>q :qa<CR>
-
-" Code navigation and modification
-noremap gh gd
-
-" Pageup/Pagedown
-noremap <M-k> <C-b>
-noremap <M-j> <C-f>
-
-" Windows and tabs
-noremap <leader>h <C-w>h
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
-noremap <leader>v :vsplit<CR>
-noremap <leader>c :split<CR>
-
-" Select all, copy, cut, save
-nnoremap <C-a> ggVG
-inoremap <C-a> <Esc>ggVG
-vnoremap <C-c> y
-vnoremap <C-x> x
-noremap <C-s> :w<CR>
-
-" In normal mode, paste before with <C-v>. Good for pasting blocks from outside
-" the editor, or pasting character wise within lines
-nnoremap <C-v> gP
-
-" In insert mode, paste after with <C-v>. Good for pasting character wise from
-" outside the editor at the end of existing lines
-inoremap <C-v> <C-o>gp
-
-" Visual mode paste
-vnoremap <C-v> "_xP
-
-" Undo with <C-z>
-nnoremap <C-z> u
-xnoremap <C-z> u
-inoremap <C-z> <C-o>u
-
-" Redo with <C-y>
-noremap <C-y> <C-r>

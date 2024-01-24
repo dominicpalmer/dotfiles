@@ -1,3 +1,5 @@
+mapclear
+
 " --------------------- Settings
 set scrolloff=8
 set visualbell
@@ -6,9 +8,9 @@ set smartcase
 set timeoutlen=400
 set whichwrap=<,>,h,l
 set clipboard=unnamed
-set nooldundo
+set hlsearch
+" set nooldundo
 set showcmd
-set hls
 
 sethandler <C-y> a:ide
 sethandler <C-o> a:ide
@@ -65,21 +67,20 @@ nnoremap z mz>>'z
 xnoremap z >gv
 nnoremap , mz<<'z
 xnoremap , <gv
-noremap <A-j> <C-f>
-noremap <A-k> <C-b>
 
 " Search
 nnoremap ; /
 xnoremap ; /
 onoremap ; /
 nnoremap : ?
-onoremap : ?
 xnoremap : ?
+onoremap : ?
 nnoremap g; viwy/<C-r>0
 xnoremap g; y/<C-r>0
 nnoremap @ :
 xnoremap @ :
 onoremap @ :
+nnoremap <Esc> :nohl<CR>
 
 " Text modification
 nnoremap t y
@@ -112,21 +113,9 @@ nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 nnoremap u u<Esc>
 xnoremap u <Esc>u<Esc>
-nnoremap U <C-r>
-nnoremap <Esc> :nohl<CR>
+nnoremap U <C-r><C-r>
 
-" Direct actions
-nnoremap 9 :action RiderShowValueOrigin<CR>
-xnoremap 9 :action RiderShowValueOrigin<CR>
-onoremap 9 :action RiderShowValueOrigin<CR>
-nnoremap 0 :action RiderShowValueDestination<CR>
-xnoremap 0 :action RiderShowValueDestination<CR>
-onoremap 0 :action RiderShowValueDestination<CR>
-nnoremap p :action PinActiveEditorTab<CR>
-xnoremap p :action PinActiveEditorTab<CR>
-onoremap p :action PinActiveEditorTab<CR>
-
-" g actions
+" g commands
 nnoremap gh :action QuickJavaDoc<CR>
 xnoremap gh :action QuickJavaDoc<CR>
 onoremap gh :action QuickJavaDoc<CR>
@@ -142,9 +131,11 @@ onoremap gl :action FindUsages<CR>
 noremap gi :action OptimizeImports<CR>
 noremap go :action ReformatCode<CR>
 
-" Alt actions
-nnoremap <A-h> viw:action Replace<CR>
-xnoremap <A-h> <Esc> :action Replace<CR>
+" Alt commands
+noremap <A-j> <C-f>
+noremap <A-k> <C-b>
+nnoremap <A-;> viw:action Replace<CR>
+xnoremap <A-;> <Esc> :action Replace<CR>
 noremap <A-u> :action Back<CR>
 noremap <A-i> :action Forward<CR>
 
@@ -179,16 +170,13 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader><leader>w :wa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader><leader>q :qa<CR>
-nnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
-xnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
-onoremap <leader><leader>r :so ~\.ideavimrc<CR>l
 
-nnoremap <leader>u :action GotoPreviousError<CR>
-xnoremap <leader>u :action GotoPreviousError<CR>
-onoremap <leader>u :action GotoPreviousError<CR>
-nnoremap <leader>i :action GotoNextError<CR>
-xnoremap <leader>i :action GotoNextError<CR>
-onoremap <leader>i :action GotoNextError<CR>
+nnoremap <leader>u :action GotoNextError<CR>
+xnoremap <leader>u :action GotoNextError<CR>
+onoremap <leader>u :action GotoNextError<CR>
+nnoremap <leader>i :action GotoPreviousError<CR>
+xnoremap <leader>i :action GotoPreviousError<CR>
+onoremap <leader>i :action GotoPreviousError<CR>
 
 nnoremap <leader>h <C-w>w
 xnoremap <leader>h <C-w>w
@@ -238,6 +226,17 @@ nnoremap <leader>9 :action GoToTab9<CR>
 xnoremap <leader>9 :action GoToTab9<CR>
 onoremap <leader>9 :action GoToTab9<CR>
 
+" Other commands
+nnoremap 9 :action RiderShowValueOrigin<CR>
+xnoremap 9 :action RiderShowValueOrigin<CR>
+onoremap 9 :action RiderShowValueOrigin<CR>
+nnoremap 0 :action RiderShowValueDestination<CR>
+xnoremap 0 :action RiderShowValueDestination<CR>
+onoremap 0 :action RiderShowValueDestination<CR>
+nnoremap p :action PinActiveEditorTab<CR>
+xnoremap p :action PinActiveEditorTab<CR>
+onoremap p :action PinActiveEditorTab<CR>
+
 " Inner shortcuts
 nnoremap c" ci"
 nnoremap c' ci'
@@ -250,8 +249,6 @@ nnoremap c] 0f]ci]
 nnoremap ct cit
 nnoremap c< ci<
 nnoremap c> ci>
-nnoremap cw ciw
-nnoremap cW ciW
 
 nnoremap d" di"
 nnoremap d' di'
@@ -264,8 +261,6 @@ nnoremap d] 0f]di]
 nnoremap dt dit
 nnoremap d< di<
 nnoremap d> di>
-nnoremap dw diw
-nnoremap dW diW
 
 nnoremap v" vi"
 nnoremap v' vi'
@@ -277,8 +272,6 @@ nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
 nnoremap v< vi<
 nnoremap v> vi>
-nnoremap vw viw
-nnoremap vW viW
 
 nnoremap t" yi"
 nnoremap t' yi'
@@ -290,8 +283,11 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
-nnoremap tw yiw
-nnoremap tW yiW
 
 " Clear search highlights on load
 :nohl
+
+" Reload remaps
+nnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
+xnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
+onoremap <leader><leader>r :so ~\.ideavimrc<CR>l

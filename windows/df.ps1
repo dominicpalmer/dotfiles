@@ -1,15 +1,15 @@
-################################################################################
-#                                                                              #
-# 0. [Optional] Installs PowerShell modules if supplied pwsh_modules switch    #
-# 1. Creates PowerShell profile symbolic link                                  #
-# 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                #
-# 3. Creates WezTerm symbolic links and adds binary to PATH                    #
-# 4. Creates VSCode symbolic links                                             #
-# 5. Adds shortcut and dotfiles install directories to PATH                    #
-# 6. Creates an AHK remap scheduled task to run at logon                       #
-# 7. [Optional] Creates obsidian.css symbolic link for todo vault              #
-#                                                                              #
-################################################################################
+#------------------------------------------------------------------------------|
+#                                                                              |
+# 0. [Optional] Installs PowerShell modules if supplied pwsh_modules switch    |
+# 1. Creates PowerShell profile symbolic link                                  |
+# 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                |
+# 3. Creates WezTerm symbolic links and adds binary to PATH                    |
+# 4. Creates VSCode symbolic links                                             |
+# 5. Adds shortcut and dotfiles install directories to PATH                    |
+# 6. Creates an AHK remap scheduled task to run at logon                       |
+# 7. [Optional] Creates obsidian.css symbolic link for todo vault              |
+#                                                                              |
+#------------------------------------------------------------------------------|
 
 [CmdletBinding()]
 param (
@@ -37,7 +37,7 @@ function Add-To-Path {
     Set-ItemProperty -Path $PathRegistry -Name path -Value $Path
 }
 
-############################### 0. Install PowerShell modules if requested
+# -------------------------- 0. Install PowerShell modules if requested
 
 if ($pwsh_modules) {
     Install-Module posh-git -Force
@@ -60,22 +60,19 @@ if ($pwsh_modules) {
     git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShellModulesPath\oh-my-posh"
 }
 
-############################### 1. PowerShell profile symbolic link
-
+# -------------------------- 1. PowerShell profile symbolic link
 $PwshProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
-$PwshProfileTarget = "$env:Dotfiles\windows\pwsh\Microsoft.Powershell_profile.ps1"
+$PwshProfileTarget = "$env:Dotfiles\windows\powershell\Microsoft.Powershell_profile.ps1"
 New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force
 
-############################### 2. vimrc symbolic links
-
+# -------------------------- 2. vimrc symbolic links
 New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.obsidian.vimrc" -Target "$env:Dotfiles\common\obsidian\.obsidian.vimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$env:Dotfiles\windows\shared\.vimrc" -Force
 
-############################### 3. WezTerm symbolic links and binary
-
+# -------------------------- 3. WezTerm symbolic links and binary
 $WezTermPathsToLink = @(
     "C:\Program Files\WezTerm\wezterm.lua",
     "C:\Program Files\WezTerm\lua"
@@ -88,26 +85,25 @@ foreach ($WezTermPath in $WezTermPathsToLink) {
 
 Add-To-Path "C:\Program Files\WezTerm"
 
-############################### 4. VSCode symbolic links
+# -------------------------- 4. VSCode symbolic links
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$env:Dotfiles\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force
 
-############################### 5. Add shortcut and install directory to PATH
+# -------------------------- 5. Add install and shortcut directories to PATH
+$InstallDirectory = "$env:Dotfiles\windows"
+Add-To-Path $InstallDirectory
 
-$PathRegistry = "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment"
-$Path = (Get-ItemProperty -Path $PathRegistry -Name path).path
+$ShortcutsDirectory = "$env:Dotfiles\windows\shortcuts"
+Add-To-Path $ShortcutsDirectory
 
-$DirectoriesToAdd = Get-ChildItem "$env:Dotfiles\windows\shortcuts" -Exclude "template"
-$DirectoriesToAdd = $DirectoriesToAdd + "$env:Dotfiles\windows"
-
-foreach ($Directory in $DirectoriesToAdd) {
+$Exclusions = @("template")
+foreach ($Directory in Get-ChildItem -Directory $ShortcutsDirectory -Exclude $Exclusions) {
     Add-To-Path $Directory
 }
 
-############################### 6. AHK scheduled task for keyboard remaps
-
+# -------------------------- 6. AHK scheduled task for keyboard remaps
 $TaskName = "remaps"
 
 # Delete any existing task of the same name
@@ -121,7 +117,7 @@ $Action = New-ScheduledTaskAction -Execute "$env:Dotfiles\windows\autohotkey\rem
 Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
 
-############################### 7. obsidian.css symbolic link for main vault
+# -------------------------- 7. obsidian.css symbolic link for main vault
 if (![String]::IsNullOrEmpty($obsidian_vault_path)) {
     New-Item -ItemType SymbolicLink -Path "$obsidian_vault_path\.obsidian\snippets\obsidian.css" -Target "$env:Dotfiles\common\obsidian\obsidian.css" -Force
 }

@@ -1,18 +1,19 @@
-Some config is applicable to all JetBrains IDEs, some is IDE-specific.
+Some config applies to all JetBrains IDEs, some is IDE-specific.
 E.g. for DataGrip, multiple F2 rename keymaps are required.
 
-## 1. Extensions
-High Contrast Light/Blue
+-------------------------- Extensions
+High Contrast Light
+High Contrast Blue
 CodeGlance Pro
 InlineProblems
 GitHub Copilot
 IdeaVim
 SpecFlow for Rider
 Gherkin
-.env files support
 Structured Logging
+.env files support
 
-## 2. Keybindings
+-------------------------- Keybindings
 Remove 'Search Everywhere' bound to <C-,>
 'Settings' to <C-,>
 'SearchEverywhere' to <C-;>
@@ -31,7 +32,7 @@ Remove 'Search Everywhere' bound to <C-,>
 'BuildSolutionAction' to F7
 'CleanSolutionAction' to F8
 
-## 3. General Settings
+-------------------------- General Settings
 User Interface
     - Right click the status bar and set 'Memory Indicator'
     - Right click the pencil icons and 'Move to Status Bar'
@@ -52,7 +53,9 @@ Editor/General
     - 'Remove trailing spaces' as 'All lines',
     - Unset 'Keep trailing spaces on caret line'
     - Set 'Remove trailing blank lines at the end of saved files'
-    - In 'Appearance' set 'Show whitespaces' for 'Trailing' and 'Selection'
+    - In 'Appearance'
+        - Set 'Show whitespaces' for 'Trailing' and 'Selection'
+        - Unset 'Show intention bulb'
     - In 'Code Completion'
         - Unset 'Preselect the best match to insert it by pressing dot...'
         - Unset 'Enter inserts suggestion even if completion popup is not focused'
@@ -105,7 +108,7 @@ Advanced Settings/Editor Tabs
 Advanced Settings/Search Everywhere
     - Set 'Sort results in the All tab based on machine learning'
 
-## 4. Plugin Settings
+-------------------------- Plugin Settings
 InlineProblems
     - Unset 'Draw boxes around problem labels'
     - Set 'Italic problem labels'
@@ -117,5 +120,4 @@ CodeGlance Pro
     - 'Viewport Border Thickness' as 2
 GitHub Copilot
     - Sign in and restart to enable
-    - Set 'Show IDE completions side-by-side'
     - Set 'Color for completions' as 285F23

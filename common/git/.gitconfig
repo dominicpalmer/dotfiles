@@ -10,10 +10,3 @@
 	cob = checkout -b
 	cm = commit -m
 	pu = push --set-upstream origin
-	wa = worktree add
-	wr = worktree remove
-	ll = log --oneline
-	last = log -1 HEAD --stat
-	rv = remote -v
-	gl = config --global -l
-	re = reset HEAD~

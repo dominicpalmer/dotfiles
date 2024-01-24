@@ -32,7 +32,7 @@
   c) Control panel
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-7. Program installations, as required. Install to C:\Program Files\ where possible.
+7. Programs, as required. Install to C:\Program Files\ where possible.
   - Nvidia Graphics Driver
   - Vivaldi
   - Mozilla Firefox
@@ -41,17 +41,16 @@
   - VLC
   - 7Zip
   - Notepad++
-  - KeePass 2
+  - KeePass2
   - VeraCrypt
-  - CopyQ (custom install with 'Encryption' and 'Pinned Items' plugins, launch on startup)
+  - CopyQ (custom install with 'Pinned Items' plugin, launch on startup)
   - Everything
   - ImageGlass
   - TranslucentTB
-  - Flow Launcher
   - AutoHotKey
   - Greenshot (launch on startup)
   - ScreenToGif
-  - PowerToys
+  - PowerToys (PowerToys run shortcut set to Ctrl+Alt+Space)
   - SysInternals
   - Obsidian
   - Okular
@@ -66,7 +65,6 @@
   - Git
   - Docker
   - Insomnia
-  - Brisqi
   - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
   - JetBrains Rider EAP (via Toolbox)
   - JetBrains PyCharm Community (via Toolbox)
@@ -84,22 +82,20 @@
 
 8. Configure startup apps via settings, and turn off protected folder access.
 
-9. In admin PowerShell create a dotfiles path env variable with 'setx /m dotfiles <path_to_dotfiles_root>'
+9. In admin PowerShell create a dotfiles path env variable with 'setx /m dotfiles <path_to_dotfiles_root>'.
 
 10. Restart.
 
-11. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'.
+11. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'. Can also specify Obsidian path.
 
 12. Sign into accounts and services, and apply manual configurations.
   - Vivaldi (setup.txt)
-  - Flow Launcher (setup.txt)
   - Obsidian (setup.txt)
   - CopyQ (setup.txt)
   - JetBrains apps (setup.txt)
   - Visual Studio (setup.txt)
   - Visual Studio Code (setup.txt)
   - Notepad++ (set as default for .txt, hide most menus, then change tab layout, font, font size, and never create backup files)
-  - Install Cascadia Code PL font
   - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to create SSH key, then configure via GitHub settings)
   - Firefox
   - TranslucentTB (set all JSON options to 'clear')

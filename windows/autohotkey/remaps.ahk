@@ -1,6 +1,6 @@
 #SingleInstance Force
 
-; --------------------------- Sleep/lock workstation
+; -------------------------- Sleep/lock workstation
 ; On lock or sleep:
 ; 1. DisableLockWorkstation registry key is momentarily set to 0, and the computer is locked or put to sleep.
 ; 2. This script is reloaded and DisableLockWorkstation is set back to 1, so that the Win+l remap works again.
@@ -18,7 +18,27 @@ LWin & \::
     Reload
 return
 
-; --------------------------- Toggle between instances of the same application
+; -------------------------- Escape, capslock
+CapsLock::Esc
+RCtrl::CapsLock
+RAlt::Ctrl
+
+; -------------------------- PowerToys run
+; Search with LWin
+LWin Up::
+    if (A_PriorKey = "RWin")
+        Send {RWin}
+    else if (A_PriorKey = "LWin")
+        Send !^{Space}
+return
+
+; Run with LWin+;
+LWin & `;::
+    Send !^{Space}
+    SendInput >{Space}
+return
+
+; -------------------------- Toggle between instances of the same application
 !`::
     WinGetClass, OldClass, A
     WinGet, ActiveProcessName, ProcessName, A
@@ -37,48 +57,24 @@ return
     }
 return
 
-; --------------------------- Winkey navigation
+; -------------------------- Winkey navigation and text modification
 #h::SendInput {Left}
 #j::SendInput {Down}
 #k::SendInput {Up}
 #l::SendInput {Right}
 #y::SendInput {Home}
 #o::SendInput {End}
-
-; --------------------------- Winkey text modification
 #i::SendInput ^{Delete}
 #u::SendInput ^{Backspace}
 #n::Send {Home}{Shift down}{End}{Shift up}
 
-; --------------------------- Winkey CopyQ cycle items forward, reset
+; -------------------------- CopyQ cycle items forward, reset, clear
 #v::Send ^!{y}
 #b::Send ^!{b}
-
-; --------------------------- Winkey clear system and CopyQ clipboards
 #g::
     ; CopyQ
     Send ^!{t}
 
     ; System
     Clipboard=
-return
-
-; --------------------------- Escape and capslock
-CapsLock::Esc
-RCtrl::CapsLock
-RAlt::Ctrl
-
-; --------------------------- Flow launcher
-; Search with LWin
-LWin Up::
-    if (A_PriorKey = "RWin")
-        Send {RWin}
-    else if (A_PriorKey = "LWin")
-        Send !^{Space}
-return
-
-; Run with LWin+;
-LWin & `;::
-    Send !^{Space}
-    SendInput >{Space}
 return

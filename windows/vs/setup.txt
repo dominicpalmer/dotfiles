@@ -1,4 +1,4 @@
-## 1. Extensions
+--------------------- Extensions
 VSVim
     - Config file symlinked
     - <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
@@ -24,7 +24,7 @@ Output Enhancer
 File Icons
 SpecFlow for Visual Studio 2022
 
-## 2. Settings
+--------------------- Settings
 Environment/Documents:
     - 'Show miscellaneous files in Solution Explorer'
 Environment/Keyboard (Global maps):

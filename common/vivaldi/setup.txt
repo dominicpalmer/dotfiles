@@ -1,7 +1,7 @@
-## 1. Install
+-------------------------- Install
 - On install, select default options on startup
 
-## 2. Settings
+-------------------------- Settings
 General
     - 'Homepage' as 'Start Page'
     - 'Startup with' as 'Start Page'
@@ -23,7 +23,7 @@ Start Page
     - Unset all the 'Speed Dial Appearance' 'Show' options
 Tabs
     - 'New Tab Page' as 'Blank Page'
-    - 'New Tab Position' as 'After Active Tab'
+    - 'New Tab Position' as 'After Related Tabs'
     - Unset 'Keep Window Open when Last Tab is Closed'
     - Unset 'Display Trash Can'
     - Unset 'Show Popup Thumbnails'
@@ -55,7 +55,7 @@ Webpages
     - Unset 'Smooth Scrolling'
     - Unset 'Picutre-in-Picture Button on Videos'
 
-## 3. Extensions
+-------------------------- Extensions
 Remove
     - Google Drive extension
 Install
@@ -63,7 +63,7 @@ Install
     - IBA Opt-out (by Google)
     - uBlock Origin
 
-## 4. UI
+-------------------------- UI
 - Hit F4 to hide the panel, then right click the top left icon and 'Remove from Toolbar'
 - Right click the search field display button and 'Remove from Toolbar'
 - Right click the top right profile icon and 'Remove from Toolbar'

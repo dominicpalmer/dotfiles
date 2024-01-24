@@ -1,20 +1,18 @@
-" ---- Settings
-
+" --------------------- Settings
 set scrolloff=8
 set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400
 set whichwrap=<,>,h,l
-set hlsearch
 set clipboard=unnamed
+set hlsearch
 set vsvim_hidemarks=<>[]^.'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-" ---- Keybindings
-
+" --------------------- Keybindings
 let mapleader = " "
 
-" Cursor, line and block movement
+" Movement
 noremap f b
 noremap F B
 noremap H ^
@@ -37,14 +35,12 @@ vnoremap g; y/<C-r>0
 noremap @ :
 nnoremap <Esc> :nohl<CR>
 
-" Copy and paste
+" Text modification
 noremap t y
 nnoremap T y$
 nnoremap r p | :vsc Edit.FormatDocument<CR>
 vnoremap r P | :vsc Edit.FormatDocument<CR>
 noremap R P | :vsc Edit.FormatDocument<CR>
-
-" Text modification
 noremap x s
 noremap s "0x
 noremap S 0"0D
@@ -56,6 +52,66 @@ nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
 vnoremap u <Esc>u
 noremap U <C-r>
+
+" g commands
+noremap gh :vsc Edit.QuickInfo<CR>
+noremap gj :vsc Edit.GoToImplementation<CR>
+noremap gk :vsc Edit.FindAllReferences<CR>
+noremap gl :vsc Edit.GoToDefinition<CR>
+noremap gi :vsc Edit.RemoveAndSort<CR>
+noremap go :vsc Edit.FormatDocument<CR>
+
+" Alt commands
+nnoremap <M-j> :vsc Edit.PageDown<CR>
+vnoremap <M-j> :vsc Edit.PageDownExtend<CR>
+nnoremap <M-k> :vsc Edit.PageUp<CR>
+vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
+noremap <M-;> :vsc Edit.Replace<CR>
+noremap <M-u> :vsc View.NavigateBackward<CR>
+noremap <M-i> :vsc View.NavigateForward<CR>
+
+" Leader commands
+noremap <leader>; :vsc Window.QuickLaunch<CR>
+noremap <leader>o :vsc Edit.GoToAll<CR>
+noremap <leader>n :vsc Edit.FindInFiles<CR>
+noremap <leader>m :vsc Edit.ReplaceInFiles<CR>
+
+noremap <leader>r :vsc Refactor.Rename<CR>
+nnoremap <leader>' :vsc Edit.ToggleComment<CR>k$
+vnoremap <leader>' :vsc Edit.ToggleComment<CR> | <Esc><CR>k$
+vnoremap <leader>s :vsc Edit.SurroundWith<CR>
+vnoremap <leader>e :vsc Refactor.ExtractMethod<CR>
+noremap <leader>d :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+
+noremap <leader>w :w<CR>
+noremap <leader><leader>w :wa<CR>
+noremap <leader>q :q<CR>
+noremap <leader><leader>q :vsc Window.CloseAllDocuments<CR>
+
+noremap <leader>u :vsc View.NextError<CR>
+noremap <leader>i :vsc View.PreviousError<CR>
+
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+
+noremap <leader>v :vsplit<CR>
+noremap <leader>c :split<CR>
+
+noremap <leader>1 :vsc Window.GoToPinnedTab1<CR>
+noremap <leader>2 :vsc Window.GoToPinnedTab2<CR>
+noremap <leader>3 :vsc Window.GoToPinnedTab3<CR>
+noremap <leader>4 :vsc Window.GoToPinnedTab4<CR>
+noremap <leader>5 :vsc Window.GoToPinnedTab5<CR>
+noremap <leader>6 :vsc Window.GoToPinnedTab6<CR>
+noremap <leader>7 :vsc Window.GoToPinnedTab7<CR>
+noremap <leader>8 :vsc Window.GoToPinnedTab8<CR>
+noremap <leader>9 :vsc Window.GoToPinnedTab9<CR>
+
+" Other commands
+noremap p :vsc Window.PinTab<CR>
+noremap <C-,> :vsc Tools.Options<CR>
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -69,8 +125,6 @@ nnoremap c] 0f]ci]
 nnoremap ct cit
 nnoremap c< ci<
 nnoremap c> ci>
-nnoremap cw ciw
-nnoremap cW ciW
 
 nnoremap d" di"
 nnoremap d' di'
@@ -83,8 +137,6 @@ nnoremap d] 0f]di]
 nnoremap dt dit
 nnoremap d< di<
 nnoremap d> di>
-nnoremap dw diw
-nnoremap dW diW
 
 nnoremap v" vi"
 nnoremap v' vi'
@@ -96,8 +148,6 @@ nnoremap v[ 0f[vi[
 nnoremap v] 0f]vi]
 nnoremap v< vi<
 nnoremap v> vi>
-nnoremap vw viw
-nnoremap vW viW
 
 nnoremap t" yi"
 nnoremap t' yi'
@@ -109,68 +159,7 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
-nnoremap tw yiw
-nnoremap tW yiW
 
-" Write and close
-noremap <leader>w :w<CR>
-noremap <leader><leader>w :wa<CR>
-noremap <leader>q :q<CR>
-noremap <leader><leader>q :vsc Window.CloseAllDocuments<CR>
-
-" Code navigation and modification
-noremap gh :vsc Edit.QuickInfo<CR>
-noremap gj :vsc Edit.GoToImplementation<CR>
-noremap gk :vsc Edit.FindAllReferences<CR>
-noremap gl :vsc Edit.GoToDefinition<CR>
-noremap gi :vsc Edit.RemoveAndSort<CR>
-noremap go :vsc Edit.FormatDocument<CR>
-noremap gn :vsc Edit.Find<CR>
-noremap gm :vsc Edit.Replace<CR>
-nnoremap <leader>' :vsc Edit.ToggleComment<CR>k$
-vnoremap <leader>' :vsc Edit.ToggleComment<CR> | <Esc><CR>k$
-vnoremap <leader>s :vsc Edit.SurroundWith<CR>
-vnoremap <leader>e :vsc Refactor.ExtractMethod<CR>
-noremap <leader>r :vsc Refactor.Rename<CR>
-noremap <leader>d :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-
-" Launchers
-noremap <leader>; :vsc Window.QuickLaunch<CR>
-noremap <leader>o :vsc Edit.GoToAll<CR>
-noremap <leader>n :vsc Edit.FindInFiles<CR>
-noremap <leader>m :vsc Edit.ReplaceInFiles<CR>
-noremap gu :vsc AddQuickFile<CR>
-noremap <C-,> :vsc Tools.Options<CR>
-
-" Pageup/Pagedown, Forward/Back, NextError/PreviousError
-nnoremap <M-j> :vsc Edit.PageDown<CR>
-vnoremap <M-j> :vsc Edit.PageDownExtend<CR>
-nnoremap <M-k> :vsc Edit.PageUp<CR>
-vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
-noremap <M-u> :vsc View.NavigateBackward<CR>
-noremap <M-i> :vsc View.NavigateForward<CR>
-noremap <leader>u :vsc View.NextError<CR>
-noremap <leader>i :vsc View.PreviousError<CR>
-
-" Windows and tabs
-noremap p :vsc Window.PinTab<CR>
-noremap <leader>h <C-w>h
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
-noremap <leader>v :vsplit<CR>
-noremap <leader>c :split<CR>
-noremap <leader>1 :vsc Window.GoToPinnedTab1<CR>
-noremap <leader>2 :vsc Window.GoToPinnedTab2<CR>
-noremap <leader>3 :vsc Window.GoToPinnedTab3<CR>
-noremap <leader>4 :vsc Window.GoToPinnedTab4<CR>
-noremap <leader>5 :vsc Window.GoToPinnedTab5<CR>
-noremap <leader>6 :vsc Window.GoToPinnedTab6<CR>
-noremap <leader>7 :vsc Window.GoToPinnedTab7<CR>
-noremap <leader>8 :vsc Window.GoToPinnedTab8<CR>
-noremap <leader>9 :vsc Window.GoToPinnedTab9<CR>
-
-" Reload configuration
 noremap <leader><leader>r :so ~\.vsvimrc<CR>j
 
 :echo ".vsvimrc loaded successfully"
