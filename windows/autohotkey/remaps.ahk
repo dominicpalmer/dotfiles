@@ -68,9 +68,10 @@ return
 #u::SendInput ^{Backspace}
 #n::Send {Home}{Shift down}{End}{Shift up}
 
-; -------------------------- CopyQ cycle items forward, reset, clear
+; -------------------------- CopyQ cycle items forward and back, cancel, clear
 #v::Send ^!{y}
-#b::Send ^!{b}
+#b::Send ^!{u}
+#c::Send ^!{i}
 #g::
     ; CopyQ
     Send ^!{t}

@@ -9,7 +9,7 @@ set timeoutlen=400
 set whichwrap=<,>,h,l
 set clipboard=unnamed
 set hlsearch
-" set nooldundo
+set nooldundo
 set showcmd
 
 sethandler <C-y> a:ide

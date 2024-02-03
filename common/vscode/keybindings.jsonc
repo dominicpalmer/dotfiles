@@ -91,6 +91,8 @@
   // Ctrl based menu shortcuts
   { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
   { "key": "ctrl+;", "command": "workbench.action.showCommands" },
+  { "key": "ctrl+n", "command": "workbench.action.findInFiles" },
+  { "key": "ctrl+m", "command": "workbench.action.replaceInFiles" },
 
   // ctrl+q in place of ctrl+w as backup for <leader>q, ctrl+shift+q to close VSCode
   { "key": "ctrl+q", "command": "workbench.action.closeActiveEditor" },

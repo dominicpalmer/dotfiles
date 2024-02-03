@@ -2,7 +2,7 @@ Some config applies to all JetBrains IDEs, some is IDE-specific.
 E.g. for DataGrip, multiple F2 rename keymaps are required.
 
 -------------------------- Extensions
-High Contrast Light
+High Contrast Green
 High Contrast Blue
 CodeGlance Pro
 InlineProblems
@@ -39,7 +39,7 @@ User Interface
     - Under the 'Debug' tool window, click the 'View Breakpoints' button and set
     'CLR Exception Breakpoints' and 'Exception Breakpoints'
 Appearance & Behaviour/Appearance
-    - 'Theme' as 'High Contrast Light'
+    - 'Theme' as 'High Contrast Green'
     - Set 'Show tree indent guides'
     - Unset 'Smooth scrolling'
     - In 'Tool Windows' set 'Widescreen tool window layout'
