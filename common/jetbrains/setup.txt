@@ -74,26 +74,6 @@ Editor/General
         - Unset 'Jump outside of closing brackets with tab'
 Editor/Font
     - 'Font' as 'Cascadia Code', size 14, line height 1
-Editor/Color Scheme/General/Code
-    - 'Line number' foreground as 5A615A
-    - 'TODO defaults' foreground as 007F00
-Editor/Color Scheme/General/Editor
-    - 'Caret row' background as F1EFE0
-    - 'Code Vision/Default' foreground as 000000
-    - 'Guides/Hard wrap guide' foreground as AFAFAF
-    - 'Guides/Indent Guide' background as DCDCDC
-    - 'Gutter background' background as EFEFEF
-    - 'Tear line' foreground as 000000
-    - 'Text/Whitespaces' foreground as 000000
-Editor/Color Scheme/Language Defaults
-    - 'Classes/Static method' foreground as 8E00B1
-Editor/Color Scheme/Debugger
-    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' 000000
-    - 'Execution point' no foreground, effects as 'Bordered' 000000
-Editor/Color Scheme/Diff and Merge
-    - 'Changed' important as A6C0FF, error stripe as 6D96E8
-    - 'Conflict' important as D9AFFF, error stripe as CD6DFF
-    - 'Deleted' important as FF8383, error stripe as F56262
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
 Editor/Members Generation
@@ -121,3 +101,21 @@ CodeGlance Pro
 GitHub Copilot
     - Sign in and restart to enable
     - Set 'Color for completions' as 285F23
+
+-------------------------- Editor colour scheme details (included in theme)
+Editor/Color Scheme/General/Code
+    - 'Line number' foreground as 5A615A
+    - 'TODO defaults' foreground as 007F00
+Editor/Color Scheme/General/Editor
+    - 'Caret row' background as F1EFE0
+    - 'Code Vision/Default' foreground as 000000
+    - 'Guides/Hard wrap guide' foreground as AFAFAF
+    - 'Guides/Indent Guide' background as DCDCDC
+    - 'Gutter background' background as EFEFEF
+    - 'Tear line' foreground as 000000
+    - 'Text/Whitespaces' foreground as 000000
+Editor/Color Scheme/Language Defaults
+    - 'Classes/Static method' foreground as 8E00B1
+Editor/Color Scheme/Debugger
+    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' 000000
+    - 'Execution point' no foreground, effects as 'Bordered' 000000
