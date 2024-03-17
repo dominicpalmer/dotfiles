@@ -20,8 +20,10 @@ dotnet_diagnostic.RCS1176.severity = silent
 # Use explicit type instead of 'var'
 dotnet_diagnostic.RCS1008.severity = silent
 
-
 ########################## None
+
+# Non-nullable type must contain a non-null value before exiting the constructor
+dotnet_diagnostic.CS8618.severity = none
 
 # Use linefeed as new line
 dotnet_diagnostic.RCS0045.severity = none
@@ -41,20 +43,21 @@ dotnet_diagnostic.RCS0021.severity = none
 # RCS0022: Format braces on a single line
 dotnet_diagnostic.RCS0022.severity = none
 
-#RCS0008: Add blank line between closing brace and next statement
+# RCS0008: Add blank line between closing brace and next statement
 dotnet_diagnostic.RCS0008.severity = none
 
-#RCS1004FadeOut: Remove braces from if-else
+# RCS1004FadeOut: Remove braces from if-else
 dotnet_diagnostic.RCS1004.severity = none
 
-#RCS0001: Add blank line after embedded statement
+# RCS0001: Add blank line after embedded statement
 dotnet_diagnostic.RCS0001.severity = none
 
-#RCS1035: Remove redundant comma in intializer
+# RCS1035: Remove redundant comma in intializer
 dotnet_diagnostic.RCS1035.severity = none
 
 
-########################## Duplicate removals (these are covered by VS)
+########################## Duplicate removals. These are either Roslynator dupes
+# better handled by VS, or VS dupes better handled by Roslynator.
 
 # Covered by IDE0054: Use compound assignment
 dotnet_diagnostic.RCS1058.severity = none
@@ -70,3 +73,16 @@ dotnet_diagnostic.RCS1163.severity = none
 
 # Covered by CA1050: Declare types in namespaces. RCS1110 is 'Declare inside namespace'
 dotnet_diagnostic.RCS1110.severity = none
+
+# Covered by VS IDE0035: Unreachable code detected. VS CS0162 is the same
+# warning but less aggressive.
+# NOTE: This suppression does not work. Likely a MS bug. IDE0035 is tied to
+# CS0162. That error can be suppressed, but IDE0035 can't, no matter what.
+dotnet_diagnostic.IDE0035.severity = none
+
+# Covered by Roslynator RCS1213: Remove unused const declaration. VS IDE0051 is 'Private member is unused'
+dotnet_diagnostic.IDE0051.severity = none
+
+# Covered by VS IDE0059:
+Unnecessary assignment of a value.VS CS0219 is The variable is assigned but its value is never used
+dotnet_diagnostic.CS0219.severity = none

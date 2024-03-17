@@ -1,0 +1,21 @@
+[*.cs]
+
+################### Naming rule violations
+
+# Private const or static fields must be pascal cased
+dotnet_naming_symbols.private_const_or_static_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_const_or_static_fields.required_modifiers = static # This will include const by default
+dotnet_naming_symbols.private_const_or_static_fields.applicable_kinds = field
+dotnet_naming_style.require_pascal_case.capitalization = pascal_case
+dotnet_naming_rule.private_const_or_static_fields_pascal_case.symbols = private_const_or_static_fields
+dotnet_naming_rule.private_const_or_static_fields_pascal_case.style = require_pascal_case
+dotnet_naming_rule.private_const_or_static_fields_pascal_case.severity = warning
+
+# Private non-const and non-static fields must be camel cased and prefixed by an underscore
+dotnet_naming_symbols.private_non_const_non_static_fields.applicable_kinds = field
+dotnet_naming_symbols.private_non_const_non_static_fields.applicable_accessibilities = private
+dotnet_naming_style.require_camel_case_and_underscore_prefix.required_prefix = _
+dotnet_naming_style.require_camel_case_and_underscore_prefix.capitalization = camel_case
+dotnet_naming_rule.private_non_const_non_static_fields_camel_case_and_underscore_prefix.symbols = private_non_const_non_static_fields
+dotnet_naming_rule.private_non_const_non_static_fields_camel_case_and_underscore_prefix.style = require_camel_case_and_underscore_prefix
+dotnet_naming_rule.private_non_const_non_static_fields_camel_case_and_underscore_prefix.severity = warning
