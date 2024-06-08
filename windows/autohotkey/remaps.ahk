@@ -1,5 +1,10 @@
 #SingleInstance Force
 
+; + = Shift
+; ^ = Control
+; ! = Alt
+; # = WinKey
+
 ; -------------------------- Sleep/lock workstation
 ; On lock or sleep:
 ; 1. DisableLockWorkstation registry key is momentarily set to 0, and the computer is locked or put to sleep.
@@ -36,25 +41,6 @@ return
 LWin & `;::
     Send !^{Space}
     SendInput >{Space}
-return
-
-; -------------------------- Toggle between instances of the same application
-!`::
-    WinGetClass, OldClass, A
-    WinGet, ActiveProcessName, ProcessName, A
-    WinGet, WinClassCount, Count, ahk_exe %ActiveProcessName%
-
-    if WinClassCount = 1
-        Return
-
-    loop, 2 {
-        WinSet, Bottom,, A
-        WinActivate, ahk_exe %ActiveProcessName%
-        WinGetClass, NewClass, A
-
-        if (OldClass <> "CabinetWClass" or NewClass = "CabinetWClass")
-            break
-    }
 return
 
 ; -------------------------- Winkey navigation and text modification

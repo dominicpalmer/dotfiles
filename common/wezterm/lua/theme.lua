@@ -7,7 +7,7 @@ local dark_theme_as_default = true
 local dark_theme = "Gruvbox Dark"
 local light_theme = "Github"
 local dark_theme_bg_img = dotfiles_path .. "/common/backgrounds/1.jpg"
-local light_theme_bg_img = dotfiles_path .. "/common/backgrounds/3.jpg"
+local light_theme_bg_img = dotfiles_path .. "/common/backgrounds/4.jpg"
 local dark_theme_bg_hsb = {brightness = 0.02, saturation = 0.5}
 local light_theme_bg_hsb = {brightness = 1.0, saturation = 1.0}
 local dark_theme_bg_opacity = 0.91

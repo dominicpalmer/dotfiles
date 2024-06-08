@@ -8,6 +8,8 @@ local shared = {
 
    -- Compatibility
    {key="Backspace", mods="CTRL", action=wezterm.action{SendKey={key="\x17"}}},
+   {key = 'LeftArrow', mods='CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
+   {key = 'RightArrow', mods='CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
 }
 
 M.platform = {

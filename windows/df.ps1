@@ -4,9 +4,9 @@
 # 1. Creates PowerShell profile symbolic link                                  |
 # 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                |
 # 3. Creates WezTerm symbolic links and adds binary to PATH                    |
-# 4. Creates VSCode symbolic links                                             |
+# 4. Creates VSCode settings symbolic links                                    |
 # 5. Adds shortcut and dotfiles install directories to PATH                    |
-# 6. Creates an AHK remap scheduled task to run at logon                       |
+# 6. Creates an AutoHotKey remap scheduled task to run at logon                |
 # 7. [Optional] Creates obsidian.css symbolic link for todo vault              |
 #                                                                              |
 #------------------------------------------------------------------------------|
@@ -67,10 +67,8 @@ New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarge
 
 # -------------------------- 2. vimrc symbolic links
 New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.obsidian.vimrc" -Target "$env:Dotfiles\common\obsidian\.obsidian.vimrc" -Force
 New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$env:Dotfiles\windows\shared\.vimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
 
 # -------------------------- 3. WezTerm symbolic links and binary
 $WezTermPathsToLink = @(
@@ -85,7 +83,7 @@ foreach ($WezTermPath in $WezTermPathsToLink) {
 
 Add-To-Path "C:\Program Files\WezTerm"
 
-# -------------------------- 4. VSCode symbolic links
+# -------------------------- 4. VSCode settings symbolic links
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$env:Dotfiles\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force

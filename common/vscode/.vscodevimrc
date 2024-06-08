@@ -28,7 +28,7 @@ vnoremap r P
 noremap R P
 noremap x s
 noremap s "0x
-noremap S 0"0D
+noremap S "0D
 noremap m r
 noremap b <C-v>
 nnoremap ' ~h

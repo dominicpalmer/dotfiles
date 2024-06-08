@@ -13,30 +13,11 @@ Gherkin
 Structured Logging
 .env files support
 
--------------------------- Keybindings
-Remove 'Search Everywhere' bound to <C-,>
-'Settings' to <C-,>
-'SearchEverywhere' to <C-;>
-'GoToFile' to <C-o>
-'Find in Files' to <C-n>
-'Replace in Files' to <C-m>
-'VimPluginToggle' to <C-A-v>
-'copilot.showCompletions' to <A-n>
-'copilot.cycleNextInlays' to <A-j>
-'copilot.cyclePrevInlays' to <A-k>
-'FindUsages' to F1
-'RenameElement' to F2
-'GotoImplementation' to F3
-'GotoDeclaration' to F4
-'ToggleBookmark' to F6
-'BuildSolutionAction' to F7
-'CleanSolutionAction' to F8
-
--------------------------- General Settings
+-------------------------- IDE Settings
 User Interface
     - Right click the status bar and set 'Memory Indicator'
     - Right click the pencil icons and 'Move to Status Bar'
-    - Under the 'Debug' tool window, click the 'View Breakpoints' button and set
+    - Under the 'Debug' tool window, click 'View Breakpoints' and set
     'CLR Exception Breakpoints' and 'Exception Breakpoints'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Green'
@@ -102,7 +83,23 @@ GitHub Copilot
     - Sign in and restart to enable
     - Set 'Color for completions' as 285F23
 
--------------------------- Editor colour scheme details (included in theme)
+-------------------------- Keyboard Shortcuts
+- Remove 'Search Everywhere' bound to <C-,>
+- <C-,> to 'Settings'
+- <C-;> to 'SearchEverywhere'
+- <C-o> to 'GoToFile'
+- <C-n> to 'Find in Files'
+- <C-m> to 'Replace in Files'
+- F1 to 'GotoDeclaration'
+- F7 to 'BuildSolutionAction'
+- F8 to 'CleanSolutionAction'
+- [DataGrip only?] F2 to 'RenameElement'
+- <C-A-v> to 'VimPluginToggle'
+- <A-n> to 'copilot.showCompletions'
+- <A-j> to 'copilot.cycleNextInlays'
+- <A-k> to 'copilot.cyclePrevInlays'
+
+-------------------------- [Included with theme] Editor Colour Scheme Details
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 5A615A
     - 'TODO defaults' foreground as 007F00

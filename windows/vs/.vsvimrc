@@ -1,6 +1,8 @@
+" Clear existing maps on load
+mapclear
+
 " --------------------- Settings
 set scrolloff=8
-set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400
@@ -43,7 +45,7 @@ vnoremap r P | :vsc Edit.FormatDocument<CR>
 noremap R P | :vsc Edit.FormatDocument<CR>
 noremap x s
 noremap s "0x
-noremap S 0"0D
+noremap S "0D
 noremap m r
 noremap b <C-v>
 nnoremap ' ~h
@@ -77,17 +79,15 @@ noremap <leader>n :vsc Edit.FindInFiles<CR>
 noremap <leader>m :vsc Edit.ReplaceInFiles<CR>
 
 noremap <leader>r :vsc Refactor.Rename<CR>
-nnoremap <leader>' :vsc Edit.ToggleComment<CR>k$
-vnoremap <leader>' :vsc Edit.ToggleComment<CR> | <Esc><CR>k$
-vnoremap <leader>s :vsc Edit.SurroundWith<CR>
+nnoremap <leader>' :vsc Edit.ToggleLineComment<CR> <Esc>
+vnoremap <leader>' :vsc Edit.ToggleLineComment<CR> <Esc> k
+vnoremap <leader>s $hvo0 :vsc Edit.SurroundWith<CR>
 vnoremap <leader>e :vsc Refactor.ExtractMethod<CR>
 noremap <leader>d :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :vsc Window.CloseAllDocuments<CR>
-
 noremap <leader>u :vsc View.NextError<CR>
 noremap <leader>i :vsc View.PreviousError<CR>
 
@@ -95,10 +95,8 @@ noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
-
 noremap <leader>v :vsplit<CR>
 noremap <leader>c :split<CR>
-
 noremap <leader>1 :vsc Window.GoToPinnedTab1<CR>
 noremap <leader>2 :vsc Window.GoToPinnedTab2<CR>
 noremap <leader>3 :vsc Window.GoToPinnedTab3<CR>
@@ -111,7 +109,7 @@ noremap <leader>9 :vsc Window.GoToPinnedTab9<CR>
 
 " Other commands
 noremap p :vsc Window.PinTab<CR>
-noremap <C-,> :vsc Tools.Options<CR>
+noremap <leader><leader>r :so ~\.vsvimrc<CR>
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -160,6 +158,7 @@ nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
 
-noremap <leader><leader>r :so ~\.vsvimrc<CR>j
+" Clear search highlights on load
+:nohl
 
-:echo ".vsvimrc loaded successfully"
+:echo '.vsvimrc loaded successfully'

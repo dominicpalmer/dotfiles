@@ -1,5 +1,4 @@
 -------------------------- Settings
-## General
 - Under 'General' unset 'Confirm application exit'
 - Under 'Layout' set 'Hide tabs', 'Hide toolbar', 'Hide toolbar labels' and 'Hide main window'
 - Under 'History' set 'Unload tab after an interval in minutes' to 15

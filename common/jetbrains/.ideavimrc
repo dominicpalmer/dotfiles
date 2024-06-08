@@ -1,16 +1,15 @@
+" Clear existing maps on load
 mapclear
 
 " --------------------- Settings
 set scrolloff=8
-set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400
 set whichwrap=<,>,h,l
 set clipboard=unnamed
 set hlsearch
-set nooldundo
-set showcmd
+set noshowcmd
 
 sethandler <C-y> a:ide
 sethandler <C-o> a:ide
@@ -33,80 +32,50 @@ Plug 'tpope/vim-surround'
 " --------------------- Keybindings
 let mapleader = " "
 
-" Note: some noremaps are split into n/x/o-noremaps to fix live templates
+function! Noremap(lhs, rhs)
+  " Using live templates will force Vim into select mode, where select mode
+  " remaps then take precedence over raw input. Avoid by redefining noremap to
+  " exclude the select mode remap.
+  exe 'nnoremap ' . a:lhs . ' ' . a:rhs
+  exe 'xnoremap ' . a:lhs . ' ' . a:rhs
+  exe 'onoremap ' . a:lhs . ' ' . a:rhs
+endfunction
 
 " Movement
-nnoremap f b
-xnoremap f b
-onoremap f b
-nnoremap F B
-xnoremap F B
-onoremap F B
-nnoremap H ^
-xnoremap H ^
-onoremap H ^
-nnoremap J }
-xnoremap J }
-onoremap J }
-nnoremap K {
-xnoremap K {
-onoremap K {
-nnoremap L $
-xnoremap L $
-onoremap L $
-nnoremap M J
-xnoremap M J
-onoremap M J
-nnoremap \ :action MoveLineDown<CR>
-xnoremap \ :action MoveLineDown<CR>
-onoremap \ :action MoveLineDown<CR>
-nnoremap / :action MoveLineUp<CR>
-xnoremap / :action MoveLineUp<CR>
-onoremap / :action MoveLineUp<CR>
+
+call Noremap('f', 'b')
+call Noremap('F', 'B')
+call Noremap('H', '^')
+call Noremap('J', '}')
+call Noremap('K', '{')
+call Noremap('L', '$')
+call Noremap('M', 'J')
+call Noremap('\', ':action MoveLineDown<CR>')
+call Noremap('/', ':action MoveLineUp<CR>')
 nnoremap z mz>>'z
 xnoremap z >gv
 nnoremap , mz<<'z
 xnoremap , <gv
 
 " Search
-nnoremap ; /
-xnoremap ; /
-onoremap ; /
-nnoremap : ?
-xnoremap : ?
-onoremap : ?
+call Noremap(';', '/')
+call Noremap(':', '?')
 nnoremap g; viwy/<C-r>0
 xnoremap g; y/<C-r>0
-nnoremap @ :
-xnoremap @ :
-onoremap @ :
+call Noremap('@', ':')
 nnoremap <Esc> :nohl<CR>
 
 " Text modification
-nnoremap t y
-xnoremap t y
-onoremap t y
+call Noremap('t', 'y')
 nnoremap T y$
 nnoremap r p:action AutoIndentLines<CR>
 xnoremap r P:action AutoIndentLines<CR>
-nnoremap R P:action AutoIndentLines<CR>
-xnoremap R P:action AutoIndentLines<CR>
-onoremap R P:action AutoIndentLines<CR>
-nnoremap x s
-xnoremap x s
-onoremap x s
-nnoremap s "0x
-xnoremap s "0x
-onoremap s "0x
-nnoremap S 0"0D
-xnoremap S 0"0D
-onoremap S 0"0D
-nnoremap m r
-xnoremap m r
-onoremap m r
-nnoremap b <C-v>
-xnoremap b <C-v>
-onoremap b <C-v>
+call Noremap('R', 'P:action AutoIndentLines<CR>')
+call Noremap('x', 's')
+call Noremap('s', '"0x')
+call Noremap('S', '"0D')
+call Noremap('m', 'r')
+call Noremap('b', '<C-v>')
 nnoremap ' ~h
 xnoremap ' ~
 nnoremap <CR> o<Esc>
@@ -116,20 +85,12 @@ xnoremap u <Esc>u<Esc>
 nnoremap U <C-r><C-r>
 
 " g commands
-nnoremap gh :action QuickJavaDoc<CR>
-xnoremap gh :action QuickJavaDoc<CR>
-onoremap gh :action QuickJavaDoc<CR>
-nnoremap gj :action GotoDeclaration<CR>
-xnoremap gj :action GotoDeclaration<CR>
-onoremap gj :action GotoDeclaration<CR>
-nnoremap gk :action GotoImplementation<CR>
-xnoremap gk :action GotoImplementation<CR>
-onoremap gk :action GotoImplementation<CR>
-nnoremap gl :action FindUsages<CR>
-xnoremap gl :action FindUsages<CR>
-onoremap gl :action FindUsages<CR>
-noremap gi :action OptimizeImports<CR>
-noremap go :action ReformatCode<CR>
+call Noremap('gh', ':action QuickJavaDoc<CR>')
+call Noremap('gj', ':action GotoDeclaration<CR>')
+call Noremap('gk', ':action GotoImplementation<CR>')
+call Noremap('gl', ':action FindUsages<CR>')
+call Noremap('gi', ':action OptimizeImports<CR>')
+call Noremap('go', ':action ReformatCode<CR>')
 
 " Alt commands
 noremap <A-j> <C-f>
@@ -140,102 +101,49 @@ noremap <A-u> :action Back<CR>
 noremap <A-i> :action Forward<CR>
 
 " Leader commands
-noremap <leader>; :action SearchEverywhere<CR>
-noremap <leader>o :action GotoFile<CR>
+call Noremap('<leader>;', ':action SearchEverywhere<CR>')
+call Noremap('<leader>o', ':action GotoFile<CR>')
 nnoremap <leader>n viw:action FindInPath<CR>
 xnoremap <leader>n :action FindInPath<CR>
 nnoremap <leader>m viw:action ReplaceInPath<CR>
 xnoremap <leader>m :action ReplaceInPath<CR>
 onoremap <leader>m viw:action ReplaceInPath<CR>
 
-nnoremap <leader>r :action RenameElement<CR>
-xnoremap <leader>r :action RenameElement<CR>
-onoremap <leader>r :action RenameElement<CR>
-nnoremap <leader>' :action CommentByLineComment<CR>
-xnoremap <leader>' :action CommentByLineComment<CR>
-onoremap <leader>' :action CommentByLineComment<CR>
+call Noremap('<leader>r', ':action RenameElement<CR>')
+call Noremap("<leader>'", ':action CommentByLineComment<CR>Esc')
 xnoremap <leader>s :action SurroundWith<CR>
 xnoremap <leader>e :action ExtractMethod<CR>
-nnoremap <leader>d :action SelectIn<CR>
-xnoremap <leader>d :action SelectIn<CR>
-onoremap <leader>d :action SelectIn<CR>
-nnoremap <leader>f :action RevealIn<CR>
-xnoremap <leader>f :action RevealIn<CR>
-onoremap <leader>f :action RevealIn<CR>
-nnoremap <leader>b :action Annotate<CR>
-xnoremap <leader>b :action Annotate<CR>
-onoremap <leader>b :action Annotate<CR>
+call Noremap('<leader>d', ':action SelectIn<CR>')
+call Noremap('<leader>f', ':action RevealIn<CR>')
+call Noremap('<leader>b', ':action Annotate<CR>')
+call Noremap('<leader>w', ':w<CR>')
+call Noremap('<leader><leader>w', ':wa<CR>')
+call Noremap('<leader>q', ':q<CR>')
+call Noremap('<leader><leader>q', ':qa<CR>')
+call Noremap('<leader>u', ':action GotoNextError<CR>')
+call Noremap('<leader>i', ':action GotoPreviousError<CR>')
 
-nnoremap <leader>w :w<CR>
-nnoremap <leader><leader>w :wa<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader><leader>q :qa<CR>
-
-nnoremap <leader>u :action GotoNextError<CR>
-xnoremap <leader>u :action GotoNextError<CR>
-onoremap <leader>u :action GotoNextError<CR>
-nnoremap <leader>i :action GotoPreviousError<CR>
-xnoremap <leader>i :action GotoPreviousError<CR>
-onoremap <leader>i :action GotoPreviousError<CR>
-
-nnoremap <leader>h <C-w>w
-xnoremap <leader>h <C-w>w
-onoremap <leader>h <C-w>w
-nnoremap <leader>j <C-w>w
-xnoremap <leader>j <C-w>w
-onoremap <leader>j <C-w>w
-nnoremap <leader>k <C-w>w
-xnoremap <leader>k <C-w>w
-onoremap <leader>k <C-w>w
-nnoremap <leader>l <C-w>w
-xnoremap <leader>l <C-w>w
-onoremap <leader>l <C-w>w
-
-nnoremap <leader>v :vsplit<CR>
-xnoremap <leader>v :vsplit<CR>
-onoremap <leader>v :vsplit<CR>
-nnoremap <leader>c :split<CR>
-xnoremap <leader>c :split<CR>
-onoremap <leader>c :split<CR>
-
-nnoremap <leader>1 :action GoToTab1<CR>
-xnoremap <leader>1 :action GoToTab1<CR>
-onoremap <leader>1 :action GoToTab1<CR>
-nnoremap <leader>2 :action GoToTab2<CR>
-xnoremap <leader>2 :action GoToTab2<CR>
-onoremap <leader>2 :action GoToTab2<CR>
-nnoremap <leader>3 :action GoToTab3<CR>
-xnoremap <leader>3 :action GoToTab3<CR>
-onoremap <leader>3 :action GoToTab3<CR>
-nnoremap <leader>4 :action GoToTab4<CR>
-xnoremap <leader>4 :action GoToTab4<CR>
-onoremap <leader>4 :action GoToTab4<CR>
-nnoremap <leader>5 :action GoToTab5<CR>
-xnoremap <leader>5 :action GoToTab5<CR>
-onoremap <leader>5 :action GoToTab5<CR>
-nnoremap <leader>6 :action GoToTab6<CR>
-xnoremap <leader>6 :action GoToTab6<CR>
-onoremap <leader>6 :action GoToTab6<CR>
-nnoremap <leader>7 :action GoToTab7<CR>
-xnoremap <leader>7 :action GoToTab7<CR>
-onoremap <leader>7 :action GoToTab7<CR>
-nnoremap <leader>8 :action GoToTab8<CR>
-xnoremap <leader>8 :action GoToTab8<CR>
-onoremap <leader>8 :action GoToTab8<CR>
-nnoremap <leader>9 :action GoToTab9<CR>
-xnoremap <leader>9 :action GoToTab9<CR>
-onoremap <leader>9 :action GoToTab9<CR>
+call Noremap('<leader>h', '<C-w>w')
+call Noremap('<leader>j', '<C-w>w')
+call Noremap('<leader>k', '<C-w>w')
+call Noremap('<leader>l', '<C-w>w')
+call Noremap('<leader>v', ':vsplit<CR>')
+call Noremap('<leader>c', ':split<CR>')
+call Noremap('<leader>1', ':action GoToTab1<CR>')
+call Noremap('<leader>2', ':action GoToTab2<CR>')
+call Noremap('<leader>3', ':action GoToTab3<CR>')
+call Noremap('<leader>4', ':action GoToTab4<CR>')
+call Noremap('<leader>5', ':action GoToTab5<CR>')
+call Noremap('<leader>6', ':action GoToTab6<CR>')
+call Noremap('<leader>7', ':action GoToTab7<CR>')
+call Noremap('<leader>8', ':action GoToTab8<CR>')
+call Noremap('<leader>9', ':action GoToTab9<CR>')
 
 " Other commands
-nnoremap 9 :action RiderShowValueOrigin<CR>
-xnoremap 9 :action RiderShowValueOrigin<CR>
-onoremap 9 :action RiderShowValueOrigin<CR>
-nnoremap 0 :action RiderShowValueDestination<CR>
-xnoremap 0 :action RiderShowValueDestination<CR>
-onoremap 0 :action RiderShowValueDestination<CR>
-nnoremap p :action PinActiveEditorTab<CR>
-xnoremap p :action PinActiveEditorTab<CR>
-onoremap p :action PinActiveEditorTab<CR>
+call Noremap('9', ':action RiderShowValueOrigin<CR>')
+call Noremap('0', ':action RiderShowValueDestination<CR>')
+call Noremap('p', ':action PinActiveEditorTab<CR>')
+call Noremap('<leader><leader>r', ':so ~\.ideavimrc<CR>')
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -287,7 +195,4 @@ nnoremap t> yi>
 " Clear search highlights on load
 :nohl
 
-" Reload remaps
-nnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
-xnoremap <leader><leader>r :so ~\.ideavimrc<CR>l
-onoremap <leader><leader>r :so ~\.ideavimrc<CR>l
+:echo '.ideavimrc loaded successfully'

@@ -3,29 +3,28 @@
 
 -------------------------- Settings
 General
-    - 'Homepage' as 'Start Page'
-    - 'Startup with' as 'Start Page'
+    - 'Homepage' as 'Specific Page' with 'about:blank'
+    - 'Startup with' as 'Homepage'
     - Unset 'Show Exit Confirmation Dialog'
     - Unset 'Show Close Window Confirmation Dialog'
 Appearance
     - Set 'Open Settings in a Tab'
     - Unset 'Use Animation'
-    - Set 'Use Monocrhome Settings Icons'
     - Set 'Hide Status Bar'
     - 'Menu Icon Style' as 'Menu Icon'
 Themes/Editor
     - Unset 'Accent from Page'
     - 'Accent' as #107060
     - 'Foreground' as #000000
-    - Under 'Settings' set 'Transparent Background Tabs'
 Start Page
-    - 'Start Page Navigation' as 'Hide Titles'
+    - 'Start Page Navigation' as 'Hide'
     - Unset all the 'Speed Dial Appearance' 'Show' options
 Tabs
-    - 'New Tab Page' as 'Blank Page'
+    - 'New Tab Page' as 'Homepage'
     - 'New Tab Position' as 'After Related Tabs'
     - Unset 'Keep Window Open when Last Tab is Closed'
     - Unset 'Display Trash Can'
+    - Unset 'Display Synced Tabs Button'
     - Unset 'Show Popup Thumbnails'
     - Unset 'Display Close Button'
     - Page Load Progress as 'Favicon Progress'
@@ -58,14 +57,14 @@ Webpages
 -------------------------- Extensions
 Remove
     - Google Drive extension
-Install
+Add
     - Google Analytics Opt-out Add-on (by Google)
     - IBA Opt-out (by Google)
     - uBlock Origin
 
 -------------------------- UI
 - Hit F4 to hide the panel, then right click the top left icon and 'Remove from Toolbar'
-- Right click the search field display button and 'Remove from Toolbar'
+- Right click the magnifier button and 'Remove from Toolbar'
 - Right click the top right profile icon and 'Remove from Toolbar'
 - Hide extension icons as required
 - Open a new instance, then in the start page settings top right unset 'Search Field'

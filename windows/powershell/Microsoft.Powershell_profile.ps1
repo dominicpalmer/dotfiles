@@ -13,24 +13,34 @@ function grep {
     $ArgumentCount = $Arguments.Length
 
     if ($ArgumentCount -eq 0) {
-        Write-Host "No arguments, nothing to do"
+        Write-Host "ERROR: no arguments"
+        Write-Host "Search current directory: grep keyword"
+        Write-Host "Search current and nested directories: grep -r keyword"
         return
     }
 
-    $Recurse = $Arguments[0] -eq '-r'
+    $ShouldRecurse = $Arguments[0] -eq '-r'
 
-    if ($Recurse) {
-        $Before = "Get-ChildItem ./ -Recurse |"
+    if ($ShouldRecurse) {
+        $Command = "Get-ChildItem ./ -Recurse | Select-String "
 
         $RecursiveArgs = $Arguments[1..$ArgumentCount]
-        $After = "$RecursiveArgs"
+        $CommandArgs = "$RecursiveArgs"
     }
     else {
-        $Before = ""
-        $After = "$Arguments"
+        if ($ArgumentCount -gt 1) {
+            Write-Host "ERROR: keyword includes a space"
+            return
+        }
+
+        $Command = "Get-ChildItem ./ | Select-String "
+        $CommandArgs = "$Arguments"
     }
 
-    Invoke-Expression "$Before Select-String $After"
+    $Expression = "$Command $CommandArgs"
+    Write-Host $Expression
+
+    Invoke-Expression $Expression
 }
 
 # Use insert mode line cursor on startup, and switch cursors on mode change
@@ -56,7 +66,7 @@ Set-PSReadlineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c' }
 
-# Autocompletion
+# Complete lines with 'l' from normal mode
 Set-PSReadLineKeyHandler -Key "l" -ViMode Command -ScriptBlock {
     param($key, $arg)
 
@@ -88,12 +98,10 @@ Set-PSReadLineKeyHandler -Key "F" -Function ViBackwardGlob -ViMode Command
 Set-PSReadLineKeyHandler -Key "H" -Function GotoFirstNonBlankOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Key "L" -Function EndOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Key "M" -Function ViJoinLines -ViMode Command
-
-Set-PSReadLineKeyHandler -Key "V" -Function CaptureScreen -ViMode Command
 Set-PSReadLineKeyHandler -Key "U" -Function Redo -ViMode Command
 
 # Unfortunately there's no 'ReplaceChar' function
-# Set-PSReadLineKeyHandler -Key "x" -Function ReplaceChar -ViMode Command
+# Set-PSReadLineKeyHandler -Key "m" -Function ViReplaceChar -ViMode Command
 
 Set-PSReadLineKeyHandler -Key "s" -Function DeleteChar -ViMode Command
 Set-PSReadLineKeyHandler -Key "Backspace" -Function DeleteChar -ViMode Command
@@ -111,10 +119,10 @@ Set-PSReadLineKeyHandler -Chord "t,b" -Function ViYankPreviousWord -ViMode Comma
 Set-PSReadLineKeyHandler -Chord "t,B" -Function ViYankPreviousGlob -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,e" -Function ViYankEndOfWord -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,E" -Function ViYankEndOfGlob -ViMode Command
-Set-PSReadLineKeyHandler -Chord "t,L" -Function ViYankToEndOfLine -ViMode Command
-Set-PSReadLineKeyHandler -Chord "t,H" -Function ViYankToFirstChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,l" -Function ViYankRight -ViMode Command
+Set-PSReadLineKeyHandler -Chord "t,L" -Function ViYankToEndOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,h" -Function ViYankLeft -ViMode Command
+Set-PSReadLineKeyHandler -Chord "t,H" -Function ViYankToFirstChar -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,t" -Function ViYankLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,0" -Function ViYankBeginningOfLine -ViMode Command
 Set-PSReadLineKeyHandler -Chord "t,Q" -Function ViYankPercent -ViMode Command

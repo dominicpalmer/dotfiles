@@ -1,45 +1,22 @@
 --------------------- Extensions
 VSVim
-    - Config file symlinked
-    - <A-i>, <S-CR>, <C-,> as handled by VsVim at Settings/VsVim/Keyboard
-    - <C-A-v> to VsVim.ToggleEnabled
 GitHub Copilot
-    - Sign in and restart to enable
-    - <A-n> to Edit.Copilot.TriggerInlineSuggestion
 Visual Studio Show Inline Errors
-    - Enable everything except 'Show Null Error Markings'
 Solution Error Visualiser
-    - Only underline items containing errors
 Editor Guidelines
-    - Guidelines at 120 and 150
 Roslynator
-    - Config file symlinked
-Hot Commands
 Hot Tabs
 Trailing Whitespace Visualiser
-Match Margin 2022
 Time Stamp Margin 2022
-Visual Studio Spell Checker
 Output Enhancer
+Visual Studio Spell Checker
 File Icons
-SpecFlow for Visual Studio 2022
 
---------------------- Settings
+--------------------- IDE Settings
 Environment/Documents:
     - 'Show miscellaneous files in Solution Explorer'
-Environment/Keyboard (Global maps):
-    - <A-CR> to EditorContextMenus.CodeWindow.QuickActionsForPosition
-    - <C-o> to Edit.GoToAll
-    - <C-n> to Edit.FindInFiles
-    - <C-m> to Edit.ReplaceInFiles
-    - F1 to Edit.GoToDefinition
-    - F3 to Edit.FindAllReferences
-    - F4 to Edit.GoToImplementation
-    - F6 to Edit.ToggleBookmark
-    - F7 to Build.BuildSolution
-    - F8 to Build.CleanSolution
 Environment/Preview Features
-    - 'Rich Code Navigation' and 'New Visual Studio Search Experience'
+    - 'New Visual Studio Search Experience'
 Environment/Tabs and Windows:
     - 'Insert new tabs to the right of existing tabs'
     - 'Show tabs in multiple rows'
@@ -58,8 +35,31 @@ Text Editor/C#/Advanced:
     - Under 'Rename' set 'Where should the rename UI be shown' as 'dashboard in top right'
     - Under 'Using Directives' set 'Place system directives first when sorting usings'
     - Under 'Outlining' unset everything
-    - Under 'Editor Help' unset 'Underline reassigned variables'
     - Under 'Implement Interface or Abstract Class' set 'Prefer auto properties'
     - Under 'Inheritance Margin' set 'Combine inheritance margin with indicator margin'
 Text Editor/C#/IntelliSense:
     - 'Show completion list after a character is deleted'
+
+--------------------- Extension Settings
+Visual Studio Show Inline Errors
+    - Enable everything except 'Show Null Error Markings'
+Solution Error Visualiser
+    - Only underline items containing errors
+Editor Guidelines
+    - Guidelines at 120 and 150
+Roslynator
+    - Config file (manually placed or symlinked)
+
+-------------------------- Keyboard Shortcuts
+Under 'Environment/Keyboard' (global maps):
+- <C-,> to Tools.Options
+- <A-CR> to EditorContextMenus.CodeWindow.QuickActionsForPosition
+- <C-;> to Window.QuickLaunch
+- <C-o> to Edit.GoToAll
+- <C-n> to Edit.FindInFiles
+- <C-m> to Edit.ReplaceInFiles
+- F1 to Edit.GoToImplementation
+- F7 to Build.BuildSolution
+- F8 to Build.CleanSolution
+- <C-A-v> to VsVim.ToggleEnabled
+- <A-n> to Edit.Copilot.TriggerInlineSuggestion // No next/previous commands
