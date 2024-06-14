@@ -9,7 +9,6 @@
   "editor.fontSize": 15,
 
   // Scrolling: use minimap, hide default scrollbar, scrolloff=8
-  "editor.minimap.maxColumn": 75,
   "editor.minimap.showSlider": "always",
   "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.cursorSurroundingLines": 8,
@@ -18,11 +17,6 @@
   "editor.quickSuggestionsDelay": 0,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.acceptSuggestionOnCommitCharacter": false,
-
-  // Debugging
-  "debug.console.fontSize": 13,
-  "debug.console.lineHeight": 18,
-  "debug.toolBarLocation": "docked",
 
   // File tree: wider indents, show guidelines and buttons, expand folders
   "workbench.iconTheme": "vscode-icons",
@@ -37,19 +31,25 @@
   "search.searchOnTypeDebouncePeriod": 0,
   "search.smartCase": true,
 
+  // Tabs
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+
   // General functionality
   "editor.rulers": [ 80, 100, 120 ],
   "[Log]": { "editor.wordWrap": "on" },
   "workbench.startupEditor": "none",
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.editor.openPositioning": "last",
   "workbench.settings.editor": "json",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
   "diffEditor.ignoreTrimWhitespace": false,
 
-  // Allow trailing commas in VSCode config
+  // Allow trailing commas in VSCode config files
 	"json.schemas": [{
 		"fileMatch": [ "settings.jsonc", "keybindings.jsonc" ],
 		"schema": { "allowTrailingCommas": true },
@@ -69,7 +69,7 @@
   // Gitlens: default to no line blame
   "gitlens.currentLine.enabled": false,
 
-  // Vim Settings
+  // Vim
   "vim.vimrc.enable": true,
   "vim.ignorecase": true,
   "vim.smartcase": true,
@@ -85,105 +85,21 @@
     "<C-s>": false,
     "<C-f>": false,
     "<C-y>": false,
-    "<C-z>": false
+    "<C-z>": false,
+    "<C-q>": false,
+    "<C-h>": false,
+    "<C-j>": false,
+    "<C-k>": false,
+    "<C-l>": false,
   },
 
+  // No support for multi commands in .vscodevimrc, no support for <leader> in keybindings.json
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Common
-    // Helps get out of visual block
-    { "before": [ "u" ], "commands": [ "undo", "extension.vim_ctrl+[", "extension.vim_ctrl+[" ] },
-    { "before": [ "U" ], "commands": [ "redo" ] },
-    { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
-    { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
-    { "before": [ "/" ], "commands": [ "editor.action.moveLinesUpAction" ] },
-    { "before": [ "g", "h" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "j" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
-    { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
-    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "'" ], "commands": [ "editor.action.commentLine" ] },
-    { "before": [ "<leader>", "e" ], "commands": [ "editor.action.refactor" ] },
-    { "before": [ "<leader>", "d" ], "commands": [ "editor.action.revealInExplorer" ] },
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.prevInFiles" ] },
-    { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
-    { "before": [ "<leader>", "j" ], "commands": [ "workbench.action.navigateDown" ] },
-    { "before": [ "<leader>", "k" ], "commands": [ "workbench.action.navigateUp" ] },
-    { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
-    { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
-    { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
-    { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
-    { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
-    { "before": [ "<leader>", "4" ], "commands": [ "workbench.action.openEditorAtIndex4" ] },
-    { "before": [ "<leader>", "5" ], "commands": [ "workbench.action.openEditorAtIndex5" ] },
-    { "before": [ "<leader>", "6" ], "commands": [ "workbench.action.openEditorAtIndex6" ] },
-    { "before": [ "<leader>", "7" ], "commands": [ "workbench.action.openEditorAtIndex7" ] },
-    { "before": [ "<leader>", "8" ], "commands": [ "workbench.action.openEditorAtIndex8" ] },
-    { "before": [ "<leader>", "9" ], "commands": [ "workbench.action.openEditorAtIndex9" ] },
-    { "before": [ "p" ], "commands": [ "workbench.action.pinEditor" ] },
-    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.unpinEditor" ] },
-    { "before": [ "<leader>", "f" ], "commands": [ "editor.action.revealFileInOs" ] },
-    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
-
-    // Normal
-    // Find/replace for the word under the cursor, without first having to visual select it
     { "before": [ "<leader>", "n" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.findInFiles" ] },
     { "before": [ "<leader>", "m" ], "commands": [ "editor.action.addSelectionToNextFindMatch", "workbench.action.replaceInFiles" ] },
   ],
 
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // Common
-    { "before": [ "u" ], "commands": [ "undo", "extension.vim_ctrl+[", "extension.vim_ctrl+[" ] },
-    { "before": [ "U" ], "commands": [ "redo" ] },
-    { "before": [ "<CR>" ], "commands": [ "editor.action.insertLineAfter" ] },
-    { "before": [ "\\" ], "commands": [ "editor.action.moveLinesDownAction" ] },
-    { "before": [ "/" ], "commands": [ "editor.action.moveLinesUpAction" ] },
-    { "before": [ "g", "h" ], "commands": [ "editor.action.showHover" ] },
-    { "before": [ "g", "j" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "k" ], "commands": [ "editor.action.goToImplementation" ] },
-    { "before": [ "g", "l" ], "commands": [ "editor.action.goToReferences" ] },
-    { "before": [ "g", "i" ], "commands": [ "editor.action.organizeImports" ] },
-    { "before": [ "g", "o" ], "commands": [ "editor.action.formatDocument" ] },
-    { "before": [ "<leader>", ";" ], "commands": [ "workbench.action.showCommands" ] },
-    { "before": [ "<leader>", "o" ], "commands": [ "workbench.action.quickOpen" ] },
-    { "before": [ "<leader>", "r" ], "commands": [ "editor.action.rename" ], "when": [ "editorHasRenameProvider && editorTextFocus && !editorReadonly" ] },
-    { "before": [ "<leader>", "'" ], "commands": [ "editor.action.commentLine" ] },
-    { "before": [ "<leader>", "e" ], "commands": [ "editor.action.refactor" ] },
-    { "before": [ "<leader>", "d" ], "commands": [ "editor.action.revealInExplorer" ] },
-    { "before": [ "<leader>", "u" ], "commands": [ "editor.action.marker.nextInFiles" ] },
-    { "before": [ "<leader>", "i" ], "commands": [ "editor.action.marker.prevInFiles" ] },
-    { "before": [ "<leader>", "h" ], "commands": [ "workbench.action.navigateLeft" ] },
-    { "before": [ "<leader>", "j" ], "commands": [ "workbench.action.navigateDown" ] },
-    { "before": [ "<leader>", "k" ], "commands": [ "workbench.action.navigateUp" ] },
-    { "before": [ "<leader>", "l" ], "commands": [ "workbench.action.navigateRight" ] },
-    { "before": [ "<leader>", "v" ], "commands": [ "workbench.action.splitEditor" ] },
-    { "before": [ "<leader>", "c" ], "commands": [ "workbench.action.splitEditorOrthogonal" ] },
-    { "before": [ "<leader>", "1" ], "commands": [ "workbench.action.openEditorAtIndex1" ] },
-    { "before": [ "<leader>", "2" ], "commands": [ "workbench.action.openEditorAtIndex2" ] },
-    { "before": [ "<leader>", "3" ], "commands": [ "workbench.action.openEditorAtIndex3" ] },
-    { "before": [ "<leader>", "4" ], "commands": [ "workbench.action.openEditorAtIndex4" ] },
-    { "before": [ "<leader>", "5" ], "commands": [ "workbench.action.openEditorAtIndex5" ] },
-    { "before": [ "<leader>", "6" ], "commands": [ "workbench.action.openEditorAtIndex6" ] },
-    { "before": [ "<leader>", "7" ], "commands": [ "workbench.action.openEditorAtIndex7" ] },
-    { "before": [ "<leader>", "8" ], "commands": [ "workbench.action.openEditorAtIndex8" ] },
-    { "before": [ "<leader>", "9" ], "commands": [ "workbench.action.openEditorAtIndex9" ] },
-    { "before": [ "p" ], "commands": [ "workbench.action.pinEditor" ] },
-    { "before": [ "<leader>", "p" ], "commands": [ "workbench.action.unpinEditor" ] },
-    { "before": [ "<leader>", "f" ], "commands": [ "editor.action.revealFileInOs" ] },
-    { "before": [ "<leader>", "b" ], "commands": [ "gitlens.toggleLineBlame" ] },
-
-    // Visual
-    // Find/replace for the word under the cursor
-    { "before": [ "<leader>", "n" ], "commands": [ "workbench.action.findInFiles" ] },
-    { "before": [ "<leader>", "m" ], "commands": [ "workbench.action.replaceInFiles" ] },
-    { "before": [ "<leader>", "s" ], "commands": [ "editor.action.surroundWithSnippet" ] },
-  ],
-
+  // UI driven
   "window.zoomLevel": -0.2,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Default Dark+",
 }

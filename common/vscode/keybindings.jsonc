@@ -1,53 +1,25 @@
 [
-  // Replace in file. Unfortunately no support for preselect from normal mode
-  {
-    "key": "alt+;",
-    "command": "editor.action.startFindReplaceAction",
-    "when": "vim.mode == 'Normal'",
-    },
-  {
-    "key": "alt+;",
-    "command": "editor.action.startFindReplaceAction",
-    "when": "vim.mode == 'Visual' || vim.mode == 'VisualLine'"
-  },
+  // Required
+  { "key": "ctrl+;", "command": "workbench.action.showCommands" },
+  { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
+  { "key": "ctrl+n", "command": "workbench.action.findInFiles" },
+  { "key": "ctrl+m", "command": "workbench.action.replaceInFiles" },
+  { "key": "F7", "command": "workbench.action.tasks.build" },
+  { "key": "ctrl+alt+v", "command": "toggleVim" },
 
-  // Insert line above
-  {
-    "key": "shift+enter",
-    "command": "editor.action.insertLineBefore",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-
-  // Forward, back
+  // Workarounds for alt commands (modifier not supported by .vscodevimrc)
   { "key": "alt+i", "command": "workbench.action.navigateForward" },
   { "key": "alt+u", "command": "workbench.action.navigateBack" },
+  { "key": "alt+;", "command": "editor.action.startFindReplaceAction" },
+  { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-f>" ] } },
+  { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-b>" ] } },
+  { "key": "alt+enter", "command": "editor.action.quickFix" },
 
-  // Ctrl based panel focus
+  // Workarounds for navigation in non-editable windows and sidebars
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
   { "key": "ctrl+j", "command": "workbench.action.navigateDown" },
-  { "key": "ctrl+k", "command": "workbench.action.focusLastEditorGroup" },
+  { "key": "ctrl+k", "command": "workbench.action.navigateUp" },
   { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
-
-  // Vertical navigation for the find and find-replace menus
-  {
-    "key": "ctrl+j",
-    "command": "workbench.action.focusLastEditorGroup",
-    "when": "findWidgetVisible && findInputFocussed"
-  },
-  {
-    "key": "ctrl+k",
-    "command": "actions.find",
-    "when": "editorFocus && findWidgetVisible"
-  },
-
-  // Exit search with Esc
-  {
-    "key": "escape",
-    "command": "workbench.action.focusLastEditorGroup",
-    "when": "searchInputBoxFocus && searchViewletVisible"
-  },
-
-  // Ctrl based tab shifting
   { "key": "ctrl+1", "command": "workbench.action.openEditorAtIndex1" },
   { "key": "ctrl+2", "command": "workbench.action.openEditorAtIndex2" },
   { "key": "ctrl+3", "command": "workbench.action.openEditorAtIndex3" },
@@ -57,87 +29,14 @@
   { "key": "ctrl+7", "command": "workbench.action.openEditorAtIndex7" },
   { "key": "ctrl+8", "command": "workbench.action.openEditorAtIndex8" },
   { "key": "ctrl+9", "command": "workbench.action.openEditorAtIndex9" },
-
-  // Toggle lefthand sidebar
-  { "key": "ctrl+alt+h", "command": "workbench.action.toggleSidebarVisibility" },
-
-  // Toggle panel
-  {
-    "key": "ctrl+alt+j",
-    "command": "extension.multiCommand.execute",
-    "args": {
-      "sequence": [
-        "workbench.action.togglePanel",
-        "workbench.action.focusLastEditorGroup"
-      ]
-    },
-  },
-
-  // Toggle righthand sidebar
-  { "key": "ctrl+alt+l", "command": "workbench.action.toggleAuxiliaryBar" },
-
-  // Toggle bookmarks with F4
-  { "key": "F4", "command": "bookmarks.toggle" },
-
-  // Build with F7
-  { "key": "F7", "command": "workbench.action.tasks.build" },
-  { "key": "F7", "command": "-editor.action.diffReview.next", "when": "isInDiffEditor" },
-  {
-    "key": "F7",
-    "command": "-editor.action.wordHighlight.next",
-    "when": "editorTextFocus && hasWordHighlights"
-  },
-
-  // Ctrl based menu shortcuts
-  { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
-  { "key": "ctrl+;", "command": "workbench.action.showCommands" },
-  { "key": "ctrl+n", "command": "workbench.action.findInFiles" },
-  { "key": "ctrl+m", "command": "workbench.action.replaceInFiles" },
-
-  // ctrl+q in place of ctrl+w as backup for <leader>q, ctrl+shift+q to close VSCode
   { "key": "ctrl+q", "command": "workbench.action.closeActiveEditor" },
-  { "key": "ctrl+q", "command": "-workbench.action.quit" },
-  { "key": "ctrl+shift+q", "command": "workbench.action.quit" },
+  { "key": "ctrl+alt+h", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+alt+l", "command": "workbench.action.toggleAuxiliaryBar" },
+  { "key": "ctrl+alt+j", "command": "workbench.action.togglePanel" },
+  { "key": "escape", "command": "workbench.action.focusLastEditorGroup", "when": "searchInputBoxFocus && searchViewletVisible" },
 
-  // Get pageup and pagedown working with VSCodeVim's visual select
-  {
-    "key": "alt+j",
-    "command": "vim.remap",
-    "when": "!inQuickOpen && inputFocus && vim.mode == 'Normal'",
-    "args": { "after": [ "<C-f>" ]
-    }
-  },
-  {
-    "key": "alt+j",
-    "command": "vim.remap",
-    "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'",
-    "args": { "after": [ "<C-f>" ] }
-  },
-  {
-    "key": "alt+k",
-    "command": "vim.remap",
-    "when": "!inQuickOpen && inputFocus && vim.mode == 'Normal'",
-    "args": { "after": [ "<C-b>" ] }
-  },
-  {
-    "key": "alt+k",
-    "command": "vim.remap",
-    "when": "!inQuickOpen && inputFocus && vim.mode == 'VisualLine'",
-    "args": { "after": [ "<C-b>" ] }
-  },
-
-  // Quckfix with Alt+Enter
-  {
-    "key": "alt+enter",
-    "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+oem_period",
-    "command": "-editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-
-  // Toggle VSCodeVim
-  { "key": "ctrl+alt+v", "command": "toggleVim" },
+  // Other workarounds (e.g. keys/modifiers not supported by .vscodevimrc)
+  { "key": "shift+enter", "command": "editor.action.insertLineBefore" },
+  { "key": "\\", "command": "editor.action.moveLinesDownAction", "when": "vim.mode == 'Visual' || vim.mode == 'VisualLine'" },
+  { "key": "/", "command": "editor.action.moveLinesUpAction", "when": "vim.mode == 'Visual' || vim.mode == 'VisualLine'" },
 ]

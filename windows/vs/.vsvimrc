@@ -3,6 +3,7 @@ mapclear
 
 " --------------------- Settings
 set scrolloff=8
+set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400

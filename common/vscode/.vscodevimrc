@@ -7,6 +7,8 @@ noremap J }
 noremap K {
 noremap L $
 noremap M J
+nnoremap \ :vsc editor.action.moveLinesDownAction<CR>j
+nnoremap / :vsc editor.action.moveLinesUpAction<CR>k
 nnoremap z mz>>'z
 vnoremap z >gv
 nnoremap , mz<<'z
@@ -34,17 +36,55 @@ noremap b <C-v>
 nnoremap ' ~h
 vnoremap ' ~
 nnoremap <CR> o<Esc>
-nnoremap <S-CR> O<Esc>
+noremap u :vsc undo<CR>
+noremap U :vsc redo<CR>
+
+" g commands
+noremap gh :vsc editor.action.showHover<CR>
+noremap gj :vsc editor.action.goToReferences<CR>
+noremap gk :vsc editor.action.goToImplementation<CR>
+noremap gl :vsc editor.action.goToReferences<CR>
+noremap gi :vsc editor.action.organizeImports<CR>
+noremap go :vsc editor.action.formatDocument<CR>
 
 " Leader commands
+noremap <leader>; :vsc workbench.action.showCommands<CR>
+noremap <leader>o :vsc workbench.action.quickOpen<CR>
+vnoremap <leader>n :vsc workbench.action.findInFiles<CR>
+vnoremap <leader>m :vsc workbench.action.replaceInFiles<CR>
+
+noremap <leader>r :vsc editor.action.rename<CR>
+noremap <leader>' :vsc Edit.ToggleLineComment<CR>
+vnoremap <leader>s :vsc editor.action.surroundWithSnippet<CR>
+noremap <leader>e :vsc editor.action.refactor<CR>
+noremap <leader>d :vsc revealFileInOS<CR>
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :qa<CR>
+noremap <leader>u :vsc editor.action.marker.nextInFiles<CR>
+noremap <leader>i :vsc editor.action.marker.prevInFiles<CR>
+
+noremap <leader>h :vsc workbench.action.navigateLeft<CR>
+noremap <leader>j :vsc workbench.action.navigateDown<CR>
+noremap <leader>k :vsc workbench.action.navigateUp<CR>
+noremap <leader>l :vsc workbench.action.navigateRight<CR>
+noremap <leader>v :vsc workbench.action.splitEditor<CR>
+noremap <leader>c :vsc workbench.action.splitEditorOrthogonal<CR>
+noremap <leader>1 :vsc workbench.action.openEditorAtIndex1<CR>
+noremap <leader>2 :vsc workbench.action.openEditorAtIndex2<CR>
+noremap <leader>3 :vsc workbench.action.openEditorAtIndex3<CR>
+noremap <leader>4 :vsc workbench.action.openEditorAtIndex4<CR>
+noremap <leader>5 :vsc workbench.action.openEditorAtIndex5<CR>
+noremap <leader>6 :vsc workbench.action.openEditorAtIndex6<CR>
+noremap <leader>7 :vsc workbench.action.openEditorAtIndex7<CR>
+noremap <leader>8 :vsc workbench.action.openEditorAtIndex8<CR>
+noremap <leader>9 :vsc workbench.action.openEditorAtIndex9<CR>
 
 " Other commands
 nnoremap <C-a> ggVG
 vnoremap <C-a> <Esc>ggVG
+noremap p :vsc extension.togglePinEditor<CR>
 
 " Inner shortcuts
 nnoremap c" ci"

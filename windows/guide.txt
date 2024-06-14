@@ -1,9 +1,9 @@
 1. SophiaScript.
   a) Download the SophiaScript wrapper and library zips from https://github.com/farag2/Sophia-Script-for-Windows, then extract.
   b) Take windows/debloat/preset.ps1 from dotfiles. Place in the extracted wrapper folder alongside the default.
-  b) Open the script wrapper and import the preset.
-  c) Go to 'Output Console' and run the script. As it runs, choose options from terminal as appropriate.
-  d) Restart.
+  c) Open the script wrapper and import the preset.
+  d) Go to 'Output Console' and run the script. As it runs, choose options from terminal as appropriate.
+  e) Restart.
 
 2. Windows10Debloater.
   a) Copy script contents from https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10Debloater.ps1

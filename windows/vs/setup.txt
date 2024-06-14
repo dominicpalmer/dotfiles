@@ -1,12 +1,12 @@
 --------------------- Extensions
-VSVim
-GitHub Copilot
 Visual Studio Show Inline Errors
-Solution Error Visualiser
+GitHub Copilot Completions
+VSVim 2022
+Solution Error Visualizer 2022
 Editor Guidelines
 Roslynator
 Hot Tabs
-Trailing Whitespace Visualiser
+Trailing Whitespace Visualizer
 Time Stamp Margin 2022
 Output Enhancer
 Visual Studio Spell Checker
@@ -14,31 +14,31 @@ File Icons
 
 --------------------- IDE Settings
 Environment/Documents:
-    - 'Show miscellaneous files in Solution Explorer'
+    - Set 'Show miscellaneous files in Solution Explorer'
 Environment/Preview Features
-    - 'New Visual Studio Search Experience'
+    - Set 'New Visual Studio Search Experience'
 Environment/Tabs and Windows:
-    - 'Insert new tabs to the right of existing tabs'
-    - 'Show tabs in multiple rows'
-    - 'Show pinned tabs in a separate row'
-    - 'Colorize document tabs by Project'
+    - Set 'Insert new tabs to the right of existing tabs'
+    - Set 'Colorize document tabs by Project'
+    - Set 'Show tabs in multiple rows'
+    - Set 'Show pinned tabs in a separate row'
 Text Editor/General/Display:
-    - 'View zero-width characters'
+    - Set 'View zero-width characters'
 Text Editor/Advanced
-    - 'Default IntelliSense completion mode' as 'Tab-only'
+    - Set 'Default IntelliSense completion mode' as 'Tab-only'
 Text Editor/All Languages/General:
-    - 'Line numbers'
-    - 'Navigation bar'
+    - Set 'Navigation bar'
 Text Editor/All Languages/Scroll Bars:
-    - 'Map mode' for vertical scroll bar, with narrow width
+    - Set 'Map mode' for vertical scroll bar, with narrow width
 Text Editor/C#/Advanced:
     - Under 'Rename' set 'Where should the rename UI be shown' as 'dashboard in top right'
     - Under 'Using Directives' set 'Place system directives first when sorting usings'
     - Under 'Outlining' unset everything
-    - Under 'Implement Interface or Abstract Class' set 'Prefer auto properties'
     - Under 'Inheritance Margin' set 'Combine inheritance margin with indicator margin'
 Text Editor/C#/IntelliSense:
     - 'Show completion list after a character is deleted'
+Non-Settings User Interface
+    - Hide all buttons up top except essentials
 
 --------------------- Extension Settings
 Visual Studio Show Inline Errors
@@ -46,12 +46,13 @@ Visual Studio Show Inline Errors
 Solution Error Visualiser
     - Only underline items containing errors
 Editor Guidelines
-    - Guidelines at 120 and 150
+    - Guidelines at 120 and 150 through user interface
 Roslynator
     - Config file (manually placed or symlinked)
 
 -------------------------- Keyboard Shortcuts
 Under 'Environment/Keyboard' (global maps):
+- Remove shortcuts bound to <A-;>
 - <C-,> to Tools.Options
 - <A-CR> to EditorContextMenus.CodeWindow.QuickActionsForPosition
 - <C-;> to Window.QuickLaunch
@@ -62,4 +63,5 @@ Under 'Environment/Keyboard' (global maps):
 - F7 to Build.BuildSolution
 - F8 to Build.CleanSolution
 - <C-A-v> to VsVim.ToggleEnabled
-- <A-n> to Edit.Copilot.TriggerInlineSuggestion // No next/previous commands
+// Doesn't work from .vsvimrc, and no next/previous commands available
+- <A-l> to Edit.Copilot.TriggerInlineSuggestion

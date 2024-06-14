@@ -5,12 +5,12 @@ IntelliCode
 IntelliCode API Usage Examples
 IntelliCode Completions
 Vim
-multi-command
 Trailing Spaces
+Toggle Pin Editor
 PowerShell
 XML
 YAML
 vscode-icons
 
--------------------------- Settings, layout
-settings.json and keybindings.json linked
+-------------------------- User Interface
+Right click top bar and disable all UI elements except the file menu

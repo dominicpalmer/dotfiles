@@ -8,19 +8,13 @@ CodeGlance Pro
 InlineProblems
 GitHub Copilot
 IdeaVim
-SpecFlow for Rider
-Gherkin
-Structured Logging
-.env files support
 
 -------------------------- IDE Settings
-User Interface
-    - Right click the status bar and set 'Memory Indicator'
-    - Right click the pencil icons and 'Move to Status Bar'
-    - Under the 'Debug' tool window, click 'View Breakpoints' and set
-    'CLR Exception Breakpoints' and 'Exception Breakpoints'
+Appearance & Behaviour/New UI
+    - Unset 'Enable new UI'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Green'
+    - 'Zoom' as required (e.g. 110%)
     - Set 'Show tree indent guides'
     - Unset 'Smooth scrolling'
     - In 'Tool Windows' set 'Widescreen tool window layout'
@@ -28,6 +22,8 @@ Appearance & Behaviour/System Settings
     - 'Reopen projects on startup'
 Appearance & Behaviour/Notifications
     - Unset 'Display balloon notifications'
+Keymap
+    - Set keymap to 'Visual Studio 2022'
 Editor/General
     - Unset 'Enable smooth scrolling'
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
@@ -35,6 +31,7 @@ Editor/General
     - Unset 'Keep trailing spaces on caret line'
     - Set 'Remove trailing blank lines at the end of saved files'
     - In 'Appearance'
+        - Unset 'Show sticky lines while scrolling'
         - Set 'Show whitespaces' for 'Trailing' and 'Selection'
         - Unset 'Show intention bulb'
     - In 'Code Completion'
@@ -51,53 +48,63 @@ Editor/General
         - Set 'Enable preview tab'
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
+    - In 'Gutter Icons'
+        - Unset 'Show gutter icons'
     - In 'Typing Assistance'
         - Unset 'Jump outside of closing brackets with tab'
-Editor/Font
-    - 'Font' as 'Cascadia Code', size 14, line height 1
+Editor/Color Scheme/Font
+    - 'Font' as 'Cascadia Code PL', size as required (e.g. 14), line height 1
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
-Editor/Members Generation
-    - 'Generated member default body style' as 'Return default value'
+Version Control
+    - Under 'File Status Colors' unset everything in the list
 Build, Execution, Deployment/Debugger
     - Set 'Scroll execution point to center'
     - Set 'Truncate presentation of long strings' threshold to 75
-Build, Execution, Deployment/Toolset and Build
-    - Set 'Restore NuGet packages before build'
 Advanced Settings/Editor Tabs
     - Unset 'Perform hide all Tool Windows with double-click on editor tab'
 Advanced Settings/Search Everywhere
     - Set 'Sort results in the All tab based on machine learning'
+Non-Settings User Interface
+    - Right click the status bar and set 'Memory Indicator'
+    - Right click the pencil icons and 'Move to Status Bar'
+    - Under the 'Debug' tool window, click 'View Breakpoints' and set
+    'CLR Exception Breakpoints'
 
 -------------------------- Plugin Settings
+CodeGlance Pro
+    - 'Pixels per line' as 2
+    - 'Viewport Border Color' as 000000
+    - 'Viewport Border Thickness' as 2
 InlineProblems
     - Unset 'Draw boxes around problem labels'
     - Set 'Italic problem labels'
     - 'Error text color' as FF0000
+    - Unset 'Highlight errors'
     - Set 'Show weak warnings' and 'Show infos'
-CodeGlance Pro
-    - 'Pixels per line' as 1
-    - 'Viewport Border Color' as 000000
-    - 'Viewport Border Thickness' as 2
+    - Set 'Hide Original Scrollbar and ErrorStripes'
+    - From user interface, right click map and unset 'Show quick hide button'
 GitHub Copilot
-    - Sign in and restart to enable
     - Set 'Color for completions' as 285F23
 
 -------------------------- Keyboard Shortcuts
-- Remove 'Search Everywhere' bound to <C-,>
-- <C-,> to 'Settings'
+Set 'remove' if/when prompted.
+- Remove shortcuts bound to <C-,>
+- <C-,> to 'Open Settings' (with 'remove')
 - <C-;> to 'SearchEverywhere'
-- <C-o> to 'GoToFile'
-- <C-n> to 'Find in Files'
-- <C-m> to 'Replace in Files'
-- F1 to 'GotoDeclaration'
+- <C-o> to 'GoToFile' (with 'remove')
+- <C-n> to 'Find in Files' (with 'remove')
+- <C-m> to 'Replace in Files' (with 'remove')
+- F1 to 'GotoDeclaration' (with 'remove')
 - F7 to 'BuildSolutionAction'
 - F8 to 'CleanSolutionAction'
-- [DataGrip only?] F2 to 'RenameElement'
 - <C-A-v> to 'VimPluginToggle'
-- <A-n> to 'copilot.showCompletions'
-- <A-j> to 'copilot.cycleNextInlays'
-- <A-k> to 'copilot.cyclePrevInlays'
+// TODO: check if showCompletions can be removed in favour of 'Show Next'
+// TODO: check if copilot commands can go in .ideavimrc
+- <A-l> to 'Copilot: Show Completions'
+- <A-n> to 'Copilot: Show Next Completions'
+- <A-m> to 'Copilot: Show Previous Completions'
+- [DataGrip] F2 to 'RenameElement'
 
 -------------------------- [Included with theme] Editor Colour Scheme Details
 Editor/Color Scheme/General/Code
