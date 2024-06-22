@@ -110,7 +110,7 @@ noremap <leader>9 :vsc Window.GoToPinnedTab9<CR>
 
 " Other commands
 noremap p :vsc Window.PinTab<CR>
-noremap <leader><leader>r :so ~\.vsvimrc<CR>
+noremap <leader><leader>r :so ~\.vsvimrc<CR>l
 
 " Inner shortcuts
 nnoremap c" ci"
@@ -161,5 +161,3 @@ nnoremap t> yi>
 
 " Clear search highlights on load
 :nohl
-
-:echo '.vsvimrc loaded successfully'

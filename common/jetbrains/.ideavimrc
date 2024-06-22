@@ -114,8 +114,8 @@ call Noremap('<leader>r', ':action RenameElement<CR>')
 call Noremap("<leader>'", ":action CommentByLineComment<CR>")
 xnoremap <leader>s :action SurroundWith<CR>
 xnoremap <leader>e :action ExtractMethod<CR>
-call Noremap('<leader>d', ':action RevealIn<CR>')
-call Noremap('<leader>f', ':action SelectIn<CR>')
+call Noremap('<leader>d', ':action SelectIn<CR>')
+call Noremap('<leader>f', ':action RevealIn<CR>')
 call Noremap('<leader>b', ':action Annotate<CR>')
 call Noremap('<leader>w', ':w<CR>')
 call Noremap('<leader><leader>w', ':wa<CR>')

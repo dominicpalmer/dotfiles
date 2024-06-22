@@ -1,40 +1,15 @@
-1. SophiaScript.
-  a) Download the SophiaScript wrapper and library zips from https://github.com/farag2/Sophia-Script-for-Windows, then extract.
-  b) Take windows/debloat/preset.ps1 from dotfiles. Place in the extracted wrapper folder alongside the default.
-  c) Open the script wrapper and import the preset.
-  d) Go to 'Output Console' and run the script. As it runs, choose options from terminal as appropriate.
-  e) Restart.
+1. Debloat via SophiaScript: https://github.com/farag2/Sophia-Script-for-Windows
 
-2. Windows10Debloater.
-  a) Copy script contents from https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10Debloater.ps1
-  b) Run 'Set-ExecutionPolicy Unrestricted -Force', then run the script.
-  c) Delete C:/Temp/Windows10Debloater, so SophiaScript can be re-run later.
+2. Install Nvidia Control Panel and Ubuntu LTS from Microsoft Store. They may have been deleted somewhere during the debloat process.
 
-3. Privatezilla.
-  a) Download UI app from https://github.com/builtbybel/privatezilla/releases/
-  b) Run it, click analyze to see what you currently have in place.
-  c) Select options, then 'Apply selected' to make new changes.
-  Note that all red fields are changed to their opposite value.
-
-4. Bloatbox.
-  a) Download from https://github.com/builtbybel/bloatbox/releases
-  b) Run and verify that no bloatware apps are present.
-  c) Check the repos 'marketplace' scripts. Download 'Block telemetry.ps1'.
-  d) Open the script locally and remove references to 'force-mkdir'. The HKLM registry assignment at the start will work without the
-  force-mkdir call. Also comment out the 'causes problems with Microsoft Store' IP at the bottom.
-  e) Run the script as admin.
-
-5. Install Nvidia Control Panel and Ubuntu LTS from Microsoft Store. They may have been deleted somewhere during the debloat process.
-
-6. Walkthrough of settings, including validation of debloat changes.
+3. Walkthrough of settings, including validation of debloat changes.
   a) UI (including taskbar links hack)
   b) Settings GUI
   c) Control panel
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-7. Programs, as required. Install to C:\Program Files\ where possible.
+4. Programs, as required. Install to C:\Program Files\ where possible.
   - Nvidia Graphics Driver
-  - Vivaldi
   - Mozilla Firefox
   - Mozilla Thunderbird
   - LibreOffice
@@ -46,6 +21,8 @@
   - CopyQ (custom install with 'Pinned Items' plugin, launch on startup)
   - Everything
   - ImageGlass
+  - Okular
+  - Krita
   - TranslucentTB
   - AutoHotKey
   - Greenshot (launch on startup)
@@ -53,12 +30,11 @@
   - PowerToys (PowerToys run shortcut set to Ctrl+Alt+Space)
   - SysInternals
   - Obsidian
-  - Okular
-  - Krita
   - Spotify
   - Steam
   - Ubisoft Connect
   - EA App
+  - Vivaldi
   - Wezterm
   - gsudo
   - Powershell 7
@@ -66,12 +42,7 @@
   - Docker
   - Insomnia
   - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
-  - JetBrains Rider EAP (via Toolbox)
-  - JetBrains PyCharm Community (via Toolbox)
-  - JetBrains dotTrace (via Toolbox)
-  - JetBrains dotMemory (via Toolbox)
-  - JetBrains dotPeek (via Toolbox)
-  - JetBrains dotCover (via Toolbox)
+  - JetBrains Apps via Toolbox (Rider EAP, PyCharm Community, dotX tools)
   - Visual Studio Community
   - Visual Studio Code
   - Python
@@ -80,15 +51,15 @@
   - MiKTeX
   - TeXstudio
 
-8. Configure startup apps via settings, and turn off protected folder access.
+5. Configure startup apps via settings, and turn off protected folder access.
 
-9. In admin PowerShell create a dotfiles path env variable with 'setx /m dotfiles <path_to_dotfiles_root>'.
+6. In admin PowerShell create a dotfiles path env variable with 'setx /m dotfiles <path_to_dotfiles_root>'.
 
-10. Restart.
+7. Restart.
 
-11. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'. Can also specify Obsidian path.
+8. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'. Can also specify Obsidian path.
 
-12. Sign into accounts and services, and apply manual configurations.
+9. Sign into accounts and services, and apply manual configurations.
   - Vivaldi (setup.txt)
   - Obsidian (setup.txt)
   - CopyQ (setup.txt)
@@ -101,4 +72,4 @@
   - TranslucentTB (set all JSON options to 'clear')
   - Greenshot (don't show magnifier or capture mouse, destination as 'Open in image editor', suppress save dialog on editor close)
 
-13. Activate Windows license.
+10. Activate Windows license.

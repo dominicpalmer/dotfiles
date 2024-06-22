@@ -4,13 +4,19 @@ GitLens -- Git supercharged
 IntelliCode
 IntelliCode API Usage Examples
 IntelliCode Completions
+GitHub Copilot
+GitHub Copilot Chat
 Vim
 Trailing Spaces
 Toggle Pin Editor
+EditorConfig for VSCode
+Docker
+Kubernetes
 PowerShell
 XML
 YAML
 vscode-icons
 
 -------------------------- User Interface
-Right click top bar and disable all UI elements except the file menu
+- Right click top bar and hide all UI elements except the file menu
+- Right click bottom bar and hide all unused elements

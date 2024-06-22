@@ -101,5 +101,5 @@
 
   // UI driven
   "window.zoomLevel": -0.2,
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Default Light+",
 }

@@ -14,6 +14,9 @@
   { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-f>" ] } },
   { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-b>" ] } },
   { "key": "alt+enter", "command": "editor.action.quickFix" },
+  { "key": "alt+l", "command": "editor.action.inlineSuggest.trigger" },
+  { "key": "alt+n", "command": "editor.action.inlineSuggest.showNext" },
+  { "key": "alt+m", "command": "editor.action.inlineSuggest.showPrevious" },
 
   // Workarounds for navigation in non-editable windows and sidebars
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },

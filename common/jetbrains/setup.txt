@@ -1,6 +1,3 @@
-Some config applies to all JetBrains IDEs, some is IDE-specific.
-E.g. for DataGrip, multiple F2 rename keymaps are required.
-
 -------------------------- Extensions
 High Contrast Green
 High Contrast Blue
@@ -8,22 +5,24 @@ CodeGlance Pro
 InlineProblems
 GitHub Copilot
 IdeaVim
+[DataGrip, WebStorm] Classic UI
+[DataGrip] Big Data Tools
+[DataGrip] Kafka
 
 -------------------------- IDE Settings
 Appearance & Behaviour/New UI
     - Unset 'Enable new UI'
 Appearance & Behaviour/Appearance
-    - 'Theme' as 'High Contrast Green'
-    - 'Zoom' as required (e.g. 110%)
+    - 'Theme' as 'High Contrast Green' or 'High Contrast Blue'
+    - 'Zoom' as required
     - Set 'Show tree indent guides'
     - Unset 'Smooth scrolling'
+    - [DataGrip] In 'Tool Windows' set 'Show tool window bars'
     - In 'Tool Windows' set 'Widescreen tool window layout'
-Appearance & Behaviour/System Settings
-    - 'Reopen projects on startup'
 Appearance & Behaviour/Notifications
     - Unset 'Display balloon notifications'
 Keymap
-    - Set keymap to 'Visual Studio 2022'
+    - Set keymap to 'Visual Studio 2022' or equivalent
 Editor/General
     - Unset 'Enable smooth scrolling'
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
@@ -32,6 +31,7 @@ Editor/General
     - Set 'Remove trailing blank lines at the end of saved files'
     - In 'Appearance'
         - Unset 'Show sticky lines while scrolling'
+        (this setting is under 'Editor/General/Sticky Lines' in DataGrip/WebStorm)
         - Set 'Show whitespaces' for 'Trailing' and 'Selection'
         - Unset 'Show intention bulb'
     - In 'Code Completion'
@@ -49,10 +49,10 @@ Editor/General
         - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
     - In 'Gutter Icons'
-        - Unset 'Show gutter icons'
+        - Unset all gutter icons except 'Color preview' and 'Run line marker'
     - In 'Typing Assistance'
         - Unset 'Jump outside of closing brackets with tab'
-Editor/Color Scheme/Font
+Editor/Color Scheme/Font (leave font family as default in DataGrip)
     - 'Font' as 'Cascadia Code PL', size as required (e.g. 14), line height 1
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
@@ -76,37 +76,35 @@ CodeGlance Pro
     - 'Pixels per line' as 2
     - 'Viewport Border Color' as 000000
     - 'Viewport Border Thickness' as 2
+    - Set 'Hide Original Scrollbar and ErrorStripes'
+    - From user interface, right click map and unset 'Show quick hide button'
 InlineProblems
     - Unset 'Draw boxes around problem labels'
     - Set 'Italic problem labels'
     - 'Error text color' as FF0000
-    - Unset 'Highlight errors'
     - Set 'Show weak warnings' and 'Show infos'
-    - Set 'Hide Original Scrollbar and ErrorStripes'
-    - From user interface, right click map and unset 'Show quick hide button'
 GitHub Copilot
     - Set 'Color for completions' as 285F23
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
 - Remove shortcuts bound to <C-,>
-- <C-,> to 'Open Settings' (with 'remove')
+- <C-,> to 'Open Settings'
 - <C-;> to 'SearchEverywhere'
-- <C-o> to 'GoToFile' (with 'remove')
-- <C-n> to 'Find in Files' (with 'remove')
-- <C-m> to 'Replace in Files' (with 'remove')
-- F1 to 'GotoDeclaration' (with 'remove')
+- <C-o> to 'GoToFile'
+- <C-n> to 'Find in Files'
+- <C-m> to 'Replace in Files'
+- F1 to 'Go to Declaration or Usages'
 - F7 to 'BuildSolutionAction'
 - F8 to 'CleanSolutionAction'
 - <C-A-v> to 'VimPluginToggle'
-// TODO: check if showCompletions can be removed in favour of 'Show Next'
-// TODO: check if copilot commands can go in .ideavimrc
-- <A-l> to 'Copilot: Show Completions'
-- <A-n> to 'Copilot: Show Next Completions'
-- <A-m> to 'Copilot: Show Previous Completions'
-- [DataGrip] F2 to 'RenameElement'
+- <A-l> to 'Copilot: Show Completions' i.e. 'copilot.requestCompletions'
+- <A-n> to 'Copilot: Show Next Completions' i.e. 'copilot.cycleNextInlays'
+- <A-m> to 'Copilot: Show Previous Completions' i.e. 'copilot.cyclePrevInlays'
+- [DataGrip] F2 to 'RenameElement' (don't set 'remove' for this)
+- [DataGrip] <C-CR> to 'Refresh' (set the root keybind)
 
--------------------------- [Included with theme] Editor Colour Scheme Details
+-------------------------- [Included with themes] Editor Colour Scheme Details
 Editor/Color Scheme/General/Code
     - 'Line number' foreground as 5A615A
     - 'TODO defaults' foreground as 007F00
