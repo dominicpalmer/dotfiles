@@ -11,6 +11,7 @@ set whichwrap=<,>,h,l
 set clipboard=unnamed
 set hlsearch
 set noshowcmd
+set ideavimsupport+=singleline
 
 sethandler <C-y> a:ide
 sethandler <C-o> a:ide

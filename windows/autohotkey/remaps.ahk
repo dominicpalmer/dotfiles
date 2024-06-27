@@ -23,11 +23,6 @@ LWin & \::
     Reload
 return
 
-; -------------------------- Escape, capslock
-CapsLock::Esc
-RCtrl::CapsLock
-RAlt::Ctrl
-
 ; -------------------------- PowerToys run
 ; Search with LWin
 LWin Up::
@@ -65,3 +60,16 @@ return
     ; System
     Clipboard=
 return
+
+; -------------------------- Escape, capslock
+CapsLock::Escape
+RCtrl::CapsLock
+RAlt::Ctrl
+
+#IfWinActive, ahk_exe datagrip64.exe
+{
+    ; IdeaVim works in the DataGrip filter bar, but <Esc> doesn't exit insert
+    ; mode. DataGrip intercepts <Esc> and moves the cursor focus instead. <C-[>
+    ; does exit insert mode, so send it instead of <Esc> for DataGrip only.
+    CapsLock::^[
+}

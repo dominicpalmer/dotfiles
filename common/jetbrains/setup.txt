@@ -88,6 +88,8 @@ GitHub Copilot
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
+- [DataGrip] Replace all <Esc> keybindings with <C-[>
+- Remove 'Close Diff Editor' bound to <Esc>
 - Remove shortcuts bound to <C-,>
 - <C-,> to 'Open Settings'
 - <C-;> to 'SearchEverywhere'
