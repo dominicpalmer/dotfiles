@@ -1,8 +1,10 @@
 -------------------------- Editor
-  - Set 'Show line numbers'
-  - Unset 'Show indentation guides'
-  - Unset 'Spellcheck'
-  - Unset 'Indent using tabs'
+- Unset 'Fold heading'
+- Unset 'Fold indent'
+- Set 'Show line numbers'
+- Unset 'Show indentation guides'
+- Unset 'Spellcheck'
+- Unset 'Indent using tabs'
 
 -------------------------- Appearance
 - 'Base color scheme' as 'Light'

@@ -8,48 +8,47 @@
   c) Control panel
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-4. Programs, as required. Install to C:\Program Files\ where possible.
-  - Nvidia Graphics Driver
-  - Mozilla Firefox
-  - Mozilla Thunderbird
-  - LibreOffice
-  - VLC
+4. Install programs. Install to C:\Program Files\ where possible.
   - 7Zip
   - Notepad++
   - KeePass2
-  - VeraCrypt
+  - VLC
   - CopyQ (custom install with 'Pinned Items' plugin, launch on startup)
   - Everything
   - ImageGlass
-  - Okular
-  - Krita
   - TranslucentTB
   - AutoHotKey
   - Greenshot (launch on startup)
-  - ScreenToGif
   - PowerToys (PowerToys run shortcut set to Ctrl+Alt+Space)
+  - ScreenToGif
   - SysInternals
   - Obsidian
-  - Spotify
-  - Steam
-  - Ubisoft Connect
-  - EA App
-  - Vivaldi
-  - Wezterm
-  - gsudo
   - Powershell 7
+  - gsudo
   - Git
+  - Wezterm
   - Docker
-  - Insomnia
   - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
-  - JetBrains Apps via Toolbox (Rider EAP, PyCharm Community, dotX tools)
+  - JetBrains Apps via Toolbox (Rider EAP, PyCharm Community, dotX tools, IntelliJ)
   - Visual Studio Community
   - Visual Studio Code
   - Python
   - Node (nvm from https://github.com/coreybutler/nvm-windows/releases, run 'nvm install lts' then 'nvm use <version>')
+  - Nvidia Graphics Driver
+  - Mozilla Firefox
+  - Mozilla Thunderbird
+  - LibreOffice
+  - VeraCrypt
+  - Okular
+  - Krita
+  - Spotify
+  - Steam
+  - Ubisoft Connect
+  - EA App
   - Jekyll
   - MiKTeX
   - TeXstudio
+  - Vivaldi
 
 5. Configure startup apps via settings, and turn off protected folder access.
 
