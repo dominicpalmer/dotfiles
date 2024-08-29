@@ -88,7 +88,7 @@ GitHub Copilot
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
-- [DataGrip] Replace all <Esc> keybindings with <C-[>
+- [DataGrip] Replace root inheritable <Esc> with <C-[>
 - Remove 'Close Diff Editor' bound to <Esc>
 - Remove shortcuts bound to <C-,>
 - <C-,> to 'Open Settings'
@@ -103,7 +103,7 @@ Set 'remove' if/when prompted.
 - <A-l> to 'Copilot: Show Completions' i.e. 'copilot.requestCompletions'
 - <A-n> to 'Copilot: Show Next Completions' i.e. 'copilot.cycleNextInlays'
 - <A-m> to 'Copilot: Show Previous Completions' i.e. 'copilot.cyclePrevInlays'
-- [DataGrip] F2 to 'RenameElement' (don't set 'remove' for this)
+- [DataGrip] F2 to the root inheritable 'Rename' (don't set 'remove' for this)
 - [DataGrip] <C-CR> to 'Refresh' (set the root keybind)
 
 -------------------------- [Included with themes] Editor Colour Scheme Details

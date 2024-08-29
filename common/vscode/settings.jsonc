@@ -41,6 +41,7 @@
   "[Log]": { "editor.wordWrap": "on" },
   "workbench.startupEditor": "none",
   "workbench.editor.openPositioning": "last",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.settings.editor": "json",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
@@ -48,6 +49,7 @@
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.stickyScroll.enabled": false,
 
   // Allow trailing commas in VSCode config files
 	"json.schemas": [{
@@ -68,6 +70,14 @@
 
   // Gitlens: default to no line blame
   "gitlens.currentLine.enabled": false,
+
+  // Copilot
+  "github.copilot.enable": {
+    "": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+  },
 
   // Vim
   "vim.vimrc.enable": true,
