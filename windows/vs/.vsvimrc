@@ -37,6 +37,7 @@ nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
 noremap @ :
 nnoremap <Esc> :nohl<CR>
+nnoremap v; v/
 
 " Text modification
 noremap t y

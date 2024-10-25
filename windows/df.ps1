@@ -37,6 +37,8 @@ function Add-To-Path {
     Set-ItemProperty -Path $PathRegistry -Name path -Value $Path
 }
 
+try {
+
 # -------------------------- 0. Install PowerShell modules if requested
 
 if ($pwsh_modules) {
@@ -60,15 +62,20 @@ if ($pwsh_modules) {
     git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShellModulesPath\oh-my-posh"
 }
 
-# -------------------------- 1. PowerShell profile symbolic link
+$DotfilesEnv = $env:dotfiles
+
+# -------------------------- 1. PowerShell symbolic links
 $PwshProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
-$PwshProfileTarget = "$env:Dotfiles\windows\powershell\Microsoft.Powershell_profile.ps1"
+$PwshProfileTarget = "$DotfilesEnv\windows\powershell\Microsoft.Powershell_profile.ps1"
 New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force
+$PwshThemePath = "C:\Program Files\PowerShell\7\Modules\oh-my-posh\Themes\doms-theme.psm1"
+$PwshThemeTarget = "$DotfilesEnv\windows\powershell\doms-theme.psm1"
+New-Item -ItemType SymbolicLink -Path $PwshThemePath -Target $PwshThemeTarget -Force
 
 # -------------------------- 2. vimrc symbolic links
-New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$env:Dotfiles\common\jetbrains\.ideavimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$env:Dotfiles\windows\vs\.vsvimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$env:Dotfiles\common\vscode\.vscodevimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$DotfilesEnv\common\jetbrains\.ideavimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DotfilesEnv\windows\vs\.vsvimrc" -Force
+New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv\common\vscode\.vscodevimrc" -Force
 
 # -------------------------- 3. WezTerm symbolic links and binary
 $WezTermPathsToLink = @(
@@ -77,7 +84,7 @@ $WezTermPathsToLink = @(
 )
 
 foreach ($WezTermPath in $WezTermPathsToLink) {
-    $Target = "$env:Dotfiles\common\wezterm\" + $WezTermPath.Split('\')[-1]
+    $Target = "$DotfilesEnv\common\wezterm\" + $WezTermPath.Split('\')[-1]
     New-Item -ItemType SymbolicLink -Path $WezTermPath -Target $Target -Force
 }
 
@@ -85,15 +92,15 @@ Add-To-Path "C:\Program Files\WezTerm"
 
 # -------------------------- 4. VSCode settings symbolic links
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
-$VSCodeDotfilesPath = "$env:Dotfiles\common\vscode"
+$VSCodeDotfilesPath = "$DotfilesEnv\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force
 
 # -------------------------- 5. Add install and shortcut directories to PATH
-$InstallDirectory = "$env:Dotfiles\windows"
+$InstallDirectory = "$DotfilesEnv\windows"
 Add-To-Path $InstallDirectory
 
-$ShortcutsDirectory = "$env:Dotfiles\windows\shortcuts"
+$ShortcutsDirectory = "$DotfilesEnv\windows\shortcuts"
 Add-To-Path $ShortcutsDirectory
 
 $Exclusions = @("template")
@@ -111,11 +118,17 @@ if (Get-ScheduledTask | Where-Object { $_.TaskName -like $TaskName }) {
 
 # Create the new task to run at logon
 $Trigger = New-ScheduledTaskTrigger -AtLogOn
-$Action = New-ScheduledTaskAction -Execute "$env:Dotfiles\windows\autohotkey\remaps.ahk"
+$Action = New-ScheduledTaskAction -Execute "$DotfilesEnv\windows\autohotkey\remaps.ahk"
 Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
 
 # -------------------------- 7. obsidian.css symbolic link for main vault
 if (![String]::IsNullOrEmpty($obsidian_vault_path)) {
-    New-Item -ItemType SymbolicLink -Path "$obsidian_vault_path\.obsidian\snippets\obsidian.css" -Target "$env:Dotfiles\common\obsidian\obsidian.css" -Force
+    New-Item -ItemType SymbolicLink -Path "$obsidian_vault_path\.obsidian\snippets\obsidian.css" -Target "$DotfilesEnv\common\obsidian\obsidian.css" -Force
+}
+
+} catch {
+    Write-Output "Failed to update dotfiles:"
+    Write-Output $_.Exception.Message
+    Write-Output $_.ScriptStackTrace
 }

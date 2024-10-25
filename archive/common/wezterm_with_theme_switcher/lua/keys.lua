@@ -6,7 +6,7 @@ local shared = {
    -- Reload
    {key="r", mods="LEADER", action="ReloadConfiguration"},
 
-   -- <Ctrl-BS> for deleting words, <Ctrl-Left/Right> for moving cursor by words
+   -- Compatibility
    {key="Backspace", mods="CTRL", action=wezterm.action{SendKey={key="\x17"}}},
    {key = 'LeftArrow', mods='CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
    {key = 'RightArrow', mods='CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
@@ -14,19 +14,18 @@ local shared = {
 
 M.platform = {
    windows = {
-      -- No tmux on Windows, so replicate custom tmux keybinds through Wezterm builtin actions
-
-      -- Last tab with n, new tab with m
-      {key="n", mods="LEADER", action="ActivateLastTab"},
-      {key="m", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+      -- Change theme
+      {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm"}},
 
       -- Tab handlers
+      {key="m", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
       {key="j", mods="LEADER", action=wezterm.action{CloseCurrentPane={confirm=false}}},
       {key="k", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=false}}},
       {key="v", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
       {key="c", mods="LEADER", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
 
       -- Tab switching
+      {key="n", mods="LEADER", action="ActivateLastTab"},
       {key="1", mods="LEADER", action=wezterm.action{ActivateTab=0}},
       {key="2", mods="LEADER", action=wezterm.action{ActivateTab=1}},
       {key="3", mods="LEADER", action=wezterm.action{ActivateTab=2}},
@@ -50,13 +49,13 @@ M.platform = {
       table.unpack(shared),
    },
 
-   linux = {
-      -- Most keybinds are handled by tmux natively. Anything here is for
-      -- intercepting keys before being handled downstream.
+   unix = {
+      -- Change theme
+      {key="t", mods="LEADER", action=wezterm.action{EmitEvent="ct_wezterm_tmux"}},
+      {key="t", mods="CTRL", action=wezterm.action{EmitEvent="ct_wezterm_tmux_nvim"}},
 
-      -- Sends Pagedown to tmux. Tmux will then send <M-j> to Neovim if it's
-      -- open, else call Pagedown on terminal scrollback. This avoids Pagedown
-      -- moving Neovim out of the viewport if invoked when it's open.
+      -- Sends PageDown to tmux, which sends <M-j> to Neovim if it's open
+      -- If Neovim isn't open, tmux will call PageDown on scrollback
       {key="j", mods="ALT", action=wezterm.action{SendKey={key="PageDown"}}},
 
       table.unpack(shared),

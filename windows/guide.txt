@@ -8,7 +8,7 @@
   c) Control panel
   d) Show File Explorer window border via settings GUI 'Themes/Colours' then 'Title bars and window borders'.
 
-4. Install programs. Install to C:\Program Files\ where possible.
+4. Install programs (to C:\Program Files\).
   - 7Zip
   - Notepad++
   - KeePass2
@@ -30,7 +30,7 @@
   - Docker
   - JetBrains Toolbox (update settings to have apps installed to C:\Program Files\JetBrains)
   - JetBrains Apps via Toolbox (Rider EAP, PyCharm Community, dotX tools, IntelliJ)
-  - Visual Studio Community
+  - Visual Studio
   - Visual Studio Code
   - Python
   - Node (nvm from https://github.com/coreybutler/nvm-windows/releases, run 'nvm install lts' then 'nvm use <version>')
@@ -58,7 +58,7 @@
 
 8. Transfer root or clone dotfiles, then run './df.ps1 -pwsh_modules'. Can also specify Obsidian path.
 
-9. Sign into accounts and services, and apply manual configurations.
+9. Sign into accounts and services, then finish setups.
   - Vivaldi (setup.txt)
   - Obsidian (setup.txt)
   - CopyQ (setup.txt)
@@ -67,8 +67,8 @@
   - Visual Studio Code (setup.txt)
   - Notepad++ (set as default for .txt, hide most menus, then change tab layout, font, font size, and never create backup files)
   - Git (copy common/git/.gitconfig to $HOME, update email, run 'ssh-keygen' to create SSH key, then configure via GitHub settings)
-  - Firefox
   - TranslucentTB (set all JSON options to 'clear')
   - Greenshot (don't show magnifier or capture mouse, destination as 'Open in image editor', suppress save dialog on editor close)
+  - Firefox (various)
 
 10. Activate Windows license.

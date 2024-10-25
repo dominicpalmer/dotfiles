@@ -1,7 +1,4 @@
 alias vim=nvim
-alias at=alacritty-themes
-alias pip=pip3
-alias python=python3
 
 export Dotfiles="$HOME/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
@@ -20,7 +17,7 @@ export FZF_DEFAULT_OPTS="--border --tabstop=4"
 # nvm
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
-# https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Theme (https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 ZSH_THEME="muse"
 
 # Case sensitive completion

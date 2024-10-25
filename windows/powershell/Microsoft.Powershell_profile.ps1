@@ -2,12 +2,13 @@ Set-ExecutionPolicy -Scope CurrentUser Unrestricted
 
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme agnoster
+# https://ohmyposh.dev/docs/themes
+Set-Theme doms-theme
 $global:DefaultUser = [System.Environment]::UserName
 
 # Aliases
 function sudo { gsudo --loadProfile $args }
-function dotfiles { Set-Location $env:Dotfiles }
+function dotfiles { Set-Location $env:dotfiles }
 function grep {
     $Arguments = $args
     $ArgumentCount = $Arguments.Length

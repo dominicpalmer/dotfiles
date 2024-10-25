@@ -34,6 +34,7 @@ Text Editor/C#/Advanced:
     - Under 'Rename' set 'Where should the rename UI be shown' as 'dashboard in top right'
     - Under 'Using Directives' set 'Place system directives first when sorting usings'
     - Under 'Outlining' unset everything
+    - Under 'Editor Help' unset 'Underline reassigned variables'
     - Under 'Inheritance Margin' set 'Combine inheritance margin with indicator margin'
 Text Editor/C#/IntelliSense:
     - 'Show completion list after a character is deleted'
@@ -49,6 +50,8 @@ Editor Guidelines
     - Guidelines at 120 and 150 through user interface
 Roslynator
     - Config file (manually placed or symlinked)
+VsVim
+    - Under 'Defauts' set 'Use Editor Command Margin' to false
 
 -------------------------- Keyboard Shortcuts
 Under 'Environment/Keyboard' (global maps):
