@@ -1,65 +1,63 @@
 local M = {}
 
-M.black = "#000000"
-M.white = "#e6e6e6"
-M.off_white = "#f5e9ce"
-M.dark_grey = "#292929"
-M.light_grey = "#cfcfcf"
-M.tab_green = "#1c5e00"
-
-local red = "#cc241d"
-local green_1 = "#98971a"
-local green_2 = "#b8bb26"
-local yellow = "#fabd2f"
-local purple = "#d3869b"
-local blue_1 = "#386f73"
-local blue_2 = "#83a598"
-local offwhite = "#fbf1c7"
+local jet_black = "#000000"
+local off_white = "#f5e9ce"
+local active_tab_green = "#1c5e00"
+local inactive_tab_grey = "#292929"
 local scrollbar_grey = "#525252"
+local prompt_directory_blue = "#386f73"
+local git_and_title_and_exit_green = "#98971a"
+local git_commit_green = "#b8bb26"
+local error_red = "#cc241d"
+local command_text_yellow = "#fabd2f"
+local command_arg_yellow = "yellow"
+local command_flag_purple = "#d3869b"
+local off_white = "#fbf1c7"
+local unknown_pink = "#ff0099"
 
 M.scheme = {
    scrollbar_thumb = scrollbar_grey,
-   foreground = offwhite,
+   foreground = off_white,
 
    ansi = {
-      "black", -- Prompt symbols and highlights
-      red, -- Prompt error indicator
-      green_1, -- Prompt git background, unmodified
-      yellow, -- Prompt git background, modified
-      blue_1, -- Prompt directory background
-      purple, -- Prompt git background, unpushed changes
-      green_2, -- Git commit message text
-      "yellow",
+      jet_black, -- Prompt symbols and highlights
+      error_red, -- Prompt error indicator
+      git_and_title_and_exit_green, -- Prompt git background, unmodified
+      command_text_yellow, -- Prompt git background, modified
+      prompt_directory_blue, -- Prompt directory background
+      command_flag_purple, -- Prompt git background, unpushed changes
+      git_commit_green, -- Git commit message text
+      command_arg_yellow, -- Command argument text
    },
 
    brights = {
-      purple, -- Command argument text
-      red, -- Error text
-      green_1, -- Title and exit text
-      yellow, -- Command text
-      "yellow",
-      "yellow",
-      "yellow",
-      offwhite, -- Prompt base directory text
+      command_flag_purple, -- Command flag text
+      error_red, -- Error text
+      git_and_title_and_exit_green, -- Title and exit text
+      command_text_yellow, -- Command text
+      unknown_pink,
+      unknown_pink,
+      unknown_pink,
+      off_white, -- Prompt base directory text
    },
 
    tab_bar = {
       active_tab = {
-         bg_color = M.tab_green,
-         fg_color = M.off_white,
+         bg_color = active_tab_green,
+         fg_color = off_white,
       },
       inactive_tab = {
-         bg_color = M.dark_grey,
-         fg_color = M.off_white,
+         bg_color = inactive_tab_grey,
+         fg_color = off_white,
       },
       new_tab = {
-         bg_color = M.black,
-         fg_color = M.black,
+         bg_color = jet_black,
+         fg_color = jet_black,
       },
       background = "rgba(0,0,0,0)",
       new_tab_hover = {
-         bg_color = '#000000',
-         fg_color = offwhite,
+         bg_color = jet_black,
+         fg_color = off_white,
          italic = false,
        },
    }

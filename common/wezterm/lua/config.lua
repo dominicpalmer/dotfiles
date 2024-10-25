@@ -41,8 +41,6 @@ M.platform = {
       window_frame = {
          font = wezterm.font("Cascadia Code"),
          font_size = 11.0,
-         active_titlebar_bg = colours.white,
-         inactive_titlebar_bg = colours.white,
       },
 
       -- Set to true when targeting a VDI
