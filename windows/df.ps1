@@ -58,13 +58,13 @@ if ($pwsh_modules) {
         Remove-Item $OhMyPoshPath -Recurse -Force
     }
 
-    # Clone oh-my-posh V2 source into the Modules directory, making it usable
+    # Clone oh-my-posh V2 source into the Modules directory, which makes it usable
     git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShellModulesPath\oh-my-posh"
 }
 
 $DotfilesEnv = $env:dotfiles
 
-# -------------------------- 1. PowerShell symbolic links
+# -------------------------- 1. PowerShell profile and theme
 $PwshProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
 $PwshProfileTarget = "$DotfilesEnv\windows\powershell\Microsoft.Powershell_profile.ps1"
 New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force

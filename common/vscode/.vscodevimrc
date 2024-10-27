@@ -9,10 +9,10 @@ noremap L $
 noremap M J
 nnoremap \ :vsc editor.action.moveLinesDownAction<CR>j
 nnoremap / :vsc editor.action.moveLinesUpAction<CR>k
-nnoremap z mz>>'z
-vnoremap z >gv
-nnoremap , mz<<'z
-vnoremap , <gv
+nnoremap , mz>>'z
+vnoremap , >gv
+nnoremap z mz<<'z
+vnoremap z <gv
 
 " Search
 noremap ; /

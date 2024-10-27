@@ -54,10 +54,10 @@ call Noremap('L', '$')
 call Noremap('M', 'J')
 call Noremap('\', ':action MoveLineDown<CR>')
 call Noremap('/', ':action MoveLineUp<CR>')
-nnoremap z mz>>'z
-xnoremap z >gv
-nnoremap , mz<<'z
-xnoremap , <gv
+nnoremap , mz>>'z
+xnoremap , >gv
+nnoremap z mz<<'z
+xnoremap z <gv
 
 " Search
 call Noremap(';', '/')

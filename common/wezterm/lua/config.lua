@@ -8,15 +8,15 @@ local M = {}
 local shared = {
    font = wezterm.font("Cascadia Code"),
    font_size = 10,
+   initial_cols = 220,
+   initial_rows = 65,
+   window_background_opacity = 0.91,
+   show_new_tab_button_in_tab_bar = false,
 
    -- When scrollbar is enabled, 'right' defines its width
    window_padding = {left = 2, right = '2cell', top = 2, bottom = 0},
+
    window_close_confirmation = "NeverPrompt",
-   initial_cols = 220,
-   initial_rows = 65,
-
-   window_background_opacity = 0.91,
-
    automatically_reload_config = true,
    audible_bell = "Disabled",
    check_for_updates = false,

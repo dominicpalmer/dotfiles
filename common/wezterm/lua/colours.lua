@@ -42,6 +42,7 @@ M.scheme = {
    },
 
    tab_bar = {
+      background = "rgba(0,0,0,0)",
       active_tab = {
          bg_color = active_tab_green,
          fg_color = off_white,
@@ -54,7 +55,6 @@ M.scheme = {
          bg_color = jet_black,
          fg_color = jet_black,
       },
-      background = "rgba(0,0,0,0)",
       new_tab_hover = {
          bg_color = jet_black,
          fg_color = off_white,
