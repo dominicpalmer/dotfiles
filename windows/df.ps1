@@ -1,29 +1,21 @@
-#------------------------------------------------------------------------------|
-#                                                                              |
-# 0. [Optional] Installs PowerShell modules if supplied pwsh_modules switch    |
-# 1. Creates PowerShell profile symbolic link                                  |
-# 2. Creates vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                |
-# 3. Creates WezTerm symbolic links and adds binary to PATH                    |
-# 4. Creates VSCode settings symbolic links                                    |
-# 5. Adds shortcut and dotfiles install directories to PATH                    |
-# 6. Creates an AutoHotKey remap scheduled task to run at logon                |
-# 7. [Optional] Creates obsidian.css symbolic link for todo vault              |
-#                                                                              |
-#------------------------------------------------------------------------------|
+#--------------------------------------------------------------------------------------------------|
+# 1. Install PowerShell modules, create PowerShell symbolic links                                  |
+# 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                                     |
+# 3. Create WezTerm symbolic links and add binary to PATH                                          |
+# 4. Create VSCode settings and keybindings symbolic links                                         |
+# 5. Add binary directories to PATH                                                                |
+# 6. Create AutoHotKey remap scheduled task to run at logon                                        |
+# 7. [Optional] Create obsidian.css symbolic link for supplied vault                               |
+#--------------------------------------------------------------------------------------------------|
 
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory = $false)]
-    [Switch] $pwsh_modules,
-
     [Parameter(Mandatory = $false)]
     [String] $obsidian_vault_path
 )
 
 function Add-To-Path {
-    [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)]
         [string] $PathToAdd
     )
 
@@ -37,94 +29,185 @@ function Add-To-Path {
     Set-ItemProperty -Path $PathRegistry -Name path -Value $Path
 }
 
-try {
 
-# -------------------------- 0. Install PowerShell modules if requested
+function Add-Dashes {
+    param (
+        [string]$Text
+    )
 
-if ($pwsh_modules) {
-    Install-Module posh-git -Force
+    # Calculate padding needed
+    $MaxTitleLength = 80
+    $PaddingLength = $MaxTitleLength - $Text.Length
+    $LeftPadding = [math]::Floor($PaddingLength / 2)
+    $RightPadding = [math]::Ceiling($PaddingLength / 2)
 
-    # Install PSReadLine 2.1.0, for line completion via <Esc>l. Note that before
-    # version 2.1.0 is used by PowerShell, the version that shipped with
-    # PowerShell 7 must be deleted when no PowerShell instances are open.
-    # Delete old versions at $HOME\Documents\PowerShell\Modules\PSReadLine.
-    #Install-Module -Name PSReadLine -RequiredVersion 2.1.0 -AllowPreRelease -Force
-
-    $PowerShellModulesPath = "C:\Program Files\Powershell\7\Modules"
-
-    # Remove any existing version of oh-my-posh
-    $OhMyPoshPath = "$PowerShellModulesPath\oh-my-posh"
-    if (Get-Item -Path $OhMyPoshPath -ErrorAction Ignore) {
-        Remove-Item $OhMyPoshPath -Recurse -Force
-    }
-
-    # Clone oh-my-posh V2 source into the Modules directory, which makes it usable
-    git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShellModulesPath\oh-my-posh"
+    return ("-" * $LeftPadding) + " $Text " + ("-" * $RightPadding)
 }
 
 $DotfilesEnv = $env:dotfiles
 
-# -------------------------- 1. PowerShell profile and theme
-$PwshProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
+try {
+    $StartSplash = @"
+
+                                    ┓   ┏•┓
+                                   ┏┫┏┓╋╋┓┃┏┓┏
+                                   ┗┻┗┛┗┛┗┗┗ ┛
+
+"@
+Write-Host $StartSplash
+
+# ------------------------------------------ 1. PowerShell -----------------------------------------
+Write-Host (Add-Dashes -Text "1. PowerShell")
+
+# Remove non-7 modules
+$PowerShellHomePath = "$HOME\Documents\PowerShell\Modules"
+Get-ChildItem -Path $PowerShellHomePath -Recurse | ForEach-Object {
+    Remove-Item -Path $_.FullName -Recurse -Force
+    Write-Host "✅ Removed non-7 PowerShell module $_"
+}
+
+# Install posh-git module
+if (Get-Module -ListAvailable -Name posh-git) {
+    Write-Host "✅ PowerShell module 'posh-git' is already installed"
+} else {
+    Install-Module posh-git -Force
+}
+
+$PowerShell7BasePath = "C:\Program Files\Powershell\7"
+$PowerShell7ModulesPath = "$PowerShell7BasePath\Modules"
+
+# Clone oh-my-posh2
+$OhMyPoshPath = "$PowerShell7ModulesPath\oh-my-posh"
+if (Get-Item -Path $OhMyPoshPath -ErrorAction Ignore) {
+    Write-Host "✅ PowerShell module 'oh-my-posh' is already installed"
+} else {
+    # Cloning the V2 source into the Modules directory makes it usable
+    git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShell7ModulesPath\oh-my-posh"
+}
+
+# Remove non-2.1.0 bundled version of PSReadLine
+$PsReadLineBasePath = "$PowerShell7ModulesPath\PSReadLine"
+$TargetPsReadLineVersion = "2.1.0"
+if (Test-Path -Path $PsReadLineBasePath) {
+    $DirsToRemove = Get-ChildItem -Path $PsReadLineBasePath -Directory | Where-Object { $_.Name -ne $TargetPsReadLineVersion }
+
+    foreach ($Dir in $DirsToRemove) {
+        Remove-Item -Path $Dir.FullName -Recurse -Force
+        Write-Host "✅ Removed unwanted PSReadLine directory '$Dir'"
+    }
+} else {
+    New-Item -ItemType Directory -Path $PsReadLineBasePath -Force | Out-Null
+    Write-Host "✅ Created directory '$PsReadLineBasePath'"
+}
+
+# Install PSReadLine 2.1.0
+$TargetPsReadLinePath = "$PsReadLineBasePath/$TargetPsReadLineVersion"
+if (Test-Path -Path $TargetPsReadLinePath) {
+    Write-Host "✅ PSReadLine $TargetPsReadLineVersion is already installed"
+} else {
+    $DotfilesPsReadLinePath = "$DotfilesEnv\windows\powershell\PSReadLine\$TargetPsReadLineVersion"
+    New-Item -ItemType Directory -Path $TargetPsReadLinePath -Force | Out-Null
+    Copy-Item -Path "$DotfilesPsReadLinePath\*" -Destination $TargetPsReadLinePath -Recurse -Force
+    Write-Host "✅ Installed PSReadLine $TargetPsReadLineVersion"
+}
+
+# Symbolic link profile
+$PwshProfilePath = "$PowerShell7BasePath\Microsoft.Powershell_profile.ps1"
 $PwshProfileTarget = "$DotfilesEnv\windows\powershell\Microsoft.Powershell_profile.ps1"
-New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force
+New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force | Out-Null
+Write-Host "✅ Created symbolic link 'Microsoft.Powershell_profile.ps1'"
+
+# Symbolic link theme
 $PwshThemePath = "C:\Program Files\PowerShell\7\Modules\oh-my-posh\Themes\doms-theme.psm1"
 $PwshThemeTarget = "$DotfilesEnv\windows\powershell\doms-theme.psm1"
-New-Item -ItemType SymbolicLink -Path $PwshThemePath -Target $PwshThemeTarget -Force
+New-Item -ItemType SymbolicLink -Path $PwshThemePath -Target $PwshThemeTarget -Force | Out-Null
+Write-Host "✅ Created symbolic link 'doms-theme.psm1'"
+Write-Host "`r"
 
-# -------------------------- 2. vimrc symbolic links
-New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$DotfilesEnv\common\jetbrains\.ideavimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DotfilesEnv\windows\vs\.vsvimrc" -Force
-New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv\common\vscode\.vscodevimrc" -Force
+# -------------------------------------------- 2. vimrc --------------------------------------------
+Write-Host (Add-Dashes -Text "2. vimrc")
+New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$DotfilesEnv\common\jetbrains\.ideavimrc" -Force | Out-Null
+Write-Host "✅ Created symbolic link '.ideavimrc'"
+New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DotfilesEnv\windows\vs\.vsvimrc" -Force | Out-Null
+Write-Host "✅ Created symbolic link '.vsvimrc'"
+New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv\common\vscode\.vscodevimrc" -Force | Out-Null
+Write-Host "✅ Created symbolic link '.vscodevimrc'"
+Write-Host "`r"
 
-# -------------------------- 3. WezTerm symbolic links and binary
+# ------------------------------------------- 3. WezTerm -------------------------------------------
+Write-Host (Add-Dashes -Text "3. WezTerm")
 $WezTermPathsToLink = @(
     "C:\Program Files\WezTerm\wezterm.lua",
     "C:\Program Files\WezTerm\lua"
 )
 
 foreach ($WezTermPath in $WezTermPathsToLink) {
-    $Target = "$DotfilesEnv\common\wezterm\" + $WezTermPath.Split('\')[-1]
-    New-Item -ItemType SymbolicLink -Path $WezTermPath -Target $Target -Force
+    $TargetName = $WezTermPath.Split('\')[-1]
+    $TargetPath = "$DotfilesEnv\common\wezterm\" + $TargetName
+    New-Item -ItemType SymbolicLink -Path $WezTermPath -Target $TargetPath -Force | Out-Null
+    Write-Host "✅ Created symbolic link '$TargetName'"
 }
 
-Add-To-Path "C:\Program Files\WezTerm"
+$WezTermProgramPath = "C:\Program Files\WezTerm"
+Add-To-Path $WezTermProgramPath
+Write-Host "✅ Added '$WezTermProgramPath' to PATH"
+Write-Host "`r"
 
-# -------------------------- 4. VSCode settings symbolic links
+# ------------------------------------------- 4. VSCode --------------------------------------------
+Write-Host (Add-Dashes -Text "4. VSCode")
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$DotfilesEnv\common\vscode"
-New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force
-New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force
+New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force | Out-Null
+Write-Host "✅ Created symbolic link 'settings.json"
+New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force | Out-Null
+Write-Host "✅ Created symbolic link 'keybindings.json'"
+Write-Host "`r"
 
-# -------------------------- 5. Add install and shortcut directories to PATH
+# -------------------------------- 5. Add Binary Directories to PATH -------------------------------
+Write-Host (Add-Dashes -Text "5. Add Binary Directories to PATH")
 $InstallDirectory = "$DotfilesEnv\windows"
-Add-To-Path $InstallDirectory
+Add-To-Path $InstallDirectory | Out-Null
+Write-Host "✅ Added '$InstallDirectory' to PATH"
 
 $ShortcutsDirectory = "$DotfilesEnv\windows\shortcuts"
-Add-To-Path $ShortcutsDirectory
+Add-To-Path $ShortcutsDirectory | Out-Null
+Write-Host "✅ Added '$ShortcutsDirectory' to PATH"
 
 $Exclusions = @("template")
 foreach ($Directory in Get-ChildItem -Directory $ShortcutsDirectory -Exclude $Exclusions) {
-    Add-To-Path $Directory
+    Add-To-Path $Directory | Out-Null
+    Write-Host "✅ Added '$Directory' to PATH"
 }
+Write-Host "`r"
 
-# -------------------------- 6. AHK scheduled task for keyboard remaps
+# ----------------------------------------- 6. AutoHotKey ------------------------------------------
+Write-Host (Add-Dashes -Text "6. AutoHotKey")
 $TaskName = "remaps"
 
 # Delete any existing task of the same name
 if (Get-ScheduledTask | Where-Object { $_.TaskName -like $TaskName }) {
     Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false
+    Write-Host "✅ Removed existing AutoHotKey scheduled task 'remaps.ahk'"
 }
 
 # Create the new task to run at logon
 $Trigger = New-ScheduledTaskTrigger -AtLogOn
 $Action = New-ScheduledTaskAction -Execute "$DotfilesEnv\windows\autohotkey\remaps.ahk"
-Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest
+Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" -TaskName $TaskName -RunLevel Highest | Out-Null
+Write-Host "✅ Created new AutoHotKey scheduled task 'remaps.ahk'"
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
+Write-Host "✅ Started AutoHotKey scheduled task 'remaps.ahk'"
+Write-Host "`r"
 
-# -------------------------- 7. obsidian.css symbolic link for main vault
+# ------------------------------------------ 7. Obsidian -------------------------------------------
+Write-Host (Add-Dashes -Text "7. Obsidian")
 if (![String]::IsNullOrEmpty($obsidian_vault_path)) {
-    New-Item -ItemType SymbolicLink -Path "$obsidian_vault_path\.obsidian\snippets\obsidian.css" -Target "$DotfilesEnv\common\obsidian\obsidian.css" -Force
+    $ObsidianCssPath = "$obsidian_vault_path\.obsidian\snippets\obsidian.css"
+    New-Item -ItemType SymbolicLink -Path $ObsidianCssPath -Target "$DotfilesEnv\common\obsidian\obsidian.css" -Force | Out-Null
+    Write-Host "✅ Started AutoHotKey scheduled task 'remaps.ahk'"
+    Write-Host "✅ Created symbolic link '$ObsidianCssPath'"
+} else {
+    Write-Host "✅ Obsidian vault path was not supplied; nothing to do"
 }
 
 } catch {
