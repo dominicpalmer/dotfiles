@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------|
 # 1. Install PowerShell modules, create PowerShell symbolic links                                  |
-# 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim                                     |
+# 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim. Neovim                             |
 # 3. Create WezTerm symbolic links and add binary to PATH                                          |
 # 4. Create VSCode settings and keybindings symbolic links                                         |
 # 5. Add binary directories to PATH                                                                |
@@ -132,6 +132,10 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DotfilesEnv\win
 Write-Host "✅ Created symbolic link '.vsvimrc'"
 New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv\common\vscode\.vscodevimrc" -Force | Out-Null
 Write-Host "✅ Created symbolic link '.vscodevimrc'"
+New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$DotfilesEnv\common\vim\.vimrc" -Force | Out-Null
+Write-Host "✅ Created symbolic link '.vimrc'"
+New-Item -ItemType SymbolicLink -Path "$HOME\.config\nvim" -Target "$DotfilesEnv\common\nvim" -Force | Out-Null
+Write-Host "✅ Created symbolic link '\nvim'"
 Write-Host "`r"
 
 # ------------------------------------------- 3. WezTerm -------------------------------------------

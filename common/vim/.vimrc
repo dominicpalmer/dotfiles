@@ -1,16 +1,17 @@
-" -------------------------- Settings
+" Clear existing maps on load
+mapclear
 
+" -------------------------- Settings
 set scrolloff=8
 set visualbell
 set ignorecase
 set smartcase
 set timeoutlen=400
 set whichwrap=<,>,h,l
-set hlsearch
 set clipboard=unnamed
+set hlsearch
 
 " -------------------------- Keybindings
-
 let mapleader = " "
 
 " Movement
@@ -25,18 +26,19 @@ nnoremap \ V :m '>+1<CR>gv=gv<Esc>
 vnoremap \ :m '>+1<CR>gv=gv
 nnoremap / V :m '<-2<CR>gv=gv<Esc>
 vnoremap / :m '<-2<CR>gv=gv
-nnoremap z mz>>'z
-vnoremap z >gv
-nnoremap , mz<<'z
-vnoremap , <gv
+nnoremap , mz>>'z
+vnoremap , >gv
+nnoremap z mz<<'z
+vnoremap z <gv
 
 " Search
 noremap ; /
 noremap : ?
 nnoremap g; viwy/<C-r>0
 vnoremap g; y/<C-r>0
-noremap y :
+noremap @ :
 nnoremap <Esc> :nohl<CR>
+nnoremap v; v/
 
 " Text modification
 noremap t y
@@ -46,7 +48,7 @@ vnoremap r P
 noremap R P
 noremap x s
 noremap s "0x
-noremap S 0"0D
+noremap S "0D
 noremap m r
 noremap b <C-v>
 nnoremap ' ~h
@@ -62,12 +64,15 @@ noremap gh gd
 " Alt commands
 noremap <M-j> <C-f>
 noremap <M-k> <C-b>
+noremap <M-u> <C-o>
+noremap <M-i> <C-i>
 
 " Leader commands
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :qa<CR>
+
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
@@ -147,3 +152,6 @@ nnoremap t[ mz0f[yi[`z
 nnoremap t] mz0f]yi]`z
 nnoremap t< yi<
 nnoremap t> yi>
+
+" Clear search highlights on load
+:nohl
