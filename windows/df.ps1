@@ -134,7 +134,7 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv
 Write-Host "✅ Created symbolic link '.vscodevimrc'"
 New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$DotfilesEnv\common\vim\.vimrc" -Force | Out-Null
 Write-Host "✅ Created symbolic link '.vimrc'"
-New-Item -ItemType SymbolicLink -Path "$HOME\.config\nvim" -Target "$DotfilesEnv\common\nvim" -Force | Out-Null
+New-Item -ItemType SymbolicLink -Path "$HOME\APPDATA\Local\nvim" -Target "$DotfilesEnv\common\nvim" -Force | Out-Null
 Write-Host "✅ Created symbolic link '\nvim'"
 Write-Host "`r"
 

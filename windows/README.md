@@ -33,6 +33,8 @@
 - Okular
 - Krita
 - Obsidian
+- Chocolatey (https://chocolatey.org/install)
+- MinGW (choco install mingw)
 ### Dev
 - Powershell 7
 - Wezterm

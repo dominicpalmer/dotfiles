@@ -42,11 +42,11 @@ bufferline.setup {
       middle_mouse_command = "bdelete! %d",
 
       indicator_icon = ' ',
-      buffer_close_icon = '',
+      buffer_close_icon = 'x',
       modified_icon = '●',
-      close_icon = '',
-      left_trunc_marker = '',
-      right_trunc_marker = '',
+      close_icon = 'x',
+      left_trunc_marker = '|',
+      right_trunc_marker = '-',
 
       max_name_length = 16,
       max_prefix_length = 13,
@@ -62,7 +62,6 @@ bufferline.setup {
       color_icons = true,
       show_buffer_icons = true,
       show_buffer_close_icons = true,
-      show_buffer_default_icon = false,
       show_close_icon = false,
 
       show_tab_indicators = true,

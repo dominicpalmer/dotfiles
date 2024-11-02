@@ -20,18 +20,26 @@ local function single_click_edit(node)
 end
 
 nvimtree.setup {
-      hijack_netrw = true,
-      open_on_setup_file = true,
-      view = {
-         width = 50,
-         height = 30,
-         hide_root_folder = true,
-         mappings = {
-            list = {
-               { key = "<LeftRelease>", action= "single_click_edit" },
-            }
-         }
+   hijack_netrw = true,
+   on_attach = function(bufnr)
+      local api = require("nvim-tree.api")
+      local function opts(desc)
+         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      vim.keymap.set("n", "<LeftRelease>", api.node.open.edit, opts("Single Click Edit"))
+   end,
+   renderer = {
+      root_folder_label = false,
    },
+   view = {
+      float = {
+         open_win_config = {
+            width = 50,
+            height = 30,
+         }
+      },
+   }
 }
 
 -- Transparency

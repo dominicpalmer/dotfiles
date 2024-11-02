@@ -1,7 +1,7 @@
 local core_modules = {
    "core.options",
    "core.general",
-   "core.remaps"
+   "core.winbar"
 }
 
 for _, module in ipairs(core_modules) do
@@ -10,3 +10,5 @@ for _, module in ipairs(core_modules) do
       error("Error loading core module " .. module .. "\n" .. err)
    end
 end
+
+require("core.remaps").bind()

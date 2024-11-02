@@ -1,4 +1,4 @@
-source $HOME/.config/nvim/sets.vim
-source $HOME/.config/nvim/remaps.vim
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/general.vim
+source $HOME\APPDATA\Local\nvim\sets.vim
+source $HOME\APPDATA\Local\nvim\remaps.vim
+source $HOME\APPDATA\Local\nvim\plugins.vim
+source $HOME\APPDATA\Local\nvim\general.vim
