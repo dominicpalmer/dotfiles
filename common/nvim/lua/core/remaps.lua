@@ -48,7 +48,8 @@ map("n", "<S-CR>", "O<Esc>")
 map("v", "u", "<Esc>u")
 map("", "U", "<C-r>")
 
--- TODO g commands
+-- g commands
+map("", "gd", "gj")
 
 -- Alt commands
 map("", "<M-j>", "<C-f>")
@@ -62,7 +63,7 @@ map("", "<leader>q", ":q<CR>")
 map("", "<leader><leader>w", ":wa<CR>")
 map("", "<leader><leader>q", ":qa<CR>")
 map("n", "<leader><leader>q", ":qa<CR>")
-map("n", "<leader>n", ":enew<CR>", { silent = true }) -- TODO what is this plus below
+map("n", "<leader>n", ":enew<CR>", { silent = true })
 map("n", "<leader>f", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 map("", "<leader>h", "<C-w>h")
