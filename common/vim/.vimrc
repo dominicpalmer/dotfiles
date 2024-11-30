@@ -26,10 +26,10 @@ nnoremap \ V :m '>+1<CR>gv=gv<Esc>
 vnoremap \ :m '>+1<CR>gv=gv
 nnoremap / V :m '<-2<CR>gv=gv<Esc>
 vnoremap / :m '<-2<CR>gv=gv
-nnoremap , mz>>'z
-vnoremap , >gv
-nnoremap z mz<<'z
-vnoremap z <gv
+nnoremap z mz>>'z
+vnoremap z >gv
+nnoremap , mz<<'z
+vnoremap , <gv
 
 " Search
 noremap ; /

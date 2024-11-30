@@ -25,10 +25,10 @@ noremap L $
 noremap M J
 noremap \ :vsc Edit.MoveSelectedLinesDown<CR>
 noremap / :vsc Edit.MoveSelectedLinesUp<CR>
-nnoremap , mz>>'z
-vnoremap , >gv
-nnoremap z mz<<'z
-vnoremap z <gv
+nnoremap z mz>>'z
+vnoremap z >gv
+nnoremap , mz<<'z
+vnoremap , <gv
 
 " Search
 noremap ; /
