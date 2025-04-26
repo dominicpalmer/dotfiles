@@ -1,11 +1,11 @@
 -------------------------- Extensions
+Classic UI
 High Contrast Green
 High Contrast Blue
 CodeGlance Pro
 InlineProblems
 GitHub Copilot
 IdeaVim
-[DataGrip, WebStorm] Classic UI
 [DataGrip] Big Data Tools
 [DataGrip] Kafka
 

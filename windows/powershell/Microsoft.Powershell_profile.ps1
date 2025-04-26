@@ -2,8 +2,10 @@ Set-ExecutionPolicy -Scope CurrentUser Unrestricted
 
 Import-Module posh-git
 Import-Module oh-my-posh
+
 # Inspiration from https://ohmyposh.dev/docs/themes
 Set-Theme doms-theme
+
 $global:DefaultUser = [System.Environment]::UserName
 
 # Aliases

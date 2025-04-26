@@ -1,0 +1,121 @@
+###############################################################################
+######################## FRESH LINUX INSTALL GUIDE ############################
+###############################################################################
+
+First backup linux system files that will be imported into the new OS:
+
+- ~/{.gitconfig, .nvidia-settings-rc}
+- ~/.kde/
+- ~/.local/share/{color-schemes/, dolphin/ and kxmlgui5/}
+- ~/.config/{gtk-3.0/, xsettingsd/, Mailspring/}
+- ~/.config/{all loose files (rc, conf, etc)}
+- Anything else in ~/.config that might be of use (e.g. /Mailspring)
+- ~/snap/chromium
+
+Also export .kwinrules file from settings/Window Management/Window Rules,
+which will later be re-imported.
+
+###############################################################################
+###############################################################################
+###############################################################################
+
+1) Get barebones internet connection using motherboard antennae.
+
+2) Run 'sudo apt install git dkms', then install wifi dongle driver. You may
+need a branch titled 'quasi' or something. May need to install all ubuntu deps.
+May need to install via make (not dkms). May need to enable usb3s after install.
+https://github.com/aircrack-ng/rtl8814au
+
+3) Graphics driver:
+https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-20-04-focal-fossa-linux/
+
+4) Fix crackling audio:
+    1) Run 'sudo nano -w /etc/pulse/default.pa'
+    2) Look for the line with 'load-module module-udev-detect'. Change the line
+    to: 'load-module module-udev-detect tsched=0'. Ctrl-o Enter to save, then
+    Ctrl-x to exit.
+    3) Restart PulseAudio: 'pulseaudio -k' && 'pulseaudio --start'
+
+5) Turn on advanced mouse settings
+  1) Create /etc/X11/xorg.conf if it doesn't already exist. Paste this in:
+Section "InputClass"
+  Identifier "evdev-mouse"
+  MatchIsPointer "yes"
+  Driver "evdev"
+EndSection
+  2) Run `sudo apt install xserver-xorg-input-evdev` then reboot.
+
+6) Install panel transparency widget via the OS UI (not via the KDE website).
+This one: https://store.kde.org/p/1338479/
+
+7) Install Windows icons via the OS UI. Win10 or Win-8.1-NS are good options.
+
+8) Force login screen to only use one monitor:
+  1) Run 'xrandr' and make note of the monitor you don't want displayed at login
+  2) Run 'sudo vim /usr/share/sddm/scripts/Xsetup', then add the line
+  'xrandr --output <id> --off' where id is likely going to be DVI-D-0.
+  3) Run 'sudo vim /etc/sddm.conf' and add two lines:
+[X11]
+DisplayCommand=/usr/share/sddm/scripts/Xsetup
+  4) Reboot.
+
+9) Firefox setup:
+  1) Install Discover - Flatpak backend from Discover.
+  2) Install Firefox flatpak from https://flathub.org/apps/details/org.mozilla.firefox.
+  3) Uninstall the original Firefox that's bundled with the OS.
+  4) Paste in dotfiles' userChrome.css into a new chrome/ folder at:
+  ~/.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>.default-release
+  5) Login to Firefox and do a sweep of settings.
+  6) Fix h264 video playback in Flatpak Firefox:
+    i) 'sudo flatpak install flathub org.freedesktop.Platform.ffmpeg-full', opt
+    to install 21.08.
+    ii) Restart computer.
+    iii) Test that Twitch playback is smooth.
+  7) Install flatseal:
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub com.github.tchx84.Flatseal -y
+  8) Open flatseal and give Firefox required filesystem permissions for ~/Desktop.
+
+10) Installations:
+  a) Discover: KeePassXC, TexStudio, Seahorse
+  b) .deb downloads via their website: VeraCrypt, VSCode, MailSpring, LibreOffice
+  c) apt: 'sudo apt install xclip steam texlive-full git zsh tree tmux vim curl gnome-keyring'
+  d) apt-get: 'sudo apt-get install ripgrep'
+  e) snap: 'sudo snap install snap-store spotify chromium'
+  f) snap classic: 'sudo snap install alacritty --classic'
+  g) From source:
+    - Wezterm: https://wezfurlong.org/wezterm/install/linux.html
+    - Neovim: Download the latest nvim.appimage from https://github.com/neovim/neovim/releases,
+    then run `chmod u+x nvim.appimage` on it, then `sudo mv nvim.appimage /bin`.
+    - oh-my-zsh: https://github.com/ohmyzsh/ohmyzsh
+    - FZF: https://github.com/junegunn/fzf. Select no to all options at install.
+    - FZF plugins:
+    https://github.com/zsh-users/zsh-autosuggestions
+    https://github.com/zsh-users/zsh-syntax-highlighting
+	- Packer (https://github.com/wbthomason/packer.nvim)
+    - vim-plug: https://github.com/junegunn/vim-plug. Follow the Neovim guide.
+    - nvm: https://github.com/nvm-sh/nvm
+    - Node: `nvm install node`
+    - CoC: https://github.com/neoclide/coc.nvim. Includes node requirement.
+    - alacritty-themes: https://github.com/rajasegar/alacritty-themes
+    - Dotfiles: https://github.com/dominicpalmer/dotfiles
+
+11) Paste in backed up system files to appropriate folders, then import kwinrules.
+
+12) Final configuration:
+  1) Set the nodejs version to the one installed in nvim/plugins.vim
+  2) Install Chromium extensions if not already installed:
+      i) AutoScroll (change speed 10->8)
+      ii) Scroll Speed by Bert Hekman (change scale 1->1.9)
+  3) VSCode SettingsSync
+  4) Fix snap icons with:
+  'sudo cp /var/lib/snapd/desktop/applications/* /usr/share/applications/*'
+  5) Install Ruby for website dev.
+  6) Change nightcolour intensity via 'vim .config/kwinrc' and searching for
+  'night' to find the hue setting.
+  7) Import the kwinrules backup file to regain window location persistence.
+  8) Change screen locking background. Search settings for 'screen locking',
+  then go into 'appearance'.
+  9) Run ./install.sh from dotfiles/unix/install
+
+13. Uninstall unused KDE programs.

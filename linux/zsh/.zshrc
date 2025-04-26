@@ -3,11 +3,6 @@ alias vim=nvim
 export Dotfiles="$HOME/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
-tmux setenv TMUX_ACTIVE true
-tmux setenv THEME dark
-
-# For Neovim on WSL
-export PATH="$HOME/squashfs-root/usr/bin:$PATH"
 
 # FZF
 export FZF_BASE="$HOME/.fzf"

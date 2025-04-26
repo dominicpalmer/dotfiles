@@ -128,8 +128,6 @@ Write-Host "`r"
 Write-Host (Add-Dashes -Text "2. vimrc")
 New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$DotfilesEnv\common\jetbrains\.ideavimrc" -Force | Out-Null
 Write-Host "✅ Created symbolic link '.ideavimrc'"
-New-Item -ItemType SymbolicLink -Path "$HOME\.vsvimrc" -Target "$DotfilesEnv\windows\vs\.vsvimrc" -Force | Out-Null
-Write-Host "✅ Created symbolic link '.vsvimrc'"
 New-Item -ItemType SymbolicLink -Path "$HOME\.vscodevimrc" -Target "$DotfilesEnv\common\vscode\.vscodevimrc" -Force | Out-Null
 Write-Host "✅ Created symbolic link '.vscodevimrc'"
 New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$DotfilesEnv\common\vim\.vimrc" -Force | Out-Null
@@ -173,12 +171,12 @@ $InstallDirectory = "$DotfilesEnv\windows"
 Add-To-Path $InstallDirectory | Out-Null
 Write-Host "✅ Added '$InstallDirectory' to PATH"
 
-$ShortcutsDirectory = "$DotfilesEnv\windows\shortcuts"
-Add-To-Path $ShortcutsDirectory | Out-Null
-Write-Host "✅ Added '$ShortcutsDirectory' to PATH"
+$ScriptsDirectory = "$DotfilesEnv\windows\scripts"
+Add-To-Path $ScriptsDirectory | Out-Null
+Write-Host "✅ Added '$ScriptsDirectory' to PATH"
 
 $Exclusions = @("template")
-foreach ($Directory in Get-ChildItem -Directory $ShortcutsDirectory -Exclude $Exclusions) {
+foreach ($Directory in Get-ChildItem -Directory $ScriptsDirectory -Exclude $Exclusions) {
     Add-To-Path $Directory | Out-Null
     Write-Host "✅ Added '$Directory' to PATH"
 }
