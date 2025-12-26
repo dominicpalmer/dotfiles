@@ -1,20 +1,7 @@
-; Get a list of all window ids
-WinGet, id, List
+#Requires AutoHotkey v2.0
 
-; Loop over each window
-Loop, %id%
+ids := WinGetList()
+for current_id in ids
 {
-    current_id := id%A_Index%
-
-    ; Get the window title
-    WinGetTitle, title, ahk_id %current_id%
-
-    if (InStr(title, "PowerToys"))
-    {
-        ; Skip PowerToys Run, it's not supposed to be maximised
-        continue
-    }
-
-    ; Maximize the window
-    WinMaximize, ahk_id %current_id%
+    WinMaximize("ahk_id " current_id)
 }
