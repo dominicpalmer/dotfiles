@@ -23,8 +23,6 @@ Tabs
     - 'New Tab Page' as 'Homepage'
     - 'New Tab Position' as 'After Related Tabs'
     - Unset 'Keep Window Open when Last Tab is Closed'
-    - Unset 'Display Trash Can'
-    - Unset 'Display Synced Tabs Button'
     - Unset 'Show Popup Thumbnails'
     - Unset 'Display Close Button'
     - Page Load Progress as 'Favicon Progress'

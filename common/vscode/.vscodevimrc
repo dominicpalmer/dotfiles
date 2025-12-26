@@ -80,7 +80,7 @@ noremap <leader>8 :vsc workbench.action.openEditorAtIndex8<CR>
 noremap <leader>9 :vsc workbench.action.openEditorAtIndex9<CR>
 
 " Other commands
-noremap p :vsc extension.togglePinEditor<CR>
+noremap p :vsc togglePinEditor.togglePinEditor<CR>
 nnoremap <C-a> ggVG
 vnoremap <C-a> <Esc>ggVG
 

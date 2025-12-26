@@ -27,6 +27,7 @@ Editor/General
     - Unset 'Keep trailing spaces on caret line'
     - Set 'Remove trailing blank lines at the end of saved files'
     - In 'Appearance'
+        - Unset 'Caret Blinking'
         - Unset 'Show sticky lines while scrolling'
         (this setting is under 'Editor/General/Sticky Lines' in DataGrip/WebStorm)
         - Set 'Show whitespaces' for 'Trailing' and 'Selection'
@@ -53,6 +54,8 @@ Editor/Color Scheme/Font (leave font family as default in DataGrip)
     - 'Font' as 'Cascadia Code PL', size as required (e.g. 14), line height 1
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
+Editor/Inlay Hints
+    - Unset 'Enable Inlay Hints in .NET languages'
 Version Control
     - Under 'File Status Colors' unset everything in the list
 Build, Execution, Deployment/Debugger
@@ -63,6 +66,7 @@ Advanced Settings/Editor Tabs
 Advanced Settings/Search Everywhere
     - Set 'Sort results in the All tab based on machine learning'
 Non-Settings User Interface
+    - Right click top bar and hide 'Code with me' and other widgets
     - Right click the status bar and set 'Memory Indicator'
     - Right click the pencil icons and 'Move to Status Bar'
     - Under the 'Debug' tool window, click 'View Breakpoints' and set
@@ -81,13 +85,14 @@ InlineProblems
     - 'Error text color' as FF0000
     - Set 'Show weak warnings' and 'Show infos'
 GitHub Copilot
-    - Set 'Color for completions' as 285F23
+    - Set 'Color for completions' as #D000FF
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
 - [DataGrip] Replace root inheritable <Esc> with <C-[>
 - Remove 'Close Diff Editor' bound to <Esc>
 - Remove shortcuts bound to <C-,>
+- Remove CodeGlance keybind on <C-S-g>
 - <C-,> to 'Open Settings'
 - <C-;> to 'SearchEverywhere'
 - <C-o> to 'GoToFile'
@@ -97,9 +102,7 @@ Set 'remove' if/when prompted.
 - F7 to 'BuildSolutionAction'
 - F8 to 'CleanSolutionAction'
 - <C-A-v> to 'VimPluginToggle'
-- <A-l> to 'Copilot: Show Completions' i.e. 'copilot.requestCompletions'
-- <A-n> to 'Copilot: Show Next Completions' i.e. 'copilot.cycleNextInlays'
-- <A-m> to 'Copilot: Show Previous Completions' i.e. 'copilot.cyclePrevInlays'
+- <A-l> to 'Call Inline Completion'
 - [DataGrip] F2 to the root inheritable 'Rename' (don't set 'remove' for this)
 - [DataGrip] <C-CR> to 'Refresh' (set the root keybind)
 

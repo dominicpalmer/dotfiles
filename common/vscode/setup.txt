@@ -1,18 +1,13 @@
 -------------------------- Extensions
 Error Lens
-GitLens -- Git supercharged
-IntelliCode
-IntelliCode API Usage Examples
-IntelliCode Completions
-GitHub Copilot
+GitLens
 GitHub Copilot Chat
 Vim
 Trailing Spaces
 Toggle Pin Editor
 EditorConfig for VSCode
-Docker
-Kubernetes
 PowerShell
+LaTeX Workshop
 XML
 YAML
 vscode-icons

@@ -43,13 +43,16 @@
 - [Dev] Node (nvm from https://github.com/coreybutler/nvm-windows/releases, then `nvm install lts` and `nvm use <version>`)
 - [Dev] Python
 - [Dev] Jekyll
+- [Dev] Postman
+- [Dev] Treesize
+- [Dev] Windirstat
 
 ## 3. Root
 
 ## 4. Dotfiles
 - Clone from https://github.com/dominicpalmer/dotfiles
 - In admin PowerShell create 'dotfiles' path env variable via `setx /m dotfiles <path>`
-- Run `./df.ps1 -pwsh_modules --obsidian_vault_path <path>` from script root with Obsidian path set
+- Run `./df.ps1 -pwsh_modules -obsidian_vault_path <path>` from script root with Obsidian path set
 
 ## 5. Final Config
 - Configure startup apps via settings
