@@ -70,9 +70,10 @@ nnoremap <M-j> :vsc Edit.PageDown<CR>
 vnoremap <M-j> :vsc Edit.PageDownExtend<CR>
 nnoremap <M-k> :vsc Edit.PageUp<CR>
 vnoremap <M-k> :vsc Edit.PageUpExtend<CR>
-noremap <M-;> :vsc Edit.Replace<CR>
 noremap <M-u> :vsc View.NavigateBackward<CR>
 noremap <M-i> :vsc View.NavigateForward<CR>
+noremap <M-u> :vsc View.NextError<CR>
+noremap <M-i> :vsc View.PreviousError<CR>
 
 " Leader commands
 noremap <leader>; :vsc Window.QuickLaunch<CR>
@@ -85,13 +86,11 @@ nnoremap <leader>' :vsc Edit.ToggleLineComment<CR> <Esc>
 vnoremap <leader>' :vsc Edit.ToggleLineComment<CR> <Esc> k
 vnoremap <leader>s $hvo0 :vsc Edit.SurroundWith<CR>
 vnoremap <leader>e :vsc Refactor.ExtractMethod<CR>
-noremap <leader>d :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+noremap <leader>f :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :vsc Window.CloseAllDocuments<CR>
-noremap <leader>u :vsc View.NextError<CR>
-noremap <leader>i :vsc View.PreviousError<CR>
 
 noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
