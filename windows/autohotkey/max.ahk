@@ -3,5 +3,5 @@
 ids := WinGetList()
 for current_id in ids
 {
-    WinMaximize("ahk_id " current_id)
+    try WinMaximize("ahk_id " current_id)
 }
