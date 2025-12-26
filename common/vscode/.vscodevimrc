@@ -57,13 +57,11 @@ noremap <leader>r :vsc editor.action.rename<CR>
 noremap <leader>' :vsc Edit.ToggleLineComment<CR>
 vnoremap <leader>s :vsc editor.action.surroundWithSnippet<CR>
 noremap <leader>e :vsc editor.action.refactor<CR>
-noremap <leader>d :vsc revealFileInOS<CR>
+noremap <leader>f :vsc revealFileInOS<CR>
 noremap <leader>w :w<CR>
 noremap <leader><leader>w :wa<CR>
 noremap <leader>q :q<CR>
 noremap <leader><leader>q :qa<CR>
-noremap <leader>u :vsc editor.action.marker.nextInFiles<CR>
-noremap <leader>i :vsc editor.action.marker.prevInFiles<CR>
 
 noremap <leader>h :vsc workbench.action.navigateLeft<CR>
 noremap <leader>j :vsc workbench.action.navigateDown<CR>
@@ -82,9 +80,9 @@ noremap <leader>8 :vsc workbench.action.openEditorAtIndex8<CR>
 noremap <leader>9 :vsc workbench.action.openEditorAtIndex9<CR>
 
 " Other commands
+noremap p :vsc extension.togglePinEditor<CR>
 nnoremap <C-a> ggVG
 vnoremap <C-a> <Esc>ggVG
-noremap p :vsc extension.togglePinEditor<CR>
 
 " Inner shortcuts
 nnoremap c" ci"

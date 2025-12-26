@@ -8,15 +8,14 @@
   { "key": "ctrl+alt+v", "command": "toggleVim" },
 
   // Workarounds for alt commands (modifier not supported by .vscodevimrc)
-  { "key": "alt+i", "command": "workbench.action.navigateForward" },
-  { "key": "alt+u", "command": "workbench.action.navigateBack" },
-  { "key": "alt+;", "command": "editor.action.startFindReplaceAction" },
   { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-f>" ] } },
   { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-b>" ] } },
+  { "key": "alt+u", "command": "workbench.action.navigateBack" },
+  { "key": "alt+i", "command": "workbench.action.navigateForward" },
+  { "key": "alt+n", "command": "editor.action.marker.nextInFiles" },
+  { "key": "alt+m", "command": "editor.action.marker.prevInFiles" },
   { "key": "alt+enter", "command": "editor.action.quickFix" },
   { "key": "alt+l", "command": "editor.action.inlineSuggest.trigger" },
-  { "key": "alt+n", "command": "editor.action.inlineSuggest.showNext" },
-  { "key": "alt+m", "command": "editor.action.inlineSuggest.showPrevious" },
 
   // Workarounds for navigation in non-editable windows and sidebars
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },

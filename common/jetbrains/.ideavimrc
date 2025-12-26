@@ -97,10 +97,10 @@ call Noremap('go', ':action ReformatCode<CR>')
 " Alt commands
 noremap <A-j> <C-f>
 noremap <A-k> <C-b>
-nnoremap <A-;> viw:action Replace<CR>
-xnoremap <A-;> <Esc> :action Replace<CR>
 noremap <A-u> :action Back<CR>
 noremap <A-i> :action Forward<CR>
+call Noremap('<A-n>', ':action GotoNextError<CR>')
+call Noremap('<A-m>', ':action GotoPreviousError<CR>')
 
 " Leader commands
 call Noremap('<leader>;', ':action SearchEverywhere<CR>')
@@ -115,15 +115,13 @@ call Noremap('<leader>r', ':action RenameElement<CR>')
 call Noremap("<leader>'", ":action CommentByLineComment<CR>")
 xnoremap <leader>s :action SurroundWith<CR>
 xnoremap <leader>e :action ExtractMethod<CR>
-call Noremap('<leader>d', ':action SelectIn<CR>')
-call Noremap('<leader>f', ':action RevealIn<CR>')
+call Noremap('<leader>f', ':action SelectIn<CR>')
+call Noremap('<leader>d', ':action RevealIn<CR>')
 call Noremap('<leader>b', ':action Annotate<CR>')
 call Noremap('<leader>w', ':w<CR>')
 call Noremap('<leader><leader>w', ':wa<CR>')
 call Noremap('<leader>q', ':q<CR>')
 call Noremap('<leader><leader>q', ':qa<CR>')
-call Noremap('<leader>u', ':action GotoNextError<CR>')
-call Noremap('<leader>i', ':action GotoPreviousError<CR>')
 
 call Noremap('<leader>h', '<C-w>w')
 call Noremap('<leader>j', '<C-w>w')
@@ -142,9 +140,9 @@ call Noremap('<leader>8', ':action GoToTab8<CR>')
 call Noremap('<leader>9', ':action GoToTab9<CR>')
 
 " Other commands
-call Noremap('9', ':action RiderShowValueOrigin<CR>')
-call Noremap('0', ':action RiderShowValueDestination<CR>')
 call Noremap('p', ':action PinActiveEditorTab<CR>')
+call Noremap('<leader>u', ':action RiderShowValueOrigin<CR>')
+call Noremap('<leader>i', ':action RiderShowValueDestination<CR>')
 call Noremap('<leader><leader>r', ':so ~\.ideavimrc<CR>l')
 
 " Inner shortcuts

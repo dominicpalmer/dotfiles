@@ -1,5 +1,4 @@
 -------------------------- Extensions
-Classic UI
 High Contrast Green
 High Contrast Blue
 CodeGlance Pro
@@ -10,8 +9,6 @@ IdeaVim
 [DataGrip] Kafka
 
 -------------------------- IDE Settings
-Appearance & Behaviour/New UI
-    - Unset 'Enable new UI'
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Green' or 'High Contrast Blue'
     - 'Zoom' as required
