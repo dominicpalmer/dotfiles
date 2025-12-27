@@ -5,7 +5,14 @@
 # 4. Create VSCode settings and keybindings symbolic links                                         |
 # 5. Add binary directories to PATH                                                                |
 # 6. Create AutoHotKey remap scheduled task to run at logon                                        |
+# 7. [Optional] Create obsidian.css symbolic link for supplied vault                               |
 #--------------------------------------------------------------------------------------------------|
+
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory = $false)]
+    [String] $obsidian_vault_path
+)
 
 function Add-To-Path {
     param (
@@ -192,6 +199,17 @@ Write-Host "✅ Created new AutoHotKey scheduled task 'remaps.ahk'"
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
 Write-Host "✅ Started AutoHotKey scheduled task 'remaps.ahk'"
 Write-Host "`r"
+
+# ------------------------------------------ 7. Obsidian -------------------------------------------
+Write-Host (Add-Dashes -Text "7. Obsidian")
+if (![String]::IsNullOrEmpty($obsidian_vault_path)) {
+    $ObsidianCssPath = "$obsidian_vault_path\.obsidian\snippets\obsidian.css"
+    New-Item -ItemType SymbolicLink -Path $ObsidianCssPath -Target "$DotfilesEnv\common\obsidian\obsidian.css" -Force | Out-Null
+    Write-Host "✅ Started AutoHotKey scheduled task 'remaps.ahk'"
+    Write-Host "✅ Created symbolic link '$ObsidianCssPath'"
+} else {
+    Write-Host "✅ Obsidian vault path was not supplied; nothing to do"
+}
 
 } catch {
     Write-Output "Failed to update dotfiles:"

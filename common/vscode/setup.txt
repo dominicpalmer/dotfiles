@@ -1,10 +1,10 @@
 -------------------------- Extensions
-Error Lens
-GitLens
-GitHub Copilot Chat
 Vim
 Trailing Spaces
+Error Lens
+GitLens
 Toggle Pin Editor
+GitHub Copilot Chat
 EditorConfig for VSCode
 PowerShell
 LaTeX Workshop

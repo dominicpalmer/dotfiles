@@ -8,7 +8,6 @@
 - [Core] Firefox
 - [Core] Thunderbird
 - [Core] Notepad++
-- [Core] Obsidian
 - [Core] VSCode
 - [Core] Git
 - [Core] LibreOffice
@@ -47,17 +46,15 @@
 - [Dev] Treesize
 - [Dev] Windirstat
 
-## 3. Root
-
-## 4. Dotfiles
-- Clone from https://github.com/dominicpalmer/dotfiles
+## 3. Root and Dotfiles
+- Setup root
+- Clone dotfiles from https://github.com/dominicpalmer/dotfiles
 - In admin PowerShell create 'dotfiles' path env variable via `setx /m dotfiles <path>`
-- Run `./df.ps1 -pwsh_modules -obsidian_vault_path <path>` from script root with Obsidian path set
+- Run `./df.ps1 -pwsh_modules` from script root
 
-## 5. Final Config
+## 4. Final Config
 - Configure startup apps via settings
 - JetBrains apps (setup.txt)
-- Obsidian (setup.txt)
 - VSCode (setup.txt)
 - CopyQ (setup.txt)
 - Firefox (run through all settings)
