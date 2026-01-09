@@ -25,7 +25,6 @@ Editor/General
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
     - 'Remove trailing spaces' as 'All lines',
     - Unset 'Keep trailing spaces on caret line'
-    - Set 'Remove trailing blank lines at the end of saved files'
     - In 'Appearance'
         - Unset 'Caret Blinking'
         - Unset 'Show sticky lines while scrolling'

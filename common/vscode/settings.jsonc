@@ -50,6 +50,7 @@
   "security.workspace.trust.startupPrompt": "never",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.stickyScroll.enabled": false,
+  "editor.cursorBlinking": "solid",
 
   // Allow trailing commas in VSCode config files
 	"json.schemas": [{

@@ -16,6 +16,7 @@
   { "key": "alt+m", "command": "editor.action.marker.prevInFiles" },
   { "key": "alt+enter", "command": "editor.action.quickFix" },
   { "key": "alt+l", "command": "editor.action.inlineSuggest.trigger" },
+  { "key": "alt+p", "command": "github.copilot.chat.openSuggestionsPanel" },
 
   // Workarounds for navigation in non-editable windows and sidebars
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },

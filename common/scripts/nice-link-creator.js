@@ -33,11 +33,17 @@ javascript: (function () {
     }
   }
 
+  function getPRNumber() {
+    const href = window.location.href;
+    const match = href.match(/\/pull\/(\d+)/);
+    return match ? match[1] : null;
+  }
+
   function getDiffCounters() {
     const diffStats = document.querySelector(".diffstat");
     if (diffStats) {
       const diffText = diffStats.textContent.trim().replace(/\s+/g, " ");
-      console.log("Found diffstat. Including in link: " + diffText);
+      console.log("Found diffstat: " + diffText);
       return diffText;
     }
     return "";
@@ -46,13 +52,27 @@ javascript: (function () {
   var href = window.location.href;
   var title = document.title;
 
+  title = title.replace(/Pull Request #\d+/g, "");
+  title = title.replace(/\s*by\s+[\w-]+\s*/g, "");
+  title = title.replace(/\s*·\s*·\s*/g, " · ");
+  title = title.trim();
+
   if (
-    href.includes("github.com") &&
+    (href.includes("github.com")) &&
     href.includes("/pull/")
   ) {
+    const prNumber = getPRNumber();
     const diffCounters = getDiffCounters();
-    if (diffCounters) {
-      title += ` (${diffCounters})`;
+
+    if (prNumber) {
+      let formattedTitle = "#" + prNumber;
+
+      if (diffCounters) {
+        formattedTitle += " (" + diffCounters + ")";
+      }
+
+      formattedTitle += " " + title;
+      title = formattedTitle;
     }
   }
 

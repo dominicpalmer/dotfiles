@@ -18,13 +18,19 @@ M.platform = {
 
       -- Last tab with n, new tab with m
       {key="n", mods="LEADER", action="ActivateLastTab"},
-      {key="m", mods="LEADER", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+      {key="m", mods="LEADER", action=wezterm.action.SpawnTab("CurrentPaneDomain")},
 
       -- Tab handlers
       {key="j", mods="LEADER", action=wezterm.action{CloseCurrentPane={confirm=false}}},
       {key="k", mods="LEADER", action=wezterm.action{CloseCurrentTab={confirm=false}}},
-      {key="v", mods="LEADER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
-      {key="c", mods="LEADER", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
+      {key="v", mods="LEADER", action=wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"}},
+      {key="c", mods="LEADER", action=wezterm.action.SplitVertical{domain="CurrentPaneDomain"}},
+
+      -- Split horizontal and run Claude Code
+      {key="i", mods="LEADER", action=wezterm.action.SplitPane{
+         direction="Right",
+         command={args={"pwsh", "-NoExit", "-Command", "cl"}}
+      }},
 
       -- Tab switching
       {key="1", mods="LEADER", action=wezterm.action{ActivateTab=0}},

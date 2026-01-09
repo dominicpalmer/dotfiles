@@ -8,6 +8,17 @@ Set-Theme doms-theme
 
 $global:DefaultUser = [System.Environment]::UserName
 
+# Ensure WezTerm opens new tabs/panes at current working directory
+$global:__OriginalPrompt = $function:prompt
+function prompt {
+    $cwd = $ExecutionContext.SessionState.Path.CurrentLocation.Path
+    $OSC = [char]27 + ']'
+    $BEL = [char]7
+    $url = "file://localhost/$($cwd -replace '\\', '/')"
+    Write-Host -NoNewline "${OSC}7;${url}${BEL}"
+    & $global:__OriginalPrompt
+}
+
 # Aliases
 function sudo { gsudo --loadProfile $args }
 function dotfiles { Set-Location $env:dotfiles }

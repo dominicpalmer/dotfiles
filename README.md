@@ -1,3 +1,3 @@
 # dotfiles
 
-This repo is home to anything I value being easily acessible on new machines: dotfiles, scripts, keyboard remaps, etc.
+This repo contains my dev setup dotfiles, scripts, keyboard remaps, tools, etc.
