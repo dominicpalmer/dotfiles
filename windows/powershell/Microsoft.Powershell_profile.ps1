@@ -82,7 +82,7 @@ Set-PSReadlineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c' }
 
-# Accept inline suggestion with Tab in insert mode
+# In insert mode, accept inline suggestions with tab if at end, else complete as normal
 Set-PSReadLineKeyHandler -Key "Tab" -ScriptBlock {
     param($key, $arg)
 
@@ -91,12 +91,18 @@ Set-PSReadLineKeyHandler -Key "Tab" -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$Line, [ref]$Cursor)
 
     if ($Cursor -lt $Line.Length - 1) {
-        [Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar($key, $arg)
+        [Microsoft.PowerShell.PSConsoleReadLine]::Complete($key, $arg)
     }
     else {
         [Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion($key, $arg)
     }
 }
+
+# In normal mode, complete as normal with tab
+Set-PSReadLineKeyHandler -Key "Tab" -ScriptBlock {
+    param($key, $arg)
+    [Microsoft.PowerShell.PSConsoleReadLine]::Complete($key, $arg)
+} -ViMode Command
 
 # Keybindings
 # https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.psconsolereadline?view=powershellsdk-1.1.0
