@@ -60,13 +60,6 @@ $PwshProfileTarget = "$DotfilesEnv\windows\powershell\Microsoft.Powershell_profi
 New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force | Out-Null
 Write-Host "✅ Created symbolic link 'Microsoft.Powershell_profile.ps1'"
 
-# Symbolic link theme
-$PwshThemePath = "C:\Program Files\PowerShell\7\Modules\oh-my-posh\Themes\doms-theme.psm1"
-$PwshThemeTarget = "$DotfilesEnv\windows\powershell\doms-theme.psm1"
-New-Item -ItemType SymbolicLink -Path $PwshThemePath -Target $PwshThemeTarget -Force | Out-Null
-Write-Host "✅ Created symbolic link 'doms-theme.psm1'"
-Write-Host "`r"
-
 # -------------------------------------------- 2. vimrc --------------------------------------------
 Write-Host (Add-Dashes -Text "2. vimrc")
 New-Item -ItemType SymbolicLink -Path "$HOME\.ideavimrc" -Target "$DotfilesEnv\common\jetbrains\.ideavimrc" -Force | Out-Null
