@@ -1,10 +1,4 @@
 {
-  // Global autoformat
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
-  "editor.formatOnType": false,
-
-  // Font
   "editor.fontFamily": "Cascadia Code",
   "editor.fontSize": 15,
 
@@ -75,9 +69,6 @@
   // Copilot
   "github.copilot.enable": {
     "": true,
-    "plaintext": true,
-    "markdown": false,
-    "scminput": false,
   },
   "chat.viewSessions.orientation": "stacked",
 

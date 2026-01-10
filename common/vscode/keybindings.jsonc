@@ -1,24 +1,11 @@
 [
-  // Required
+  // Commands to work in non-editable windows and sidebars
   { "key": "ctrl+;", "command": "workbench.action.showCommands" },
   { "key": "ctrl+o", "command": "workbench.action.quickOpen" },
   { "key": "ctrl+n", "command": "workbench.action.findInFiles" },
   { "key": "ctrl+m", "command": "workbench.action.replaceInFiles" },
   { "key": "F7", "command": "workbench.action.tasks.build" },
   { "key": "ctrl+alt+v", "command": "toggleVim" },
-
-  // Workarounds for alt commands (modifier not supported by .vscodevimrc)
-  { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-f>" ] } },
-  { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-b>" ] } },
-  { "key": "alt+u", "command": "workbench.action.navigateBack" },
-  { "key": "alt+i", "command": "workbench.action.navigateForward" },
-  { "key": "alt+n", "command": "editor.action.marker.nextInFiles" },
-  { "key": "alt+m", "command": "editor.action.marker.prevInFiles" },
-  { "key": "alt+enter", "command": "editor.action.quickFix" },
-  { "key": "alt+l", "command": "editor.action.inlineSuggest.trigger" },
-  { "key": "alt+p", "command": "github.copilot.chat.openSuggestionsPanel" },
-
-  // Workarounds for navigation in non-editable windows and sidebars
   { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
   { "key": "ctrl+j", "command": "workbench.action.navigateDown" },
   { "key": "ctrl+k", "command": "workbench.action.navigateUp" },
@@ -38,8 +25,17 @@
   { "key": "ctrl+alt+j", "command": "workbench.action.togglePanel" },
   { "key": "escape", "command": "workbench.action.focusLastEditorGroup", "when": "searchInputBoxFocus && searchViewletVisible" },
 
-  // Other workarounds (e.g. keys/modifiers not supported by .vscodevimrc)
+  // .vscodevimrc workarounds (alt commands and some keys/modifiers are not supported)
   { "key": "shift+enter", "command": "editor.action.insertLineBefore" },
   { "key": "\\", "command": "editor.action.moveLinesDownAction", "when": "vim.mode == 'Visual' || vim.mode == 'VisualLine'" },
   { "key": "/", "command": "editor.action.moveLinesUpAction", "when": "vim.mode == 'Visual' || vim.mode == 'VisualLine'" },
+  { "key": "alt+j", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-f>" ] } },
+  { "key": "alt+k", "command": "vim.remap", "when": "!inQuickOpen && inputFocus", "args": { "after": [ "<C-b>" ] } },
+  { "key": "alt+u", "command": "workbench.action.navigateBack" },
+  { "key": "alt+i", "command": "workbench.action.navigateForward" },
+  { "key": "alt+n", "command": "editor.action.marker.nextInFiles" },
+  { "key": "alt+m", "command": "editor.action.marker.prevInFiles" },
+  { "key": "alt+enter", "command": "editor.action.quickFix" },
+  { "key": "alt+l", "command": "editor.action.inlineSuggest.trigger" },
+  { "key": "alt+p", "command": "github.copilot.chat.openSuggestionsPanel" },
 ]

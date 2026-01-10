@@ -34,7 +34,6 @@ Editor/General
     - In 'Code Completion'
         - Unset 'Preselect the best match to insert it by pressing dot...'
         - Unset 'Enter inserts suggestion even if completion popup is not focused'
-        - Set 'Mark the most relevant item in the completion popup'
         - Set 'Show the parameter info popup in' as 750ms
     - In 'Code Folding' untick everything under 'Fold by default'
     - In 'Editor Tabs'
@@ -88,7 +87,6 @@ GitHub Copilot
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
-- [DataGrip] Replace root inheritable <Esc> with <C-[>
 - Remove 'Close Diff Editor' bound to <Esc>
 - Remove shortcuts bound to <C-,>
 - Remove CodeGlance keybind on <C-S-g>
@@ -97,7 +95,6 @@ Set 'remove' if/when prompted.
 - <C-o> to 'GoToFile'
 - <C-n> to 'Find in Files'
 - <C-m> to 'Replace in Files'
-- F1 to 'Go to Declaration or Usages'
 - F7 to 'BuildSolutionAction'
 - F8 to 'CleanSolutionAction'
 - <C-A-v> to 'VimPluginToggle'

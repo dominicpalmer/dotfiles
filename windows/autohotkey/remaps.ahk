@@ -54,11 +54,3 @@ RegWrite 1, "REG_DWORD", "HKCU\Software\Microsoft\Windows\CurrentVersion\Policie
 CapsLock::Esc
 RCtrl::CapsLock
 RAlt::Ctrl
-
-; -------------------------- DataGrip specific rules
-; IdeaVim works in the DataGrip filter bar, but <Esc> doesn't exit insert
-; mode. DataGrip intercepts <Esc> and moves the cursor focus instead. <C-[>
-; does exit insert mode, so send it instead of <Esc> for DataGrip only.
-#HotIf WinActive("ahk_exe datagrip64.exe")
-CapsLock::Send "^["  ; Send Ctrl+[ instead of Esc for DataGrip
-#HotIf

@@ -3,7 +3,7 @@
 	email = example@example.com
 [core]
 	autocrlf = false
-	editor = nvim
+	editor = code
 [alias]
 	st = status
 	co = checkout
