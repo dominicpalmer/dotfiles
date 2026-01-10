@@ -76,7 +76,7 @@
             [
               "{{ if or (.Working.Changed) (.Staging.Changed) }}#f5ae4c{{ end }}",
               "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#cc241d{{ end }}",
-              "{{ if gt .Ahead 0 }}#ff0099{{ end }}",
+              "{{ if gt .Ahead 0 }}#a8216b{{ end }}",
               "{{ if gt .Behind 0 }}#cc241d{{ end }}"
             ],
           "powerline_symbol": "",

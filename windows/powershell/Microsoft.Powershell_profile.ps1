@@ -70,8 +70,8 @@ Set-PSReadlineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -Colors @{ InlinePrediction = '#948e8c' }
 
-# Complete lines with 'l' from normal mode
-Set-PSReadLineKeyHandler -Key "l" -ViMode Command -ScriptBlock {
+# Accept inline suggestion with Tab in insert mode
+Set-PSReadLineKeyHandler -Key "Tab" -ScriptBlock {
     param($key, $arg)
 
     $Line = $null
