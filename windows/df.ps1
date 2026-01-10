@@ -51,57 +51,10 @@ Write-Host $StartSplash
 # ------------------------------------------ 1. PowerShell -----------------------------------------
 Write-Host (Add-Dashes -Text "1. PowerShell")
 
-# Remove non-7 modules
-$PowerShellHomePath = "$HOME\Documents\PowerShell\Modules"
-Get-ChildItem -Path $PowerShellHomePath -Recurse | ForEach-Object {
-    Remove-Item -Path $_.FullName -Recurse -Force
-    Write-Host "✅ Removed non-7 PowerShell module $_"
-}
-
-# Install posh-git module
-if (Get-Module -ListAvailable -Name posh-git) {
-    Write-Host "✅ PowerShell module 'posh-git' is already installed"
-} else {
-    Install-Module posh-git -Force
-}
+winget install JanDeDobbeleer.OhMyPosh --source winget
+Write-Host "✅ Installed OhMyPosh via winget"
 
 $PowerShell7BasePath = "C:\Program Files\Powershell\7"
-$PowerShell7ModulesPath = "$PowerShell7BasePath\Modules"
-
-# Clone oh-my-posh2
-$OhMyPoshPath = "$PowerShell7ModulesPath\oh-my-posh"
-if (Get-Item -Path $OhMyPoshPath -ErrorAction Ignore) {
-    Write-Host "✅ PowerShell module 'oh-my-posh' is already installed"
-} else {
-    # Cloning the V2 source into the Modules directory makes it usable
-    git clone https://github.com/JanDeDobbeleer/oh-my-posh2 "$PowerShell7ModulesPath\oh-my-posh"
-}
-
-# Remove non-2.1.0 bundled version of PSReadLine
-$PsReadLineBasePath = "$PowerShell7ModulesPath\PSReadLine"
-$TargetPsReadLineVersion = "2.1.0"
-if (Test-Path -Path $PsReadLineBasePath) {
-    $DirsToRemove = Get-ChildItem -Path $PsReadLineBasePath -Directory | Where-Object { $_.Name -ne $TargetPsReadLineVersion }
-
-    foreach ($Dir in $DirsToRemove) {
-        Remove-Item -Path $Dir.FullName -Recurse -Force
-        Write-Host "✅ Removed unwanted PSReadLine directory '$Dir'"
-    }
-} else {
-    New-Item -ItemType Directory -Path $PsReadLineBasePath -Force | Out-Null
-    Write-Host "✅ Created directory '$PsReadLineBasePath'"
-}
-
-# Install PSReadLine 2.1.0
-$TargetPsReadLinePath = "$PsReadLineBasePath/$TargetPsReadLineVersion"
-if (Test-Path -Path $TargetPsReadLinePath) {
-    Write-Host "✅ PSReadLine $TargetPsReadLineVersion is already installed"
-} else {
-    $DotfilesPsReadLinePath = "$DotfilesEnv\windows\powershell\PSReadLine\$TargetPsReadLineVersion"
-    New-Item -ItemType Directory -Path $TargetPsReadLinePath -Force | Out-Null
-    Copy-Item -Path "$DotfilesPsReadLinePath\*" -Destination $TargetPsReadLinePath -Recurse -Force
-    Write-Host "✅ Installed PSReadLine $TargetPsReadLineVersion"
-}
 
 # Symbolic link profile
 $PwshProfilePath = "$PowerShell7BasePath\Microsoft.Powershell_profile.ps1"

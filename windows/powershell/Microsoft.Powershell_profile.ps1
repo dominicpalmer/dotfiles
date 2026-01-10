@@ -1,23 +1,12 @@
 Set-ExecutionPolicy -Scope CurrentUser Unrestricted
 
-Import-Module posh-git
-Import-Module oh-my-posh
+#Import-Module posh-git
 
-# Inspiration from https://ohmyposh.dev/docs/themes
-Set-Theme doms-theme
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+    oh-my-posh init pwsh --config "$env:dotfiles\windows\powershell\doms-theme.omp.json" | Invoke-Expression
+}
 
 $global:DefaultUser = [System.Environment]::UserName
-
-# Ensure WezTerm opens new tabs/panes at current working directory
-$global:__OriginalPrompt = $function:prompt
-function prompt {
-    $cwd = $ExecutionContext.SessionState.Path.CurrentLocation.Path
-    $OSC = [char]27 + ']'
-    $BEL = [char]7
-    $url = "file://localhost/$($cwd -replace '\\', '/')"
-    Write-Host -NoNewline "${OSC}7;${url}${BEL}"
-    & $global:__OriginalPrompt
-}
 
 # Aliases
 function sudo { gsudo --loadProfile $args }
