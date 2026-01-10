@@ -6,6 +6,18 @@ if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
     oh-my-posh init pwsh --config "$env:dotfiles\windows\powershell\doms-theme.omp.json" | Invoke-Expression
 }
 
+# Emit OSC 7 (report current working directory) so terminal emulators like
+# WezTerm can learn the pane's CWD. Preserve any prompt installed by oh-my-posh by wrapping it.
+$global:__OriginalPrompt = $function:prompt
+function prompt {
+    $cwd = $ExecutionContext.SessionState.Path.CurrentLocation.Path
+    $OSC = [char]27 + ']'
+    $BEL = [char]7
+    $url = "file://localhost/$($cwd -replace '\\', '/')"
+    Write-Host -NoNewline "${OSC}7;${url}${BEL}"
+    & $global:__OriginalPrompt
+}
+
 $global:DefaultUser = [System.Environment]::UserName
 
 # Aliases

@@ -28,11 +28,12 @@ M.format_tab_title = function(tab, tabs, panes, config, hover, max_width)
       end
    end
 
-   if claude_pane ~= nil then
-      local cwd_raw = claude_pane.current_working_dir
-      local cwd = ""
+   -- Prefer Claude pane when present; otherwise use the active pane.
+   local target_pane = claude_pane or pane
+   if target_pane ~= nil then
+      local cwd_raw = target_pane.current_working_dir
       if cwd_raw ~= nil then
-         cwd = tostring(cwd_raw):gsub("^file://", "")
+         local cwd = tostring(cwd_raw):gsub("^file://", "")
          cwd = cwd:gsub("[/\\]+$", "")
          local bn = string.match(cwd, "[^/\\]+$")
          if bn ~= nil and bn ~= "" then
@@ -43,7 +44,7 @@ M.format_tab_title = function(tab, tabs, panes, config, hover, max_width)
       end
    end
 
-   local title = tostring(idx) .. " " .. title_name
+   local title = " " .. tostring(idx) .. " " .. title_name .. " "
 
    return wezterm.truncate_right(title, max_width)
 end
