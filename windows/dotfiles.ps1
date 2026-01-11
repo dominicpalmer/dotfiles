@@ -65,11 +65,6 @@ Write-Host (Add-Dashes -Text "")
 
 # ------------------------------------------ 1. PowerShell -----------------------------------------
 Write-Host (Add-Dashes -Text "1. PowerShell")
-
-winget install JanDeDobbeleer.OhMyPosh --source winget
-Write-Host "✅ Installed OhMyPosh via winget"
-
-# Symbolic link profile
 $PwshProfilePath = "C:\Program Files\Powershell\7\Microsoft.Powershell_profile.ps1"
 $PwshProfileTarget = "$DotfilesEnv\windows\powershell\Microsoft.Powershell_profile.ps1"
 New-Item -ItemType SymbolicLink -Path $PwshProfilePath -Target $PwshProfileTarget -Force | Out-Null

@@ -21,6 +21,7 @@
 - Wezterm
 - Everything
 - gsudo
+- OhMyPosh (winget install JanDeDobbeleer.OhMyPosh --source winget)
 - PowerToys
 - CopyQ
 - Greenshot
