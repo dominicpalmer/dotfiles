@@ -29,6 +29,7 @@ M.platform = {
       -- Split horizontal and run Claude Code
       {key="i", mods="LEADER", action=wezterm.action.SplitPane{
          direction="Right",
+         size={Percent=70},
          command={args={"pwsh", "-NoExit", "-Command", "cl"}}
       }},
 

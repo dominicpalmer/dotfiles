@@ -1,1 +1,0 @@
-pwsh -Command "Start-Process pwsh -ArgumentList '-File \"%dotfiles%\windows\df.ps1"' -Verb RunAs"

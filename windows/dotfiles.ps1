@@ -27,26 +27,41 @@ function Add-Dashes {
         [string]$Text
     )
 
-    # Calculate padding needed
     $MaxTitleLength = 80
-    $PaddingLength = $MaxTitleLength - $Text.Length
+
+    if ([string]::IsNullOrEmpty($Text)) {
+        return ("-" * $MaxTitleLength)
+    }
+
+    if ($Text.Length -ge $MaxTitleLength) {
+        return $Text
+    }
+
+    # Calculate padding so total length (dashes + spaces + text) equals $MaxTitleLength
+    $PaddingLength = $MaxTitleLength - $Text.Length - 2
     $LeftPadding = [math]::Floor($PaddingLength / 2)
     $RightPadding = [math]::Ceiling($PaddingLength / 2)
 
-    return ("-" * $LeftPadding) + " $Text " + ("-" * $RightPadding)
+    return ("-" * $LeftPadding) + " " + $Text + " " + ("-" * $RightPadding)
 }
 
 $DotfilesEnv = $env:dotfiles
 
 try {
-    $StartSplash = @"
+# Return early if not running as Administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Host "Admin privileges required. Re-run as admin." -ForegroundColor Yellow
+    return
+}
 
+Write-Host (Add-Dashes -Text "")
+$StartSplash = @"
                                     ┓   ┏•┓
                                    ┏┫┏┓╋╋┓┃┏┓┏
                                    ┗┻┗┛┗┛┗┗┗ ┛
-
 "@
 Write-Host $StartSplash
+Write-Host (Add-Dashes -Text "")
 
 # ------------------------------------------ 1. PowerShell -----------------------------------------
 Write-Host (Add-Dashes -Text "1. PowerShell")
@@ -70,7 +85,6 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.vimrc" -Target "$DotfilesEnv\commo
 Write-Host "✅ Created symbolic link '.vimrc'"
 New-Item -ItemType SymbolicLink -Path "$HOME\APPDATA\Local\nvim" -Target "$DotfilesEnv\common\nvim" -Force | Out-Null
 Write-Host "✅ Created symbolic link '\nvim'"
-Write-Host "`r"
 
 # ------------------------------------------- 3. WezTerm -------------------------------------------
 Write-Host (Add-Dashes -Text "3. WezTerm")
@@ -89,7 +103,6 @@ foreach ($WezTermPath in $WezTermPathsToLink) {
 $WezTermProgramPath = "C:\Program Files\WezTerm"
 Add-To-Path $WezTermProgramPath
 Write-Host "✅ Added '$WezTermProgramPath' to PATH"
-Write-Host "`r"
 
 # ------------------------------------------- 4. VSCode --------------------------------------------
 Write-Host (Add-Dashes -Text "4. VSCode")
@@ -99,7 +112,6 @@ New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$
 Write-Host "✅ Created symbolic link 'settings.json"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force | Out-Null
 Write-Host "✅ Created symbolic link 'keybindings.json'"
-Write-Host "`r"
 
 # -------------------------------- 5. Add Binary Directories to PATH -------------------------------
 Write-Host (Add-Dashes -Text "5. Add Binary Directories to PATH")
@@ -116,7 +128,6 @@ foreach ($Directory in Get-ChildItem -Directory $ScriptsDirectory -Exclude $Excl
     Add-To-Path $Directory | Out-Null
     Write-Host "✅ Added '$Directory' to PATH"
 }
-Write-Host "`r"
 
 # ----------------------------------------- 6. AutoHotKey ------------------------------------------
 Write-Host (Add-Dashes -Text "6. AutoHotKey")
@@ -135,7 +146,7 @@ Register-ScheduledTask -Trigger $Trigger -Action $Action -TaskPath "AutoHotkey" 
 Write-Host "✅ Created new AutoHotKey scheduled task 'remaps.ahk'"
 Start-ScheduledTask -TaskName "AutoHotkey\$TaskName"
 Write-Host "✅ Started AutoHotKey scheduled task 'remaps.ahk'"
-Write-Host "`r"
+Write-Host (Add-Dashes -Text "")
 
 } catch {
     Write-Output "Failed to update dotfiles:"

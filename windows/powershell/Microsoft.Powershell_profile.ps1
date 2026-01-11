@@ -22,7 +22,7 @@ $global:DefaultUser = [System.Environment]::UserName
 
 # Aliases
 function sudo { gsudo --loadProfile $args }
-function dotfiles { Set-Location $env:dotfiles }
+function df { Set-Location $env:dotfiles }
 function vim { nvim $args }
 function grep {
     $Arguments = $args

@@ -50,7 +50,7 @@
 - Setup root
 - Clone dotfiles from https://github.com/dominicpalmer/dotfiles
 - In admin PowerShell create 'dotfiles' path env variable via `setx /m dotfiles <path>`
-- Run `./df.ps1 -pwsh_modules` from script root
+- Run `./dotfiles.ps1` from script root
 
 ## 4. Final Config
 - Configure startup apps via settings
