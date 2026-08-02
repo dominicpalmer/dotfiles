@@ -1,10 +1,10 @@
-Vim
-Trailing Spaces
-Error Lens
-Toggle Pin Editor
-EditorConfig for VSCode
-PowerShell
-LaTeX Workshop
-XML
-YAML
-vscode-icons
+vscodevim.vim
+shardulm94.trailing-spaces
+usernamehw.errorlens
+marcoantoniomaderalpez.toggle-pin-editor
+editorconfig.editorconfig
+ms-vscode.powershell
+james-yu.latex-workshop
+redhat.vscode-xml
+redhat.vscode-yaml
+vscode-icons-team.vscode-icons

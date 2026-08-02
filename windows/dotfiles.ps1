@@ -2,7 +2,7 @@
 # 1. Install PowerShell modules, create PowerShell symbolic links                                  |
 # 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim. Neovim                             |
 # 3. Create WezTerm symbolic links and add binary to PATH                                          |
-# 4. Create VSCode settings and keybindings symbolic links                                         |
+# 4. Create VSCode symbolic links and install extensions                                           |
 # 5. Install fonts                                                                                 |
 # 6. Add binary directories to PATH                                                                |
 # 7. Create AutoHotKey remap scheduled task to run at logon                                        |
@@ -105,9 +105,63 @@ Write-Host (Add-Dashes -Text "4. VSCode")
 $VSCodeUserPath = "$HOME\AppData\Roaming\Code\User"
 $VSCodeDotfilesPath = "$DotfilesEnv\common\vscode"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\settings.json" -Target "$VSCodeDotfilesPath\settings.jsonc" -Force | Out-Null
-Write-Host "✅ Created symbolic link 'settings.json"
+Write-Host "✅ Created symbolic link 'settings.json'"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force | Out-Null
 Write-Host "✅ Created symbolic link 'keybindings.json'"
+
+$ExtensionsFile = "$VSCodeDotfilesPath\extensions.txt"
+if (Test-Path $ExtensionsFile) {
+    $CodeExe = Get-Command "code" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source
+    if (-not $CodeExe) {
+        $PossibleCodePaths = @(
+            "$HOME\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd",
+            "C:\Program Files\Microsoft VS Code\bin\code.cmd"
+        )
+        foreach ($P in $PossibleCodePaths) {
+            if (Test-Path $P) {
+                $CodeExe = $P
+                break
+            }
+        }
+    }
+
+    if ($CodeExe) {
+        $InstalledExtensions = & $CodeExe --list-extensions 2>$null
+        $NameToIdMap = @{
+            "vim" = "vscodevim.vim"
+            "trailing spaces" = "shardulm94.trailing-spaces"
+            "error lens" = "usernamehw.errorlens"
+            "toggle pin editor" = "marcoantoniomaderalpez.toggle-pin-editor"
+            "editorconfig for vscode" = "editorconfig.editorconfig"
+            "editorconfig" = "editorconfig.editorconfig"
+            "powershell" = "ms-vscode.powershell"
+            "latex workshop" = "james-yu.latex-workshop"
+            "xml" = "redhat.vscode-xml"
+            "yaml" = "redhat.vscode-yaml"
+            "vscode-icons" = "vscode-icons-team.vscode-icons"
+        }
+
+        foreach ($Line in Get-Content -Path $ExtensionsFile) {
+            $LineClean = $Line.Trim()
+            if ([string]::IsNullOrWhiteSpace($LineClean) -or $LineClean.StartsWith("#")) { continue }
+
+            $ExtensionId = $LineClean
+            $LowerLine = $LineClean.ToLower()
+            if ($NameToIdMap.ContainsKey($LowerLine)) {
+                $ExtensionId = $NameToIdMap[$LowerLine]
+            }
+
+            if ($InstalledExtensions -contains $ExtensionId) {
+                Write-Host "✅ VSCode extension '$ExtensionId' already installed"
+            } else {
+                & $CodeExe --install-extension $ExtensionId --force | Out-Null
+                Write-Host "✅ Installed VSCode extension '$ExtensionId'"
+            }
+        }
+    } else {
+        Write-Host "⚠️ 'code' CLI not found. Skipped installing VSCode extensions."
+    }
+}
 
 # -------------------------------------------- 5. Fonts --------------------------------------------
 Write-Host (Add-Dashes -Text "5. Fonts")
