@@ -10,7 +10,6 @@ IdeaVim
 -------------------------- IDE Settings
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Green' or 'High Contrast Blue'
-    - 'Zoom' as required
     - Unset 'Smooth scrolling'
     - Set 'Show indent guides'
     - In 'Tool Windows' set 'Widescreen tool window layout'
@@ -26,9 +25,7 @@ Editor/General
         - Set 'Show whitespaces' for 'Trailing' and 'Selection'
         - Unset 'Show intention bulb'
     - In 'Code Completion'
-        - Unset 'Preselect the best match to insert it by pressing dot...'
         - Unset 'Enter inserts suggestion even if completion popup is not focused'
-        - Set 'Show the parameter info popup in' as 750ms
     - In 'Code Folding' untick everything under 'Fold by default'
     - In 'Editor Tabs'
         - Set 'Show tabs in' to 'Multiple rows'
