@@ -56,11 +56,10 @@
 
 ## 4. Final Config
 - Configure startup apps via settings
-- JetBrains apps (setup.txt)
-- VSCode (setup.txt)
 - CopyQ (setup.txt)
-- Firefox (run through all settings)
-- Notepad++ (set as default for .txt, hide most menus, change tab layout, set font and size, never create backup files)
-- Git (copy `common/git/.gitconfig` to `$HOME`, update email, run `ssh-keygen` to create SSH key, then configure via GitHub settings)
 - Greenshot (don't show magnifier or capture mouse, destination as 'Open in image editor', suppress save dialog on editor close)
 - TranslucentTB (set all JSON options to 'clear')
+- Notepad++ (set as default for .txt, hide most menus, change tab layout, set font and size, never create backup files)
+- Git: run `ssh-keygen` to create SSH key, then configure via GitHub site settings
+- Firefox (run through all settings)
+- JetBrains apps (setup.txt)

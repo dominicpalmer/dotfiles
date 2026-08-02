@@ -3,9 +3,10 @@
 # 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim. Neovim                             |
 # 3. Create WezTerm symbolic links and add binary to PATH                                          |
 # 4. Create VSCode symbolic links and install extensions                                           |
-# 5. Install fonts                                                                                 |
-# 6. Add binary directories to PATH                                                                |
-# 7. Create AutoHotKey remap scheduled task to run at logon                                        |
+# 5. Configure Git settings and aliases                                                            |
+# 6. Install fonts                                                                                 |
+# 7. Add binary directories to PATH                                                                |
+# 8. Create AutoHotKey remap scheduled task to run at logon                                        |
 #--------------------------------------------------------------------------------------------------|
 
 function Add-To-Path {
@@ -44,6 +45,68 @@ function Add-Dashes {
     $RightPadding = [math]::Ceiling($PaddingLength / 2)
 
     return ("-" * $LeftPadding) + " " + $Text + " " + ("-" * $RightPadding)
+}
+
+function Get-GitConfigEntries {
+    param (
+        [string]$FilePath
+    )
+
+    $Entries = [System.Collections.Generic.List[PSCustomObject]]::new()
+    $CurrentSection = ""
+
+    if (-not (Test-Path $FilePath)) {
+        return $Entries
+    }
+
+    foreach ($Line in Get-Content -Path $FilePath) {
+        $Trimmed = $Line.Trim()
+        if ([string]::IsNullOrWhiteSpace($Trimmed) -or $Trimmed.StartsWith("#") -or $Trimmed.StartsWith(";")) {
+            continue
+        }
+
+        if ($Trimmed -match '^\[(.*)\]$') {
+            $CurrentSection = $Matches[1].Trim()
+        } elseif ($CurrentSection -and $Trimmed.Contains('=')) {
+            $Parts = $Trimmed -split '=', 2
+            $Key = $Parts[0].Trim()
+            $Value = $Parts[1].Trim()
+
+            if ($Value -match '^"(.*)"$' -or $Value -match "^'(.*)'$") {
+                $Value = $Matches[1]
+            }
+
+            $Entries.Add([PSCustomObject]@{
+                Section = $CurrentSection
+                Key     = $Key
+                FullKey = "$CurrentSection.$Key"
+                Value   = $Value
+            })
+        }
+    }
+
+    return $Entries
+}
+
+function Test-IsStubValue {
+    param (
+        [string]$Value
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Value)) { return $true }
+
+    $Lower = $Value.ToLower().Trim()
+    if ($Lower -match 'example@example' -or
+        $Lower -match 'your.*email' -or
+        $Lower -match '^<.*>$' -or
+        $Lower -eq 'todo' -or
+        $Lower -eq 'fixme' -or
+        $Lower -eq 'stub' -or
+        $Lower -eq 'placeholder') {
+        return $true
+    }
+
+    return $false
 }
 
 $DotfilesEnv = $env:dotfiles
@@ -163,8 +226,43 @@ if (Test-Path $ExtensionsFile) {
     }
 }
 
-# -------------------------------------------- 5. Fonts --------------------------------------------
-Write-Host (Add-Dashes -Text "5. Fonts")
+# -------------------------------------------- 5. Git ----------------------------------------------
+Write-Host (Add-Dashes -Text "5. Git")
+$UserGitConfig = "$HOME\.gitconfig"
+if (-not (Test-Path $UserGitConfig)) {
+    New-Item -ItemType File -Path $UserGitConfig -Force | Out-Null
+    Write-Host "✅ Created file '.gitconfig'"
+}
+
+$GitConfigFile = "$DotfilesEnv\common\git\.gitconfig"
+if (Test-Path $GitConfigFile) {
+    $GitExe = Get-Command "git" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source
+    if ($GitExe) {
+        $Entries = Get-GitConfigEntries -FilePath $GitConfigFile
+        foreach ($Entry in $Entries) {
+            $FullKey = $Entry.FullKey
+            $Val = $Entry.Value
+
+            $ExistingVal = & $GitExe config --global --get $FullKey 2>$null
+
+            if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace($ExistingVal)) {
+                Write-Host "✅ Git config '$FullKey' already set"
+            } else {
+                if (Test-IsStubValue $Val) {
+                    Write-Host "ℹ️ Skipped stub git setting '$FullKey'"
+                } else {
+                    & $GitExe config --global $FullKey "$Val"
+                    Write-Host "✅ Set git config '$FullKey' = '$Val'"
+                }
+            }
+        }
+    } else {
+        Write-Host "⚠️ 'git' CLI not found. Skipped configuring Git settings."
+    }
+}
+
+# -------------------------------------------- 6. Fonts --------------------------------------------
+Write-Host (Add-Dashes -Text "6. Fonts")
 $FontsDirectory = "$DotfilesEnv\common\fonts"
 if (Test-Path $FontsDirectory) {
     Add-Type -AssemblyName PresentationCore
@@ -227,8 +325,8 @@ if (Test-Path $FontsDirectory) {
     }
 }
 
-# -------------------------------- 6. Add Binary Directories to PATH -------------------------------
-Write-Host (Add-Dashes -Text "6. Add Binary Directories to PATH")
+# -------------------------------- 7. Add Binary Directories to PATH -------------------------------
+Write-Host (Add-Dashes -Text "7. Add Binary Directories to PATH")
 $InstallDirectory = "$DotfilesEnv\windows"
 Add-To-Path $InstallDirectory | Out-Null
 Write-Host "✅ Added '$InstallDirectory' to PATH"
@@ -243,8 +341,8 @@ foreach ($Directory in Get-ChildItem -Directory $ScriptsDirectory -Exclude $Excl
     Write-Host "✅ Added '$Directory' to PATH"
 }
 
-# ----------------------------------------- 7. AutoHotKey ------------------------------------------
-Write-Host (Add-Dashes -Text "7. AutoHotKey")
+# ----------------------------------------- 8. AutoHotKey ------------------------------------------
+Write-Host (Add-Dashes -Text "8. AutoHotKey")
 $TaskName = "remaps"
 
 # Delete any existing task of the same name
