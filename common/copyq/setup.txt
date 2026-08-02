@@ -7,6 +7,3 @@
 -------------------------- Commands and Global Shortcuts
 - Add 'Ignore *"Password"* window' command with 'Window' equal to 'KeePass'
 - Load command files from /ini
-
--------------------------- Set to Run at Startup
-- Search for 'CopyQ' via start menu. Right click and 'Open file location'. Copy the shortcut to shell:startup

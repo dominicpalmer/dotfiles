@@ -55,11 +55,11 @@
 - Run `./dotfiles.ps1` from script root
 
 ## 4. Final Config
-- Configure startup apps via settings
+- Configure startup apps via settings (CopyQ, Greenshot, SoundSwitch, TranslucentTB)
 - CopyQ (setup.txt)
 - Greenshot (don't show magnifier or capture mouse, destination as 'Open in image editor', suppress save dialog on editor close)
 - TranslucentTB (set all JSON options to 'clear')
-- Notepad++ (set as default for .txt, hide most menus, change tab layout, set font and size, never create backup files)
+- Notepad++ (set as default for .txt, hide most menus, change tab layout)
 - Git: run `ssh-keygen` to create SSH key, then configure via GitHub site settings
 - Firefox (run through all settings)
 - JetBrains apps (setup.txt)
