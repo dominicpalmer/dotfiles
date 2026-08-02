@@ -1,0 +1,10 @@
+Vim
+Trailing Spaces
+Error Lens
+Toggle Pin Editor
+EditorConfig for VSCode
+PowerShell
+LaTeX Workshop
+XML
+YAML
+vscode-icons

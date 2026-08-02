@@ -6,20 +6,16 @@ InlineProblems
 GitHub Copilot
 IdeaVim
 [DataGrip] Big Data Tools
-[DataGrip] Kafka
 
 -------------------------- IDE Settings
 Appearance & Behaviour/Appearance
     - 'Theme' as 'High Contrast Green' or 'High Contrast Blue'
     - 'Zoom' as required
-    - Set 'Show tree indent guides'
     - Unset 'Smooth scrolling'
-    - [DataGrip] In 'Tool Windows' set 'Show tool window bars'
+    - Set 'Show indent guides'
     - In 'Tool Windows' set 'Widescreen tool window layout'
 Appearance & Behaviour/Notifications
     - Unset 'Display balloon notifications'
-Keymap
-    - Set keymap to 'Visual Studio 2022' or equivalent
 Editor/General
     - Unset 'Enable smooth scrolling'
     - 'Caret behaviour' as 'Move caret, minimize editor scrolling'
@@ -27,8 +23,6 @@ Editor/General
     - Unset 'Keep trailing spaces on caret line'
     - In 'Appearance'
         - Unset 'Caret Blinking'
-        - Unset 'Show sticky lines while scrolling'
-        (this setting is under 'Editor/General/Sticky Lines' in DataGrip/WebStorm)
         - Set 'Show whitespaces' for 'Trailing' and 'Selection'
         - Unset 'Show intention bulb'
     - In 'Code Completion'
@@ -37,19 +31,18 @@ Editor/General
         - Set 'Show the parameter info popup in' as 750ms
     - In 'Code Folding' untick everything under 'Fold by default'
     - In 'Editor Tabs'
-        - Unset 'Show tabs in one row'
+        - Set 'Show tabs in' to 'Multiple rows'
         - Set 'Show pinned tabs in a separate row'
         - Set 'Mark modified'
         - 'Tab Order' as 'Open new tabs at the end'
         - Set 'Enable preview tab'
-        - 'Closing Policy' - 'Tab limit' as 100
         - 'When the current tab is closed, activate' as 'Most recently opened tab'
     - In 'Gutter Icons'
         - Unset all gutter icons except 'Color preview' and 'Run line marker'
-    - In 'Typing Assistance'
-        - Unset 'Jump outside of closing brackets with tab'
-Editor/Color Scheme/Font (leave font family as default in DataGrip)
-    - 'Font' as 'Cascadia Code PL', size as required (e.g. 14), line height 1
+    - In 'Sticky Lines'
+        - Unset 'Show sticky lines while scrolling'
+Editor/Color Scheme/Color Scheme Font (leave font family as default in DataGrip)
+    - 'Font' as 'Cascadia Code PL', size as required (e.g. 15), line height 1
 Editor/Code Style
     - 'Visual guides' as 120, 140, 160
 Editor/Inlay Hints
@@ -61,14 +54,10 @@ Build, Execution, Deployment/Debugger
     - Set 'Truncate presentation of long strings' threshold to 75
 Advanced Settings/Editor Tabs
     - Unset 'Perform hide all Tool Windows with double-click on editor tab'
-Advanced Settings/Search Everywhere
-    - Set 'Sort results in the All tab based on machine learning'
 Non-Settings User Interface
     - Right click top bar and hide 'Code with me' and other widgets
     - Right click the status bar and set 'Memory Indicator'
     - Right click the pencil icons and 'Move to Status Bar'
-    - Under the 'Debug' tool window, click 'View Breakpoints' and set
-    'CLR Exception Breakpoints'
 
 -------------------------- Plugin Settings
 CodeGlance Pro
@@ -82,15 +71,13 @@ InlineProblems
     - Set 'Italic problem labels'
     - 'Error text color' as FF0000
     - Set 'Show weak warnings' and 'Show infos'
-GitHub Copilot
-    - Set 'Color for completions' as #D000FF
 
 -------------------------- Keyboard Shortcuts
 Set 'remove' if/when prompted.
 - Remove 'Close Diff Editor' bound to <Esc>
 - Remove shortcuts bound to <C-,>
 - Remove CodeGlance keybind on <C-S-g>
-- <C-,> to 'Open Settings'
+- <C-,> to 'Open Settings' (or 'Setting Actions -> Settings' in DataGrip)
 - <C-;> to 'SearchEverywhere'
 - <C-o> to 'GoToFile'
 - <C-n> to 'Find in Files'
@@ -98,24 +85,5 @@ Set 'remove' if/when prompted.
 - F7 to 'BuildSolutionAction'
 - F8 to 'CleanSolutionAction'
 - <C-A-v> to 'VimPluginToggle'
-- <A-l> to 'Call Inline Completion'
 - [DataGrip] F2 to the root inheritable 'Rename' (don't set 'remove' for this)
 - [DataGrip] <C-CR> to 'Refresh' (set the root keybind)
-
--------------------------- [Included with themes] Editor Colour Scheme Details
-Editor/Color Scheme/General/Code
-    - 'Line number' foreground as 5A615A
-    - 'TODO defaults' foreground as 007F00
-Editor/Color Scheme/General/Editor
-    - 'Caret row' background as F1EFE0
-    - 'Code Vision/Default' foreground as 000000
-    - 'Guides/Hard wrap guide' foreground as AFAFAF
-    - 'Guides/Indent Guide' background as DCDCDC
-    - 'Gutter background' background as EFEFEF
-    - 'Tear line' foreground as 000000
-    - 'Text/Whitespaces' foreground as 000000
-Editor/Color Scheme/Language Defaults
-    - 'Classes/Static method' foreground as 8E00B1
-Editor/Color Scheme/Debugger
-    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' 000000
-    - 'Execution point' no foreground, effects as 'Bordered' 000000

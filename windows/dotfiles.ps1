@@ -3,8 +3,9 @@
 # 2. Create vimrc symbolic links for IdeaVim, VSCodeVim, VSVim. Neovim                             |
 # 3. Create WezTerm symbolic links and add binary to PATH                                          |
 # 4. Create VSCode settings and keybindings symbolic links                                         |
-# 5. Add binary directories to PATH                                                                |
-# 6. Create AutoHotKey remap scheduled task to run at logon                                        |
+# 5. Install fonts                                                                                 |
+# 6. Add binary directories to PATH                                                                |
+# 7. Create AutoHotKey remap scheduled task to run at logon                                        |
 #--------------------------------------------------------------------------------------------------|
 
 function Add-To-Path {
@@ -108,8 +109,72 @@ Write-Host "✅ Created symbolic link 'settings.json"
 New-Item -ItemType SymbolicLink -Path "$VSCodeUserPath\keybindings.json" -Target "$VSCodeDotfilesPath\keybindings.jsonc" -Force | Out-Null
 Write-Host "✅ Created symbolic link 'keybindings.json'"
 
-# -------------------------------- 5. Add Binary Directories to PATH -------------------------------
-Write-Host (Add-Dashes -Text "5. Add Binary Directories to PATH")
+# -------------------------------------------- 5. Fonts --------------------------------------------
+Write-Host (Add-Dashes -Text "5. Fonts")
+$FontsDirectory = "$DotfilesEnv\common\fonts"
+if (Test-Path $FontsDirectory) {
+    Add-Type -AssemblyName PresentationCore
+    if (-not ([System.Management.Automation.PSTypeName]'Win32.GDI32').Type) {
+        Add-Type -MemberDefinition @"
+            [DllImport("gdi32.dll", EntryPoint = "AddFontResourceW", SetLastError = true)]
+            public static extern int AddFontResource([In, MarshalAs(UnmanagedType.LPWStr)] string lpFileName);
+"@ -Name "GDI32" -Namespace "Win32" | Out-Null
+    }
+
+    $DestinationFontsDir = "$env:windir\Fonts"
+    $FontRegistryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
+
+    $FontFiles = Get-ChildItem -Path $FontsDirectory -Recurse -File | Where-Object { $_.Extension -match '^\.(ttf|otf|ttc|fon)$' }
+
+    foreach ($FontFile in $FontFiles) {
+        $TargetPath = Join-Path $DestinationFontsDir $FontFile.Name
+
+        try {
+            $Uri = [System.Uri]::new($FontFile.FullName)
+            $GlyphTypeface = [System.Windows.Media.GlyphTypeface]::new($Uri)
+
+            $Family = $GlyphTypeface.Win32FamilyNames[[System.Globalization.CultureInfo]::GetCultureInfo("en-us")]
+            if (-not $Family) { $Family = ($GlyphTypeface.Win32FamilyNames.Values | Select-Object -First 1) }
+
+            $Face = $GlyphTypeface.Win32FaceNames[[System.Globalization.CultureInfo]::GetCultureInfo("en-us")]
+            if (-not $Face) { $Face = ($GlyphTypeface.Win32FaceNames.Values | Select-Object -First 1) }
+
+            $FontName = "$Family $Face".Trim()
+        } catch {
+            $FontName = $FontFile.BaseName
+        }
+
+        $Extension = $FontFile.Extension.ToLower()
+        $FontType = if ($Extension -eq ".otf") { "(OpenType)" } else { "(TrueType)" }
+        $RegistryName = "$FontName $FontType"
+
+        $FileCopied = $true
+        try {
+            Copy-Item -Path $FontFile.FullName -Destination $TargetPath -Force -ErrorAction Stop
+        } catch {
+            if (Test-Path $TargetPath) {
+                $FileCopied = $false
+            } else {
+                Write-Host "⚠️ Could not copy font '$($FontFile.Name)': $_"
+                continue
+            }
+        }
+
+        try {
+            Set-ItemProperty -Path $FontRegistryPath -Name $RegistryName -Value $FontFile.Name -Force -ErrorAction SilentlyContinue
+            [Win32.GDI32]::AddFontResource($TargetPath) | Out-Null
+        } catch {}
+
+        if ($FileCopied) {
+            Write-Host "✅ Installed font '$RegistryName'"
+        } else {
+            Write-Host "✅ Font '$RegistryName' already installed"
+        }
+    }
+}
+
+# -------------------------------- 6. Add Binary Directories to PATH -------------------------------
+Write-Host (Add-Dashes -Text "6. Add Binary Directories to PATH")
 $InstallDirectory = "$DotfilesEnv\windows"
 Add-To-Path $InstallDirectory | Out-Null
 Write-Host "✅ Added '$InstallDirectory' to PATH"
@@ -124,8 +189,8 @@ foreach ($Directory in Get-ChildItem -Directory $ScriptsDirectory -Exclude $Excl
     Write-Host "✅ Added '$Directory' to PATH"
 }
 
-# ----------------------------------------- 6. AutoHotKey ------------------------------------------
-Write-Host (Add-Dashes -Text "6. AutoHotKey")
+# ----------------------------------------- 7. AutoHotKey ------------------------------------------
+Write-Host (Add-Dashes -Text "7. AutoHotKey")
 $TaskName = "remaps"
 
 # Delete any existing task of the same name

@@ -1,0 +1,17 @@
+-------------------------- [Included with themes] Editor Colour Scheme Details
+Editor/Color Scheme/General/Code
+    - 'Line number' foreground as 5A615A
+    - 'TODO defaults' foreground as 007F00
+Editor/Color Scheme/General/Editor
+    - 'Caret row' background as F1EFE0
+    - 'Code Vision/Default' foreground as 000000
+    - 'Guides/Hard wrap guide' foreground as AFAFAF
+    - 'Guides/Indent Guide' background as DCDCDC
+    - 'Gutter background' background as EFEFEF
+    - 'Tear line' foreground as 000000
+    - 'Text/Whitespaces' foreground as 000000
+Editor/Color Scheme/Language Defaults
+    - 'Classes/Static method' foreground as 8E00B1
+Editor/Color Scheme/Debugger
+    - 'Breakpoint line' background as FFDCD7, effects as 'Bordered' 000000
+    - 'Execution point' no foreground, effects as 'Bordered' 000000

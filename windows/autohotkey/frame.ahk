@@ -24,7 +24,7 @@ for current_id in ids
         }
 
         PostMessage(0x112, 0xF120, , , "ahk_id " current_id)
-        Sleep 50
+        Sleep 200
 
         DllCall("SetWindowPos"
             , "Ptr", current_id
@@ -43,7 +43,7 @@ for vscode_id in vscode_windows
     try
     {
         PostMessage(0x112, 0xF120, , , "ahk_id " vscode_id)
-        Sleep 50
+        Sleep 200
 
         AdjustedWidth := NewWidth - 10
         AdjustedHeight := NewHeight - 6

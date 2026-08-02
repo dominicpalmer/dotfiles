@@ -37,8 +37,6 @@
   "workbench.editor.openPositioning": "last",
   "workbench.editor.empty.hint": "hidden",
   "workbench.settings.editor": "json",
-  "workbench.layoutControl.enabled": false,
-  "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
@@ -104,5 +102,6 @@
 
   // UI driven
   "window.zoomLevel": -0.2,
-  "workbench.colorTheme": "Claude Light",
+  "workbench.colorTheme": "Light+",
+  "workbench.experimental.share.enabled": true,
 }

@@ -25,6 +25,7 @@
 - PowerToys
 - CopyQ
 - Greenshot
+- SoundSwitch
 - ScreenToGif
 - Latest graphics driver
 - TranslucentTB

@@ -28,9 +28,6 @@ sethandler <C-v> a:ide
 sethandler <C-n> a:ide
 sethandler <C-m> a:ide
 
-" --------------------- Plugins
-Plug 'tpope/vim-surround'
-
 " --------------------- Keybindings
 let mapleader = " "
 
@@ -44,7 +41,6 @@ function! Noremap(lhs, rhs)
 endfunction
 
 " Movement
-
 call Noremap('f', 'b')
 call Noremap('F', 'B')
 call Noremap('H', '^')
@@ -141,8 +137,6 @@ call Noremap('<leader>9', ':action GoToTab9<CR>')
 
 " Other commands
 call Noremap('p', ':action PinActiveEditorTab<CR>')
-call Noremap('<leader>u', ':action RiderShowValueOrigin<CR>')
-call Noremap('<leader>i', ':action RiderShowValueDestination<CR>')
 call Noremap('<leader><leader>r', ':so ~\.ideavimrc<CR>l')
 
 " Inner shortcuts
