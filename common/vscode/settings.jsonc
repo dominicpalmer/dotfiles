@@ -43,6 +43,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.stickyScroll.enabled": false,
   "editor.cursorBlinking": "solid",
+  "window.commandCenter": false,
 
   // Allow trailing commas in VSCode config files
 	"json.schemas": [{
@@ -104,4 +105,5 @@
   "window.zoomLevel": -0.2,
   "workbench.colorTheme": "Light+",
   "workbench.experimental.share.enabled": true,
+  "editor.defaultColorDecorators": "always",
 }
